@@ -187,8 +187,9 @@
       navy: std(0x2f4a6b, { roughness: 0.5 }),
       water: phys(0x7fbff0, { transparent: true, opacity: 0.55, roughness: 0.05, transmission: 0, clearcoat: 1 }),
       glass: phys(0xd8ecf6, { transparent: true, opacity: 0.28, roughness: 0.03, clearcoat: 1 }),
-      fire: std(0xff8a1f, { emissive: 0xff6a00, emissiveIntensity: 2, transparent: true, opacity: 0.9 }),
-      flame: std(0xffd25a, { emissive: 0xffb000, emissiveIntensity: 2.2, transparent: true, opacity: 0.85 }),
+      // Flames: unlit, additive and outside tone mapping so they stay saturated orange.
+      fire: new THREE.MeshBasicMaterial({ color: 0xff5a10, transparent: true, opacity: 0.85, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false }),
+      flame: new THREE.MeshBasicMaterial({ color: 0xffb030, transparent: true, opacity: 0.8, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false }),
       ember: std(0xff4a1a, { emissive: 0xff3300, emissiveIntensity: 1.6 }),
       ledG: std(0x4bd16a, { emissive: 0x2fcf55, emissiveIntensity: 1.5 }),
       ledR: std(0xff5a4a, { emissive: 0xff2a1a, emissiveIntensity: 1.5 }),
@@ -565,6 +566,7 @@
         o.userData.baseTransparent = o.material.transparent;
         o.userData.baseEmissive = o.material.emissive ? o.material.emissive.clone() : null;
         o.userData.baseEI = o.material.emissiveIntensity || 0;
+        o.userData.baseLit = !!(o.material.emissive && o.material.emissive.getHex() !== 0);
         o.castShadow = !o.material.transparent;
         o.receiveShadow = true;
         list.push(o);
@@ -651,7 +653,7 @@
       sc.near = 0.1;
       sc.far = s * 4;
       sc.updateProjectionMatrix();
-      this.outlineMat.userData.thick.value = Math.max(0.004, Math.min(0.016, s * 0.0035));
+      this.outlineMat.userData.thick.value = Math.max(0.004, Math.min(0.012, s * 0.0022));
     }
 
     unload() {
@@ -878,7 +880,7 @@
       this.animTools(t, now);
 
       const xr = this.xray || this.poseXray;
-      const pulse = 0.08 + 0.06 * Math.sin(t * 4);
+      const pulse = 0.1 + 0.07 * Math.sin(t * 4);
       this.outlineMat.opacity = 0.7 + 0.3 * Math.sin(t * 4);
       const anyHi = this.hi.size > 0;
       for (const me of this.meshes) {
@@ -894,12 +896,13 @@
           mat.needsUpdate = true;
         }
         mat.opacity = op;
-        mat.depthWrite = op > 0.5;
+        mat.depthWrite = op > 0.5 && mat.blending !== THREE.AdditiveBlending;
         me.castShadow = op > 0.6 && !me.userData.baseTransparent;
         if (mat.emissive) {
           if (isHi) {
             mat.emissive.setHex(HILITE);
-            mat.emissiveIntensity = Math.max(me.userData.baseEI, pulse);
+            // Only self-lit parts (flames, LEDs) keep their own glow; everything else gets a light tint.
+            mat.emissiveIntensity = me.userData.baseLit ? Math.max(me.userData.baseEI, pulse) : pulse;
           } else {
             mat.emissive.copy(me.userData.baseEmissive);
             mat.emissiveIntensity = me.userData.baseEI;
@@ -1001,8 +1004,13 @@
   TB.buildStates = function (steps, modelName, intro) {
     const def = TB.MODELS[modelName];
     intro = intro || {};
-    const start = ((def && def.view && def.view.hidden) || []).filter((n) => !(intro.show || []).includes(n)).concat(intro.hide || []);
-    const out = [{ mv: {}, rt: {}, hide: start.slice() }];
+    // intro.show normally carries into the steps; with intro.preview it only applies to the overview
+    // (projects show the finished build first, then start from bare ground).
+    const hidden0 = (def && def.view && def.view.hidden) || [];
+    const shown = intro.show || [];
+    const start = (intro.preview ? hidden0 : hidden0.filter((n) => !shown.includes(n))).concat(intro.hide || []);
+    const first = hidden0.filter((n) => !shown.includes(n)).concat(intro.hide || []);
+    const out = [{ mv: {}, rt: {}, hide: first }];
     let mv = {};
     let rt = {};
     let hide = new Set(start);
