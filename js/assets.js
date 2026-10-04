@@ -6,6 +6,19 @@
   const TB = window.TB;
   const BASE = (window.TB_ASSET_BASE || 'assets/').replace(/\/?$/, '/');
   const cache = { glb: {}, tex: {}, hdr: {} };
+  // Hosts that only serve web data types get binaries wrapped as base64 JSON (see scripts/build-artifact.py).
+  const PACKED = window.TB_ASSET_FORMAT === 'b64json';
+  function fetchBinary(path) {
+    if (!PACKED) return fetch(path).then((r) => (r.ok ? r.arrayBuffer() : Promise.reject(new Error(r.status))));
+    return fetch(path + '.json')
+      .then((r) => (r.ok ? r.json() : Promise.reject(new Error(r.status))))
+      .then((j) => {
+        const bin = atob(j.b64);
+        const out = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) out[i] = bin.charCodeAt(i);
+        return out.buffer;
+      });
+  }
   const pending = {};
   TB.assetCache = cache;
 
@@ -23,18 +36,21 @@
   TB.loadGLB = function (id) {
     if (!THREE.GLTFLoader) return Promise.resolve(null);
     return once('glb:' + id, () =>
-      new Promise((res, rej) => {
-        new THREE.GLTFLoader().load(BASE + 'models/' + id + '.glb', (g) => {
-          g.scene.traverse((o) => {
-            if (o.isMesh) {
-              o.castShadow = true;
-              o.receiveShadow = true;
-            }
-          });
-          cache.glb[id] = g.scene;
-          res(g.scene);
-        }, undefined, rej);
-      })
+      fetchBinary(BASE + 'models/' + id + '.glb').then(
+        (buf) =>
+          new Promise((res, rej) =>
+            new THREE.GLTFLoader().parse(buf, '', (g) => {
+              g.scene.traverse((o) => {
+                if (o.isMesh) {
+                  o.castShadow = true;
+                  o.receiveShadow = true;
+                }
+              });
+              cache.glb[id] = g.scene;
+              res(g.scene);
+            }, rej)
+          )
+      )
     );
   };
 
@@ -64,12 +80,18 @@
     const id = HDRI[key] || key;
     if (!THREE.RGBELoader) return Promise.resolve(null);
     return once('hdr:' + id, () =>
-      new Promise((res, rej) => {
-        new THREE.RGBELoader().load(BASE + 'hdri/' + id + '_1k.hdr', (t) => {
-          t.mapping = THREE.EquirectangularReflectionMapping;
-          cache.hdr[id] = t;
-          res(t);
-        }, undefined, rej);
+      fetchBinary(BASE + 'hdri/' + id + '_1k.hdr').then((buf) => {
+        const L = new THREE.RGBELoader();
+        const d = L.parse(buf);
+        const t = new THREE.DataTexture(d.data, d.width, d.height, THREE.RGBAFormat, d.type);
+        t.encoding = THREE.LinearEncoding;
+        t.minFilter = t.magFilter = THREE.LinearFilter;
+        t.generateMipmaps = false;
+        t.flipY = true;
+        t.needsUpdate = true;
+        t.mapping = THREE.EquirectangularReflectionMapping;
+        cache.hdr[id] = t;
+        return t;
       })
     );
   };
