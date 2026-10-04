@@ -1,12 +1,30 @@
 /* PLB · Plumbing */
 (function () {
   /* ---- Model: single-handle cartridge faucet on a vanity ---- */
-  TB.model('faucet', { cam: [2.6, 2.7, 2.6], at: [0, 1.75, -0.3] }, (K) => {
+  const BATH = { env: 'studio', tex: ['white_plaster_02', 'granite_tile', 'floor_tiles_06', 'oak_wood_planks'], ground: { tex: 'floor_tiles_06', repeat: 5, radius: 6 } };
+  // Wall, stone vanity top with undermount basin, and an open vanity cabinet.
+  function vanity(K) {
     const wall = K.part('wall', [0, 0, 0], null, 'Wall');
-    K.box(wall, [3.2, 3, 0.08], 'drywall', [0, 1.5, -0.9]);
-    const counter = K.part('counter', [0, 0, 0], null, 'Countertop');
-    K.box(counter, [3, 0.1, 1.5], 'offwhite', [-0, 1.45, -0.1]);
+    K.box(wall, [3.4, 3.2, 0.08], K.pbr('white_plaster_02', [2, 2], {}, 'drywall'), [0, 1.6, -0.9]);
+    const counter = K.part('counter', [0, 0, 0], null, 'Vanity top');
+    K.box(counter, [3, 0.1, 1.5], K.pbr('granite_tile', [1.5, 0.8], { roughness: 0.4 }, 'offwhite'), [0, 1.45, -0.1], null, 0.02);
     K.lathe(counter, [[0.0, -0.36], [0.45, -0.34], [0.6, -0.12], [0.64, 0]], 'white', [0, 1.5, 0.22]);
+    const cab = K.part('cabinet', [0, 0, 0], null, 'Vanity cabinet');
+    const wood = K.pbr('oak_wood_planks', [1, 1], { color: 0xf1ece4 }, 'offwhite');
+    K.box(cab, [0.05, 1.4, 1.4], wood, [-1.45, 0.7, -0.15]);
+    K.box(cab, [0.05, 1.4, 1.4], wood, [1.45, 0.7, -0.15]);
+    K.box(cab, [2.9, 0.05, 1.4], wood, [0, 0.12, -0.15]);
+    K.box(cab, [2.9, 0.1, 0.05], wood, [0, 0.05, 0.53]);
+    const dl = K.group(cab, [-1.42, 0.75, 0.56], [0, -105, 0]);
+    K.box(dl, [1.4, 1.2, 0.04], wood, [0.7, 0, 0]);
+    K.box(dl, [0.03, 0.14, 0.03], 'chrome', [1.25, 0, 0.04]);
+    const dr = K.group(cab, [1.42, 0.75, 0.56], [0, 105, 0]);
+    K.box(dr, [1.4, 1.2, 0.04], wood, [-0.7, 0, 0]);
+    K.box(dr, [0.03, 0.14, 0.03], 'chrome', [-1.25, 0, 0.04]);
+  }
+
+  TB.model('faucet', Object.assign({ cam: [2.6, 2.7, 2.6], at: [0, 1.75, -0.3] }, BATH), (K) => {
+    vanity(K);
     const stop = K.part('stopper', [0, 1.15, 0.22], null, 'Drain stopper');
     K.cyl(stop, [0.09, 0.09, 0.03], 'chrome');
 
@@ -61,7 +79,8 @@
   });
 
   /* ---- Model: toilet with see-through tank ---- */
-  TB.model('toilet', { cam: [2.6, 2.4, 3.0], at: [0, 1.15, -0.1], hidden: ['plunger', 'auger'] }, (K) => {
+  // can = canister (tower) flush valve instead of a flapper
+  function buildToilet(K, can) {
     const bowl = K.part('bowl', [0, 0, 0.3], null, 'Bowl');
     const b = K.lathe(bowl, [[0, 0], [0.26, 0], [0.3, 0.32], [0.48, 0.72], [0.56, 0.92], [0.55, 0.98]], 'white');
     b.scale.z = 1.3;
@@ -90,15 +109,27 @@
     K.cyl(null, [0.15, 0.15, 0.05], 'pvc', [0.18, 1.07, -0.4]);
     const ov = K.part('overflow', [0.38, 1.4, -0.4], null, 'Overflow tube');
     K.cyl(ov, [0.045, 0.045, 0.7], 'pvc');
-    const flap = K.part('flapper', [0.18, 1.11, -0.53], null, 'Flapper');
-    K.cyl(flap, [0.14, 0.14, 0.04], 'red', [0, 0, 0.13]);
-    K.box(flap, [0.04, 0.03, 0.08], 'red', [0, 0.01, 0.0]);
+    if (!can) {
+      const flap = K.part('flapper', [0.18, 1.11, -0.53], null, 'Flapper');
+      K.cyl(flap, [0.14, 0.14, 0.04], 'red', [0, 0, 0.13]);
+      K.box(flap, [0.04, 0.03, 0.08], 'red', [0, 0.01, 0.0]);
+    } else {
+      // Canister valve: a tower that lifts straight up; a wide seal on its base closes the outlet.
+      const cn = K.part('canister', [0.18, 1.1, -0.4], null, 'Canister (tower) flush valve');
+      K.cyl(cn, [0.11, 0.12, 0.42, 32], K.std(0x4a5560, { roughness: 0.4 }), [0, 0.24, 0]);
+      K.cyl(cn, [0.07, 0.07, 0.12, 24], K.std(0x4a5560, { roughness: 0.4 }), [0, 0.5, 0]);
+      K.tor(cn, [0.04, 0.008, 360], 'black', [0, 0.58, 0], [90, 0, 0]);
+      const seal = K.part('canSeal', [0, 0.02, 0], cn, 'Canister seal (gasket)');
+      K.tor(seal, [0.125, 0.018, 360], 'red', [0, 0, 0], [90, 0, 0]);
+      K.box(cn, [0.03, 0.08, 0.03], 'grey', [0.1, 0.4, 0]);
+    }
 
     const lever = K.part('lever', [-0.42, 1.78, -0.14], null, 'Flush handle & arm');
     K.box(lever, [0.18, 0.05, 0.05], 'chrome', [0, 0, 0.06]);
     K.box(lever, [0.68, 0.03, 0.03], 'chrome', [0.38, 0, -0.05]);
     const chain = K.part('chain', [0, 0, 0], null, 'Lift chain');
-    K.tube(chain, [[0.2, 1.77, -0.2], [0.2, 1.45, -0.3], [0.19, 1.14, -0.4]], 0.008, 'steel');
+    if (can) K.tube(chain, [[0.2, 1.77, -0.2], [0.19, 1.74, -0.33], [0.18, 1.7, -0.4]], 0.008, 'steel');
+    else K.tube(chain, [[0.2, 1.77, -0.2], [0.2, 1.45, -0.3], [0.19, 1.14, -0.4]], 0.008, 'steel');
 
     const fv = K.part('fillValve', [-0.42, 1.06, -0.4], null, 'Fill valve');
     K.cyl(fv, [0.05, 0.06, 0.72], 'grey', [0, 0.36, 0]);
@@ -115,7 +146,7 @@
     const knob = K.part('knob', [0, 0, 0.1], sh, 'Shutoff knob');
     K.box(knob, [0.16, 0.06, 0.04], 'blue');
     K.tube(null, [[-0.42, 0.38, -0.56], [-0.42, 0.7, -0.5], [-0.42, 1.0, -0.42]], 0.02, 'steel');
-    K.box(null, [3, 2.4, 0.06], 'drywall', [0, 1.2, -0.68]);
+    K.box(null, [3, 2.4, 0.06], K.pbr('white_plaster_02', [2, 1.5], {}, 'drywall'), [0, 1.2, -0.68]);
 
     const plunger = K.part('plunger', [0, 0.9, 0.38], null, 'Flange plunger');
     K.lathe(plunger, [[0.0, 0.0], [0.2, 0.0], [0.22, 0.12], [0.1, 0.2], [0.03, 0.22]], 'rubber');
@@ -132,13 +163,16 @@
         else K.parts.water.scale.y = 1;
       },
     };
-  });
+  }
+  const TOILET_VIEW = Object.assign({ cam: [2.6, 2.4, 3.0], at: [0, 1.15, -0.1], hidden: ['plunger', 'auger'] }, BATH);
+  TB.model('toilet', TOILET_VIEW, (K) => buildToilet(K, false));
+  TB.model('toiletCanister', TOILET_VIEW, (K) => buildToilet(K, true));
 
   /* ---- Model: bathroom sink drain + P-trap ---- */
-  TB.model('ptrap', { cam: [2.4, 1.7, 2.4], at: [0, 0.9, 0], hidden: ['bucket', 'snake'] }, (K) => {
-    K.box(null, [3, 2.6, 0.06], 'drywall', [0, 1.3, -0.75]);
+  TB.model('ptrap', Object.assign({ cam: [2.4, 1.7, 2.4], at: [0, 0.9, 0], hidden: ['bucket', 'snake'] }, BATH), (K) => {
+    K.box(null, [3, 2.6, 0.06], K.pbr('white_plaster_02', [2, 2], {}, 'drywall'), [0, 1.3, -0.75]);
     const counter = K.part('counter', [0, 0, 0], null, 'Vanity top');
-    K.box(counter, [2.2, 0.1, 1.3], 'offwhite', [0, 1.6, -0.1]);
+    K.box(counter, [2.2, 0.1, 1.3], K.pbr('granite_tile', [1.2, 0.7], { roughness: 0.4 }, 'offwhite'), [0, 1.6, -0.1], null, 0.02);
     K.lathe(counter, [[0.0, -0.32], [0.4, -0.3], [0.55, -0.1], [0.58, 0]], 'white', [0, 1.65, 0]);
     const stop = K.part('stopper', [0, 1.36, 0], null, 'Pop-up stopper');
     K.cyl(stop, [0.08, 0.08, 0.03], 'chrome');
