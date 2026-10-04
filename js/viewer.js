@@ -19,8 +19,8 @@
   };
   /* A tool is built with its working point at the origin and its working axis along +Y
      (screwdriver tip at origin, shaft up +Y; wrench jaw at origin, turning about Y). */
-  TB.tool = function (id, name, build) {
-    TB.TOOLS[id] = { name, build };
+  TB.tool = function (id, name, build, scan) {
+    TB.TOOLS[id] = Object.assign({ name, build }, scan || {});
   };
 
   /* ---------- Procedural textures (generated once, shared) ---------- */
@@ -354,6 +354,17 @@
         });
         return c;
       },
+      // Photo-scanned model from assets/models (see TB.placeGLB for opts). Returns null if not loaded.
+      glb(parent, id, opts, pos, rot) {
+        const w = TB.placeGLB && TB.placeGLB(id, opts);
+        if (!w) return null;
+        return place(w, parent, pos, rot);
+      },
+      // Scanned PBR material, or the fallback material when the texture set isn't available.
+      pbr(name, repeat, opts, fallback) {
+        if (TB.assetCache && TB.assetCache.tex[name]) return TB.pbr(name, repeat, opts);
+        return typeof fallback === 'string' ? m[fallback] : fallback || m.grey;
+      },
       paint(color, o) {
         return phys(color, Object.assign({ roughness: 0.35, metalness: 0.3, clearcoat: 1, clearcoatRoughness: 0.08 }, o || {}));
       },
@@ -382,7 +393,11 @@
     const def = TB.TOOLS[id];
     if (!def) return null;
     const K = makeKit();
-    def.build(K, opts || {});
+    const scanned = def.glb && TB.placeGLB && TB.placeGLB(def.glb, def.fit);
+    if (scanned) {
+      K.root.add(scanned);
+      if (def.after) def.after(K, scanned, opts || {});
+    } else if (def.build) def.build(K, opts || {});
     K.root.userData.toolId = id;
     return { group: K.root, name: def.name, K };
   };
@@ -438,11 +453,11 @@
       canvasWrap.appendChild(r.domElement);
 
       this.scene = new THREE.Scene();
+      this.pmrem = new THREE.PMREMGenerator(r);
+      this.envs = {};
       if (THREE.RoomEnvironment) {
-        const pm = new THREE.PMREMGenerator(r);
-        this.envTex = pm.fromScene(new THREE.RoomEnvironment(), 0.04).texture;
+        this.envTex = this.pmrem.fromScene(new THREE.RoomEnvironment(), 0.04).texture;
         this.scene.environment = this.envTex;
-        pm.dispose();
       }
       this.camera = new THREE.PerspectiveCamera(36, 1, 0.03, 200);
       this.camera.position.set(5, 4, 6);
@@ -468,6 +483,9 @@
       grid.material.opacity = 0.55;
       this.floor = new THREE.Group();
       this.floor.add(disc, grid);
+      this.disc = disc;
+      this.grid = grid;
+      this.discMat = gm;
       this.scene.add(this.floor);
 
       this.outlineMat = makeOutlineMat();
@@ -553,6 +571,38 @@
       });
     }
 
+    // Real HDRI lighting when loaded; otherwise the generated studio room.
+    setEnv(key) {
+      const id = (TB.HDRI && TB.HDRI[key]) || key;
+      const hdr = TB.assetCache && TB.assetCache.hdr[id];
+      if (!hdr) {
+        this.scene.environment = this.envTex || null;
+        return;
+      }
+      if (!this.envs[id]) this.envs[id] = this.pmrem.fromEquirectangular(hdr).texture;
+      this.scene.environment = this.envs[id];
+    }
+
+    // Scanned ground surface under outdoor scenes ({tex, repeat, radius}); studio disc otherwise.
+    setGround(g) {
+      if (this.groundMat) {
+        this.groundMat.dispose();
+        this.groundMat = null;
+      }
+      const set = g && TB.assetCache && TB.assetCache.tex[g.tex];
+      if (set) {
+        const rep = g.repeat || 6;
+        this.groundMat = TB.pbr(g.tex, [rep, rep], { roughness: 1 });
+        this.disc.material = this.groundMat;
+        this.disc.scale.setScalar((g.radius || 9) / 9);
+        this.grid.visible = false;
+      } else {
+        this.disc.material = this.discMat;
+        this.disc.scale.setScalar(1);
+        this.grid.visible = true;
+      }
+    }
+
     load(name) {
       if (this.failed) return false;
       this.unload();
@@ -565,6 +615,8 @@
       this.view = def.view || {};
       this.scene.add(K.root);
       this.floor.visible = this.view.floor !== false;
+      this.setEnv(this.view.env || 'studio');
+      this.setGround(this.view.ground);
       this.base = {};
       this.cur = {};
       for (const [n, o] of Object.entries(K.parts)) {
@@ -636,7 +688,8 @@
         holder.position.set(...(s.at || [0, 0, 0]));
         const rr = s.rot || [0, 0, 0];
         holder.rotation.set(rr[0] * DEG, rr[1] * DEG, rr[2] * DEG);
-        holder.scale.setScalar(s.scale || 1);
+        // Tools are modeled at real size for 1 unit = 30 cm; scenes declare their own unit (meters).
+        holder.scale.setScalar((s.scale || 1) * (0.3 / ((this.view && this.view.unit) || 0.3)));
         holder.add(t.group);
         holder.userData.part = '__tool_' + s.id;
         this.toolLayer.add(holder);
@@ -927,6 +980,8 @@
       this.io.disconnect();
       if (this.controls) this.controls.dispose();
       if (this.envTex) this.envTex.dispose();
+      Object.values(this.envs).forEach((t) => t.dispose());
+      this.pmrem.dispose();
       this.renderer.dispose();
       if (this.renderer.forceContextLoss) this.renderer.forceContextLoss();
     }

@@ -1,0 +1,1039 @@
+{
+"Lantern_01": {
+"name": "Lantern 01",
+"authors": [
+"Rajil Jose Macatangay"
+],
+"type": "model",
+"dimensions": [
+122.08568677306175,
+97.18310832977295,
+294.2466139793396
+]
+},
+"dry_branches_medium_01": {
+"name": "Dry Branches Medium 01",
+"authors": [
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+1059.486210346222,
+1299.152910709381,
+340.9853130578995
+]
+},
+"hatchet": {
+"name": "Hatchet",
+"authors": [
+"James Ray Cock",
+"Ulan Cabanilla"
+],
+"type": "model",
+"dimensions": [
+26.022234931588173,
+104.27016951143742,
+288.7292727828026
+]
+},
+"ratchet_wrench": {
+"name": "Ratchet Wrench",
+"authors": [
+"John Hutcheson"
+],
+"type": "model",
+"dimensions": [
+44.089458882808685,
+43.394144624471664,
+246.20076268911362
+]
+},
+"wooden_hammer_01": {
+"name": "Wooden Hammer 01",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+111.81152239441872,
+23.39816838502884,
+279.15042638778687
+]
+},
+"flathead_screwdriver": {
+"name": "Flathead Screwdriver",
+"authors": [
+"Dylan Detwiller"
+],
+"type": "model",
+"dimensions": [
+30.02973645925522,
+30.02973459661007,
+261.29384338855743
+]
+},
+"tree_stump_01": {
+"name": "Tree Stump 01",
+"authors": [
+"Rob Tuytel"
+],
+"type": "model",
+"dimensions": [
+1425.5504608154297,
+1590.3143286705017,
+572.6675391197205
+]
+},
+"tire_pump": {
+"name": "Tire Pump",
+"authors": [
+"Garrison Gager"
+],
+"type": "model",
+"dimensions": [
+254.89504635334015,
+100.97793117165565,
+579.5293497430976
+]
+},
+"tongue_groove_pliers": {
+"name": "Tongue & Groove Pliers",
+"authors": [
+"BKS"
+],
+"type": "model",
+"dimensions": [
+62.50903196632862,
+244.4150596857071,
+13.865156099200249
+]
+},
+"metal_trash_can": {
+"name": "Metal Trash Can",
+"authors": [
+"GurJas Studios"
+],
+"type": "model",
+"dimensions": [
+1846.9352722167969,
+556.2898814678192,
+906.1697272554738
+]
+},
+"adjustable_wrench": {
+"name": "Adjustable Wrench",
+"authors": [
+"Mateusz Sadek"
+],
+"type": "model",
+"dimensions": [
+68.34418512880802,
+30.590344220399857,
+254.1303038597107
+]
+},
+"wooden_lantern_01": {
+"name": "Wooden Lantern 01",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+221.04809433221817,
+234.72441732883453,
+530.1365610212088
+]
+},
+"pliers": {
+"name": "Pliers",
+"authors": [
+"PierreB3D"
+],
+"type": "model",
+"dimensions": [
+55.28969317674637,
+17.9854528978467,
+179.78323251008987
+]
+},
+"handsaw_wood": {
+"name": "Handsaw Wood",
+"authors": [
+"Konrad Sza\u0142ankiewicz"
+],
+"type": "model",
+"dimensions": [
+40.833745151758194,
+632.9791843891144,
+166.52002930641174
+]
+},
+"lightbulb_led": {
+"name": "Lightbulb Led",
+"authors": [
+"Josh Dean"
+],
+"type": "model",
+"dimensions": [
+61.441509053111076,
+61.441510915756226,
+100.25119408965111
+]
+},
+"trowel_01": {
+"name": "Trowel 01",
+"authors": [
+"Satyaki Mandal"
+],
+"type": "model",
+"dimensions": [
+99.12503510713577,
+346.8870371580124,
+102.62799635529518
+]
+},
+"painted_wooden_bench": {
+"name": "Painted Wooden Bench",
+"authors": [
+"Kirill Sannikov"
+],
+"type": "model",
+"dimensions": [
+1164.9435758590698,
+496.5430945158005,
+889.2914750613272
+]
+},
+"wooden_picnic_table": {
+"name": "Wooden Picnic Table",
+"authors": [
+"Ulan Cabanilla"
+],
+"type": "model",
+"dimensions": [
+2240.9759759902954,
+3022.329568862915,
+745.9869086742401
+]
+},
+"combination_wrench": {
+"name": "Combination Wrench",
+"authors": [
+"BKS"
+],
+"type": "model",
+"dimensions": [
+56.58109299838543,
+336.9841277599335,
+21.513011306524277
+]
+},
+"garden_sprinkler_01": {
+"name": "Garden Sprinkler 01",
+"authors": [
+"Amal Kumar"
+],
+"type": "model",
+"dimensions": [
+359.59315299987793,
+249.06833469867706,
+215.6235035508871
+]
+},
+"retro_multimeter": {
+"name": "Retro Multimeter",
+"authors": [
+"elli moeller"
+],
+"type": "model",
+"dimensions": [
+215.97424149513245,
+202.6422657072544,
+278.6375405266881
+]
+},
+"rusted_spade_01": {
+"name": "Rusted Spade 01",
+"authors": [
+"Blemonade"
+],
+"type": "model",
+"dimensions": [
+168.1148111820221,
+45.56426405906677,
+1100.9047627449036
+]
+},
+"wooden_bucket_01": {
+"name": "Wooden Bucket 01",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+366.97085201740265,
+342.2211855649948,
+549.862340092659
+]
+},
+"small_lpg_tank": {
+"name": "Small Lpg Tank",
+"authors": [
+"Ulan Cabanilla"
+],
+"type": "model",
+"dimensions": [
+410.0192189216614,
+409.1912806034088,
+641.9749736785434
+]
+},
+"screwdriver": {
+"name": "Screwdriver",
+"authors": [
+"PierreB3D"
+],
+"type": "model",
+"dimensions": [
+27.132239192724228,
+26.709272526204586,
+209.04450863599777
+]
+},
+"shrub_01": {
+"name": "Shrub 01",
+"authors": [
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+2586.938261985779,
+218.97432953119278,
+395.9742886945605
+]
+},
+"cement_bag": {
+"name": "Cement Bag",
+"authors": [
+"PierreB3D"
+],
+"type": "model",
+"dimensions": [
+462.4738246202469,
+699.5841264724731,
+179.9098700284958
+]
+},
+"garden_gloves_01": {
+"name": "Garden Gloves 01",
+"authors": [
+"Satyaki Mandal"
+],
+"type": "model",
+"dimensions": [
+226.55709087848663,
+299.04240369796753,
+76.02626085281372
+]
+},
+"ceiling_fan": {
+"name": "Ceiling Fan",
+"authors": [
+"Ulan Cabanilla"
+],
+"type": "model",
+"dimensions": [
+1462.9170894622803,
+1462.9170894622803,
+516.343355178833
+]
+},
+"outdoor_table_chair_set_01": {
+"name": "Outdoor Table Chair Set 01",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+776.0046124458313,
+1831.0473561286926,
+858.5816156119108
+]
+},
+"sledgehammer_01": {
+"name": "Sledgehammer 01",
+"authors": [
+"Dylan Guzman"
+],
+"type": "model",
+"dimensions": [
+208.48701149225235,
+90.47714620828629,
+1005.6212544441223
+]
+},
+"pipe_wrench": {
+"name": "Pipe Wrench",
+"authors": [
+"Will Evarts"
+],
+"type": "model",
+"dimensions": [
+83.97936820983887,
+34.34488922357559,
+404.66518700122833
+]
+},
+"cross_pein_hammer": {
+"name": "Cross Pein Hammer",
+"authors": [
+"Tics"
+],
+"type": "model",
+"dimensions": [
+99.07165542244911,
+24.275743402540684,
+300.2498894929886
+]
+},
+"potted_plant_02": {
+"name": "Potted Plant 02",
+"authors": [
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+701.1570334434509,
+657.3865860700607,
+841.1787391305552
+]
+},
+"shrub_02": {
+"name": "Shrub 02",
+"authors": [
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+5340.904712677002,
+2060.703456401825,
+2070.5229938030243
+]
+},
+"exterior_aircon_unit": {
+"name": "Exterior Aircon Unit",
+"authors": [
+"Monsta3D"
+],
+"type": "model",
+"dimensions": [
+1799.971342086792,
+374.15920197963715,
+927.8970956802368
+]
+},
+"Drill_01": {
+"name": "Drill 01",
+"authors": [
+"Fernando Quinn"
+],
+"type": "model",
+"dimensions": [
+182.8799918293953,
+52.41549015045166,
+185.06235629320145
+]
+},
+"propane_tank": {
+"name": "Propane Tank",
+"authors": [
+"Slinc"
+],
+"type": "model",
+"dimensions": [
+337.3616933822632,
+337.3616933822632,
+553.7950303405523
+]
+},
+"screwdrivers_02": {
+"name": "Screwdrivers 02",
+"authors": [
+"BKS"
+],
+"type": "model",
+"dimensions": [
+100.45838262885809,
+269.9327766895294,
+27.07698941230774
+]
+},
+"rock_07": {
+"name": "Rock 07",
+"authors": [
+"Jenelle van Heerden"
+],
+"type": "model",
+"dimensions": [
+169.10234838724136,
+320.554181933403,
+143.77418451476842
+]
+},
+"garden_hose_wall_mounted_01": {
+"name": "Garden Hose Wall Mounted 01",
+"authors": [
+"Kuutti Siitonen"
+],
+"type": "model",
+"dimensions": [
+466.7283743619919,
+250.3091422840953,
+557.001918554306
+]
+},
+"wooden_ladder": {
+"name": "Wooden Ladder",
+"authors": [
+"Miroslav Turura"
+],
+"type": "model",
+"dimensions": [
+959.1718018054962,
+500.0000149011612,
+1334.923267364502
+]
+},
+"cardboard_box_01": {
+"name": "Cardboard Box 01",
+"authors": [
+"Rahul Chaudhary"
+],
+"type": "model",
+"dimensions": [
+387.02359795570374,
+515.8704221248627,
+341.7995423078537
+]
+},
+"bolt_cutters_01": {
+"name": "Bolt Cutters 01",
+"authors": [
+"Yann Kervran",
+"Antanas Kep"
+],
+"type": "model",
+"dimensions": [
+280.6978076696396,
+36.02746408432722,
+937.6180171966553
+]
+},
+"stone_fire_pit": {
+"name": "Stone Fire Pit",
+"authors": [
+"Sebastian Platen"
+],
+"type": "model",
+"dimensions": [
+1448.4962224960327,
+1433.234453201294,
+388.32607865333557
+]
+},
+"planter_box_01": {
+"name": "Planter Box 01",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+912.6113951206207,
+413.6679768562317,
+424.96823612600565
+]
+},
+"shrub_04": {
+"name": "Shrub 04",
+"authors": [
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+746.7864416539669,
+186.9201734662056,
+280.6698549538851
+]
+},
+"small_oil_can_01": {
+"name": "Small Oil Can 01",
+"authors": [
+"Raven van de Werken"
+],
+"type": "model",
+"dimensions": [
+266.0944238305092,
+103.84923219680786,
+236.79310083389282
+]
+},
+"ladder_sectioned_01": {
+"name": "Ladder Sectioned 01",
+"authors": [
+"MP"
+],
+"type": "model",
+"dimensions": [
+661.5026593208313,
+177.62134224176407,
+2134.558429243043
+]
+},
+"stone_01": {
+"name": "Stone 01",
+"authors": [
+"Dario Barresi",
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+147.15217798948288,
+89.41811323165894,
+71.89157977700233
+]
+},
+"bark_debris_01": {
+"name": "Bark Debris 01",
+"authors": [
+"Greg Zaal",
+"Jenelle van Heerden"
+],
+"type": "model",
+"dimensions": [
+1209.9905610084534,
+674.5080053806305,
+112.16003447771072
+]
+},
+"classic_laptop": {
+"name": "Classic Laptop",
+"authors": [
+"Arrangemonk"
+],
+"type": "model",
+"dimensions": [
+651.9346237182617,
+485.9423041343689,
+542.8108091000468
+]
+},
+"measuring_tape_01": {
+"name": "Measuring Tape 01",
+"authors": [
+"Kuutti Siitonen"
+],
+"type": "model",
+"dimensions": [
+40.56626558303833,
+169.41863298416138,
+73.41387253836729
+]
+},
+"potted_plant_01": {
+"name": "Potted Plant 01",
+"authors": [
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+588.9185070991516,
+636.6117596626282,
+1350.7787585258484
+]
+},
+"lubricant_spray": {
+"name": "Lubricant Spray",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+66.9858492910862,
+64.59099799394608,
+164.8811548948288
+]
+},
+"plunger": {
+"name": "Plunger",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+172.05405235290527,
+172.05404490232468,
+421.1148992180824
+]
+},
+"dead_tree_trunk": {
+"name": "Dead Tree Trunk",
+"authors": [
+"Rob Tuytel"
+],
+"type": "model",
+"dimensions": [
+3051.015019416809,
+277.52751111984253,
+290.43155536055565
+]
+},
+"grass_medium_01": {
+"name": "Grass Medium 01",
+"authors": [
+"Rob Tuytel",
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+7266.327619552612,
+1259.2098712921143,
+1177.0583391189575
+]
+},
+"electric_stove": {
+"name": "Electric Stove",
+"authors": [
+"Kuutti Siitonen"
+],
+"type": "model",
+"dimensions": [
+502.59482860565186,
+647.6211845874786,
+858.6971759796143
+]
+},
+"crowbar_01": {
+"name": "Crowbar 01",
+"authors": [
+"Alexander Otterbeck"
+],
+"type": "model",
+"dimensions": [
+40.41172005236149,
+127.58862972259521,
+555.3637742996216
+]
+},
+"boulder_01": {
+"name": "Boulder 01",
+"authors": [
+"Rico Cilliers"
+],
+"type": "model",
+"dimensions": [
+1272.6830840110779,
+1830.7338953018188,
+1003.8918256759644
+]
+},
+"planter_box_02": {
+"name": "Planter Box 02",
+"authors": [
+"James Ray Cock"
+],
+"type": "model",
+"dimensions": [
+1251.5764236450195,
+467.18619763851166,
+453.37272534379736
+]
+},
+"watering_can_metal_01": {
+"name": "Watering Can Metal 01",
+"authors": [
+"Charles Nderitu"
+],
+"type": "model",
+"dimensions": [
+191.01857393980026,
+452.33607292175293,
+196.81852799840271
+]
+},
+"plastic_bottle_gallon": {
+"name": "Plastic Bottle Gallon",
+"authors": [
+"Rahul Chaudhary"
+],
+"type": "model",
+"dimensions": [
+166.28039628267288,
+126.3512596487999,
+274.4927511084825
+]
+},
+"old_tyre": {
+"name": "Old Tyre",
+"authors": [
+"MP"
+],
+"type": "model",
+"dimensions": [
+600.0000238418579,
+164.99999910593033,
+600.0000238418579
+]
+},
+"metal_toolbox": {
+"name": "Metal Toolbox",
+"authors": [
+"Mateusz Sadek"
+],
+"type": "model",
+"dimensions": [
+400.0099003314972,
+292.32875257730484,
+347.10586071014404
+]
+},
+"aerial_grass_rock": {
+"name": "Aerial Grass Rock",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+15000,
+15000
+]
+},
+"asphalt_02": {
+"name": "Asphalt 02",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+3000.000238418579,
+3000
+]
+},
+"brick_wall_001": {
+"name": "Brick Wall 001",
+"authors": [
+"Rob Tuytel",
+"Dimitrios Savva"
+],
+"type": "texture",
+"dimensions": [
+3000,
+3000
+]
+},
+"brushed_concrete": {
+"name": "Brushed Concrete ",
+"authors": [
+"Dario Barresi",
+"Dimitrios Savva"
+],
+"type": "texture",
+"dimensions": [
+2500,
+2500
+]
+},
+"concrete_floor_01": {
+"name": "Concrete Floor 01",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+2000,
+2000
+]
+},
+"floor_tiles_06": {
+"name": "Floor Tiles 06",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+3000,
+3000
+]
+},
+"forrest_ground_01": {
+"name": "Forest Ground 01",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+2000,
+2000
+]
+},
+"granite_tile": {
+"name": "Granite Tile",
+"authors": [
+"Charlotte Baglioni"
+],
+"type": "texture",
+"dimensions": [
+2299.999952316284,
+2299.999952316284
+]
+},
+"gravel_floor": {
+"name": "Gravel Floor",
+"authors": [
+"Jenelle van Heerden",
+"Matterfield"
+],
+"type": "texture",
+"dimensions": [
+2250,
+2250
+]
+},
+"interlocking_concrete_pavers": {
+"name": "Interlocking Concrete Pavers",
+"authors": [
+"Amal Kumar"
+],
+"type": "texture",
+"dimensions": [
+1800.0000715255737,
+1800.0000715255737
+]
+},
+"metal_plate": {
+"name": "Metal Plate",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+500,
+500
+]
+},
+"oak_wood_planks": {
+"name": "Oak Wood Planks",
+"authors": [
+"Dimitrios Savva"
+],
+"type": "texture",
+"dimensions": [
+1200.0000476837158,
+1200.0000476837158
+]
+},
+"pine_bark": {
+"name": "Pine Bark",
+"authors": [
+"Dimitrios Savva"
+],
+"type": "texture",
+"dimensions": [
+1999.9996423721313,
+1999.9996423721313
+]
+},
+"plank_flooring": {
+"name": "Plank Flooring",
+"authors": [
+"Dario Barresi",
+"Dimitrios Savva",
+"Rico Cilliers"
+],
+"type": "texture",
+"dimensions": [
+1339.9999141693115,
+1340.0001525878906
+]
+},
+"rusty_metal": {
+"name": "Rusty Metal",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+1500,
+1500
+]
+},
+"stacked_stone_wall": {
+"name": "Stacked Stone Wall",
+"authors": [
+"Dimitrios Savva"
+],
+"type": "texture",
+"dimensions": [
+2000,
+2000
+]
+},
+"white_plaster_02": {
+"name": "White Plaster 02",
+"authors": [
+"Rob Tuytel"
+],
+"type": "texture",
+"dimensions": [
+1000,
+1000
+]
+},
+"wood_floor_deck": {
+"name": "Wood Floor Deck",
+"authors": [
+"Dimitrios Savva"
+],
+"type": "texture",
+"dimensions": [
+1799.9999523162842,
+1799.9999523162842
+]
+},
+"wood_planks": {
+"name": "Wood Planks",
+"authors": [
+"Amal Kumar"
+],
+"type": "texture",
+"dimensions": [
+1499.999761581421,
+1499.999761581421
+]
+},
+"studio_small_09": {
+"name": "Studio Small 09",
+"authors": [
+"Sergej Majboroda"
+],
+"type": "hdri",
+"dimensions": null
+},
+"suburban_garden": {
+"name": "Suburban Garden",
+"authors": [
+"Dimitrios Savva",
+"Jarod Guest"
+],
+"type": "hdri",
+"dimensions": null
+},
+"skylit_garage": {
+"name": "Skylit Garage",
+"authors": [
+"Greg Zaal",
+"Rico Cilliers"
+],
+"type": "hdri",
+"dimensions": null
+}
+}

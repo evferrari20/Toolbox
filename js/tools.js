@@ -283,3 +283,50 @@
     K.lathe(null, [[0, 0], [0.03, 0], [0.035, 0.3], [0, 0.32]], 'gripYellow', [0, 0.5, 0]);
   });
 })();
+
+/* ---------- Photo-scanned tools (Poly Haven, CC0) ----------
+   Each entry maps a scan onto the tool convention above. When the scan is loaded it
+   replaces the procedural model; otherwise the procedural build is used.
+   REAL = scale from meters to scene units (1 unit = 30 cm). */
+(function () {
+  const REAL = 1 / 0.3;
+  const scan = (id, glb, fit, after) => {
+    const t = TB.TOOLS[id];
+    if (t) Object.assign(t, { glb, fit, after });
+  };
+  const add = (id, name, glb, fit, after) => TB.tool(id, name, null, { glb, fit, after });
+  const flatWrench = { rots: [['x', -90], ['y', 90]], scale: REAL };
+
+  scan('adjWrench', 'adjustable_wrench', Object.assign({ anchor: [0.08, 0.5, 0.5] }, flatWrench));
+  add('pipeWrench', '14″ pipe wrench', 'pipe_wrench', Object.assign({ anchor: [0.08, 0.5, 0.5] }, flatWrench));
+  add('comboWrench', 'Combination wrench', 'combination_wrench', { rots: [['y', 90]], scale: REAL, anchor: [0.06, 0.5, 0.5] });
+  scan('ratchet', 'ratchet_wrench', Object.assign({ anchor: [0.07, 0.5, 0.5] }, flatWrench));
+  scan('screwdriver', 'screwdriver', { rots: [['x', 180]], scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('flatScrewdriver', 'Flat screwdriver', 'flathead_screwdriver', { rots: [['x', 180]], scale: REAL, anchor: [0.5, 0, 0.5] });
+  scan('pliers', 'tongue_groove_pliers', { rots: [['x', -90]], scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('linemans', 'Lineman’s pliers', 'pliers', { rots: [['z', 180]], scale: REAL, anchor: [0.5, 0, 0.5] });
+  scan('hammer', 'wooden_hammer_01', { rots: [['z', 90]], scale: REAL, anchor: [0, 0, 0.5] });
+  add('sledge', 'Sledgehammer', 'sledgehammer_01', { rots: [['z', 90]], scale: REAL, anchor: [0, 0, 0.5] });
+  scan('drill', 'Drill_01', { rots: [['z', 90]], scale: REAL, anchor: [0.22, 0, 0.5] }, (K) => {
+    const spin = K.part('spinner', [0, 0, 0], null, 'Bit');
+    K.cone(spin, [0.009, 0.03, 4], 'toolSteel', [0, 0.015, 0], [180, 45, 0]);
+  });
+  scan('tape', 'measuring_tape_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  scan('plunger', 'plunger', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  scan('flatBar', 'crowbar_01', { rots: [['z', 180]], scale: REAL, anchor: [0.5, 0, 0.5] });
+  scan('shovel', 'rusted_spade_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('handsaw', 'Hand saw', 'handsaw_wood', { rots: [['y', 90]], scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('hatchet', 'Hatchet', 'hatchet', { rots: [['z', 90]], scale: REAL, anchor: [0, 0, 0.5] });
+  add('trowel', 'Hand trowel', 'trowel_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('tirePump', 'Floor pump', 'tire_pump', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('multimeter', 'Multimeter', 'retro_multimeter', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('oilCan', 'Oil can', 'small_oil_can_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('lubeSpray', 'Penetrating spray', 'lubricant_spray', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('gloves', 'Work gloves', 'garden_gloves_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('boltCutters', 'Bolt cutters', 'bolt_cutters_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('toolbox', 'Toolbox', 'metal_toolbox', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('extLadder', 'Extension ladder', 'ladder_sectioned_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('stepLadder', 'Step ladder', 'wooden_ladder', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('bucket', 'Bucket', 'wooden_bucket_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+  add('wateringCan', 'Watering can', 'watering_can_metal_01', { scale: REAL, anchor: [0.5, 0, 0.5] });
+})();
