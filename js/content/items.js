@@ -2,6 +2,194 @@
    and the item dictionary (TB.ITEMS). Do not edit by hand. */
 window.TB = window.TB || {};
 TB.ITEMS = {
+"aa-battery": {
+"name": "AA or AAA battery",
+"kind": "part",
+"what": "A standard alkaline battery used in many push-button grill igniters.",
+"uses": [
+"Powering grill igniters",
+"Remotes",
+"Small devices"
+],
+"tip": "Check which size your igniter takes; it's usually behind the igniter button cap."
+},
+"abrasive-pad": {
+"name": "Fine abrasive pad",
+"kind": "consumable",
+"what": "A non-woven scouring pad, like a fine scuff pad, that polishes metal gently.",
+"uses": [
+"Cleaning flame sensor rods",
+"Light rust removal",
+"Scuffing surfaces before painting"
+],
+"tip": "Choose a very fine grade (often gray or white) for delicate parts."
+},
+"adjustable-wrench": {
+"name": "Adjustable wrench",
+"kind": "tool",
+"what": "A wrench with a jaw that slides open or closed by turning a thumb screw, so one tool fits many nut sizes.",
+"uses": [
+"Loosening packing and retaining nuts",
+"Tightening supply line and closet bolt nuts",
+"Removing shower heads"
+],
+"tip": "Turn the wrench so force pushes toward the fixed jaw, and pad the jaws on chrome."
+},
+"aerator-key": {
+"name": "Aerator key",
+"kind": "tool",
+"what": "A small plastic or metal key shaped to fit the notches of a recessed (cache) aerator that has no flats for pliers.",
+"uses": [
+"Removing hidden or recessed aerators",
+"Reinstalling aerators without scratching the spout"
+],
+"tip": "Many new faucets include one; keep it in a drawer near the sink."
+},
+"air-compressor": {
+"name": "Air compressor and hose",
+"kind": "power-tool",
+"what": "A pump that stores compressed air to power pneumatic nailers.",
+"uses": [
+"Powering brad and finish nailers",
+"Inflating"
+],
+"tip": "A small pancake compressor is plenty for trim nailers; set about 80 to 100 psi and adjust depth on the gun."
+},
+"air-filter": {
+"name": "Air filter",
+"kind": "part",
+"what": "A paper or foam filter that keeps dust out of the engine.",
+"uses": [
+"Replacing dirty filters",
+"Seasonal tune-ups"
+],
+"tip": "Foam filters can be washed and lightly oiled; paper ones are replaced."
+},
+"alarm-battery": {
+"name": "Alarm backup battery",
+"kind": "part",
+"what": "The 9 V or AA batteries (or sealed lithium cell) that power a battery alarm or back up a hardwired one.",
+"uses": [
+"Powering battery-only alarms",
+"Keeping hardwired alarms working in a power outage"
+],
+"tip": "Use the exact battery type printed in the alarm; many makers specify particular brands of alkaline or lithium."
+},
+"alarm-harness": {
+"name": "Alarm wiring harness (pigtail connector)",
+"kind": "part",
+"what": "A plug with short wires (black, white, and often red interconnect) that connects a hardwired alarm to the house wiring.",
+"uses": [
+"Connecting a new hardwired alarm",
+"Converting to a new brand's plug"
+],
+"tip": "The red lead is the interconnect wire; join it to the house red wire, or cap it if there is none."
+},
+"anti-sag-kit": {
+"name": "Anti-sag gate kit",
+"kind": "part",
+"what": "A kit with two corner brackets, steel cable and a turnbuckle that pulls a sagging gate back into square.",
+"uses": [
+"Fixing sagging gates",
+"Preventing sag on new gates"
+],
+"tip": "Check that the cable is long enough for your gate's diagonal before buying."
+},
+"anti-static-wrist-strap": {
+"name": "Anti-static wrist strap",
+"kind": "safety",
+"what": "A wrist band with a cord and clip that grounds you to the computer's metal frame so static doesn't damage parts.",
+"uses": [
+"Handling RAM, cards and boards",
+"Working inside a PC",
+"Electronics repair"
+],
+"tip": "Clip it to bare metal on the case; touching the case before handling parts helps if you don't have one."
+},
+"appliance-dolly": {
+"name": "Appliance mover slides",
+"kind": "tool",
+"what": "Plastic or felt pads placed under appliance feet so you can slide them without scratching floors.",
+"uses": [
+"Pulling out a dryer or fridge",
+"Pushing a washer back into place"
+],
+"tip": "Lift the front slightly to slip the pads under the feet before pulling."
+},
+"appliance-thermometer": {
+"name": "Appliance thermometer",
+"kind": "measure",
+"what": "A small thermometer made to sit inside a fridge or freezer.",
+"uses": [
+"Checking fridge (37 °F) and freezer (0 °F) temps",
+"Confirming a repair worked"
+],
+"tip": "Place it in a glass of water for the fridge reading; air temperature swings every time the door opens."
+},
+"asphalt-crack-filler": {
+"name": "Asphalt crack filler",
+"kind": "material",
+"what": "A rubberized asphalt filler in a jug or tube that seals cracks in asphalt.",
+"uses": [
+"Filling driveway cracks",
+"Sealing edges"
+],
+"tip": "Fill deep cracks with backer rod or sand first, then top off."
+},
+"asphalt-patch": {
+"name": "Asphalt patch (cold patch)",
+"kind": "material",
+"what": "A bagged, ready-to-use asphalt mix that you pack into holes.",
+"uses": [
+"Filling potholes",
+"Repairing crumbled edges"
+],
+"tip": "Compact well; tamp it down with a tamper or drive over it."
+},
+"asphalt-shingle": {
+"name": "Replacement asphalt shingle",
+"kind": "material",
+"what": "A matching roofing shingle to replace a damaged one. Most homes use 3-tab or architectural (dimensional) shingles.",
+"uses": [
+"Replacing torn or missing shingles",
+"Patching after wind damage",
+"Starter and ridge courses"
+],
+"tip": "Check the attic or garage for leftover bundles first; otherwise take a piece to a roofing supplier to match color and style."
+},
+"auger-bit": {
+"name": "Auger bit",
+"kind": "consumable",
+"what": "A long drill bit with a screw tip and spiral flutes that pulls itself through thick wood.",
+"uses": [
+"Drilling through posts and rim joists",
+"Bolt holes",
+"Running wire through framing"
+],
+"tip": "A ½″ × 12″ or longer ship auger reaches through a 4×4 plus rim joist in one pass."
+},
+"awl": {
+"name": "Awl or probe",
+"kind": "tool",
+"what": "A pointed tool used to probe wood and start holes.",
+"uses": [
+"Testing for rot",
+"Marking hole locations",
+"Starting screw holes"
+],
+"tip": "If the tip sinks in more than ¼″ with light pressure, the wood is rotted."
+},
+"backer-rod": {
+"name": "Backer rod",
+"kind": "material",
+"what": "A round foam rope pushed into deep or wide cracks so the filler isn't wasted and can flex properly.",
+"uses": [
+"Filling deep cracks",
+"Expansion joints",
+"Window and door gaps"
+],
+"tip": "Choose a diameter about ⅛″ larger than the crack so it stays put."
+},
 "baking-soda": {
 "name": "Baking soda",
 "kind": "consumable",
@@ -11,6 +199,109 @@ TB.ITEMS = {
 "Neutralizing acid spills"
 ],
 "tip": "Mix about 1 tablespoon per cup of water; rinse and dry after it stops fizzing."
+},
+"balancing-kit": {
+"name": "Fan balancing kit",
+"kind": "part",
+"what": "A plastic clip and adhesive weights used to find and correct a wobbling ceiling fan blade.",
+"uses": [
+"Fixing fan wobble",
+"Fine-tuning after installation"
+],
+"tip": "Check that every blade screw is tight and blades are equal height before adding weights."
+},
+"ball-faucet-repair-kit": {
+"name": "Ball faucet repair kit",
+"kind": "part",
+"what": "A kit of seats, springs, cam, packing and often a spanner tool for rebuilding a single-handle ball faucet.",
+"uses": [
+"Stopping spout drips",
+"Fixing leaks around the handle"
+],
+"tip": "Buy the kit made for your faucet brand."
+},
+"bar-clamp": {
+"name": "Bar clamp",
+"kind": "tool",
+"what": "A clamp with a long bar and sliding jaw that applies strong pressure across a wide span.",
+"uses": [
+"Clamping glued joints",
+"Holding drawer corners",
+"Holding parts while fastening"
+],
+"tip": "Use pads or scrap wood under the jaws to avoid dents."
+},
+"barbed-drain-strip": {
+"name": "Barbed drain-cleaning strip",
+"kind": "tool",
+"what": "A thin, flexible plastic strip about 20″ long with small barbs along its edges that hook and pull out hair clogs.",
+"uses": [
+"Pulling hair out of tub drains",
+"Clearing bathroom sink drains",
+"Clearing shower drains"
+],
+"tip": "Cheap and disposable; buy a multi-pack."
+},
+"barricade": {
+"name": "Barricade or caution tape",
+"kind": "consumable",
+"what": "Tape, cones or saw horses to keep people and cars off fresh surfaces.",
+"uses": [
+"Blocking driveways",
+"Marking work zones"
+],
+"tip": "Block both ends and the walkway."
+},
+"basketball-net": {
+"name": "Basketball net",
+"kind": "part",
+"what": "A 12-loop net that hooks onto a standard rim.",
+"uses": [
+"Replacing torn nets",
+"Upgrading to all-weather nets",
+"Court maintenance"
+],
+"tip": "All-weather nylon or anti-whip nets last longest outdoors; chain nets suit heavy use."
+},
+"bench": {
+"name": "Entry bench",
+"kind": "material",
+"what": "A freestanding bench placed against the wall.",
+"uses": [
+"Seating in entries",
+"Storage below"
+],
+"tip": "Measure depth so it doesn't block traffic, around 14″ to 18″ is common."
+},
+"bench-grinder": {
+"name": "Bench grinder or angle grinder",
+"kind": "power-tool",
+"what": "A power tool with an abrasive wheel for fast sharpening.",
+"uses": [
+"Sharpening mower blades",
+"Grinding metal"
+],
+"tip": "Don't overheat the blade; dip it in water if it turns blue."
+},
+"bench-vise": {
+"name": "Bench vise",
+"kind": "tool",
+"what": "A vise that clamps parts firmly while you work.",
+"uses": [
+"Holding blades for filing",
+"Clamping parts"
+],
+"tip": "Pad the jaws to protect parts."
+},
+"bias-light": {
+"name": "USB LED bias light strip",
+"kind": "part",
+"what": "An LED strip that sticks to the back of the TV and plugs into its USB port to light the wall behind.",
+"uses": [
+"Reducing eye strain",
+"Ambient room lighting"
+],
+"tip": "Choose a 6500K (D65) white for the most accurate picture contrast."
 },
 "bike-stand": {
 "name": "Bike repair stand",
@@ -23,6 +314,90 @@ TB.ITEMS = {
 ],
 "tip": "Clamp the seatpost, not the frame tubes, especially on carbon bikes."
 },
+"blade-balancer": {
+"name": "Blade balancer",
+"kind": "tool",
+"what": "A cone or pin that shows whether a mower blade is balanced.",
+"uses": [
+"Checking blade balance",
+"Preventing vibration"
+],
+"tip": "A nail in the wall works for most homeowners."
+},
+"block-plane": {
+"name": "Block plane",
+"kind": "tool",
+"what": "A small hand plane that shaves thin curls off wood edges.",
+"uses": [
+"Trimming a binding door edge",
+"Shaving swollen drawer sides",
+"Easing edges"
+],
+"tip": "Take very light passes and check the fit often; you can't put wood back."
+},
+"blocking": {
+"name": "Pressure-treated blocking",
+"kind": "material",
+"what": "Short pieces of treated 2× lumber installed between joists to stiffen framing.",
+"uses": [
+"Backing a rail post",
+"Stiffening the rim joist",
+"Supporting fasteners"
+],
+"tip": "Cut blocks to fit snug between joists and screw them through the rim and joists."
+},
+"bottle-brush": {
+"name": "Bottle brush",
+"kind": "tool",
+"what": "A long, round, wire-handled brush that scrubs the inside of pipes and narrow openings.",
+"uses": [
+"Cleaning inside P-traps",
+"Scrubbing tailpieces and overflow openings"
+],
+"tip": "Use a dedicated one."
+},
+"box-screw": {
+"name": "Electrical box machine screws",
+"kind": "fastener",
+"what": "8-32 machine screws that attach straps, brackets and devices to electrical boxes; 6-32 is common for devices.",
+"uses": [
+"Mounting fixture straps",
+"Replacing lost or stripped device screws"
+],
+"tip": "Keep a small assortment of 6-32 and 8-32 screws in 1″ and 1-1/2″ lengths."
+},
+"bracing-lumber": {
+"name": "2×4 brace",
+"kind": "material",
+"what": "Straight 2×4 lumber used as temporary diagonal braces and stakes.",
+"uses": [
+"Bracing posts plumb",
+"Supporting panels",
+"Forms and stakes"
+],
+"tip": "Brace on two adjacent sides so the post can't move in any direction."
+},
+"brad-nail": {
+"name": "Brad nails",
+"kind": "fastener",
+"what": "Thin 18-gauge nails with very small heads for nailing trim.",
+"uses": [
+"Fastening trim and battens",
+"Light assembly"
+],
+"tip": "2″ brads reach through ¾″ trim and ½″ drywall into the stud."
+},
+"brad-nailer": {
+"name": "Brad nailer",
+"kind": "power-tool",
+"what": "A nail gun that drives thin 18-gauge brad nails, leaving tiny holes that are easy to fill.",
+"uses": [
+"Attaching trim and battens",
+"Installing rails and molding",
+"Small woodworking"
+],
+"tip": "Battery models need no compressor; angle nails in opposing directions when you miss studs so the pair locks."
+},
 "brake-pads-rim": {
 "name": "Rim brake pads",
 "kind": "part",
@@ -33,15 +408,101 @@ TB.ITEMS = {
 ],
 "tip": "Replace when the wear grooves are almost gone; carbon rims need carbon-specific pads."
 },
+"breaker-finder": {
+"name": "Circuit breaker finder",
+"kind": "measure",
+"what": "A two-part tool: a transmitter plugs into the outlet and a handheld receiver beeps at the breaker that feeds it.",
+"uses": [
+"Identifying an unlabeled breaker",
+"Labeling a panel",
+"Finding a circuit without trial and error"
+],
+"tip": "Turn the receiver's sensitivity down as you scan; the strongest signal is the right breaker."
+},
+"broom": {
+"name": "Push broom",
+"kind": "tool",
+"what": "A wide stiff-bristle broom for sweeping large surfaces.",
+"uses": [
+"Sweeping driveways",
+"Cleaning patios",
+"Clearing debris"
+],
+"tip": "A stiff outdoor broom works dirt out of rough surfaces."
+},
 "bucket": {
 "name": "Bucket",
 "kind": "tool",
-"what": "A pail for water or catching drips.",
+"what": "A sturdy plastic pail for catching, carrying or mixing water and cleaning solutions.",
 "uses": [
-"Rinsing after degreasing",
-"Holding cleaning water"
+"Catching water from drain valves",
+"Holding descaling solution for a pump",
+"Carrying rinse water"
 ],
-"tip": "Use a separate bucket for degreaser rinse so it does not contaminate wash water."
+"tip": "A 5-gallon bucket with volume marks inside makes it easy to measure solution."
+},
+"c-wire-adapter": {
+"name": "C-wire power adapter",
+"kind": "part",
+"what": "A small module installed at the furnace that supplies the constant 24 V common power a smart thermostat needs when there's no spare C wire.",
+"uses": [
+"Powering smart thermostats on 4-wire systems",
+"Avoiding new wire runs",
+"Fixing thermostats that drop power"
+],
+"tip": "Install it at the furnace control board with the power off and follow the maker's wiring chart exactly."
+},
+"cabinet-scraper": {
+"name": "Card scraper",
+"kind": "tool",
+"what": "A thin rectangle of hardened steel whose burred edge shaves glue and finish off wood.",
+"uses": [
+"Removing old glue from tenons",
+"Smoothing wood",
+"Cleaning up squeeze-out"
+],
+"tip": "Use a scraper rather than sandpaper on tenons so you don't make the joint even looser."
+},
+"cable-clamp": {
+"name": "Wire rope clamp",
+"kind": "part",
+"what": "A U-bolt clamp that locks a looped cable end.",
+"uses": [
+"Securing cable loops",
+"Gate kits",
+"Guy wires"
+],
+"tip": "The U-bolt goes on the dead (short) end of the cable."
+},
+"cable-connector": {
+"name": "Cable clamp connector",
+"kind": "fastener",
+"what": "A fitting that secures NM cable where it enters a metal box, protecting it from sharp edges.",
+"uses": [
+"Installing a new metal box",
+"Securing cable into a fan box"
+],
+"tip": "Tighten so the cable doesn't pull out, but don't crush the sheath."
+},
+"cable-tie": {
+"name": "Hook-and-loop cable ties",
+"kind": "consumable",
+"what": "Reusable fabric straps that bundle cables neatly.",
+"uses": [
+"Bundling cables behind the TV",
+"Tidying cords"
+],
+"tip": "Hook-and-loop ties won't crush cables the way tight plastic zip ties can."
+},
+"canister-seal": {
+"name": "Canister flush valve seal",
+"kind": "part",
+"what": "The round rubber gasket at the bottom of a canister (tower) flush valve. When it hardens or warps, water seeps into the bowl and the toilet refills on its own.",
+"uses": [
+"Fixing a running toilet with a canister valve",
+"Stopping phantom refills"
+],
+"tip": "Match the seal to your toilet brand and model; canister seals from different brands are not interchangeable."
 },
 "car-jack": {
 "name": "Car jack",
@@ -52,6 +513,141 @@ TB.ITEMS = {
 "Short roadside lifts"
 ],
 "tip": "Use only on firm, level ground at the maker's jack point, and never get under a car held only by a jack."
+},
+"carbon-filter": {
+"name": "Carbon filter",
+"kind": "part",
+"what": "A cylinder packed with activated charcoal that traps odor molecules as air is pulled through it.",
+"uses": [
+"Odor control in grow tents",
+"Cleaning exhaust air",
+"Workshop fume control"
+],
+"tip": "Match the flange size to your fan and mount it at the top of the tent where warm air collects; replace the carbon every 12–18 months."
+},
+"carburetor-cleaner": {
+"name": "Carburetor cleaner",
+"kind": "material",
+"what": "A solvent spray that dissolves varnish and gum in fuel systems.",
+"uses": [
+"Cleaning carburetors",
+"Freeing stuck floats"
+],
+"tip": "Spray into the air intake while cranking, only if the manual allows."
+},
+"cardboard": {
+"name": "Cardboard",
+"kind": "consumable",
+"what": "Flattened boxes to protect floors.",
+"uses": [
+"Setting a toilet on",
+"Floor protection"
+],
+"tip": "Keep extra handy."
+},
+"carriage-bolt": {
+"name": "Carriage bolt",
+"kind": "fastener",
+"what": "A bolt with a smooth domed head and square neck that bites into wood so it won't spin while you tighten the nut.",
+"uses": [
+"Attaching rail posts",
+"Bolting beams",
+"Through-bolting framing"
+],
+"tip": "Use hot-dipped galvanized bolts with treated lumber, about 1″ longer than the total thickness."
+},
+"cartridge-puller": {
+"name": "Cartridge puller",
+"kind": "tool",
+"what": "A tool that grips a faucet cartridge stem and pulls it straight out when it is seized by scale.",
+"uses": [
+"Removing stuck cartridges",
+"Avoiding damage to the faucet body"
+],
+"tip": "Check that the puller fits your faucet brand before buying."
+},
+"case-fan": {
+"name": "Case fan",
+"kind": "part",
+"what": "A square fan (commonly 120 or 140 mm) mounted on the case to move air through the computer.",
+"uses": [
+"Replacing a noisy or failed fan",
+"Adding airflow",
+"Improving cooling"
+],
+"tip": "Match the size and connector (3-pin or 4-pin PWM) and check the airflow arrow on the frame before mounting."
+},
+"cats-paw": {
+"name": "Cat's paw",
+"kind": "tool",
+"what": "A short nail puller with a sharp claw you drive under a nail head with a hammer to pull embedded nails.",
+"uses": [
+"Pulling deck nails",
+"Demolition",
+"Removing trim nails"
+],
+"tip": "Drive it in at an angle under the head, then rock back; a flat bar finishes the pull."
+},
+"caulk": {
+"name": "Caulk",
+"kind": "adhesive",
+"what": "A flexible sealant used to seal gaps.",
+"uses": [
+"Sealing toilet bases",
+"Tub and tile"
+],
+"tip": "Leave a gap at the back of a toilet to reveal leaks."
+},
+"caulk-gun": {
+"name": "Caulk gun",
+"kind": "tool",
+"what": "A frame that holds a caulk or adhesive tube and pushes it out with a trigger.",
+"uses": [
+"Applying caulk",
+"Applying construction adhesive",
+"Sealing gaps"
+],
+"tip": "A dripless gun with a smooth (high thrust ratio) trigger gives an even bead and stops when you let go."
+},
+"caulk-removal-tool": {
+"name": "Caulk removal tool",
+"kind": "tool",
+"what": "A plastic or metal hooked tool shaped to dig old caulk out of joints.",
+"uses": [
+"Pulling old caulk",
+"Cleaning residue from corners"
+],
+"tip": "Plastic tools won't scratch acrylic or fiberglass tubs."
+},
+"caulk-remover": {
+"name": "Caulk remover gel",
+"kind": "material",
+"what": "A chemical gel that softens old caulk so it peels away more easily.",
+"uses": [
+"Softening stubborn silicone or latex caulk",
+"Removing residue"
+],
+"tip": "Let it sit the full time on the label, then scrape; wipe the area with alcohol afterward."
+},
+"caulk-tool": {
+"name": "Caulk finishing tool",
+"kind": "tool",
+"what": "A small plastic or silicone tool with shaped edges that smooths a caulk bead.",
+"uses": [
+"Tooling caulk joints",
+"Removing excess caulk"
+],
+"tip": "Mist the bead with soapy water first so the tool glides instead of dragging."
+},
+"ceiling-fan": {
+"name": "Ceiling fan kit",
+"kind": "part",
+"what": "The fan with motor, downrod, hanger bracket, canopy, blades, blade irons, optional light kit, hardware and balancing kit.",
+"uses": [
+"Replacing a ceiling light with a fan",
+"Upgrading an old fan"
+],
+"tip": "Choose blade span by room size (about 44″ to 52″ for a 12 x 12 ft room) and keep blades at least 7 ft above the floor."
 },
 "chain-checker": {
 "name": "Chain wear checker",
@@ -82,6 +678,17 @@ TB.ITEMS = {
 ],
 "tip": "Put a pan or rag under it; degreaser drips as you pedal."
 },
+"chalk-line": {
+"name": "Chalk line",
+"kind": "measure",
+"what": "A reel of string coated in powdered chalk that snaps a long straight line onto a surface.",
+"uses": [
+"Marking long straight layout lines",
+"Marking cut lines on boards",
+"Floor and wall layout"
+],
+"tip": "Use blue chalk indoors; red and other colors are permanent and can bleed through paint."
+},
 "chalk-or-marker": {
 "name": "Marker or chalk",
 "kind": "consumable",
@@ -91,6 +698,415 @@ TB.ITEMS = {
 "Aligning tire label with valve"
 ],
 "tip": "Mount the tire with the label at the valve so you can match tube holes to tire damage."
+},
+"chemical-gloves": {
+"name": "Chemical-resistant gloves",
+"kind": "safety",
+"what": "Nitrile or rubber gloves that protect skin from cleaners and solvents.",
+"uses": [
+"Handling cleaners",
+"Staining",
+"Degreasing"
+],
+"tip": "Long-cuff gloves keep drips from running down your wrists."
+},
+"chip-brush": {
+"name": "Small brush",
+"kind": "tool",
+"what": "An inexpensive small paintbrush.",
+"uses": [
+"Applying soapy water for leak tests",
+"Dusting debris",
+"Applying adhesives"
+],
+"tip": "A spray bottle of soapy water works as an alternative."
+},
+"circular-saw": {
+"name": "Circular saw",
+"kind": "power-tool",
+"what": "A handheld power saw with a round blade for straight cuts in lumber and sheet goods.",
+"uses": [
+"Cutting deck boards to length",
+"Cutting lumber",
+"Trimming posts"
+],
+"tip": "Use a 24-tooth framing blade for lumber, and set the depth just ¼″ below the board."
+},
+"clamp": {
+"name": "Bar clamp",
+"kind": "tool",
+"what": "A clamp that holds parts tightly together while you fasten them.",
+"uses": [
+"Holding a post plumb",
+"Gluing",
+"Holding braces"
+],
+"tip": "Quick-grip one-handed clamps let you hold the part with the other hand."
+},
+"cleanout-cap": {
+"name": "Condensate cleanout cap / plug",
+"kind": "part",
+"what": "A slip cap or plug for the open top of a condensate vent tee, keeping debris out while allowing access.",
+"uses": [
+"Capping a condensate cleanout",
+"Replacing a lost cap",
+"Making future flushes easy"
+],
+"tip": "Push it on dry; never glue it, so you can open it for the next cleaning."
+},
+"cleat": {
+"name": "Joist cleat (sister block)",
+"kind": "material",
+"what": "A short length of treated 2× lumber screwed to the side of a joist to support a board end or reinforce damaged framing.",
+"uses": [
+"Supporting board ends",
+"Reinforcing joist tops",
+"Bridging a cut-out section"
+],
+"tip": "Use ground-contact treated lumber and pull it tight up against the underside of the decking before screwing."
+},
+"clip-fan": {
+"name": "Clip fan",
+"kind": "power-tool",
+"what": "A small oscillating fan that clamps onto a tent pole or shelf to move air around plants.",
+"uses": [
+"Air circulation over plants",
+"Strengthening stems",
+"Preventing mold pockets"
+],
+"tip": "Aim it so leaves gently flutter, not whip; constant blasting causes wind burn."
+},
+"closet-auger": {
+"name": "Closet auger",
+"kind": "tool",
+"what": "A crank auger with a bent, sleeved tube made to snake a toilet without scratching it.",
+"uses": [
+"Clearing stubborn toilet clogs",
+"Retrieving objects"
+],
+"tip": "Seat the bend fully in the outlet before cranking."
+},
+"closet-bolt": {
+"name": "Closet bolt",
+"kind": "fastener",
+"what": "Bolts with flat heads that slide into slots on the toilet flange and pass up through the toilet base to hold it down, with washers, nuts and caps.",
+"uses": [
+"Anchoring a toilet to the floor flange",
+"Replacing rusted toilet bolts"
+],
+"tip": "Buy solid brass bolts; zinc-plated steel rusts and becomes hard to remove later."
+},
+"cmos-battery": {
+"name": "CMOS battery",
+"kind": "part",
+"what": "A coin cell (usually CR2032) on the motherboard that keeps BIOS settings and the clock.",
+"uses": [
+"Resetting BIOS settings",
+"Fixing a lost clock",
+"Clearing a bad overclock"
+],
+"tip": "Pull it for a few minutes with the PC unplugged to clear settings; note which side faces up."
+},
+"coat-hook": {
+"name": "Wall hooks",
+"kind": "part",
+"what": "Screw-on metal hooks for hanging coats, bags and towels.",
+"uses": [
+"Hook rails",
+"Entry organization"
+],
+"tip": "Mount the rail into studs or use strong anchors, and use screws that come with the hooks."
+},
+"coco-coir": {
+"name": "Coco coir",
+"kind": "material",
+"what": "Shredded coconut husk fiber, usually sold as a compressed brick, that holds water and air well.",
+"uses": [
+"Mushroom bulk substrate",
+"Soil amendment",
+"Seed starting"
+],
+"tip": "A standard 650 g brick expands to about 8–10 liters when soaked."
+},
+"coil-cleaner": {
+"name": "Coil cleaner",
+"kind": "consumable",
+"what": "A foaming spray cleaner made for HVAC coils that loosens grease, pollen and dirt so it rinses out of the fins.",
+"uses": [
+"Cleaning outdoor condenser coils",
+"Cleaning evaporator coils",
+"Removing grime from fins before rinsing"
+],
+"tip": "Choose a non-acid, rinse-off formula for home units, let it sit the time on the label, and keep it off nearby plants."
+},
+"cold-chisel": {
+"name": "Cold chisel",
+"kind": "tool",
+"what": "A hardened steel chisel struck with a hammer to cut or chip concrete and metal.",
+"uses": [
+"Widening cracks",
+"Chipping concrete",
+"Removing loose material"
+],
+"tip": "Wear safety glasses; concrete chips fly."
+},
+"colored-tape": {
+"name": "Colored marking tape",
+"kind": "consumable",
+"what": "Small rolls of colored electrical tape used to label wires.",
+"uses": [
+"Marking the LINE pair on a GFCI",
+"Marking the 3-way common wire",
+"Re-identifying a white wire used as a hot"
+],
+"tip": "Mark the wire before you disconnect anything; it's too easy to lose track once wires are loose."
+},
+"combination-square": {
+"name": "Combination square",
+"kind": "measure",
+"what": "A ruler with a sliding head that marks square (90°) and 45° lines and measures depth.",
+"uses": [
+"Marking square cuts on boards",
+"Transferring measurements",
+"Checking that boards are square"
+],
+"tip": "A 12″ square covers most trim work; lock the head tight before marking."
+},
+"combination-wrench": {
+"name": "Combination wrench",
+"kind": "tool",
+"what": "A wrench with an open end and a box end of the same size.",
+"uses": [
+"Holding a nut while turning a bolt",
+"Tight spaces"
+],
+"tip": "Box end grips better; use the open end only where the box won't fit."
+},
+"common-nail": {
+"name": "Nail (8d or 16d)",
+"kind": "fastener",
+"what": "A plain steel nail; here it's used as a punch to tap hinge pins up from below.",
+"uses": [
+"Driving out hinge pins",
+"General fastening"
+],
+"tip": "Use a nail slimmer than the pin hole so it fits into the bottom of the hinge."
+},
+"compressed-air": {
+"name": "Compressed air duster",
+"kind": "consumable",
+"what": "A can (or electric blower) that shoots a stream of air to blow dust out of electronics.",
+"uses": [
+"Blowing dust off heatsinks and fans",
+"Cleaning keyboards and ports",
+"Dusting tight spaces"
+],
+"tip": "Hold cans upright and use short bursts; tilting them sprays freezing liquid propellant."
+},
+"concrete-crack-sealant": {
+"name": "Concrete crack sealant",
+"kind": "adhesive",
+"what": "A flexible sealant for cracks and joints in concrete, often a self-leveling polyurethane for flat surfaces.",
+"uses": [
+"Sealing driveway and walk cracks",
+"Expansion joints",
+"Patio cracks"
+],
+"tip": "Self-leveling flows into place on flat slabs; use non-sag on slopes or vertical faces."
+},
+"condensate-pan-tablet": {
+"name": "Condensate pan tablet",
+"kind": "consumable",
+"what": "A slow-dissolving tablet placed in the condensate pan to discourage algae and slime growth.",
+"uses": [
+"Preventing condensate line clogs",
+"Reducing pan odors",
+"Seasonal AC maintenance"
+],
+"tip": "Use only products labeled for HVAC drain pans; never mix them with bleach or other chemicals."
+},
+"construction-adhesive": {
+"name": "Construction adhesive",
+"kind": "adhesive",
+"what": "A heavy-bodied glue in a caulk tube that bonds wood, drywall and other building materials.",
+"uses": [
+"Gluing trim and battens to walls",
+"Bonding shims and blocking",
+"Subfloor repairs"
+],
+"tip": "Use a zigzag or dabs, not a heavy bead, on trim you might ever remove, and keep it away from visible edges."
+},
+"cooking-oil": {
+"name": "High-heat cooking oil",
+"kind": "consumable",
+"what": "Oil with a high smoke point, such as canola, used to season grates.",
+"uses": [
+"Seasoning grill grates",
+"Preventing sticking",
+"Rust prevention"
+],
+"tip": "Apply a thin coat with a folded paper towel held in tongs."
+},
+"cord-cover": {
+"name": "Cord cover raceway",
+"kind": "part",
+"what": "Paintable plastic channels that stick to the wall and hide surface cords.",
+"uses": [
+"Hiding sconce cords",
+"Neat cord routing"
+],
+"tip": "Paint it the wall color after installing so it disappears."
+},
+"corded-drill": {
+"name": "½″ corded drill",
+"kind": "power-tool",
+"what": "A high-torque drill with a ½″ chuck for large bits.",
+"uses": [
+"Driving auger and spade bits",
+"Mixing paddles",
+"Heavy drilling"
+],
+"tip": "Use the side handle; a large bit can twist the drill hard if it binds."
+},
+"cotton-swab": {
+"name": "Cotton swab",
+"kind": "consumable",
+"what": "A small cotton-tipped stick for detail cleaning.",
+"uses": [
+"Cleaning between fan blades",
+"Dabbing alcohol on contacts",
+"Detail cleaning in tight spots"
+],
+"tip": "Foam-tipped swabs shed fewer fibers inside electronics."
+},
+"court-paint": {
+"name": "Court paint",
+"kind": "material",
+"what": "Acrylic paint made for outdoor sports surfaces, available in colors and with texture for grip.",
+"uses": [
+"Painting court lines",
+"Recoating sports surfaces",
+"Patch blending"
+],
+"tip": "Apply when temperature is over 50 °F and no rain is expected for 24 hours."
+},
+"crack-filler": {
+"name": "Flexible crack filler",
+"kind": "material",
+"what": "An elastic acrylic or polyurethane compound that fills concrete or asphalt cracks and stretches as the slab moves.",
+"uses": [
+"Filling court cracks",
+"Driveway and patio cracks",
+"Sealing out water"
+],
+"tip": "Use a sport-surface acrylic filler if you'll coat over it; most cover cracks up to about ½″ wide."
+},
+"crevice-tool": {
+"name": "Vacuum crevice tool",
+"kind": "tool",
+"what": "A narrow vacuum attachment for tight spaces.",
+"uses": [
+"Under fridges and in coils",
+"Dryer lint trap slots",
+"Behind appliances"
+],
+"tip": "A flexible extension version reaches deeper under appliances."
+},
+"cup": {
+"name": "Plastic cup or pitcher",
+"kind": "tool",
+"what": "A small container for scooping water.",
+"uses": [
+"Bailing water out of a top-load tub"
+],
+"tip": "A large measuring cup with a handle bails fastest."
+},
+"cup-plunger": {
+"name": "Cup plunger",
+"kind": "tool",
+"what": "A plunger with a simple rubber cup and flat rim that seals on flat surfaces such as sinks and tubs.",
+"uses": [
+"Clearing kitchen and bathroom sink clogs",
+"Clearing tub drains"
+],
+"tip": "Add enough water to cover the cup so it pushes water, not air."
+},
+"cut-resistant-gloves": {
+"name": "Cut-resistant gloves",
+"kind": "safety",
+"what": "Gloves with fibers that resist cuts.",
+"uses": [
+"Handling mower blades",
+"Handling sheet metal",
+"Glass"
+],
+"tip": "Look for ANSI cut level A4 or higher."
+},
+"deck-board": {
+"name": "Deck board",
+"kind": "material",
+"what": "A pressure-treated, cedar or composite board used as the walking surface of a deck.",
+"uses": [
+"Replacing rotted boards",
+"New decking",
+"Stair treads"
+],
+"tip": "Buy one longer than needed and match thickness exactly (5/4×6 or 2×6); treated lumber shrinks as it dries."
+},
+"deck-brightener": {
+"name": "Deck brightener",
+"kind": "material",
+"what": "A mild acid (usually oxalic) rinse used after cleaning that neutralizes the cleaner and restores wood color.",
+"uses": [
+"Neutralizing cleaners",
+"Removing tannin and rust stains",
+"Prepping for stain"
+],
+"tip": "Apply it right after rinsing the cleaner, while the wood is still wet."
+},
+"deck-brush": {
+"name": "Deck brush on a pole",
+"kind": "tool",
+"what": "A stiff-bristled scrub brush on a long handle.",
+"uses": [
+"Scrubbing decks",
+"Scrubbing driveways",
+"Cleaning patios"
+],
+"tip": "Scrub with the grain; synthetic bristles stand up to cleaners."
+},
+"deck-cleaner": {
+"name": "Oxygen-bleach deck cleaner",
+"kind": "material",
+"what": "A deck cleaner based on sodium percarbonate that lifts dirt, mildew and gray weathered fibers without harming wood like chlorine bleach does.",
+"uses": [
+"Cleaning decks before staining",
+"Removing mildew",
+"Cleaning fences"
+],
+"tip": "Mix it with warm water and use it the same day; it loses strength after a few hours."
+},
+"deck-screw": {
+"name": "Deck screw",
+"kind": "fastener",
+"what": "A coated or stainless exterior screw made to fasten deck boards to joists without corroding treated lumber.",
+"uses": [
+"Fastening deck boards",
+"Attaching cleats",
+"Exterior wood projects"
+],
+"tip": "Use screws rated for ACQ/treated lumber (or stainless near salt water); length should be about 2½ times the board thickness."
+},
+"deck-stain": {
+"name": "Deck stain/sealer",
+"kind": "material",
+"what": "A penetrating finish that soaks into wood to repel water and block UV. Semi-transparent stains add color while showing grain.",
+"uses": [
+"Protecting decks",
+"Fences",
+"Wood siding"
+],
+"tip": "Penetrating semi-transparent finishes are easier to renew than solid or film-forming coatings, which peel."
 },
 "degreaser": {
 "name": "Bike degreaser",
@@ -102,6 +1118,109 @@ TB.ITEMS = {
 ],
 "tip": "Rinse and dry the chain completely before lubing; leftover degreaser thins the lube."
 },
+"dehumidifier": {
+"name": "Dehumidifier",
+"kind": "power-tool",
+"what": "An appliance that pulls moisture out of the air and collects it in a bucket or drain.",
+"uses": [
+"Lowering humidity during flowering",
+"Drying rooms",
+"Damp basements"
+],
+"tip": "A small 20–35 pint unit is enough for a tent room; set it outside the tent and let the fan draw the dry air in."
+},
+"descaling-solution": {
+"name": "Water heater descaler",
+"kind": "consumable",
+"what": "A commercial scale-removal solution (often citric or other mild acid based) made for tankless water heaters and boilers.",
+"uses": [
+"Descaling tankless heat exchangers",
+"Removing hard-water buildup in appliances",
+"Alternative to vinegar"
+],
+"tip": "Use the product your heater maker recommends and dispose of spent solution down a drain with plenty of water."
+},
+"diagonal-cutters": {
+"name": "Diagonal cutters",
+"kind": "tool",
+"what": "Pliers with angled cutting jaws for snipping wire and chain.",
+"uses": [
+"Trimming chain",
+"Cutting zip ties"
+],
+"tip": "Hold the scrap end so it does not fly off."
+},
+"digging-bar": {
+"name": "Digging bar",
+"kind": "tool",
+"what": "A heavy steel bar with a chisel or pointed end for breaking up hard soil, rock and old concrete.",
+"uses": [
+"Breaking old footings",
+"Loosening soil",
+"Prying posts"
+],
+"tip": "Let its weight do the work; drop it, don't swing it."
+},
+"dimmable-led-bulb": {
+"name": "Dimmable LED bulb",
+"kind": "part",
+"what": "An LED bulb designed to work smoothly with a dimmer. Non-dimmable LEDs flicker or buzz on dimmers.",
+"uses": [
+"Using with a new dimmer",
+"Replacing incandescent bulbs on dimmed circuits"
+],
+"tip": "Use the same brand and model in every socket on one dimmer for even dimming."
+},
+"dimmer-switch": {
+"name": "LED-rated (C·L) dimmer",
+"kind": "part",
+"what": "A switch that varies light brightness. C·L or LED-rated models are designed for dimmable LED and CFL bulbs; many have a trim adjustment for the low end.",
+"uses": [
+"Adding mood lighting",
+"Dimming LED fixtures",
+"Replacing an old incandescent-only dimmer"
+],
+"tip": "LED loads are rated lower than incandescent on the same dimmer; size it from the LED rating, and check the maker's bulb compatibility list."
+},
+"dish-soap": {
+"name": "Dish soap (degreasing)",
+"kind": "consumable",
+"what": "Ordinary liquid dish detergent that cuts grease and food residue.",
+"uses": [
+"Washing filters and lint screens",
+"Soaking range hood filters"
+],
+"tip": "A degreasing formula works best on kitchen grease."
+},
+"dishwasher-filter": {
+"name": "Replacement dishwasher filter",
+"kind": "part",
+"what": "The cylinder and flat mesh screen at the bottom of the tub, sold as replacement parts when cracked or torn.",
+"uses": [
+"Replacing a damaged filter assembly"
+],
+"tip": "Order by the dishwasher model number; filters vary even within a brand."
+},
+"disinfectant": {
+"name": "Disinfectant cleaner",
+"kind": "consumable",
+"what": "A cleaner that kills germs on surfaces.",
+"uses": [
+"Cleaning tools",
+"Wiping floors after toilet work"
+],
+"tip": "Follow dwell time on the label."
+},
+"dollar-bill": {
+"name": "Dollar bill or paper strip",
+"kind": "tool",
+"what": "A slip of paper used to test door gasket seal.",
+"uses": [
+"Testing fridge or freezer gaskets",
+"Checking oven door seals"
+],
+"tip": "Test all four sides, especially the hinge side corners where gaskets often fail."
+},
 "donor-vehicle": {
 "name": "Helper vehicle",
 "kind": "tool",
@@ -112,15 +1231,355 @@ TB.ITEMS = {
 ],
 "tip": "Check both are 12 V systems; never jump a car from a hybrid or EV unless its manual says it is allowed."
 },
-"drop-cloth": {
-"name": "Drop cloth or cardboard",
-"kind": "consumable",
-"what": "A cover laid on the floor to catch drips.",
+"downspout-extension": {
+"name": "Downspout extension",
+"kind": "part",
+"what": "A pipe or flexible extension that carries water from the downspout away from the foundation.",
 "uses": [
-"Catching lube and degreaser drips",
-"Protecting garage floors"
+"Moving water away from the house",
+"Directing water to drains",
+"Preventing basement leaks"
 ],
-"tip": "Flattened cardboard is free and soaks up oil."
+"tip": "Aim for at least 4 to 6 feet of discharge distance from the foundation."
+},
+"drain-hose": {
+"name": "Washer drain hose",
+"kind": "part",
+"what": "The corrugated rubber or plastic hose that carries water from the washer pump to the standpipe or sink.",
+"uses": [
+"Replacing a cracked or kinked hose"
+],
+"tip": "Use a U-shaped hose guide to hold the hose 6 to 8″ into the standpipe without pushing it deeper."
+},
+"drain-line-brush": {
+"name": "Flexible drain-line brush",
+"kind": "tool",
+"what": "A long, bendable brush that fits inside 3/4″ condensate pipe to scrub out slime and algae.",
+"uses": [
+"Scrubbing condensate lines",
+"Cleaning small drain pipes",
+"Clearing vent tees"
+],
+"tip": "Run it in from the cleanout tee toward the outlet, then flush with water."
+},
+"drain-pan": {
+"name": "Drain pan",
+"kind": "tool",
+"what": "A shallow container for catching fluids.",
+"uses": [
+"Catching old fuel",
+"Oil changes"
+],
+"tip": "Take old gas to a household hazardous waste site."
+},
+"drain-snake": {
+"name": "Small drain snake (hand auger)",
+"kind": "tool",
+"what": "A coiled steel cable you feed down a pipe and crank to break up or grab clogs.",
+"uses": [
+"Clearing a washer standpipe",
+"Clearing sink and tub drains"
+],
+"tip": "A 1/4″ x 25 ft drum auger fits a 2″ standpipe and reaches to the trap."
+},
+"drain-valve": {
+"name": "Water heater drain valve (replacement)",
+"kind": "part",
+"what": "The valve near the bottom of a tank water heater that lets you drain it; usually 3/4″ male pipe thread with a hose outlet.",
+"uses": [
+"Replacing a leaking or clogged plastic drain valve",
+"Upgrading to a full-port brass valve for better flushing",
+"Draining the tank"
+],
+"tip": "A full-port brass ball-valve style drain lets sediment out much better than the stock plastic valve; wrap its threads with PTFE tape."
+},
+"drill": {
+"name": "Cordless drill",
+"kind": "power-tool",
+"what": "A battery-powered tool that drills holes and drives screws.",
+"uses": [
+"Drilling holes",
+"Driving screws",
+"Using hole saws"
+],
+"tip": "Keep a spare charged battery for longer jobs."
+},
+"drill-bit": {
+"name": "Drill bits",
+"kind": "tool",
+"what": "Twist bits sized in fractions of an inch for drilling pilot and clearance holes.",
+"uses": [
+"Pilot holes for screws and lags",
+"Holes in wood and drywall",
+"Starting cuts"
+],
+"tip": "A pilot hole for a lag screw should be about 60 to 70 percent of the screw diameter."
+},
+"drill-bit-set": {
+"name": "Drill bit set",
+"kind": "tool",
+"what": "Assorted twist bits for drilling holes in wood, drywall, plastic and light metal.",
+"uses": [
+"Pilot holes for anchors",
+"Drilling mounting holes",
+"Enlarging wire openings"
+],
+"tip": "Match the bit to the size printed on the anchor package."
+},
+"drill-driver": {
+"name": "Cordless drill/driver",
+"kind": "power-tool",
+"what": "A battery-powered drill that bores holes and drives screws with adjustable clutch settings.",
+"uses": [
+"Drilling pilot holes for wall anchors",
+"Driving mounting screws",
+"General installs"
+],
+"tip": "Set the clutch low when driving into drywall anchors so you don't strip them."
+},
+"drip-pan-liner": {
+"name": "Drip pan liner",
+"kind": "part",
+"what": "A disposable aluminum tray that fits the grease pan to catch drippings.",
+"uses": [
+"Catching grease",
+"Easy cleanup",
+"Preventing grease fires"
+],
+"tip": "Replace it whenever it's half full to prevent grease fires."
+},
+"driveway-sealer": {
+"name": "Asphalt driveway sealer",
+"kind": "material",
+"what": "A thick black coating (asphalt emulsion or acrylic) spread over asphalt to block water, oil and UV.",
+"uses": [
+"Sealcoating driveways",
+"Restoring color",
+"Protecting asphalt"
+],
+"tip": "Apply above 50°F and rising, with no rain for 24–48 hours."
+},
+"drop-cloth": {
+"name": "Drop cloth",
+"kind": "consumable",
+"what": "A canvas or plastic sheet laid down to protect floors and furniture from dust, drips and spills.",
+"uses": [
+"Covering floors while painting",
+"Catching sanding dust",
+"Protecting furniture"
+],
+"tip": "Canvas won't slip and absorbs drips; plastic sheeting is better for wet messes but is slippery underfoot."
+},
+"dry-erase-marker": {
+"name": "Lipstick or dry-erase marker",
+"kind": "tool",
+"what": "A soft marking material that transfers onto the strike plate to show where the latch hits.",
+"uses": [
+"Locating latch contact on a strike",
+"Marking rub points"
+],
+"tip": "A dab of toothpaste or chalk works too; you just need something that transfers on contact."
+},
+"dryer-vent-brush": {
+"name": "Dryer vent brush kit",
+"kind": "tool",
+"what": "A round brush on flexible extension rods (often 10 to 20 ft) that can be spun by a drill to scrub lint out of a vent duct, plus a smaller brush for the lint trap slot.",
+"uses": [
+"Cleaning the wall vent pipe",
+"Cleaning the lint trap cavity",
+"Clearing the outdoor hood"
+],
+"tip": "Spin it clockwise only so the rod sections don't unscrew and get stuck in the duct."
+},
+"drying-rack": {
+"name": "Drying line or rack",
+"kind": "tool",
+"what": "A string line, hangers or a mesh hanging rack used to dry cut plants in open air.",
+"uses": [
+"Drying harvested plants",
+"Herbs",
+"Small laundry items"
+],
+"tip": "Space branches so they don't touch, and keep the drying area dark with gentle air movement, not a fan blowing directly on them."
+},
+"drywall-anchor": {
+"name": "Drywall anchor",
+"kind": "fastener",
+"what": "A plastic or metal insert that expands inside drywall so a screw holds firmly where there's no stud.",
+"uses": [
+"Mounting a thermostat base",
+"Hanging light fixtures and shelves",
+"Mounting small brackets"
+],
+"tip": "Ribbed plastic anchors are fine for light items like thermostats; use the screws supplied with the device."
+},
+"drywall-saw": {
+"name": "Drywall saw",
+"kind": "tool",
+"what": "A pointed, coarse-toothed hand saw (jab saw) for cutting openings in drywall.",
+"uses": [
+"Cutting box openings",
+"Cutting holes for cable"
+],
+"tip": "Cut shallow and feel for obstructions; check for wires and pipes before cutting."
+},
+"drywall-screw": {
+"name": "Drywall screws",
+"kind": "fastener",
+"what": "Bugle-head screws designed to dimple drywall paper without tearing it.",
+"uses": [
+"Fastening drywall to studs",
+"Locking popped drywall",
+"Attaching patch backers"
+],
+"tip": "1¼″ coarse-thread screws are standard for ½″ drywall on wood studs; fine thread is for metal studs."
+},
+"drywall-screw-setter": {
+"name": "Drywall screw-setter bit",
+"kind": "tool",
+"what": "A driver bit with a depth collar that stops the screw just below the surface.",
+"uses": [
+"Driving drywall screws to the perfect depth"
+],
+"tip": "It prevents breaking the paper, which ruins holding power."
+},
+"duct-clamp": {
+"name": "Duct clamp",
+"kind": "fastener",
+"what": "A 4″ worm-drive or spring band clamp that secures a duct to the dryer outlet and wall pipe.",
+"uses": [
+"Attaching dryer transition duct",
+"Sealing duct connections"
+],
+"tip": "Worm-drive clamps tighten with a nut driver and hold better than spring clamps that loosen over time."
+},
+"duct-tape": {
+"name": "Duct tape",
+"kind": "adhesive",
+"what": "A strong cloth-backed tape that sticks to most surfaces and is easy to tear by hand.",
+"uses": [
+"Sealing a vac hose to a drain pipe",
+"Temporary repairs",
+"Bundling items"
+],
+"tip": "For sealing actual ductwork seams, use foil HVAC tape or mastic instead; cloth duct tape dries out on ducts."
+},
+"ducting": {
+"name": "Flexible ducting",
+"kind": "part",
+"what": "Bendable foil or insulated tube that carries air from the fan out of the tent or room.",
+"uses": [
+"Venting exhaust air",
+"Connecting fans and filters",
+"Dryer and range-hood venting"
+],
+"tip": "Keep runs short and straight; every sharp bend cuts airflow noticeably."
+},
+"dust-mask": {
+"name": "Dust mask / N95 respirator",
+"kind": "safety",
+"what": "A disposable mask that filters fine dust and particles out of the air you breathe.",
+"uses": [
+"Handling dusty filters",
+"Blowing out dusty electronics",
+"Sanding and sweeping"
+],
+"tip": "Look for an N95 rating and pinch the metal nose strip so it seals around your nose."
+},
+"dye-tablets": {
+"name": "Toilet dye tablets",
+"kind": "consumable",
+"what": "Food coloring or toilet dye tablets dropped into the tank to reveal slow, silent leaks into the bowl.",
+"uses": [
+"Testing whether a flapper leaks",
+"Checking a repair afterward"
+],
+"tip": "Wait 15 minutes without flushing."
+},
+"edger": {
+"name": "Lawn edger or string trimmer",
+"kind": "power-tool",
+"what": "A tool that trims grass along edges.",
+"uses": [
+"Trimming grass from driveway edges",
+"Clean edges for sealing"
+],
+"tip": "Edge before sealing so you can coat the full width."
+},
+"edging-tape": {
+"name": "Edging tape",
+"kind": "consumable",
+"what": "Wide masking tape that protects adjacent surfaces from sealer.",
+"uses": [
+"Masking concrete edges",
+"Protecting walks and garage slabs"
+],
+"tip": "Pull it while the sealer is still wet."
+},
+"electric-duster": {
+"name": "Electric air duster",
+"kind": "power-tool",
+"what": "A rechargeable or corded blower that replaces canned air for cleaning electronics.",
+"uses": [
+"Blowing out PC cases and heatsinks",
+"Cleaning keyboards",
+"Dusting shelves and vents"
+],
+"tip": "Do it outdoors or in the garage so dust doesn't resettle indoors."
+},
+"electrical-tape": {
+"name": "Electrical tape",
+"kind": "consumable",
+"what": "Stretchy vinyl insulating tape rated for wiring.",
+"uses": [
+"Marking wires (hot, line, common)",
+"Wrapping device sides",
+"Securing wire nut splices on fixtures with vibration"
+],
+"tip": "Colored tape is the standard way to re-mark a wire's purpose, such as red for a switched hot."
+},
+"element-gasket": {
+"name": "Element gasket",
+"kind": "part",
+"what": "The rubber ring that seals a screw-in element against the tank fitting.",
+"uses": [
+"Sealing a new element",
+"Fixing a weeping element"
+],
+"tip": "Always use a new gasket and seat it squarely before threading the element by hand."
+},
+"element-wrench": {
+"name": "Water heater element wrench",
+"kind": "tool",
+"what": "A thin-walled 1-1/2″ socket wrench designed to unscrew and install screw-in water heater elements.",
+"uses": [
+"Removing and installing water heater elements",
+"Reaching elements recessed in the tank shell",
+"Breaking loose corroded elements"
+],
+"tip": "Thin-walled sockets that take a 1/2″ ratchet or breaker bar give much more leverage than stamped wrenches."
+},
+"emery-cloth": {
+"name": "Fine emery cloth",
+"kind": "consumable",
+"what": "A flexible cloth-backed abrasive strip used to polish metal and remove oxidation.",
+"uses": [
+"Cleaning a furnace flame sensor rod",
+"Polishing copper before soldering",
+"Removing light corrosion"
+],
+"tip": "Use a fine grit (around 320 or finer) and light pressure; you only want to remove the dull film, not metal."
+},
+"end-grain-sealer": {
+"name": "End-grain sealer",
+"kind": "material",
+"what": "A brush-on preservative or sealer for cut ends of treated lumber, where the treatment doesn't fully reach.",
+"uses": [
+"Sealing cut ends",
+"Protecting post tops",
+"Field-treating notches and holes"
+],
+"tip": "Use a copper naphthenate preservative on cuts in treated wood; most lumber treatment doesn't penetrate to the core."
 },
 "engine-coolant": {
 "name": "Engine coolant (antifreeze)",
@@ -132,16 +1591,335 @@ TB.ITEMS = {
 ],
 "tip": "Use the type the manual specifies, usually premixed 50/50; never open a hot radiator cap."
 },
-"flashlight": {
-"name": "Flashlight or headlamp",
-"kind": "tool",
-"what": "A portable light; a headlamp keeps both hands free.",
+"engine-oil": {
+"name": "Small-engine oil",
+"kind": "material",
+"what": "Oil formulated for small 4-stroke engines.",
 "uses": [
-"Finding battery terminals and jack points",
-"Roadside work at night",
-"Reading reservoir marks"
+"Changing mower oil",
+"Oiling foam filters"
 ],
-"tip": "A headlamp beats a flashlight for any job that needs two hands."
+"tip": "SAE 30 is common for summer; check the manual."
+},
+"ethernet-cable": {
+"name": "Ethernet cable",
+"kind": "part",
+"what": "A network cable with RJ45 plugs (Cat 5e or Cat 6) for wired connections.",
+"uses": [
+"Connecting a computer directly to the router for testing",
+"Linking modem and router",
+"Wiring TVs and consoles"
+],
+"tip": "Plug a laptop directly into the router to test; if wired speed is fine, the problem is the Wi-Fi."
+},
+"extension-cord": {
+"name": "Extension cord",
+"kind": "power-tool",
+"what": "An insulated cord that carries power from an outlet to tools and heaters farther away.",
+"uses": [
+"Powering a hair dryer or heater near a pipe",
+"Running tools in a crawlspace"
+],
+"tip": "Use a heavy-duty grounded cord plugged into a GFCI outlet around water."
+},
+"extension-ladder": {
+"name": "Extension ladder",
+"kind": "tool",
+"what": "A two-section ladder that slides out to reach roofs and gutters. It leans against the house and locks at the height you need.",
+"uses": [
+"Reaching gutters and eaves",
+"Getting onto a roof",
+"Second-story exterior work"
+],
+"tip": "Pick one that extends at least 3 feet above the roof edge and has a Type I or IA duty rating (250-300 lb). Set the base 1 foot out for every 4 feet of height."
+},
+"extension-pole": {
+"name": "Extension pole",
+"kind": "tool",
+"what": "A threaded pole that attaches to a roller, brush or pad so you can work standing.",
+"uses": [
+"Staining decks",
+"Rolling paint",
+"Scrubbing"
+],
+"tip": "A 2–4 ft adjustable pole is plenty for decks."
+},
+"exterior-screw": {
+"name": "Exterior wood screw",
+"kind": "fastener",
+"what": "A coated or stainless steel screw that resists rust outdoors.",
+"uses": [
+"Fastening braces",
+"Gate hardware",
+"General outdoor wood projects"
+],
+"tip": "Use the coated kind rated for treated lumber."
+},
+"fabric-pot": {
+"name": "Fabric pot",
+"kind": "part",
+"what": "A breathable felt-like grow bag with handles that lets roots get air and drain freely.",
+"uses": [
+"Container growing",
+"Vegetables on patios",
+"Indoor plants"
+],
+"tip": "Set it on a saucer or tray with a riser so it doesn't sit in runoff water."
+},
+"face-mask": {
+"name": "Face mask",
+"kind": "safety",
+"what": "A disposable mask or respirator worn over nose and mouth.",
+"uses": [
+"Reducing contamination from breath",
+"Dust protection",
+"Spore and mold protection"
+],
+"tip": "For sterile work a surgical-style mask works; for dust use an N95."
+},
+"fall-protection-kit": {
+"name": "Roof fall-protection kit",
+"kind": "safety",
+"what": "A personal fall arrest system: full-body harness, shock-absorbing lanyard or rope grab with lifeline, and a roof anchor screwed into the roof framing.",
+"uses": [
+"Working on a pitched roof",
+"Any roof work above 6 feet",
+"Gutter work from the roof"
+],
+"tip": "Screw the anchor through the sheathing into a rafter or truss with the specified screws, and keep the rope short enough that you can't reach the edge."
+},
+"fan-brace": {
+"name": "Fan-rated expanding brace with box",
+"kind": "part",
+"what": "A telescoping metal bar that fits through the ceiling hole and spins outward to lock between joists, with a fan-rated box that hangs from it.",
+"uses": [
+"Supporting a fan where there is no joist",
+"Replacing a light-only box"
+],
+"tip": "Look for \"Acceptable for fan support\" and a weight rating (often up to 35 to 70 lb) stamped on the box."
+},
+"fast-setting-concrete": {
+"name": "Fast-setting concrete mix",
+"kind": "material",
+"what": "A bagged concrete mix that sets in about 20–40 minutes; you pour it dry into a post hole and add water.",
+"uses": [
+"Setting fence and mailbox posts",
+"Quick repairs",
+"Footings for light loads"
+],
+"tip": "Plan about two 50-lb bags per typical fence post hole; wait 4 hours before loading the post."
+},
+"faucet-ball": {
+"name": "Replacement faucet ball",
+"kind": "part",
+"what": "The slotted metal or plastic ball inside a single-handle ball faucet. Turning the handle rotates it to line up its holes with the hot and cold inlets.",
+"uses": [
+"Replacing a scratched or corroded ball",
+"Restoring smooth handle movement",
+"Fixing drips the seats alone did not cure"
+],
+"tip": "Stainless steel balls outlast plastic."
+},
+"faucet-seat": {
+"name": "Replacement valve seat",
+"kind": "part",
+"what": "The brass ring in a compression faucet that the washer presses against to shut off water.",
+"uses": [
+"Replacing pitted seats",
+"Stopping drips that return after washer changes"
+],
+"tip": "Bring the old seat to match its thread and height."
+},
+"faucet-washer-assortment": {
+"name": "Faucet washer and O-ring assortment",
+"kind": "part",
+"what": "A kit of rubber washers, O-rings and brass screws in many sizes for compression faucets.",
+"uses": [
+"Replacing worn stem washers",
+"Replacing stem O-rings",
+"Fixing drips in two-handle faucets"
+],
+"tip": "Match flat or beveled shape and size against the old washer."
+},
+"fence-post": {
+"name": "Fence post",
+"kind": "material",
+"what": "A ground-contact pressure-treated wood post (often 4×4) that supports fence panels.",
+"uses": [
+"Replacing rotted posts",
+"New fence lines",
+"Gate posts"
+],
+"tip": "Buy lumber stamped for ground contact (UC4A or higher)."
+},
+"fin-comb": {
+"name": "Fin comb",
+"kind": "tool",
+"what": "A small plastic or metal comb with teeth sized to the fin spacing of an AC coil, used to straighten bent fins.",
+"uses": [
+"Straightening crushed condenser fins",
+"Restoring airflow through a coil",
+"Cleaning debris from between fins"
+],
+"tip": "Count the fins per inch on your coil and use the matching side of a multi-size comb; work slowly with the fins, never across them."
+},
+"finish-nail": {
+"name": "Finish nail",
+"kind": "fastener",
+"what": "A small-headed nail used for trim or, here, to probe a wall and confirm a stud.",
+"uses": [
+"Confirming stud location",
+"Fastening light trim"
+],
+"tip": "Probe only where the bracket or trim will hide the hole."
+},
+"fire-starter": {
+"name": "Fire starter",
+"kind": "consumable",
+"what": "Manufactured or homemade cubes, sticks or cotton balls that burn hot for several minutes to help light damp wood.",
+"uses": [
+"Lighting campfires",
+"Wet-weather fires",
+"Charcoal grills"
+],
+"tip": "Petroleum-jelly cotton balls in a pill bottle are cheap and burn several minutes each."
+},
+"firewood": {
+"name": "Firewood",
+"kind": "material",
+"what": "Dry split logs, wrist thick and up, that keep a fire going.",
+"uses": [
+"Campfires",
+"Fireplaces",
+"Wood stoves"
+],
+"tip": "Buy it where you burn it; moving firewood spreads tree-killing insects."
+},
+"fish-tape": {
+"name": "Fish tape",
+"kind": "tool",
+"what": "A flexible steel or fiberglass tape pushed through walls to pull wires and cables.",
+"uses": [
+"Pulling cable between wall openings",
+"Routing wires past obstacles"
+],
+"tip": "Fiberglass tape is non-conductive and safer near live wiring."
+},
+"five-gallon-bucket": {
+"name": "5-gallon bucket",
+"kind": "tool",
+"what": "A heavy-duty 5-gallon plastic pail.",
+"uses": [
+"Holding descaling solution and the pump",
+"Collecting drain water",
+"Mixing and carrying materials"
+],
+"tip": "Food-grade or new buckets avoid contaminating the solution with old residue."
+},
+"flag-marker": {
+"name": "Marking flags",
+"kind": "consumable",
+"what": "Small flags to mark buried lines and heads.",
+"uses": [
+"Marking heads",
+"Marking lines"
+],
+"tip": "Call 811 before digging deeper than a few inches."
+},
+"flame-sensor": {
+"name": "Furnace flame sensor",
+"kind": "part",
+"what": "A metal rod with a porcelain base placed in the burner flame; it proves to the control board that the gas has lit.",
+"uses": [
+"Replacing a cracked or worn sensor",
+"Fixing repeated short-cycling",
+"Keeping a spare for winter"
+],
+"tip": "Buy the part that matches the furnace model and sensor shape; if cleaning works only for a few weeks, replacing it is the better fix."
+},
+"flange-plunger": {
+"name": "Flange plunger",
+"kind": "tool",
+"what": "A plunger with an extra fold-out rubber sleeve (flange) below the cup that fits into a toilet’s outlet and makes a tight seal.",
+"uses": [
+"Clearing toilet clogs",
+"Clearing floor drains"
+],
+"tip": "Fold the flange up inside the cup and it works as a sink plunger too."
+},
+"flapper-chain": {
+"name": "Flapper chain",
+"kind": "part",
+"what": "The chain linking the flush handle arm to the flapper.",
+"uses": [
+"Lifting the flapper",
+"Adjusting flush"
+],
+"tip": "Leave about 1/2″ of slack."
+},
+"flashlight": {
+"name": "Flashlight / work light",
+"kind": "tool",
+"what": "A bright handheld or clamp light for seeing into dark spaces and inspecting surfaces.",
+"uses": [
+"Raking light across patches to spot ridges",
+"Inspecting joists from below",
+"Looking inside cabinets and walls"
+],
+"tip": "Hold the light almost flat against a wall; low-angle light exposes every bump and ridge."
+},
+"flat-bar": {
+"name": "Flat pry bar",
+"kind": "tool",
+"what": "A thin, flat steel bar with a beveled notched end that slides under nails, trim and shingles to lift them.",
+"uses": [
+"Breaking shingle seal strips",
+"Pulling nails",
+"Removing trim and deck boards"
+],
+"tip": "A wide, thin roofing bar (or shingle ripper) slides under tabs without tearing them; warm the shingle in the sun first."
+},
+"flat-screwdriver": {
+"name": "Flat screwdriver",
+"kind": "tool",
+"what": "A screwdriver with a flat, wedge-shaped tip for slotted screws, also handy for prying small caps.",
+"uses": [
+"Prying off index and decorative caps",
+"Turning slotted screws",
+"Adjusting fill-valve screws"
+],
+"tip": "Keep a small one for caps and a medium one for screws."
+},
+"flathead-screwdriver": {
+"name": "Flathead screwdriver",
+"kind": "tool",
+"what": "A screwdriver with a single flat blade for slotted screws, also handy for gentle prying.",
+"uses": [
+"Removing slotted wall plate screws",
+"Tightening slotted terminal screws",
+"Prying open access panels"
+],
+"tip": "Match the blade width to the screw slot so it doesn't slip and gouge the plate."
+},
+"floating-media-shelf": {
+"name": "Floating media shelf",
+"kind": "part",
+"what": "A wall-mounted glass or wood shelf for streaming boxes or consoles.",
+"uses": [
+"Holding devices below the TV",
+"Tidy component storage"
+],
+"tip": "Mount it into studs or with the specified anchors, and check its weight rating."
+},
+"floating-shelf-bracket": {
+"name": "Hidden floating shelf bracket",
+"kind": "part",
+"what": "A steel bar with rods that mounts to studs and slides into holes in a shelf so no hardware shows.",
+"uses": [
+"Mounting floating shelves",
+"Hidden support for heavy shelves"
+],
+"tip": "Choose a bracket rated for your load and long enough to hit at least two studs."
 },
 "floor-pump": {
 "name": "Floor pump with gauge",
@@ -153,15 +1931,152 @@ TB.ITEMS = {
 ],
 "tip": "Choose a dual head that fits both valve types; a mini pump or CO2 inflator is the on-ride option."
 },
+"flush-valve-seat-repair-kit": {
+"name": "Flush valve seat repair kit",
+"kind": "part",
+"what": "A kit with a new stainless or plastic seat ring that bonds over a pitted toilet flush valve seat with waterproof adhesive, plus a matching flapper. It avoids removing the tank.",
+"uses": [
+"Fixing leaks when a new flapper alone does not seal",
+"Repairing corroded brass flush valve seats"
+],
+"tip": "Clean and dry the old seat thoroughly before gluing."
+},
+"foil-tape": {
+"name": "Aluminum foil tape",
+"kind": "adhesive",
+"what": "Metal-foil tape with heat-resistant adhesive, for sealing duct joints.",
+"uses": [
+"Sealing dryer duct joints",
+"Sealing HVAC duct seams"
+],
+"tip": "Choose UL 181 listed foil tape; cloth duct tape dries out and falls off in heat."
+},
+"food-dehydrator": {
+"name": "Food dehydrator",
+"kind": "power-tool",
+"what": "An appliance with a heater, fan and stacked trays that dries food at low, controlled temperatures.",
+"uses": [
+"Drying mushrooms",
+"Drying herbs and fruit",
+"Making jerky"
+],
+"tip": "Pick one with an adjustable thermostat so you can stay under 160 °F."
+},
+"fuel-stabilizer": {
+"name": "Fuel stabilizer",
+"kind": "material",
+"what": "An additive that keeps gasoline from breaking down and gumming up carburetors.",
+"uses": [
+"Storing fuel",
+"Off-season storage"
+],
+"tip": "Run the engine a few minutes after adding stabilizer so it reaches the carburetor."
+},
 "funnel": {
 "name": "Funnel",
 "kind": "tool",
-"what": "A cone that guides liquid into a narrow opening without spilling.",
+"what": "A cone with a narrow spout for pouring liquid into small openings without spilling.",
 "uses": [
-"Adding oil",
-"Adding coolant or washer fluid"
+"Pouring vinegar into a condensate cleanout",
+"Adding fluids to equipment",
+"Filling bottles"
 ],
-"tip": "Keep separate funnels for oil and coolant to avoid cross-contamination."
+"tip": "A funnel with a flexible extension reaches awkward vent tees behind ducts."
+},
+"furnace-filter": {
+"name": "Furnace / AC air filter",
+"kind": "part",
+"what": "A pleated or fiberglass panel that slides into the return-air path to catch dust before it reaches the blower and coil. Sized by length × width × depth and rated by MERV for how fine a particle it traps.",
+"uses": [
+"Protecting the blower and AC coil from dust",
+"Improving indoor air quality",
+"Keeping airflow and efficiency up"
+],
+"tip": "Buy the nominal size printed on the old frame and match the depth exactly; MERV 8 to 11 suits most 1″ slots, while higher MERV ratings belong in 4″ to 5″ media cabinets."
+},
+"gap-gauge": {
+"name": "Spark plug gap gauge",
+"kind": "measure",
+"what": "A tool to measure and set the gap between plug electrodes.",
+"uses": [
+"Setting spark plug gap",
+"Checking gaps"
+],
+"tip": "Wire gauges are more accurate than coin gauges."
+},
+"gap-spacer": {
+"name": "Gap spacer (16d nail)",
+"kind": "tool",
+"what": "Anything of consistent thickness, often a 16d nail, placed between boards to keep an even gap.",
+"uses": [
+"Spacing deck boards",
+"Setting gaps on fences",
+"Consistent siding gaps"
+],
+"tip": "Wet treated boards shrink; butt them tight or near-tight if they're soaking wet."
+},
+"garden-hose": {
+"name": "Garden hose",
+"kind": "tool",
+"what": "A flexible water hose with standard garden-hose threads on each end.",
+"uses": [
+"Rinsing outdoor AC coils",
+"Draining a water heater to a floor drain or outside",
+"Flushing appliances and yards"
+],
+"tip": "Rubber hoses tolerate hot water far better than thin vinyl ones, which can soften and kink when draining a water heater."
+},
+"gas-can": {
+"name": "Gas can",
+"kind": "tool",
+"what": "An approved container for storing and pouring gasoline.",
+"uses": [
+"Storing fuel",
+"Refilling mowers"
+],
+"tip": "Keep it away from the house and below 5 gallons."
+},
+"gasoline": {
+"name": "Fresh gasoline",
+"kind": "material",
+"what": "Unleaded gasoline for small engines.",
+"uses": [
+"Fueling mowers",
+"Trimmers and blowers"
+],
+"tip": "Buy only what you'll use in 30 days and add stabilizer; ethanol-free is best for small engines."
+},
+"gate-hinge": {
+"name": "Heavy-duty gate hinge",
+"kind": "part",
+"what": "A strap or T-hinge sized to carry the gate's weight.",
+"uses": [
+"Replacing weak hinges",
+"Fixing sagging gates"
+],
+"tip": "Use three hinges on tall or heavy gates."
+},
+"gfci-receptacle": {
+"name": "GFCI receptacle",
+"kind": "part",
+"what": "An outlet with TEST/RESET buttons that cuts power in a fraction of a second if current leaks to ground, protecting people from shock. Can protect downstream outlets via LOAD terminals.",
+"uses": [
+"Kitchens, baths, laundry, garages, outdoors",
+"Protecting a whole run of outlets",
+"Adding protection to ungrounded circuits"
+],
+"tip": "Outdoors or in damp spots buy a weather-resistant (WR) and TR model, and never connect incoming power to LOAD or it won't protect."
+},
+"gfci-sticker": {
+"name": "\"GFCI Protected Outlet\" sticker",
+"kind": "consumable",
+"what": "Small labels (usually in the GFCI box) placed on downstream outlets protected by a GFCI.",
+"uses": [
+"Marking outlets fed from a GFCI LOAD side",
+"Helping future troubleshooting",
+"Meeting code labeling expectations"
+],
+"tip": "Plug a tester into each downstream outlet and press the GFCI TEST to confirm which ones it really protects before labeling."
 },
 "glass-cleaner": {
 "name": "Glass cleaner",
@@ -173,16 +2088,578 @@ TB.ITEMS = {
 ],
 "tip": "Rubbing alcohol on a rag also cleans grime off the new blade's rubber edge."
 },
-"hex-key-set": {
-"name": "Hex key set",
-"kind": "tool",
-"what": "L-shaped Allen wrenches in metric sizes (commonly 2 to 10 mm) for bike bolts.",
+"glass-jar": {
+"name": "Glass jar",
+"kind": "part",
+"what": "A wide-mouth glass jar with an airtight lid.",
 "uses": [
-"Brake caliper and pad bolts",
-"Seat and stem bolts",
-"Through-axles"
+"Curing and storing dried plants",
+"Grain spawn",
+"Pantry storage"
 ],
-"tip": "Ball-end keys reach at angles but use the short straight end for final tightening."
+"tip": "Fill only about three-quarters full so there's air to vent moisture."
+},
+"gloves-disposable": {
+"name": "Disposable nitrile gloves",
+"kind": "safety",
+"what": "Thin single-use gloves.",
+"uses": [
+"Handling dirty filters and debris",
+"Messy cleaning"
+],
+"tip": "Nitrile is tougher and less allergenic than latex."
+},
+"glue-syringe": {
+"name": "Glue syringe",
+"kind": "tool",
+"what": "A plastic syringe that injects glue deep into joints and cracks.",
+"uses": [
+"Getting glue into tight joints",
+"Injecting glue into loose rungs"
+],
+"tip": "Thin PVA slightly with water if it won't flow through the tip, and clean it right after use."
+},
+"grain-spawn-bag": {
+"name": "Sterilized grain bag",
+"kind": "material",
+"what": "A sealed autoclave bag of pre-sterilized grain such as rye or millet with a filter patch and injection port.",
+"uses": [
+"Growing mushroom spawn",
+"Inoculating with culture",
+"Expanding spawn"
+],
+"tip": "Buy bags with a self-healing injection port and use them within a few weeks."
+},
+"gravel": {
+"name": "Gravel (crushed stone)",
+"kind": "material",
+"what": "Crushed stone used as a draining base under posts, slabs and pavers.",
+"uses": [
+"Drainage under posts",
+"Sub-base for slabs",
+"Backfill"
+],
+"tip": "Compact it with the end of a 2×4 or the post itself."
+},
+"grill-brush": {
+"name": "Stainless grill brush",
+"kind": "tool",
+"what": "A stiff stainless-steel brush for scrubbing grates and burner tubes.",
+"uses": [
+"Scrubbing grates",
+"Brushing burner tubes",
+"Cleaning cookbox walls"
+],
+"tip": "If you use a wire brush on grates, inspect them afterward for loose bristles."
+},
+"grill-degreaser": {
+"name": "Grill degreaser",
+"kind": "consumable",
+"what": "A cleaner formulated to dissolve baked-on grease and food residue.",
+"uses": [
+"Cleaning cookboxes",
+"Washing grates",
+"Grease trays"
+],
+"tip": "Use one labeled food-safe for grills and rinse well."
+},
+"grill-regulator": {
+"name": "Grill regulator and hose",
+"kind": "part",
+"what": "The hose and regulator that connect a propane tank to the grill and reduce tank pressure to burner pressure.",
+"uses": [
+"Replacing a failed regulator",
+"Fixing persistent low flame",
+"Upgrading hoses"
+],
+"tip": "If the flame stays low after two proper resets, replace the regulator with one matched to your grill model."
+},
+"grill-scraper": {
+"name": "Grill scraper",
+"kind": "tool",
+"what": "A wooden or metal scraper or bristle-free brush for removing burnt-on food from grates.",
+"uses": [
+"Scraping grates",
+"Removing carbon buildup",
+"Cleaning cookboxes"
+],
+"tip": "Bristle-free tools avoid the risk of wire bristles ending up in food."
+},
+"ground-screw": {
+"name": "Green grounding screw",
+"kind": "fastener",
+"what": "A green 10-32 machine screw that attaches the ground wire to a metal box or mounting strap.",
+"uses": [
+"Grounding a metal box",
+"Grounding a fixture strap"
+],
+"tip": "Metal boxes have a tapped 10-32 hole for this screw; don't substitute a drywall screw."
+},
+"grout": {
+"name": "Grout",
+"kind": "material",
+"what": "A cement-based or premixed filler that fills the joints between tiles.",
+"uses": [
+"Regrouting tile floors and walls",
+"Filling joints after tiling"
+],
+"tip": "Use sanded grout for joints ⅛″ and wider, unsanded for narrower joints; bring a chip of old grout to match color."
+},
+"grout-float": {
+"name": "Rubber grout float",
+"kind": "tool",
+"what": "A flat rubber-faced trowel for pressing grout into joints and scraping off excess.",
+"uses": [
+"Packing grout into joints",
+"Removing excess grout"
+],
+"tip": "Hold it at 45° to pack, then nearly on edge, diagonal to the joints, to scrape off."
+},
+"grout-saw": {
+"name": "Grout saw",
+"kind": "tool",
+"what": "A hand tool with a carbide-grit blade for scraping old grout out of joints.",
+"uses": [
+"Removing grout by hand",
+"Cleaning out corners"
+],
+"tip": "Keep the blade centered in the joint and use short strokes to avoid scratching tile."
+},
+"grout-sealer": {
+"name": "Penetrating grout sealer",
+"kind": "material",
+"what": "A clear liquid that soaks into grout and helps it resist water and stains.",
+"uses": [
+"Sealing new grout",
+"Resealing old grout"
+],
+"tip": "Wait the cure time on the grout bag (often 48 to 72 hours) before sealing; wipe sealer off tile faces promptly."
+},
+"grout-sponge": {
+"name": "Grout sponge",
+"kind": "consumable",
+"what": "A dense, rounded-edge sponge that cleans grout off tile without digging it out of joints.",
+"uses": [
+"Wiping grout haze",
+"Shaping grout joints"
+],
+"tip": "Wring it until barely damp; too much water weakens and lightens the grout."
+},
+"grow-glasses": {
+"name": "LED grow glasses",
+"kind": "safety",
+"what": "Tinted glasses that cut the glare and color cast of strong grow lights.",
+"uses": [
+"Working under grow lights",
+"Inspecting plants for problems",
+"Protecting eyes from intense LED light"
+],
+"tip": "Wear them any time you work under the light at full power."
+},
+"grow-tent": {
+"name": "Grow tent",
+"kind": "tool",
+"what": "A lightproof fabric box on a metal frame, lined with reflective Mylar, with zippered doors and duct ports. It gives plants a controlled space for light, air and humidity indoors.",
+"uses": [
+"Indoor plant growing",
+"Containing odor and light",
+"Seed starting and drying"
+],
+"tip": "Buy a size that fits your room with a foot to spare on top; a 2x2 or 3x3 ft by 5–6 ft tall tent suits one or two plants."
+},
+"gutter-scoop": {
+"name": "Gutter scoop",
+"kind": "tool",
+"what": "A narrow plastic scoop shaped to fit inside a gutter for scooping out leaves and muck.",
+"uses": [
+"Cleaning gutters",
+"Clearing downspout openings",
+"Scraping sludge"
+],
+"tip": "Plastic won't scratch aluminum gutters; a flexible one bends into K-style corners."
+},
+"gutter-screw": {
+"name": "Gutter hanger screw",
+"kind": "fastener",
+"what": "A long screw used with hidden hangers to hold gutters to the fascia.",
+"uses": [
+"Re-securing sagging gutters",
+"Replacing loose spikes",
+"Installing new hangers"
+],
+"tip": "Replace old spike-and-ferrule fasteners with hidden hangers and screws for much better holding."
+},
+"gutter-sealant": {
+"name": "Gutter sealant",
+"kind": "adhesive",
+"what": "A rubbery sealant made to stick to aluminum and vinyl gutters for sealing seams and end caps.",
+"uses": [
+"Sealing leaky seams",
+"Resealing end caps",
+"Patching small holes"
+],
+"tip": "Surfaces must be clean and dry; scrub old sealant off before applying."
+},
+"guyline": {
+"name": "Guyline cord",
+"kind": "part",
+"what": "Thin, strong cord with tensioners that ties from the rainfly to stakes to brace the tent against wind.",
+"uses": [
+"Stabilizing tents in wind",
+"Tightening rainflies",
+"Tarp setups"
+],
+"tip": "Reflective cord is easy to see at night so you don't trip."
+},
+"gypsum": {
+"name": "Gypsum",
+"kind": "material",
+"what": "Powdered calcium sulfate that adds calcium and keeps substrate from clumping.",
+"uses": [
+"Mushroom substrate",
+"Clay soil amendment",
+"Grain spawn additive"
+],
+"tip": "Use plain horticultural or food-grade gypsum with no added fertilizer."
+},
+"hacksaw": {
+"name": "Hacksaw",
+"kind": "tool",
+"what": "A fine-tooth saw with a thin, replaceable blade for cutting metal and plastic.",
+"uses": [
+"Trimming excess closet bolt length",
+"Cutting plastic drain pipe",
+"Cutting small metal parts"
+],
+"tip": "A mini hacksaw fits in tight spaces behind toilets."
+},
+"hair-dryer": {
+"name": "Hair dryer",
+"kind": "power-tool",
+"what": "A handheld electric blower that produces warm air, a safe gentle heat source for thawing pipes.",
+"uses": [
+"Thawing frozen pipes",
+"Softening adhesives and tape"
+],
+"tip": "Keep it away from standing water."
+},
+"hammer": {
+"name": "Hammer",
+"kind": "tool",
+"what": "A hand tool with a weighted head for driving nails and a claw for pulling them.",
+"uses": [
+"Driving and pulling nails",
+"Tapping bolts through holes",
+"Light demolition"
+],
+"tip": "A 16 oz curved-claw hammer handles most home repairs; a roofing hatchet is handy on shingles."
+},
+"hand-drain-snake": {
+"name": "Hand drain snake",
+"kind": "tool",
+"what": "A coiled steel cable in a drum you crank to break up drain clogs.",
+"uses": [
+"Clearing trap arms",
+"Tub and sink drains"
+],
+"tip": "Pull the cable back slowly and wipe it as it comes out."
+},
+"handle-puller": {
+"name": "Faucet handle puller",
+"kind": "tool",
+"what": "A screw-type puller that pops off faucet handles corroded onto the stem.",
+"uses": [
+"Removing stuck faucet handles",
+"Avoiding broken handles and stems"
+],
+"tip": "Apply penetrating oil first and give it time."
+},
+"hardwired-smoke-alarm": {
+"name": "Hardwired smoke alarm (120 V)",
+"kind": "part",
+"what": "A smoke or smoke/CO alarm powered by house wiring with a battery backup, usually interconnected so all alarms sound together.",
+"uses": [
+"Replacing an old hardwired alarm",
+"Keeping a whole-house interconnected system"
+],
+"tip": "Buy the same brand and connector style as the others in the house, or interconnect may not work; some brands sell adapter plugs."
+},
+"hatchet": {
+"name": "Hatchet",
+"kind": "tool",
+"what": "A small one-hand axe for splitting kindling and small wood.",
+"uses": [
+"Splitting kindling",
+"Shaving tinder",
+"Clearing small branches"
+],
+"tip": "Kneel and split on a stump or log, never on the ground or toward your legs."
+},
+"hdmi-cable": {
+"name": "In-wall rated HDMI cable",
+"kind": "part",
+"what": "An HDMI cable with a CL2 or CL3 fire-rated jacket allowed inside walls.",
+"uses": [
+"Running HDMI from TV to console",
+"eARC soundbar connections"
+],
+"tip": "Choose a certified high-speed or ultra-high-speed cable and leave a little slack at each end."
+},
+"headlamp": {
+"name": "Headlamp",
+"kind": "tool",
+"what": "A small light worn on the head that keeps both hands free.",
+"uses": [
+"Working at night",
+"Camping",
+"Inspecting dark spaces"
+],
+"tip": "Pack spare batteries or charge it before a trip."
+},
+"hearing-protection": {
+"name": "Hearing protection",
+"kind": "safety",
+"what": "Earplugs or earmuffs that cut the noise of loud power tools.",
+"uses": [
+"Running miter saws",
+"Using oscillating tools",
+"Firing nailers and compressors"
+],
+"tip": "Foam plugs are cheap; muffs are faster to put on and take off between cuts."
+},
+"heat-gloves": {
+"name": "Heat-resistant gloves",
+"kind": "safety",
+"what": "Gloves rated to handle hot surfaces for short periods.",
+"uses": [
+"Handling hot grates",
+"Moving coals",
+"Hot pans"
+],
+"tip": "Wet gloves conduct heat fast, so keep them dry."
+},
+"heat-gun": {
+"name": "Heat gun",
+"kind": "power-tool",
+"what": "A high-temperature hot-air tool.",
+"uses": [
+"Thawing pipes on low",
+"Stripping paint"
+],
+"tip": "Keep it moving; it can scorch."
+},
+"heat-tape": {
+"name": "Heat cable",
+"kind": "material",
+"what": "An electric heating cable fastened along a pipe that keeps it above freezing in cold weather.",
+"uses": [
+"Protecting pipes in crawlspaces and garages",
+"Preventing repeat freezes"
+],
+"tip": "Use a UL-listed self-regulating cable and follow the maker’s rules on covering it with insulation."
+},
+"heating-pad": {
+"name": "Heating pad",
+"kind": "tool",
+"what": "An electric pad that produces gentle, even heat when wrapped around an object.",
+"uses": [
+"Thawing a frozen pipe section",
+"Keeping a short run of pipe warm"
+],
+"tip": "Wrap it around the pipe."
+},
+"helper": {
+"name": "Helper",
+"kind": "tool",
+"what": "A second person to hold, hand up or steady things.",
+"uses": [
+"Holding a fixture or fan motor while you wire",
+"Steadying the ladder",
+"Passing tools"
+],
+"tip": "Have the helper hold the fixture so its wires never carry its weight."
+},
+"hex-bolt": {
+"name": "Replacement bolt and nut",
+"kind": "fastener",
+"what": "Galvanized hex bolts, washers and nylon-insert lock nuts used to replace rusted or stripped hardware.",
+"uses": [
+"Replacing worn hoop hardware",
+"Outdoor assemblies",
+"General repair"
+],
+"tip": "Take the old bolt to the store to match diameter, length and thread."
+},
+"hex-key-set": {
+"name": "Hex (Allen) key set",
+"kind": "tool",
+"what": "L-shaped six-sided keys that turn screws with a hexagonal socket in the head.",
+"uses": [
+"Removing faucet handle set screws",
+"Freeing a jammed garbage disposal (1/4″)",
+"Furniture and fixture assembly"
+],
+"tip": "Buy a set with both SAE and metric sizes; faucet set screws use both."
+},
+"hex-nut": {
+"name": "Hex nut",
+"kind": "fastener",
+"what": "A six-sided nut that threads onto a bolt.",
+"uses": [
+"Securing bolts",
+"Clamping parts together"
+],
+"tip": "Match the coating (hot-dipped galvanized) to the bolt; HDG nuts are tapped oversize."
+},
+"hide-glue": {
+"name": "Liquid hide glue",
+"kind": "adhesive",
+"what": "A traditional animal-protein glue that is reversible with heat and moisture and bonds to old hide glue.",
+"uses": [
+"Repairing antique furniture",
+"Regluing joints originally made with hide glue"
+],
+"tip": "Check the date on the bottle; old liquid hide glue may not set properly."
+},
+"hinge-screw": {
+"name": "Long hinge screw",
+"kind": "fastener",
+"what": "A longer exterior screw to replace stripped hinge screws so they bite fresh wood.",
+"uses": [
+"Re-securing hinges",
+"Fixing stripped holes"
+],
+"tip": "Go up ¾–1″ in length or one gauge bigger."
+},
+"hole-saw": {
+"name": "Hole saw",
+"kind": "tool",
+"what": "A round saw bit with teeth on its rim that cuts clean circular holes.",
+"uses": [
+"Cutting air holes in tubs",
+"Door hardware holes",
+"Cutting holes for pipes and vents"
+],
+"tip": "Run the drill slowly with light pressure on plastic to avoid cracking."
+},
+"hook-blade": {
+"name": "Hook blade",
+"kind": "consumable",
+"what": "A curved utility knife blade that cuts by pulling, ideal for shingles and roll roofing.",
+"uses": [
+"Cutting asphalt shingles",
+"Trimming underlayment",
+"Cutting carpet"
+],
+"tip": "Cut shingles from the back side on a scrap board."
+},
+"hose-cap": {
+"name": "Garden-hose thread cap",
+"kind": "part",
+"what": "A screw-on cap with a rubber washer that seals a garden-hose thread outlet such as a water heater drain valve.",
+"uses": [
+"Capping a drain valve that drips",
+"Sealing hose bibs and service ports",
+"Closing off unused hose connections"
+],
+"tip": "Keep a spare with a fresh washer; a slightly weeping plastic drain valve often stops leaking once capped."
+},
+"hose-clamp": {
+"name": "Hose clamp",
+"kind": "fastener",
+"what": "A band clamp (spring or worm-drive) that holds a hose on its fitting.",
+"uses": [
+"Securing the drain hose at the washer",
+"Hose repairs"
+],
+"tip": "Replace a rusted spring clamp with a stainless worm-drive clamp of the same size."
+},
+"hose-nozzle": {
+"name": "Hose spray nozzle",
+"kind": "part",
+"what": "An adjustable nozzle on the end of a hose with patterns from jet to shower.",
+"uses": [
+"Flushing debris",
+"Rinsing cleaners",
+"Controlling water flow"
+],
+"tip": "A thumb-control nozzle lets you shut water off without walking back to the spigot."
+},
+"hose-spray-nozzle": {
+"name": "Adjustable hose spray nozzle",
+"kind": "tool",
+"what": "A trigger nozzle that screws onto a garden hose and lets you choose a gentle shower or a stronger stream.",
+"uses": [
+"Rinsing AC condenser coils gently",
+"Washing equipment and siding",
+"Watering plants"
+],
+"tip": "Use a shower or wide-fan pattern on AC fins; a jet setting can flatten the soft aluminum."
+},
+"humidifier": {
+"name": "Humidifier",
+"kind": "power-tool",
+"what": "An appliance that adds water vapor to the air to raise humidity.",
+"uses": [
+"Seedling stage humidity",
+"Dry winter rooms",
+"Mushroom fruiting chambers"
+],
+"tip": "Use distilled water in ultrasonic models to avoid white mineral dust."
+},
+"humidity-pack": {
+"name": "Two-way humidity pack",
+"kind": "consumable",
+"what": "A sealed pouch of salt solution that adds or absorbs moisture to hold a jar at a set humidity, such as 58 or 62%.",
+"uses": [
+"Curing and storing dried herbs",
+"Cigar storage",
+"Keeping food from drying out"
+],
+"tip": "Replace it when it turns stiff and crunchy; one pack per quart jar is typical."
+},
+"impact-driver": {
+"name": "Impact driver",
+"kind": "power-tool",
+"what": "A compact cordless driver that adds rotational hammer blows to drive long or large screws easily.",
+"uses": [
+"Driving lag screws and bolts",
+"Long structural screws",
+"Repetitive screw driving"
+],
+"tip": "Finish lag screws by hand or with a ratchet so you don't over-tighten and strip the stud."
+},
+"in-wall-power-kit": {
+"name": "In-wall TV power kit",
+"kind": "part",
+"what": "A listed kit with a recessed outlet box behind the TV, a power inlet box near the floor and in-wall rated cable between them.",
+"uses": [
+"Hiding TV power cords legally",
+"Routing HDMI and low-voltage cables"
+],
+"tip": "Never run a regular extension or power cord inside a wall; it's a code violation and fire risk."
+},
+"inlet-filter-screen": {
+"name": "Inlet water filter screen",
+"kind": "part",
+"what": "A small mesh screen at the cold-water inlet of a tankless heater or appliance that catches grit and scale.",
+"uses": [
+"Protecting tankless heaters from debris",
+"Cleaning during annual descale",
+"Restoring flow when clogged"
+],
+"tip": "Rinse it under a tap and brush with an old toothbrush; replace it if the mesh is torn."
+},
+"inline-fan": {
+"name": "Inline duct fan",
+"kind": "power-tool",
+"what": "A round fan that fits inside ducting to pull air out of a tent or room. Rated in CFM (cubic feet per minute).",
+"uses": [
+"Exhausting heat and humidity",
+"Pulling air through a carbon filter",
+"Ventilating small rooms"
+],
+"tip": "Size it to exchange the tent's air about once a minute, then add 25% for the filter; a 4″ fan suits 2x2–3x3 tents. A speed controller keeps it quiet."
 },
 "inner-tube": {
 "name": "Inner tube",
@@ -194,16 +2671,71 @@ TB.ITEMS = {
 ],
 "tip": "Match the size printed on the tire sidewall and the valve type and length to your rim."
 },
-"isopropyl-alcohol": {
-"name": "Isopropyl (rubbing) alcohol",
-"kind": "consumable",
-"what": "A solvent that evaporates fully, leaving no residue on braking surfaces.",
+"insulated-screwdriver": {
+"name": "Insulated screwdriver",
+"kind": "tool",
+"what": "A screwdriver with a rated insulating coating on the shaft and handle for electrical work.",
 "uses": [
-"Cleaning rims and pads",
-"Degreasing disc rotors",
-"Cleaning wiper rubber"
+"Electrical terminal screws",
+"Appliance wiring",
+"Working near possibly live parts"
 ],
-"tip": "Use 70 to 99 percent; higher purity evaporates faster."
+"tip": "Look for a 1000 V rating mark; it is an extra layer of protection, not a substitute for turning off power."
+},
+"isopropyl-alcohol": {
+"name": "Isopropyl alcohol (70%)",
+"kind": "consumable",
+"what": "Rubbing alcohol used to disinfect surfaces, tools and gloves; 70% kills microbes better than 91% because it stays wet longer.",
+"uses": [
+"Sterilizing work surfaces",
+"Wiping injection ports",
+"Cleaning tools"
+],
+"tip": "Keep it in a spray bottle, and let it dry fully before using a flame nearby; it is very flammable."
+},
+"jewelers-loupe": {
+"name": "Jeweler's loupe",
+"kind": "measure",
+"what": "A small high-power magnifier you hold to your eye to see tiny details.",
+"uses": [
+"Checking trichomes before harvest",
+"Spotting pests",
+"Inspecting small parts"
+],
+"tip": "A 60x lighted pocket loupe or a clip-on phone macro lens makes trichome color easy to read."
+},
+"jigsaw": {
+"name": "Jigsaw",
+"kind": "power-tool",
+"what": "A handheld saw with a short up-and-down blade for curves and cuts in tight spots.",
+"uses": [
+"Cutting a board alongside a joist",
+"Curved cuts",
+"Cuts where a circular saw won't fit"
+],
+"tip": "Use a long, coarse wood blade for deck boards."
+},
+"joint-compound": {
+"name": "Joint compound",
+"kind": "material",
+"what": "A paste of gypsum and binders that is spread over drywall seams and repairs and sanded smooth.",
+"uses": [
+"Covering patches and screws",
+"Filling dents and holes",
+"Feathering repairs"
+],
+"tip": "Lightweight premixed compound sands easily; setting-type (powder) compound hardens faster and shrinks less for deep fills."
+},
+"joist-tape": {
+"name": "Joist flashing tape",
+"kind": "material",
+"what": "Self-adhesive butyl or asphalt tape applied to the tops of joists to shed water and protect screw holes.",
+"uses": [
+"Protecting joist tops",
+"Covering seams",
+"Extending framing life"
+],
+"tip": "Apply only to dry wood; it seals around screws as they pass through."
 },
 "jump-starter-pack": {
 "name": "Portable jump starter",
@@ -227,6 +2759,39 @@ TB.ITEMS = {
 ],
 "tip": "Buy 4 to 6 gauge (lower number is thicker) and at least 12 to 16 ft long; thin 10-gauge sets struggle in the cold."
 },
+"kindling": {
+"name": "Kindling",
+"kind": "material",
+"what": "Small dry sticks, pencil to thumb thick, that catch fire from tinder and light the bigger wood.",
+"uses": [
+"Building campfires",
+"Starting wood stoves",
+"Fireplaces"
+],
+"tip": "Dead sticks that snap cleanly are dry enough; ones that bend are too wet."
+},
+"kitchen-scale": {
+"name": "Kitchen scale",
+"kind": "measure",
+"what": "A digital scale that weighs in grams and ounces.",
+"uses": [
+"Measuring substrate",
+"Weighing nutrients",
+"Cooking"
+],
+"tip": "Use the tare button to zero out the container first."
+},
+"knee-pads": {
+"name": "Knee pads",
+"kind": "safety",
+"what": "Padded straps worn over the knees for comfortable kneeling on hard floors.",
+"uses": [
+"Grout and tile work",
+"Floor repairs",
+"Baseboard and trim work"
+],
+"tip": "Gel or foam pads with a hard cap let you slide around without wearing through your pants."
+},
 "kneeling-pad": {
 "name": "Kneeling pad",
 "kind": "safety",
@@ -236,6 +2801,228 @@ TB.ITEMS = {
 "Working on low parts"
 ],
 "tip": "A folded floor mat from the car works in a pinch."
+},
+"ladder-hook": {
+"name": "Ladder bucket hook",
+"kind": "part",
+"what": "A metal S-hook or hook that hangs a bucket from a ladder rung.",
+"uses": [
+"Hanging a bucket",
+"Holding tools",
+"Keeping hands free on the ladder"
+],
+"tip": "Hang it on the side of the ladder you're working toward to avoid reaching across."
+},
+"ladder-leveler": {
+"name": "Ladder leveler",
+"kind": "part",
+"what": "Adjustable legs or a bolt-on foot that lets a ladder stand level on a slope or uneven ground.",
+"uses": [
+"Ladders on sloped yards",
+"Setting up on steps",
+"Uneven patios"
+],
+"tip": "Never shim a ladder foot with bricks or wood scraps; use a proper leveler."
+},
+"ladder-standoff": {
+"name": "Ladder standoff (stabilizer)",
+"kind": "part",
+"what": "A U-shaped arm that clamps to the top of an extension ladder so it rests on the wall or roof instead of the gutter. It also widens the top for stability.",
+"uses": [
+"Keeping a ladder off gutters",
+"Steadier footing at the top",
+"Working around windows"
+],
+"tip": "Buy one sized to your ladder's rail width; the wide stance cuts side-to-side wobble a lot."
+},
+"lag-screw": {
+"name": "Lag screws",
+"kind": "fastener",
+"what": "Heavy hex-head wood screws used to anchor brackets and mounts into studs.",
+"uses": [
+"Anchoring shelf brackets",
+"Mounting TV wall plates",
+"Heavy structural attachment"
+],
+"tip": "Drill a pilot hole and get at least 1½″ to 2″ of thread into solid stud."
+},
+"laser-level": {
+"name": "Laser level",
+"kind": "measure",
+"what": "A tool that projects perfectly level and plumb lines of light across a wall.",
+"uses": [
+"Laying out battens and rails",
+"Lining up multiple shelves",
+"Hanging groups of frames"
+],
+"tip": "A self-leveling cross-line laser is the most useful type for interior work; green beams are easier to see in daylight."
+},
+"leaf-blower": {
+"name": "Leaf blower",
+"kind": "power-tool",
+"what": "A blower that pushes leaves and debris with a strong stream of air.",
+"uses": [
+"Blowing out cracks",
+"Clearing driveways",
+"Cleaning gutters with attachments"
+],
+"tip": "Blow away from yourself and wear eye protection."
+},
+"led-channel": {
+"name": "Aluminum LED channel",
+"kind": "part",
+"what": "An aluminum track with a diffuser cover that holds LED strips, hides the dots and sheds heat.",
+"uses": [
+"Mounting LED strips under shelves",
+"Clean diffused lighting"
+],
+"tip": "A frosted diffuser removes the dotted look of bare LEDs."
+},
+"led-driver": {
+"name": "Plug-in LED driver with dimmer",
+"kind": "part",
+"what": "A power supply that converts household power to low voltage for LED strips, with a dimmer control.",
+"uses": [
+"Powering LED strips",
+"Dimming accent lights"
+],
+"tip": "Match the driver voltage to the strip (12 V or 24 V) and size it about 20 percent above the strip's total watts."
+},
+"led-grow-light": {
+"name": "LED grow light",
+"kind": "power-tool",
+"what": "A full-spectrum light fixture made of many LEDs that gives plants the light energy they need to grow. Rated by true wall draw in watts and light output (PPFD).",
+"uses": [
+"Indoor plant growing",
+"Seedling starting",
+"Flowering plants indoors"
+],
+"tip": "Compare true wall-draw watts, not the 'equivalent' number; roughly 25–35 W per square foot of canopy works well for flowering, and a dimmer helps with seedlings."
+},
+"led-strip-light": {
+"name": "LED strip light",
+"kind": "part",
+"what": "A flexible ribbon of small LEDs with adhesive backing for accent lighting.",
+"uses": [
+"Under-shelf lighting",
+"Cabinet and cove lighting"
+],
+"tip": "Choose the same color temperature as nearby lights, such as 2700K to 3000K for warm rooms."
+},
+"level": {
+"name": "Level",
+"kind": "measure",
+"what": "A straightedge with bubble vials that shows when a surface is perfectly horizontal (level) or vertical (plumb).",
+"uses": [
+"Setting shelves and rails level",
+"Plumbing battens",
+"Checking a TV mount plate"
+],
+"tip": "Check a level's accuracy by reading it, flipping it end for end, and reading again; the bubble should sit in the same place."
+},
+"light-bulb": {
+"name": "Light bulbs",
+"kind": "part",
+"what": "Bulbs sized to the fixture's base and maximum wattage rating.",
+"uses": [
+"Lamping a new fixture",
+"Replacing burned-out bulbs"
+],
+"tip": "Never exceed the fixture label's maximum wattage; LEDs make it easy to stay well under."
+},
+"light-fixture": {
+"name": "Ceiling light fixture",
+"kind": "part",
+"what": "The new light, typically supplied with a mounting strap (crossbar), screws, wire nuts and green ground screw.",
+"uses": [
+"Replacing a dated or broken ceiling light"
+],
+"tip": "Check the fixture's weight; anything over 50 lb needs independent support, not just the box."
+},
+"lighter": {
+"name": "Lighter or matches",
+"kind": "tool",
+"what": "A butane lighter or matches used to start a flame.",
+"uses": [
+"Lighting campfires",
+"Lighting stoves and grills",
+"Candles"
+],
+"tip": "Carry a backup: waterproof matches in a sealed case."
+},
+"lineman-pliers": {
+"name": "Lineman's pliers",
+"kind": "tool",
+"what": "Heavy-duty pliers with flat gripping jaws and a side cutter.",
+"uses": [
+"Twisting wires together before a wire nut",
+"Cutting cable",
+"Straightening bent conductors"
+],
+"tip": "Pre-twisting solid wires with lineman's pliers makes wire nut splices more reliable."
+},
+"lint-free-cloth": {
+"name": "Lint-free cloth",
+"kind": "consumable",
+"what": "A clean cloth, such as microfiber, that wipes surfaces without leaving fibers behind.",
+"uses": [
+"Wiping a cleaned flame sensor",
+"Cleaning electronics",
+"Wiping off thermal paste or dust"
+],
+"tip": "Wash microfiber without fabric softener so it keeps grabbing dust."
+},
+"lint-trap-brush": {
+"name": "Lint trap brush",
+"kind": "tool",
+"what": "A long, thin brush that reaches down into the dryer's lint screen slot.",
+"uses": [
+"Removing lint below the screen",
+"Cleaning the lint housing"
+],
+"tip": "Use it with a vacuum crevice tool to catch lint as it loosens."
+},
+"lithium-grease": {
+"name": "White lithium grease",
+"kind": "material",
+"what": "A thick lubricant that clings to metal and won't drip or run like oil.",
+"uses": [
+"Lubricating hinge pins",
+"Lubricating latches and tracks"
+],
+"tip": "Apply a thin coat; too much attracts dirt. Petroleum jelly or paste wax are also clean options."
+},
+"lock-washer": {
+"name": "Lock washer",
+"kind": "fastener",
+"what": "A split or toothed washer that keeps screws from loosening with vibration.",
+"uses": [
+"Fan bracket screws",
+"Fan blade screws"
+],
+"tip": "Always reuse or replace them on a fan; vibration loosens bare screws."
+},
+"locking-pliers": {
+"name": "Locking pliers",
+"kind": "tool",
+"what": "Pliers that clamp and lock onto an object so you can twist or pull hard.",
+"uses": [
+"Pulling headless nails",
+"Gripping stripped screws",
+"Holding parts"
+],
+"tip": "Clamp a headless nail and roll the pliers over a block to lever it out."
+},
+"long-lighter": {
+"name": "Long grill lighter",
+"kind": "tool",
+"what": "A long-neck butane lighter or match holder that keeps your hand away from the flame.",
+"uses": [
+"Manually lighting grill burners",
+"Lighting candles and fire pits",
+"Pilot lights"
+],
+"tip": "Many grills have a match-light hole on the side; check the manual."
 },
 "lug-wrench": {
 "name": "Lug wrench",
@@ -247,6 +3034,198 @@ TB.ITEMS = {
 ],
 "tip": "A 4-way cross wrench gives more leverage and fits common 17, 19, 21 mm and 13/16, 3/4″ sizes."
 },
+"lumber-2x4": {
+"name": "2×4 lumber",
+"kind": "material",
+"what": "Standard framing lumber, 1½″ × 3½″ actual size.",
+"uses": [
+"Cleats and blocking under floors",
+"Bracing and framing"
+],
+"tip": "Pick straight, dry boards; sight down the edge before buying."
+},
+"margin-trowel": {
+"name": "Margin trowel",
+"kind": "tool",
+"what": "A narrow rectangular trowel for mixing small batches and handling grout or mortar.",
+"uses": [
+"Mixing grout in a bucket",
+"Loading the float",
+"Scraping buckets"
+],
+"tip": "A 5″ to 6″ margin trowel is enough for mixing a quart or two of grout."
+},
+"marking-paint": {
+"name": "Paint marker",
+"kind": "consumable",
+"what": "Spray paint or a paint marker for marking parts.",
+"uses": [
+"Marking blade bottom",
+"Marking locations"
+],
+"tip": "Mark the bottom face so you put the blade back the right way."
+},
+"masking-tape": {
+"name": "Masking or painter’s tape",
+"kind": "consumable",
+"what": "Easy-release paper tape that sticks without leaving residue.",
+"uses": [
+"Padding plier and wrench jaws",
+"Protecting chrome finishes",
+"Labeling parts"
+],
+"tip": "Painter’s tape peels off cleaner from finished metal."
+},
+"measuring-cup": {
+"name": "Measuring cup",
+"kind": "measure",
+"what": "A marked cup or syringe for measuring liquids and dry ingredients accurately.",
+"uses": [
+"Mixing nutrients",
+"Measuring substrate ingredients",
+"Cooking"
+],
+"tip": "Keep separate measuring tools for garden chemicals and food."
+},
+"mesh-patch": {
+"name": "Self-adhesive drywall patch",
+"kind": "part",
+"what": "A sticky fiberglass mesh or metal-backed patch that bridges a hole so compound can cover it.",
+"uses": [
+"Patching doorknob holes",
+"Covering holes up to about 6″"
+],
+"tip": "Pick a patch at least 2″ larger than the hole so it overlaps solid wall on every side."
+},
+"mesh-wifi-system": {
+"name": "Mesh Wi-Fi system / extender",
+"kind": "part",
+"what": "Additional Wi-Fi units that work together to spread signal across a larger home.",
+"uses": [
+"Covering dead zones",
+"Large or multi-story homes",
+"Replacing an underpowered router"
+],
+"tip": "Place satellites halfway between the router and the dead zone, not in the dead zone itself."
+},
+"metal-file": {
+"name": "Metal file",
+"kind": "tool",
+"what": "A hardened steel bar with cutting teeth for shaping and enlarging metal.",
+"uses": [
+"Enlarging a strike plate opening",
+"Deburring metal",
+"Smoothing edges"
+],
+"tip": "Files cut on the push stroke; lift the file on the return."
+},
+"microfiber-cloth": {
+"name": "Microfiber cloth",
+"kind": "consumable",
+"what": "A soft, lint-free synthetic cloth that grabs dust without scratching.",
+"uses": [
+"Wiping case panels and glass",
+"Catching dust behind fans",
+"Cleaning screens"
+],
+"tip": "Hold one behind a fan or filter while blowing so dust doesn't scatter back into the case."
+},
+"micropore-tape": {
+"name": "Micropore tape",
+"kind": "consumable",
+"what": "Breathable paper medical tape that lets air pass but blocks dust and mold spores.",
+"uses": [
+"Covering monotub air holes",
+"Sealing grain jars",
+"First aid"
+],
+"tip": "Use 2–3 layers over each hole; polyfill stuffing is an alternative for more airflow."
+},
+"mildew-remover": {
+"name": "Mold and mildew cleaner",
+"kind": "material",
+"what": "A bleach-based or similar cleaner that kills mold and removes dark stains.",
+"uses": [
+"Cleaning moldy caulk joints",
+"Cleaning grout"
+],
+"tip": "Never mix bleach cleaners with ammonia or acids, and ventilate well."
+},
+"mill-file": {
+"name": "Mill file",
+"kind": "tool",
+"what": "A flat metal file for sharpening blades.",
+"uses": [
+"Sharpening mower blades",
+"Deburring metal"
+],
+"tip": "File in one direction, along the bevel, with steady pressure."
+},
+"mineral-spirits": {
+"name": "Mineral spirits",
+"kind": "consumable",
+"what": "A clear petroleum solvent that dissolves wax, grease and oil-based residue.",
+"uses": [
+"Removing leftover toilet wax",
+"Cleaning greasy tools"
+],
+"tip": "Work with ventilation and let rags dry flat outdoors before discarding."
+},
+"mini-hygrometer": {
+"name": "Jar hygrometer",
+"kind": "measure",
+"what": "A small humidity gauge sized to fit inside a jar.",
+"uses": [
+"Monitoring jar humidity while curing",
+"Humidors",
+"Small storage boxes"
+],
+"tip": "Calibrate it with a salt test or a 75% calibration pack before trusting it."
+},
+"miter-saw": {
+"name": "Miter saw",
+"kind": "power-tool",
+"what": "A power saw that chops boards at precise square or angled cuts.",
+"uses": [
+"Cutting trim and battens to length",
+"Cutting miters",
+"Repeat cuts"
+],
+"tip": "Clamp a stop block to the fence for identical batten lengths."
+},
+"moisture-meter": {
+"name": "Moisture meter",
+"kind": "measure",
+"what": "A device that measures moisture content in wood.",
+"uses": [
+"Checking wood is dry before staining",
+"Finding leaks",
+"Checking lumber"
+],
+"tip": "Most stains want wood below about 15% moisture."
+},
+"monotub": {
+"name": "Monotub",
+"kind": "part",
+"what": "A large clear plastic storage tote fitted with filtered air holes, used as a combined colonizing and fruiting chamber.",
+"uses": [
+"Bulk mushroom growing",
+"Fruiting chambers",
+"Clear storage"
+],
+"tip": "A 54–66 qt clear tote is a good beginner size; clear sides let you watch colonization and let in light."
+},
+"motherboard-manual": {
+"name": "Motherboard manual",
+"kind": "material",
+"what": "The printed or downloadable guide for your motherboard showing connectors, front-panel pins and debug lights.",
+"uses": [
+"Locating 24-pin and CPU power headers",
+"Front-panel switch pin layout",
+"Reading debug LEDs and beep codes"
+],
+"tip": "Download the PDF from the board maker's support page using the model printed on the board."
+},
 "motor-oil": {
 "name": "Motor oil",
 "kind": "material",
@@ -257,16 +3236,163 @@ TB.ITEMS = {
 ],
 "tip": "Buy the exact viscosity and approval listed in the manual or on the oil cap; keep one quart in the trunk."
 },
+"mounting-strap": {
+"name": "Fixture mounting strap (crossbar)",
+"kind": "part",
+"what": "A flat metal bar that screws to the electrical box and holds the fixture's mounting screws or threaded posts. Usually has a green ground screw.",
+"uses": [
+"Mounting a new fixture",
+"Adapting a fixture to a box",
+"Grounding the fixture"
+],
+"tip": "Use the strap that comes with the new fixture; old straps often have mismatched threads."
+},
+"moving-blanket": {
+"name": "Moving blanket",
+"kind": "consumable",
+"what": "A thick padded blanket that protects screens and finishes.",
+"uses": [
+"Laying a TV face-down",
+"Protecting furniture during work"
+],
+"tip": "Make sure it's clean and grit-free before laying a screen on it."
+},
+"mud-pan": {
+"name": "Mud pan",
+"kind": "tool",
+"what": "A long, narrow pan that holds joint compound and has a straight edge for cleaning your knife.",
+"uses": [
+"Holding compound while you work",
+"Wiping excess off the taping knife"
+],
+"tip": "Stainless steel pans have a sharp edge for scraping knives clean and don't rust."
+},
+"multi-bit-screwdriver": {
+"name": "Multi-bit (4-in-1 or 11-in-1) screwdriver",
+"kind": "tool",
+"what": "One handle with interchangeable Phillips, flat and often nut-driver tips.",
+"uses": [
+"Most electrical device swaps",
+"Appliance panels and grilles",
+"Keeping one tool in your pocket on a ladder"
+],
+"tip": "Pros keep one in a pocket; pick a model whose shaft doubles as a 1/4″ and 5/16″ nut driver."
+},
+"multimeter": {
+"name": "Digital multimeter",
+"kind": "measure",
+"what": "A handheld meter that measures voltage, resistance (ohms) and continuity through two probe leads.",
+"uses": [
+"Testing heating elements for continuity",
+"Confirming 120 V or 240 V at a circuit",
+"Checking switches, fuses and cords"
+],
+"tip": "An auto-ranging model is easiest for beginners; test it on a known outlet or touch the leads together (near 0 ohms) before trusting a reading."
+},
+"nail-set": {
+"name": "Nail set",
+"kind": "tool",
+"what": "A small steel punch used with a hammer to sink nail heads below the surface.",
+"uses": [
+"Setting popped drywall nails",
+"Sinking finish nails in trim"
+],
+"tip": "Match the tip to the nail head size so it doesn't slip off and dent the surface."
+},
+"needle-nose-pliers": {
+"name": "Needle-nose pliers",
+"kind": "tool",
+"what": "Pliers with long, thin jaws for reaching into tight spaces and gripping small parts.",
+"uses": [
+"Pulling out cartridges and seats",
+"Grabbing hair from drain crossbars",
+"Handling small springs"
+],
+"tip": "Do not use them on large nuts; the thin jaws will spring."
+},
 "nitrile-gloves": {
 "name": "Nitrile gloves",
 "kind": "safety",
-"what": "Thin disposable gloves that keep oil, coolant, solvents and grease off your skin.",
+"what": "Thin disposable gloves that resist oils, solvents and chemicals and don't contain latex.",
 "uses": [
-"Adding oil and coolant",
-"Degreasing a bike chain",
-"Handling brake parts"
+"Handling chemicals and nutrients",
+"Sterile work",
+"Messy cleanup"
 ],
-"tip": "Choose powder-free 5 to 8 mil gloves; thicker ones tear less on sharp parts."
+"tip": "Buy a size that fits snugly; loose fingertips make fine work clumsy."
+},
+"non-contact-voltage-tester": {
+"name": "Non-contact voltage tester",
+"kind": "measure",
+"what": "A pen-shaped tester that beeps or lights up when held near a live wire, outlet slot or cord, without touching bare metal.",
+"uses": [
+"Confirming power is off before touching wires",
+"Finding which wire in a box is live",
+"Checking that a breaker label is correct"
+],
+"tip": "Always check it on a known live outlet right before and right after you use it, so a dead battery can't fool you."
+},
+"nozzle-adjustment-tool": {
+"name": "Sprinkler adjustment tool",
+"kind": "tool",
+"what": "A small key that adjusts arc and radius on spray and rotor heads.",
+"uses": [
+"Adjusting rotors",
+"Setting spray arc"
+],
+"tip": "Most brands use their own key; keep one handy."
+},
+"nut-driver": {
+"name": "Nut driver",
+"kind": "tool",
+"what": "A screwdriver-style handle with a hex socket at the tip for turning hex-head screws and small nuts.",
+"uses": [
+"Removing furnace and AC access panels",
+"Removing flame sensors and small hardware",
+"Appliance panel screws"
+],
+"tip": "The 1/4″ and 5/16″ sizes cover most HVAC sheet-metal screws; a magnetic tip keeps screws from dropping into the cabinet."
+},
+"oil-spot-primer": {
+"name": "Oil spot primer",
+"kind": "material",
+"what": "A primer applied over oil stains so sealer will stick.",
+"uses": [
+"Priming oil stains",
+"Prepping driveways"
+],
+"tip": "Let it dry fully before sealing."
+},
+"old-clothes": {
+"name": "Old clothes",
+"kind": "safety",
+"what": "Clothing you don't mind ruining.",
+"uses": [
+"Sealer work",
+"Staining",
+"Messy jobs"
+],
+"tip": "Driveway sealer won't wash out of fabric."
+},
+"old-toothbrush": {
+"name": "Old toothbrush",
+"kind": "tool",
+"what": "A small stiff-bristled brush handy for scrubbing tight spots.",
+"uses": [
+"Scrubbing filter screens",
+"Cleaning threads and fittings",
+"Detail cleaning"
+],
+"tip": "Keep one in your toolbox labeled for shop use only."
+},
+"old-work-box": {
+"name": "Old-work electrical box",
+"kind": "part",
+"what": "A plastic electrical box with swing-out clamps for installing into existing drywall.",
+"uses": [
+"Adding fixtures or outlets in finished walls"
+],
+"tip": "Trace the box exactly and cut slowly so the flange covers the opening."
 },
 "open-end-wrench": {
 "name": "Open-end wrench",
@@ -279,6 +3405,37 @@ TB.ITEMS = {
 ],
 "tip": "A 10 mm wrench fits most rim-brake pad nuts."
 },
+"oscillating-tool": {
+"name": "Oscillating multi-tool",
+"kind": "power-tool",
+"what": "A power tool whose blade vibrates side to side, accepting many accessories for cutting, sanding and scraping.",
+"uses": [
+"Removing grout with a carbide blade",
+"Flush-cutting trim",
+"Cutting openings"
+],
+"tip": "Use a carbide or diamond grout blade and let the tool do the work; pressing hard chips tile edges."
+},
+"outlet-timer": {
+"name": "Outlet timer",
+"kind": "power-tool",
+"what": "A plug-in timer that switches a device on and off on a set schedule.",
+"uses": [
+"Grow light schedules",
+"Holiday and porch lights",
+"Aquarium lights"
+],
+"tip": "Use a heavy-duty grounded digital timer rated above your light's amps, and recheck it after any power outage."
+},
+"oven-element": {
+"name": "Oven bake element",
+"kind": "part",
+"what": "The heating element on the oven floor that heats for baking. Must match the oven's model number.",
+"uses": [
+"Replacing a burned-out bake element"
+],
+"tip": "Order by the model number on the tag (often inside the door frame or drawer) rather than by appearance."
+},
 "owners-manual": {
 "name": "Owner's manual",
 "kind": "material",
@@ -290,6 +3447,125 @@ TB.ITEMS = {
 ],
 "tip": "Download a PDF copy from the maker's website to your phone as a backup."
 },
+"paint": {
+"name": "Paint",
+"kind": "material",
+"what": "Interior latex paint in a chosen color and sheen.",
+"uses": [
+"Finishing walls and trim",
+"Touching up repairs"
+],
+"tip": "Satin or semi-gloss is wipeable for trim and wainscot; keep leftover paint labeled with room and sheen for touch-ups."
+},
+"paint-roller": {
+"name": "Paint roller and covers",
+"kind": "tool",
+"what": "A roller frame with a fabric cover that spreads paint quickly and evenly over flat areas.",
+"uses": [
+"Rolling walls",
+"Rolling board faces",
+"Feathering touch-ups"
+],
+"tip": "Use ⅜″ nap for smooth walls; a 4″ foam or mini roller gives a smooth finish on trim boards."
+},
+"paint-tray": {
+"name": "Paint tray",
+"kind": "tool",
+"what": "A sloped tray that holds paint and lets you load the roller evenly.",
+"uses": [
+"Loading rollers",
+"Holding small amounts of paint"
+],
+"tip": "Use disposable liners for fast cleanup and color changes."
+},
+"paintable-caulk": {
+"name": "Paintable acrylic latex caulk",
+"kind": "adhesive",
+"what": "A water-cleanup caulk that fills gaps and can be painted.",
+"uses": [
+"Sealing trim to wall seams",
+"Filling gaps on battens",
+"Painted woodwork"
+],
+"tip": "Cut the tip small; a thin bead smoothed with a damp finger looks far better than a fat one."
+},
+"paintbrush": {
+"name": "Angled paintbrush",
+"kind": "tool",
+"what": "A sash brush with angled bristles for cutting in edges and painting trim.",
+"uses": [
+"Cutting in at corners and edges",
+"Painting trim and battens",
+"Small touch-ups"
+],
+"tip": "A 2″ to 2½″ nylon/polyester brush is ideal for latex paint."
+},
+"painters-tape": {
+"name": "Painter's tape",
+"kind": "consumable",
+"what": "Low-tack masking tape that sticks firmly but peels off without pulling paint or leaving residue.",
+"uses": [
+"Masking edges for paint or caulk",
+"Marking layout lines on walls",
+"Labeling parts"
+],
+"tip": "Pull tape back on itself at a 45° angle while paint or caulk is still wet for the sharpest edge."
+},
+"panel-label": {
+"name": "Panel directory label or marker",
+"kind": "consumable",
+"what": "A label sheet or fine marker used to write which room each breaker serves.",
+"uses": [
+"Labeling a breaker you just identified",
+"Updating the panel directory",
+"Marking circuits for future repairs"
+],
+"tip": "Write specific locations (\"Kitchen counter left of sink\"), not just \"Kitchen\"."
+},
+"paper-clip": {
+"name": "Paper clip",
+"kind": "tool",
+"what": "A bent wire clip, also used by techs to jump a desktop power supply's 24-pin connector for a quick power-on test.",
+"uses": [
+"Bench-testing an ATX power supply",
+"Pressing recessed reset buttons",
+"Holding papers"
+],
+"tip": "Do the jump test only with the supply unplugged from all parts but the wall, and only bridge the green and a black pin."
+},
+"paper-towel": {
+"name": "Paper towels",
+"kind": "consumable",
+"what": "Disposable absorbent towels for quick cleanup.",
+"uses": [
+"Wiping excess caulk",
+"Catching drips",
+"Cleaning tools"
+],
+"tip": "Keep a roll and a trash bag within reach before you open a tube of caulk."
+},
+"paraffin-wax": {
+"name": "Paraffin wax",
+"kind": "material",
+"what": "A plain, hard wax (or a plain candle) rubbed on wood surfaces as a dry lubricant.",
+"uses": [
+"Lubricating wooden drawer runners",
+"Easing sticky windows",
+"Lubricating saw tables"
+],
+"tip": "Use unscented plain paraffin; colored or scented candles can leave stains."
+},
+"paste-wax": {
+"name": "Paste wax",
+"kind": "material",
+"what": "A soft wax in a tin used as a dry lubricant and protective finish.",
+"uses": [
+"Lubricating hinge pins",
+"Lubricating wooden runners",
+"Protecting wood"
+],
+"tip": "Apply thin, let haze, then buff; it won't stain like oil."
+},
 "patch-kit": {
 "name": "Tube patch kit",
 "kind": "material",
@@ -299,6 +3575,126 @@ TB.ITEMS = {
 "Backup when spares run out"
 ],
 "tip": "Glue-type patches last longer than self-adhesive ones; let the glue dry until dull before applying."
+},
+"pc-memory-module": {
+"name": "RAM module",
+"kind": "part",
+"what": "A stick of computer memory that plugs into a motherboard slot.",
+"uses": [
+"Reseating or swapping memory",
+"Testing with a known-good stick",
+"Upgrading capacity"
+],
+"tip": "Check your motherboard manual for which slot to use when testing with a single stick."
+},
+"pc-power-cord": {
+"name": "Computer power cord",
+"kind": "part",
+"what": "The detachable cord (usually IEC C13) that plugs into a desktop's power supply.",
+"uses": [
+"Swapping in a known-good cord",
+"Replacing a lost cord",
+"Monitors and printers"
+],
+"tip": "Monitor cords are usually identical, making them a quick swap for testing."
+},
+"pencil": {
+"name": "Pencil",
+"kind": "measure",
+"what": "A carpenter's or standard pencil for making layout marks that can be painted or sanded away.",
+"uses": [
+"Marking cuts",
+"Marking stud and joist locations",
+"Labeling parts"
+],
+"tip": "Use a light touch on walls that will stay unpainted; pencil can show through light paint, so keep marks small."
+},
+"penetrating-oil": {
+"name": "Penetrating oil",
+"kind": "consumable",
+"what": "A thin oil that seeps into threads to free rusted or corroded parts.",
+"uses": [
+"Loosening stuck nuts",
+"Freeing corroded handles"
+],
+"tip": "Let it soak 10–15 minutes and wipe it off fixtures afterward."
+},
+"perlite": {
+"name": "Perlite",
+"kind": "material",
+"what": "White, lightweight popped volcanic glass mixed into soil to add air pockets and drainage.",
+"uses": [
+"Lightening potting mixes",
+"Rooting cuttings",
+"Improving drainage"
+],
+"tip": "Wet it before handling and wear a dust mask; the dry dust is irritating."
+},
+"permanent-marker": {
+"name": "Permanent marker",
+"kind": "consumable",
+"what": "A felt-tip marker with waterproof ink that writes on cardboard, metal, plastic and tape.",
+"uses": [
+"Dating filters and parts",
+"Labeling wires and pipes",
+"Marking cut lines"
+],
+"tip": "Fine-point markers write more legibly on narrow filter frames and wire tape."
+},
+"ph-adjuster": {
+"name": "pH up and down solution",
+"kind": "consumable",
+"what": "Concentrated liquids that raise or lower the pH of water a little at a time.",
+"uses": [
+"Correcting nutrient water pH",
+"Hydroponics",
+"Aquariums"
+],
+"tip": "Add a few drops at a time, stir, and remeasure; both are caustic, so wear gloves."
+},
+"ph-meter": {
+"name": "pH meter",
+"kind": "measure",
+"what": "A digital pen that reads how acidic or alkaline water or soil runoff is.",
+"uses": [
+"Checking nutrient water",
+"Testing soil runoff",
+"Aquariums and pools"
+],
+"tip": "Calibrate with buffer solution before each grow and store the tip moist in storage solution."
+},
+"phillips-screwdriver": {
+"name": "Phillips screwdriver",
+"kind": "tool",
+"what": "A screwdriver with a cross-shaped tip for Phillips screws; #2 fits most household screws.",
+"uses": [
+"Removing faucet handle screws",
+"Removing washer screws",
+"General assembly"
+],
+"tip": "Press firmly while turning to avoid stripping the screw head."
+},
+"phone": {
+"name": "Smartphone",
+"kind": "tool",
+"what": "A phone used to record blink codes, look up manuals and run test apps.",
+"uses": [
+"Recording furnace LED blink codes on video",
+"Looking up the service manual and code chart",
+"Running speed tests and monitor apps"
+],
+"tip": "Record a short video of a blinking status light and replay it slowly to count the flashes accurately."
+},
+"phone-camera": {
+"name": "Smartphone camera",
+"kind": "tool",
+"what": "Your phone's camera, used to document wiring, part numbers and settings before you take anything apart.",
+"uses": [
+"Photographing thermostat or furnace wiring",
+"Recording model and serial plates",
+"Reading blink codes or labels in tight spots"
+],
+"tip": "Take photos from straight on and with good light; zoom in afterward to confirm every letter is readable."
 },
 "pick-tool": {
 "name": "Pick or awl",
@@ -310,16 +3706,391 @@ TB.ITEMS = {
 ],
 "tip": "Work gently to avoid gouging rubber."
 },
-"rag": {
-"name": "Rag",
-"kind": "consumable",
-"what": "A reusable cotton cloth for wiping grease and dirt.",
+"picture-frame": {
+"name": "Frames and prints",
+"kind": "material",
+"what": "Picture frames with art or photos for display.",
 "uses": [
-"Wiping a bike chain",
-"Cleaning rims",
-"Wiping hands"
+"Leaning on shelves and ledges",
+"Gallery walls"
 ],
-"tip": "Use a separate clean rag for rims and brake surfaces so you do not spread lube onto them."
+"tip": "Vary frame sizes and overlap slightly when leaning them for a casual look."
+},
+"pigtail-wire": {
+"name": "Pigtail wire",
+"kind": "material",
+"what": "A short 6″ length of insulated wire of the same gauge as the circuit, used to connect several wires to one terminal.",
+"uses": [
+"Connecting two cables to a single device screw",
+"Adding a ground to a device",
+"Replacing a worn wire end"
+],
+"tip": "Match the color and gauge to the circuit (black, white or green/bare; 14 or 12 AWG)."
+},
+"pin-punch": {
+"name": "Pin punch",
+"kind": "tool",
+"what": "A steel punch with a straight, flat-ended shaft for driving pins out of holes.",
+"uses": [
+"Driving hinge pins up and out",
+"Removing roll pins"
+],
+"tip": "Pick a punch slightly smaller than the pin so it can follow it through the hinge."
+},
+"pipe-cleaner": {
+"name": "Pipe cleaner",
+"kind": "consumable",
+"what": "A thin bendable wire wrapped in fibers.",
+"uses": [
+"Clearing small tubes",
+"Cleaning orifices",
+"Crafts"
+],
+"tip": "Never enlarge a gas orifice; just clear it."
+},
+"pipe-insulation": {
+"name": "Foam pipe insulation",
+"kind": "material",
+"what": "Split foam tubes that slip over pipes.",
+"uses": [
+"Preventing freezing",
+"Reducing heat loss"
+],
+"tip": "Match pipe size."
+},
+"pipe-repair-clamp": {
+"name": "Pipe repair clamp",
+"kind": "part",
+"what": "A two-piece metal clamp with a rubber pad that bolts around a pipe to seal a pinhole or small split.",
+"uses": [
+"Emergency repair of a split pipe",
+"Temporary fix until a plumber arrives"
+],
+"tip": "Size it to the pipe."
+},
+"plant-nutrient": {
+"name": "Plant nutrient",
+"kind": "consumable",
+"what": "Liquid or powder fertilizer that supplies nitrogen, phosphorus, potassium and micronutrients for growing plants.",
+"uses": [
+"Feeding container plants",
+"Vegetative and flowering stages",
+"Hydroponics"
+],
+"tip": "Start at half the label rate and increase only if leaves show hunger; overfeeding burns leaf tips."
+},
+"plant-saucer": {
+"name": "Plant saucer",
+"kind": "part",
+"what": "A shallow tray under a pot that catches drainage water.",
+"uses": [
+"Catching runoff",
+"Protecting floors",
+"Bottom-watering"
+],
+"tip": "Empty it after each watering so roots don't sit in stale water."
+},
+"plant-tie": {
+"name": "Soft plant ties",
+"kind": "fastener",
+"what": "Rubber-coated wire or soft tape used to bend and hold stems without cutting into them.",
+"uses": [
+"Low-stress plant training",
+"Staking tomatoes",
+"Holding vines"
+],
+"tip": "Anchor ties to the pot's handles or holes and loosen them as stems thicken."
+},
+"plastic-scraper": {
+"name": "Plastic scraper",
+"kind": "tool",
+"what": "A stiff plastic blade that scrapes grease without scratching.",
+"uses": [
+"Scraping cookbox grease",
+"Removing stickers",
+"Cleaning glass"
+],
+"tip": "Push loose grease into the grease tray, not into the burners."
+},
+"plastic-sheeting": {
+"name": "Plastic sheeting",
+"kind": "consumable",
+"what": "Thin polyethylene sheeting for covering and protecting surfaces.",
+"uses": [
+"Protecting siding and plants",
+"Covering surfaces from drips"
+],
+"tip": "Weight it down; it blows away easily."
+},
+"pliers": {
+"name": "Pliers",
+"kind": "tool",
+"what": "Hand tool with gripping jaws; needle-nose pliers have long thin jaws for tight spots.",
+"uses": [
+"Opening and closing hooks",
+"Holding nuts",
+"Bending wire"
+],
+"tip": "Wrap the jaws with tape to avoid scratching painted rims."
+},
+"plug-in-outlet-tester": {
+"name": "Plug-in outlet tester",
+"kind": "measure",
+"what": "A small plug with three indicator lights that shows whether an outlet is powered and wired correctly (hot, neutral and ground in the right places). Many include a GFCI test button.",
+"uses": [
+"Checking a dead or repaired outlet",
+"Spotting reversed hot/neutral or missing ground",
+"Tripping a GFCI to check that it works"
+],
+"tip": "It can't detect every fault (for example a bootleg ground), so treat a pass as good-but-not-perfect evidence."
+},
+"plug-in-sconce": {
+"name": "Plug-in wall sconce",
+"kind": "part",
+"what": "A wall light that plugs into an outlet, no hardwired connection needed.",
+"uses": [
+"Accent lighting by shelves",
+"Bedside lighting"
+],
+"tip": "Choose a model with an on-cord or touch switch so it's easy to reach."
+},
+"plumbing-snake": {
+"name": "Plumbing snake (drain auger)",
+"kind": "tool",
+"what": "A flexible steel cable you crank into a pipe to break up or pull out clogs.",
+"uses": [
+"Clearing clogged downspouts",
+"Unclogging drains",
+"Clearing underground drain lines"
+],
+"tip": "A 25-ft hand auger is enough for most downspouts; feed it from the bottom so the clog drops out."
+},
+"pole-repair-sleeve": {
+"name": "Pole repair sleeve",
+"kind": "part",
+"what": "A short metal tube that slides over a broken tent pole section as a splint.",
+"uses": [
+"Field-repairing broken tent poles",
+"Emergency splints",
+"Gear repair kits"
+],
+"tip": "Tape it in place on both sides of the break; keep one in the tent bag."
+},
+"post-hole-digger": {
+"name": "Post-hole digger",
+"kind": "tool",
+"what": "A clamshell-style tool with two handles that digs and lifts soil out of narrow, deep holes.",
+"uses": [
+"Digging post holes",
+"Footings",
+"Planting deep"
+],
+"tip": "Loosen hard soil with a digging bar first, and widen the hole at the bottom slightly."
+},
+"post-level": {
+"name": "Post level",
+"kind": "measure",
+"what": "A small L-shaped level that straps to a post and shows plumb in two directions at once.",
+"uses": [
+"Setting fence posts",
+"Deck posts",
+"Mailbox posts"
+],
+"tip": "Strap it on so you can adjust and brace hands-free."
+},
+"potting-soil": {
+"name": "Potting soil",
+"kind": "material",
+"what": "A light, airy blend of peat or coco, compost and perlite made for containers rather than garden beds.",
+"uses": [
+"Filling pots and grow bags",
+"Seed starting",
+"Repotting houseplants"
+],
+"tip": "Choose a quality mix with good drainage and no slow-release synthetic fertilizer pellets if you plan to feed separately."
+},
+"power-strip": {
+"name": "Surge-protected power strip",
+"kind": "part",
+"what": "A multi-outlet strip with a surge protector and breaker that powers several devices from one wall outlet.",
+"uses": [
+"Powering grow equipment",
+"Workshop tools",
+"Electronics"
+],
+"tip": "Mount it up off the floor, away from water, and plug it into a GFCI outlet."
+},
+"pressure-washer": {
+"name": "Pressure washer",
+"kind": "power-tool",
+"what": "A motor-driven pump that sprays water at high pressure.",
+"uses": [
+"Rinsing decks",
+"Cleaning driveways",
+"Washing siding"
+],
+"tip": "On wood, use a 25° or 40° tip at low pressure (500–1,200 psi) and keep it moving with the grain to avoid fuzzing."
+},
+"primer": {
+"name": "Primer",
+"kind": "material",
+"what": "A base coat that seals surfaces so paint sticks evenly and patches don't show through.",
+"uses": [
+"Priming drywall patches",
+"Priming bare wood and MDF",
+"Sealing stains"
+],
+"tip": "Spot-prime compound before painting; unprimed patches 'flash' (look dull) through the topcoat."
+},
+"propane-tank": {
+"name": "Propane tank",
+"kind": "part",
+"what": "A refillable 20 lb cylinder of liquid propane for gas grills.",
+"uses": [
+"Fueling grills",
+"Patio heaters",
+"Camp stoves"
+],
+"tip": "Check the date stamp; tanks need requalification 12 years after manufacture."
+},
+"pruning-shears": {
+"name": "Pruning shears",
+"kind": "tool",
+"what": "Hand clippers for cutting small branches, vines and plant stems.",
+"uses": [
+"Trimming shrubs away from an AC unit",
+"Cutting back vines on fences",
+"General garden pruning"
+],
+"tip": "Bypass-style shears make cleaner cuts on living plants than anvil-style ones."
+},
+"pruning-snips": {
+"name": "Pruning snips",
+"kind": "tool",
+"what": "Small spring-loaded scissors with fine tips for precise cuts on soft stems and leaves.",
+"uses": [
+"Trimming and harvesting plants",
+"Deadheading flowers",
+"Herb cutting"
+],
+"tip": "Wipe the blades with alcohol between plants and to remove sticky resin."
+},
+"psu-tester": {
+"name": "Power supply tester",
+"kind": "measure",
+"what": "A small plug-in tester that reads the voltages on a desktop power supply's connectors.",
+"uses": [
+"Checking PSU voltage rails",
+"Diagnosing no-power desktops",
+"Testing before replacing a supply"
+],
+"tip": "It confirms basic voltages; a supply can still fail under load, so swapping in a known-good PSU is the final test."
+},
+"ptfe-thread-tape": {
+"name": "PTFE thread-seal tape",
+"kind": "adhesive",
+"what": "Thin white tape wrapped around pipe threads to seal and lubricate them.",
+"uses": [
+"Shower arms",
+"Threaded fittings"
+],
+"tip": "Wrap clockwise as you face the threads."
+},
+"pump-sprayer": {
+"name": "Pump sprayer",
+"kind": "tool",
+"what": "A hand-pumped tank sprayer for applying liquids evenly.",
+"uses": [
+"Applying deck cleaner",
+"Applying stain",
+"Spraying sealers"
+],
+"tip": "Keep separate sprayers for chemicals and stains, and rinse right after use."
+},
+"putty-knife": {
+"name": "Putty knife",
+"kind": "tool",
+"what": "A small flat-bladed knife (1″ to 3″) for spreading filler and scraping.",
+"uses": [
+"Applying wood filler or spackle",
+"Scraping old glue or paint",
+"Prying trim gently"
+],
+"tip": "A stiff blade is better for scraping; a flexible blade is better for smoothing filler."
+},
+"rag": {
+"name": "Rags",
+"kind": "consumable",
+"what": "Lint-free cotton cloths for wiping, cleaning and applying products.",
+"uses": [
+"Wiping glue squeeze-out",
+"Cleaning surfaces",
+"Applying wax or grease"
+],
+"tip": "Lay oil- or solvent-soaked rags flat to dry outdoors before throwing them out; some can self-heat."
+},
+"rake": {
+"name": "Rake",
+"kind": "tool",
+"what": "A long-handled tool with tines for gathering leaves and debris.",
+"uses": [
+"Clearing ground around fire rings",
+"Yard cleanup",
+"Spreading mulch"
+],
+"tip": "Clear down to bare dirt in a 10 ft circle around the fire ring."
+},
+"range-hood-filter": {
+"name": "Replacement range hood filter",
+"kind": "part",
+"what": "Mesh, baffle or charcoal filter sized for your hood model.",
+"uses": [
+"Replacing torn mesh or saturated charcoal filters"
+],
+"tip": "Charcoal (recirculating) filters can't be washed and should be replaced every 3 to 6 months."
+},
+"ratchet": {
+"name": "Socket ratchet / breaker bar",
+"kind": "tool",
+"what": "A handle that turns sockets, with a ratchet mechanism or a long fixed handle for extra leverage.",
+"uses": [
+"Driving an element socket",
+"Loosening stubborn bolts",
+"Turning large nuts"
+],
+"tip": "A breaker bar breaks stuck elements loose more safely than slipping wrenches."
+},
+"razor-scraper": {
+"name": "Razor scraper",
+"kind": "tool",
+"what": "A handle that holds a single-edge razor blade for scraping flat surfaces clean.",
+"uses": [
+"Shaving off caulk residue",
+"Removing paint from glass or tile"
+],
+"tip": "Use plastic blades on acrylic, fiberglass or enameled surfaces to avoid scratches."
+},
+"receptacle": {
+"name": "Receptacle (outlet)",
+"kind": "part",
+"what": "The wall device you plug cords into. Rated 15 A or 20 A; new ones must be tamper-resistant (TR) in homes.",
+"uses": [
+"Replacing a worn or cracked outlet",
+"Upgrading to tamper-resistant",
+"Changing color or style"
+],
+"tip": "Match the amp rating to the circuit (15 A on 14 AWG; 20 A circuits on 12 AWG can use either); spec-grade outlets hold plugs tighter and last longer."
+},
+"reciprocating-saw": {
+"name": "Reciprocating saw",
+"kind": "power-tool",
+"what": "A power saw with a back-and-forth blade for demolition cuts.",
+"uses": [
+"Cutting old posts",
+"Cutting nails between panels",
+"Demolition"
+],
+"tip": "A long bi-metal demolition blade cuts through wood with nails."
 },
 "reflective-triangle": {
 "name": "Warning triangle",
@@ -341,26 +4112,402 @@ TB.ITEMS = {
 ],
 "tip": "Keep it in the cabin, not the trunk, so you can put it on before getting out."
 },
+"refrigerator-coil-brush": {
+"name": "Refrigerator coil brush",
+"kind": "tool",
+"what": "A long, narrow, flexible bristle brush made to slide between condenser coils.",
+"uses": [
+"Cleaning fridge condenser coils",
+"Cleaning under appliances",
+"Cleaning dryer lint slots"
+],
+"tip": "Work gently; coils and fan blades bend easily."
+},
+"replacement-aerator": {
+"name": "Replacement faucet aerator",
+"kind": "part",
+"what": "The screw-on tip of a faucet that mixes air into the water stream and limits flow.",
+"uses": [
+"Replacing damaged aerators",
+"Changing flow rate"
+],
+"tip": "Match thread size and male or female type."
+},
+"replacement-blade": {
+"name": "Replacement mower blade",
+"kind": "part",
+"what": "A new mower blade for blades that are bent or worn thin.",
+"uses": [
+"Replacing damaged blades",
+"Upgrading blades"
+],
+"tip": "Replace bent, cracked or thin blades rather than sharpening them."
+},
+"replacement-cartridge": {
+"name": "Replacement faucet cartridge",
+"kind": "part",
+"what": "A plastic or brass valve unit inside a faucet that controls water flow and mixes hot and cold. When its internal seals wear, the faucet drips.",
+"uses": [
+"Stopping a dripping single-handle faucet",
+"Fixing stiff or hard-to-turn handles",
+"Fixing hot and cold mixing problems"
+],
+"tip": "Take the old cartridge to the store to match length and spline count exactly."
+},
+"riser": {
+"name": "Sprinkler riser",
+"kind": "part",
+"what": "A short threaded pipe nipple that connects the head to the fitting below.",
+"uses": [
+"Replacing broken risers",
+"Adjusting head height"
+],
+"tip": "Use a riser extractor to remove broken ones."
+},
+"riser-extractor": {
+"name": "Riser extractor",
+"kind": "tool",
+"what": "A tool that grips inside a broken pipe nipple to unscrew it.",
+"uses": [
+"Removing broken risers"
+],
+"tip": "Turn it counterclockwise slowly so it bites."
+},
+"roof-anchor": {
+"name": "Roof anchor",
+"kind": "safety",
+"what": "A metal bracket screwed into the roof framing at the ridge that your fall-protection lifeline clips to.",
+"uses": [
+"Tie-off point for a harness",
+"Reroofing and repairs",
+"Gutter and chimney work"
+],
+"tip": "Install it into a rafter, not just the sheathing, and leave it under the ridge cap for future use if allowed."
+},
+"roofing-cement": {
+"name": "Roofing cement",
+"kind": "adhesive",
+"what": "A thick, tar-like asphalt sealant (in a tub or caulk tube) that bonds and waterproofs roofing materials.",
+"uses": [
+"Sealing shingle tabs down",
+"Covering exposed nail heads",
+"Patching flashing"
+],
+"tip": "Use small dabs; too much can blister shingles. Tubes in a caulk gun are much neater than a tub and trowel."
+},
+"roofing-nail": {
+"name": "Roofing nail",
+"kind": "fastener",
+"what": "A short galvanized nail with an extra-wide flat head that holds shingles without tearing through.",
+"uses": [
+"Fastening asphalt shingles",
+"Attaching underlayment",
+"Roll roofing"
+],
+"tip": "Use hot-dipped galvanized nails long enough to go through the sheathing or ¾″ into it; 1¼″ is common for repairs, longer over two layers."
+},
+"rope-ratchet": {
+"name": "Rope ratchet hanger",
+"kind": "part",
+"what": "An adjustable hanging strap with a ratchet lock that lets you raise or lower a light or filter quickly.",
+"uses": [
+"Hanging grow lights",
+"Hanging carbon filters",
+"Adjusting light height as plants grow"
+],
+"tip": "Buy a pair rated well above the light's weight and check the locks every few weeks."
+},
+"router": {
+"name": "Wi-Fi router",
+"kind": "part",
+"what": "The device that creates your home Wi-Fi network and shares the internet connection from the modem.",
+"uses": [
+"Replacing an old or failing router",
+"Upgrading to newer Wi-Fi standards",
+"Adding features like mesh support"
+],
+"tip": "Routers older than about 5 years often lack security updates; a newer Wi-Fi 6 or later model can help with many devices."
+},
+"router-admin-login": {
+"name": "Router admin login",
+"kind": "material",
+"what": "The address, username and password (often on the router's sticker or app) used to change router settings.",
+"uses": [
+"Changing Wi-Fi channel or band settings",
+"Updating router firmware",
+"Rebooting or reviewing connected devices"
+],
+"tip": "Change the default admin password and write the new one somewhere safe."
+},
+"rubber-boots": {
+"name": "Rubber boots",
+"kind": "safety",
+"what": "Waterproof boots for wet, chemical-laden work.",
+"uses": [
+"Deck cleaning",
+"Driveway sealing",
+"Concrete pours"
+],
+"tip": "Rinse sealer and cleaner off right away."
+},
+"rubber-gloves": {
+"name": "Rubber gloves",
+"kind": "safety",
+"what": "Waterproof gloves that protect hands from dirty water and cleaners.",
+"uses": [
+"Toilet work",
+"Drain cleaning"
+],
+"tip": "Pick long-cuff gloves for toilet clogs."
+},
+"rubber-jar-opener": {
+"name": "Rubber jar opener",
+"kind": "tool",
+"what": "A grippy rubber pad that improves hand grip without scratching.",
+"uses": [
+"Unscrewing aerators",
+"Loosening hand-tight fittings"
+],
+"tip": "Try this before reaching for pliers."
+},
+"rubber-mallet": {
+"name": "Rubber mallet",
+"kind": "tool",
+"what": "A mallet with a soft rubber head that strikes without denting wood.",
+"uses": [
+"Knocking furniture joints apart and together",
+"Seating parts",
+"Tapping tile or trim"
+],
+"tip": "A white rubber head won't leave black marks on light wood."
+},
+"rubbing-alcohol": {
+"name": "Rubbing alcohol",
+"kind": "material",
+"what": "Isopropyl alcohol that dissolves soap scum and oils and evaporates without residue.",
+"uses": [
+"Cleaning joints before caulking",
+"Degreasing surfaces"
+],
+"tip": "Use 70 to 91 percent; let it fully evaporate before applying caulk."
+},
 "safety-glasses": {
 "name": "Safety glasses",
 "kind": "safety",
-"what": "Impact-rated clear eye protection that wraps around the eyes.",
+"what": "Impact-rated clear glasses that protect your eyes from dust, chips, splashes and flying debris.",
 "uses": [
-"Working near batteries",
-"Under-car work with falling debris",
-"Spraying cleaners or degreasers"
+"Sanding and cutting",
+"Drilling overhead",
+"Working with cleaners or bleach",
+"Using nailers and saws"
 ],
-"tip": "Look for ANSI Z87.1 marking on the frame."
+"tip": "Look for the ANSI Z87.1 mark; get a pair that fits over prescription glasses if you wear them."
+},
+"sanding-block": {
+"name": "Sanding block",
+"kind": "tool",
+"what": "A firm block you wrap sandpaper around so you sand flat without rounding edges.",
+"uses": [
+"Sanding flat wood surfaces",
+"Leveling filled holes",
+"Truing drawer runners"
+],
+"tip": "A rubber block with clamping ends holds a quarter sheet tight and lasts for years."
+},
+"sanding-sponge": {
+"name": "Sanding sponge",
+"kind": "consumable",
+"what": "A foam block coated with abrasive grit that flexes to the surface and can be rinsed.",
+"uses": [
+"Smoothing joint compound",
+"Lightly sanding trim and filler",
+"Easing sharp edges"
+],
+"tip": "Fine (about 180 to 220 grit) is right for compound; a damp sponge sands with almost no dust."
 },
 "sandpaper": {
-"name": "Fine sandpaper or emery cloth",
+"name": "Sandpaper",
 "kind": "consumable",
-"what": "Abrasive paper that removes glaze and grit.",
+"what": "Paper or cloth sheets coated with abrasive grit, graded by number (lower is coarser).",
 "uses": [
-"Deglazing brake pads",
-"Scuffing tubes before patching"
+"Smoothing wood and filler",
+"Scuffing surfaces before paint",
+"Removing old finish or glue"
 ],
-"tip": "Lightly sand glazed pads; do not sand rims heavily."
+"tip": "Work up through grits, for example 120 then 180 or 220; skipping grits leaves scratches."
+},
+"scissors": {
+"name": "Scissors",
+"kind": "tool",
+"what": "General-purpose cutting shears.",
+"uses": [
+"Cutting bags and tape",
+"Cutting cord and netting",
+"Trimming"
+],
+"tip": "Keep a pair of sturdy utility scissors with the job kit."
+},
+"screen-mesh": {
+"name": "Screen mesh",
+"kind": "material",
+"what": "Woven fiberglass or aluminum insect screening sold in rolls.",
+"uses": [
+"Rescreening windows and doors",
+"Patio and porch screens"
+],
+"tip": "Fiberglass is forgiving and won't crease; buy a roll at least 2″ wider than the frame on each side."
+},
+"screen-spline": {
+"name": "Screen spline",
+"kind": "part",
+"what": "A flexible rubber cord pressed into a frame's groove to lock the screen in place.",
+"uses": [
+"Holding screen mesh in frames",
+"Replacing brittle old spline"
+],
+"tip": "Measure the old spline's diameter with a caliper or take a piece to the store; too thin won't hold, too thick won't fit."
+},
+"screwdriver": {
+"name": "Screwdriver set",
+"kind": "tool",
+"what": "Hand screwdrivers with Phillips and flat (slotted) tips in several sizes.",
+"uses": [
+"Tightening hinge and strike screws",
+"Prying out screen spline",
+"Small adjustments"
+],
+"tip": "A #2 Phillips fits most household screws; use the right size to avoid stripping heads."
+},
+"screwdriver-set": {
+"name": "Screwdriver set",
+"kind": "tool",
+"what": "A set of Phillips and flathead screwdrivers in several sizes, sometimes including a small precision set.",
+"uses": [
+"Thermostat terminal screws",
+"Cover plates and panels",
+"General household fixes"
+],
+"tip": "A small precision flathead is ideal for tiny thermostat terminal screws."
+},
+"scrub-pad": {
+"name": "Non-scratch scrub pad",
+"kind": "consumable",
+"what": "A soft abrasive pad that removes buildup without scratching.",
+"uses": [
+"Cleaning flush valve seats",
+"Cleaning fixtures"
+],
+"tip": "Use the white or blue non-scratch type on plastic and porcelain."
+},
+"scrub-sponge": {
+"name": "Scrub sponge",
+"kind": "consumable",
+"what": "A sponge with a scouring side.",
+"uses": [
+"Washing grates",
+"Cleaning flavorizer bars",
+"Dishes"
+],
+"tip": "Use a non-scratch pad on porcelain-coated grates."
+},
+"sealer-applicator": {
+"name": "Sealer applicator brush",
+"kind": "tool",
+"what": "A small brush or roller-tip bottle that applies sealer precisely to grout lines.",
+"uses": [
+"Applying grout sealer"
+],
+"tip": "Applicator bottles with a small wheel keep sealer on the grout and off the tile."
+},
+"sealer-squeegee": {
+"name": "Squeegee/brush applicator",
+"kind": "tool",
+"what": "A long-handled tool with a rubber squeegee on one side and a brush on the other for spreading driveway sealer.",
+"uses": [
+"Spreading sealer",
+"Working sealer into pores"
+],
+"tip": "Squeegee for smooth asphalt, brush side for rough or porous areas."
+},
+"sealer-stir-stick": {
+"name": "Sealer mixing stick",
+"kind": "tool",
+"what": "A paddle or stick for stirring settled sealer.",
+"uses": [
+"Mixing driveway sealer",
+"Mixing paint"
+],
+"tip": "Stir thoroughly; the solids settle to the bottom."
+},
+"seat-dresser": {
+"name": "Seat dresser",
+"kind": "tool",
+"what": "A hand tool with a small rotary cutter that threads into a compression faucet body and grinds a rough or pitted valve seat smooth. It is used when the seat is built into the faucet and cannot be unscrewed.",
+"uses": [
+"Resurfacing non-removable faucet seats",
+"Stopping drips that keep coming back after washer changes"
+],
+"tip": "Use light pressure and few turns; remove only enough to smooth the seat."
+},
+"seat-wrench": {
+"name": "Seat wrench",
+"kind": "tool",
+"what": "An L-shaped tool with square and hex ends that fits into and unscrews faucet valve seats.",
+"uses": [
+"Removing worn faucet seats",
+"Installing new seats"
+],
+"tip": "Try both ends; seats come in square and hex sockets."
+},
+"semi-rigid-duct": {
+"name": "Semi-rigid aluminum transition duct",
+"kind": "material",
+"what": "A 4″ diameter corrugated aluminum duct that bends without crushing, used to connect a dryer to the wall vent.",
+"uses": [
+"Replacing foil or vinyl dryer ducts",
+"Short dryer-to-wall connections"
+],
+"tip": "Look for a UL 2158A listing, keep it under 8 ft, and avoid vinyl or thin foil ducts, which are a fire hazard."
+},
+"setting-compound": {
+"name": "Setting-type joint compound",
+"kind": "material",
+"what": "A powdered compound you mix with water that hardens chemically in a set time (for example 20 or 45 minutes).",
+"uses": [
+"Deep or first fill coats",
+"Fast repairs needing multiple coats in one day"
+],
+"tip": "Mix only what you can use before it sets, and don't use it for the final coat because it's hard to sand."
+},
+"shallow-pan": {
+"name": "Shallow pan or baking dish",
+"kind": "tool",
+"what": "A low pan that fits under the washer's drain hose.",
+"uses": [
+"Catching water from the emergency drain hose"
+],
+"tip": "Use a pan low enough to fit under the hose spout; empty it often."
+},
+"shelf-board": {
+"name": "Solid wood shelf",
+"kind": "material",
+"what": "A solid hardwood board drilled to slip over the bracket rods.",
+"uses": [
+"Floating shelves",
+"Wall-mounted display shelving"
+],
+"tip": "Order or drill rod holes perfectly straight and square; a crooked hole makes the shelf droop."
+},
+"shingle-ripper": {
+"name": "Shingle ripper",
+"kind": "tool",
+"what": "A long flat blade with hooked notches that slides under shingles to hook and cut or pull hidden nails.",
+"uses": [
+"Removing nails under the course above",
+"Shingle repairs",
+"Tearing off small areas"
+],
+"tip": "Hook the nail shank and strike the handle with a hammer to pull or shear it."
 },
 "shop-towels": {
 "name": "Shop towels",
@@ -373,6 +4520,133 @@ TB.ITEMS = {
 ],
 "tip": "Lint-free towels are best for dipsticks so fibers do not end up in the engine."
 },
+"shop-vac": {
+"name": "Shop vacuum",
+"kind": "power-tool",
+"what": "A wet/dry vacuum for picking up dust, debris and water.",
+"uses": [
+"Cleaning out cracks",
+"Cleaning up debris",
+"Picking up water"
+],
+"tip": "Use a narrow crevice tool to reach into cracks."
+},
+"shovel": {
+"name": "Shovel",
+"kind": "tool",
+"what": "A long-handled digging tool with a broad blade.",
+"uses": [
+"Stirring and smothering campfires",
+"Moving dirt and gravel",
+"Digging"
+],
+"tip": "A short folding camp shovel is fine for campfires."
+},
+"shower-head-washer": {
+"name": "Shower head washer",
+"kind": "part",
+"what": "The flat rubber washer, often with a built-in screen, that sits inside the shower head’s connecting nut and seals against the arm.",
+"uses": [
+"Sealing the shower head connection",
+"Filtering grit before the nozzles"
+],
+"tip": "Replace if flattened."
+},
+"silica-desiccant": {
+"name": "Silica gel desiccant",
+"kind": "consumable",
+"what": "Small packets of moisture-absorbing beads.",
+"uses": [
+"Keeping dried goods dry",
+"Storing tools and electronics",
+"Seed storage"
+],
+"tip": "Use food-safe packets and recharge them in a low oven if the indicator beads change color."
+},
+"silicone-caulk": {
+"name": "100% silicone caulk",
+"kind": "adhesive",
+"what": "A flexible, waterproof sealant that stays elastic and resists mildew in wet areas.",
+"uses": [
+"Sealing tub and shower joints",
+"Sealing sinks and backsplashes",
+"Wet-area gaps"
+],
+"tip": "Silicone can't be painted and new silicone won't bond to old; buy a 'kitchen and bath' formula with mildew resistance."
+},
+"silicone-plumbers-grease": {
+"name": "Silicone plumber’s grease",
+"kind": "adhesive",
+"what": "A thick, waterproof silicone lubricant that is safe for rubber O-rings and seals.",
+"uses": [
+"Lubricating faucet O-rings",
+"Easing cartridge installation",
+"Protecting valve stems from wear"
+],
+"tip": "Use only 100% silicone grease; petroleum products make rubber swell."
+},
+"silicone-spray": {
+"name": "Silicone spray lubricant",
+"kind": "consumable",
+"what": "A spray lubricant that leaves a dry, slick film and doesn't attract much dirt.",
+"uses": [
+"Lubricating pivots and hinges",
+"Window and door tracks",
+"Rubber seals"
+],
+"tip": "Spray onto a rag near painted surfaces to avoid overspray."
+},
+"single-pole-switch": {
+"name": "Single-pole light switch",
+"kind": "part",
+"what": "A basic on/off switch that controls lights from one location. Two brass terminals and a green ground screw.",
+"uses": [
+"Replacing a worn toggle or rocker",
+"Changing switch style",
+"Fixing a crackling or intermittent switch"
+],
+"tip": "Buy a 15 A switch for 14 AWG circuits; a 20 A rated switch is fine on either."
+},
+"sink": {
+"name": "Sink or tub",
+"kind": "tool",
+"what": "A basin large enough to fully submerge the item being cleaned.",
+"uses": [
+"Soaking hood filters",
+"Washing appliance parts"
+],
+"tip": "For large filters, a bathtub lined with a towel protects the finish."
+},
+"siphon-pump": {
+"name": "Siphon pump",
+"kind": "tool",
+"what": "A hand pump with tubes that transfers liquid out of a tank.",
+"uses": [
+"Draining old fuel",
+"Moving liquids"
+],
+"tip": "Use a separate pump for fuel only."
+},
+"slip-joint-pliers": {
+"name": "Slip-joint pliers",
+"kind": "tool",
+"what": "Common pliers with a pivot that shifts to two widths.",
+"uses": [
+"Unscrewing aerators",
+"Gripping small nuts"
+],
+"tip": "Tape the jaws on chrome."
+},
+"slip-joint-washer": {
+"name": "Slip-joint washer",
+"kind": "part",
+"what": "A tapered plastic or rubber washer that seals drain pipe joints.",
+"uses": [
+"Sealing P-traps",
+"Resealing drain joints"
+],
+"tip": "The tapered side faces the threads."
+},
 "small-container": {
 "name": "Small parts container",
 "kind": "consumable",
@@ -383,16 +4657,151 @@ TB.ITEMS = {
 ],
 "tip": "A magnetic parts tray grips steel nuts even on a slope."
 },
-"socket-set": {
-"name": "Socket set",
+"small-sledge": {
+"name": "Small sledge (hand drilling hammer)",
 "kind": "tool",
-"what": "A ratchet handle with interchangeable sockets in many sizes.",
+"what": "A short 2–4 lb hammer for striking chisels and stakes.",
 "uses": [
-"Lug nuts with a torque wrench",
-"Battery terminals",
-"General car repair"
+"Driving cold chisels",
+"Setting stakes",
+"Demolition"
 ],
-"tip": "A 1/2″-drive deep socket matching your lug nuts pairs with a torque wrench for wheels."
+"tip": "Use with a chisel that has a hand guard."
+},
+"smart-speaker": {
+"name": "Smart speaker",
+"kind": "part",
+"what": "A voice-controlled wireless speaker.",
+"uses": [
+"Music and voice control",
+"Controlling smart lights"
+],
+"tip": "Leave a little space around it on the shelf so sound isn't muffled."
+},
+"smartphone-camera": {
+"name": "Phone camera",
+"kind": "tool",
+"what": "Your phone’s camera, used to document how something comes apart.",
+"uses": [
+"Recording part order",
+"Showing a store clerk the part",
+"Checking hard-to-see spots"
+],
+"tip": "Take a photo before each step so reassembly is easy."
+},
+"smoke-alarm": {
+"name": "Smoke alarm (battery)",
+"kind": "part",
+"what": "A detector that sounds a loud alarm when it senses smoke. Photoelectric types respond best to smoldering fires; many models also detect carbon monoxide.",
+"uses": [
+"Replacing an alarm past its 10-year date",
+"Adding alarms to bedrooms and hallways"
+],
+"tip": "A sealed 10-year-battery model removes yearly battery changes; replace any alarm 10 years after its manufacture date."
+},
+"socket-set": {
+"name": "Socket set + drill adapter",
+"kind": "tool",
+"what": "Hex sockets with a ratchet, plus a hex-shank adapter so the sockets fit a drill or impact driver.",
+"uses": [
+"Driving lag screws and bolts",
+"Tightening hex-head hardware",
+"Final hand-tightening"
+],
+"tip": "A ¼″ hex to ⅜″ drive adapter lets your drill use standard sockets."
+},
+"socket-wrench": {
+"name": "Socket wrench (ratchet and sockets)",
+"kind": "tool",
+"what": "A ratcheting handle with interchangeable sockets for turning nuts and bolts.",
+"uses": [
+"Tightening nuts",
+"Removing mower blades",
+"Spark plugs"
+],
+"tip": "A 3/8″-drive set with SAE and metric sockets covers most home jobs."
+},
+"sod-cutter-spade": {
+"name": "Flat spade",
+"kind": "tool",
+"what": "A flat-bladed spade for cutting clean edges in turf.",
+"uses": [
+"Cutting sod plugs",
+"Edging",
+"Digging"
+],
+"tip": "Cut a square of sod and keep it moist to replant."
+},
+"soft-brush": {
+"name": "Soft-bristle brush",
+"kind": "tool",
+"what": "A brush with soft nylon or natural bristles that loosens dust without scratching or bending delicate surfaces.",
+"uses": [
+"Brushing lint off AC coil fins",
+"Cleaning PC heatsinks and dust filters",
+"Dusting grilles and vents"
+],
+"tip": "For electronics choose an anti-static or natural-bristle brush; for coils a long-bristle radiator brush reaches deeper."
+},
+"soft-sole-shoes": {
+"name": "Soft-soled roofing shoes",
+"kind": "safety",
+"what": "Shoes or boots with soft rubber soles that grip asphalt shingles without scuffing the granules.",
+"uses": [
+"Walking on shingle roofs",
+"Climbing ladders",
+"Deck and dock work"
+],
+"tip": "Keep soles clean of dirt and sawdust; a little grit makes shingles slippery."
+},
+"soundbar": {
+"name": "Soundbar",
+"kind": "part",
+"what": "A long, slim speaker that improves TV sound.",
+"uses": [
+"Better TV audio",
+"Mounting below the TV"
+],
+"tip": "Use the TV's eARC/ARC HDMI port so one remote controls volume."
+},
+"soundbar-bracket": {
+"name": "Soundbar bracket",
+"kind": "part",
+"what": "A bracket that hangs a soundbar from the TV mount or the TV itself.",
+"uses": [
+"Mounting a soundbar to the TV",
+"Moving the soundbar with a full-motion mount"
+],
+"tip": "Check the bracket's weight rating and that it won't block TV ports or vents."
+},
+"space-heater": {
+"name": "Space heater",
+"kind": "power-tool",
+"what": "A portable electric heater used to warm a small enclosed space such as a cabinet or crawlspace.",
+"uses": [
+"Warming the area around frozen pipes",
+"Keeping a cold room above freezing"
+],
+"tip": "Choose one with tip-over and overheat shutoff, and never leave it running unattended."
+},
+"spackle": {
+"name": "Spackling compound",
+"kind": "material",
+"what": "A ready-to-use lightweight filler for small holes and dents in walls.",
+"uses": [
+"Filling nail holes in drywall",
+"Patching small dings"
+],
+"tip": "Lightweight spackle dries fast and barely shrinks; dab it on, scrape flush and sand lightly."
+},
+"spade-connector": {
+"name": "High-temperature spade terminal",
+"kind": "part",
+"what": "A push-on wire terminal rated for oven heat that connects the oven wires to the element.",
+"uses": [
+"Replacing a burned or loose element terminal"
+],
+"tip": "If a connector is discolored or loose, replace it with a high-temp crimp terminal; a bad connector will burn out a new element."
 },
 "spare-tire": {
 "name": "Spare tire",
@@ -402,6 +4811,215 @@ TB.ITEMS = {
 "Replacing a flat to get to a shop"
 ],
 "tip": "Check its pressure monthly; compact spares often need 60 psi and are limited to about 50 mph."
+},
+"spark-plug": {
+"name": "Spark plug",
+"kind": "part",
+"what": "A part that sparks to ignite fuel in an engine.",
+"uses": [
+"Replacement for fouled plugs",
+"Annual tune-ups"
+],
+"tip": "Match the part number in the owner's manual."
+},
+"spark-plug-socket": {
+"name": "Spark plug socket",
+"kind": "tool",
+"what": "A deep socket with a rubber insert that grips and protects the plug.",
+"uses": [
+"Removing spark plugs",
+"Installing spark plugs"
+],
+"tip": "Most mowers use 13/16″ or ⅝″; check before buying."
+},
+"spark-tester": {
+"name": "Inline spark tester",
+"kind": "measure",
+"what": "A tool that clips between plug and wire to show whether there is spark.",
+"uses": [
+"Checking ignition",
+"Troubleshooting no-start"
+],
+"tip": "Watch for a bright blue flash when pulling the cord."
+},
+"speed-square": {
+"name": "Speed square",
+"kind": "measure",
+"what": "A triangular aluminum square for marking square and angled cuts.",
+"uses": [
+"Marking square cuts",
+"Guiding a circular saw",
+"Checking angles"
+],
+"tip": "Hold it against the board edge as a saw fence for dead-square cuts."
+},
+"speed-test-app": {
+"name": "Speed test app",
+"kind": "tool",
+"what": "A free app or website that measures your internet download, upload and latency.",
+"uses": [
+"Measuring Wi-Fi speed by room",
+"Comparing results before and after changes",
+"Checking against your plan speed"
+],
+"tip": "Test once with the phone next to the router and once in the problem room so you can tell a Wi-Fi problem from an internet problem."
+},
+"splash-block": {
+"name": "Splash block",
+"kind": "part",
+"what": "A concrete or plastic trough set under a downspout outlet to spread water and prevent erosion.",
+"uses": [
+"Preventing soil washout",
+"Directing water away from foundations"
+],
+"tip": "Slope it away from the house and check that it hasn't settled toward the wall."
+},
+"spline-roller": {
+"name": "Spline roller",
+"kind": "tool",
+"what": "A handle with two small wheels, one convex and one concave, for pressing mesh and spline into a groove.",
+"uses": [
+"Rolling spline into screen frames",
+"Seating mesh in the channel"
+],
+"tip": "Use the convex wheel to crease the mesh in, then the concave wheel to push the spline down."
+},
+"sponge": {
+"name": "Sponge",
+"kind": "consumable",
+"what": "An absorbent pad for soaking up water.",
+"uses": [
+"Draining tanks",
+"Cleaning"
+],
+"tip": "Keep one just for toilet work."
+},
+"spore-syringe": {
+"name": "Spore syringe or liquid culture",
+"kind": "consumable",
+"what": "A sealed syringe of sterile water holding mushroom spores (spore syringe) or live mycelium (liquid culture), used to inoculate grain.",
+"uses": [
+"Inoculating grain spawn",
+"Starting a new grow",
+"Agar work"
+],
+"tip": "Liquid culture colonizes faster than spores; buy from a reputable vendor and keep it refrigerated until use."
+},
+"spout-o-ring": {
+"name": "Spout O-rings",
+"kind": "part",
+"what": "Rubber rings around the faucet body that seal the swiveling spout so water does not leak out underneath it.",
+"uses": [
+"Stopping leaks at the base of a swivel spout",
+"Rebuilding ball and cartridge kitchen faucets"
+],
+"tip": "Coat new O-rings with silicone grease and roll them on; never stretch them over sharp edges."
+},
+"spray-bottle": {
+"name": "Spray bottle",
+"kind": "tool",
+"what": "A refillable bottle with a trigger nozzle that sprays a mist or stream.",
+"uses": [
+"Misting humidity",
+"Spraying cleaners or alcohol",
+"Leak-testing gas lines with soapy water"
+],
+"tip": "Label each bottle and keep separate ones for alcohol, water and cleaners."
+},
+"spring-clamp": {
+"name": "Spring clamps",
+"kind": "tool",
+"what": "Hand-squeeze clamps held closed by a spring for quick, light holding.",
+"uses": [
+"Holding screen mesh to the frame",
+"Holding small glue-ups",
+"Holding a frame to a table"
+],
+"tip": "A few 2″ clamps cover most light-duty jobs."
+},
+"sprinkler-head": {
+"name": "Replacement sprinkler head",
+"kind": "part",
+"what": "A spray or rotor head that pops up to water a section of lawn.",
+"uses": [
+"Replacing broken heads",
+"Upgrading nozzles"
+],
+"tip": "Match height, inlet size and nozzle pattern."
+},
+"sprinkler-nozzle": {
+"name": "Sprinkler nozzle",
+"kind": "part",
+"what": "The spray tip on a head that sets pattern and distance.",
+"uses": [
+"Changing spray pattern",
+"Replacing clogged nozzles"
+],
+"tip": "Match nozzle precipitation rates on each zone."
+},
+"squeak-repair-kit": {
+"name": "Floor squeak repair kit",
+"kind": "part",
+"what": "A kit with special scored screws and a depth fixture that pulls the subfloor to the joist and snaps off below the surface.",
+"uses": [
+"Fixing squeaks from above through carpet",
+"Fixing squeaks through hardwood"
+],
+"tip": "Find the joist first; a screw that misses the joist won't help."
+},
+"squeegee": {
+"name": "Squeegee",
+"kind": "tool",
+"what": "A rubber blade on a handle used to spread and level coatings or fillers.",
+"uses": [
+"Leveling crack filler",
+"Spreading court coatings",
+"Moving water"
+],
+"tip": "Pull it at a low angle with steady pressure."
+},
+"stain-pad": {
+"name": "Stain applicator pad",
+"kind": "tool",
+"what": "A flat pad on a pole that spreads stain evenly along deck boards.",
+"uses": [
+"Staining deck boards",
+"Applying sealer",
+"Finishing fences"
+],
+"tip": "Work two or three full boards at a time to avoid lap marks."
+},
+"stake-mallet": {
+"name": "Stake mallet",
+"kind": "tool",
+"what": "A small hammer, often with a stake-puller hook, for driving tent stakes.",
+"uses": [
+"Driving stakes",
+"Pulling stakes",
+"Light camp hammering"
+],
+"tip": "A flat rock works in a pinch; a mallet with a hook saves your fingers when pulling."
+},
+"steel-wool": {
+"name": "Steel wool",
+"kind": "consumable",
+"what": "Fine strands of steel bundled into pads for scrubbing rust and buffing.",
+"uses": [
+"Removing rust from hinge pins",
+"Cleaning metal",
+"Buffing wax"
+],
+"tip": "Grade #0000 is finest; keep it away from wet latex paint and water-based finishes where bits can rust."
+},
+"step-ladder": {
+"name": "Step ladder",
+"kind": "tool",
+"what": "A self-supporting folding ladder.",
+"uses": [
+"Reaching ceiling fixtures, fans and alarms",
+"Working at the top of walls"
+],
+"tip": "Choose a height that lets you work without standing on the top two steps, typically 6 ft for 8 ft ceilings, and use a Type I or IA duty rating."
 },
 "stiff-brush": {
 "name": "Stiff bristle brush",
@@ -413,15 +5031,276 @@ TB.ITEMS = {
 ],
 "tip": "An old toothbrush reaches between cogs."
 },
+"still-air-box": {
+"name": "Still-air box",
+"kind": "tool",
+"what": "A clear plastic tote turned upside down with two arm holes, giving a calm, draft-free space for sterile work.",
+"uses": [
+"Inoculating grain",
+"Agar and culture transfers",
+"Any contamination-sensitive work"
+],
+"tip": "Wipe the inside with alcohol and let it settle a few minutes before working; move slowly inside."
+},
+"stock-pot": {
+"name": "Large pot or kettle",
+"kind": "tool",
+"what": "A large pot or electric kettle for boiling water.",
+"uses": [
+"Boiling water for pasteurizing",
+"Cooking",
+"Sterilizing jars"
+],
+"tip": "An electric kettle makes several batches of boiling water quickly and safely."
+},
+"strap-clamp": {
+"name": "Strap clamp",
+"kind": "tool",
+"what": "A nylon band with a ratchet that wraps around an object and squeezes it evenly.",
+"uses": [
+"Clamping chair legs and frames",
+"Gluing round or odd shapes"
+],
+"tip": "Put cardboard or rags at the corners so the strap doesn't dent the wood."
+},
+"streaming-device": {
+"name": "Streaming device",
+"kind": "part",
+"what": "A small box or stick that streams video apps to the TV.",
+"uses": [
+"Streaming services",
+"Smart features for older TVs"
+],
+"tip": "A stick can hide behind the TV; use a short HDMI extender if the port is tight."
+},
+"structural-screw": {
+"name": "Structural screw",
+"kind": "fastener",
+"what": "A heavy-duty, hardened, coated screw rated to replace lag screws and bolts in framing connections.",
+"uses": [
+"Fastening blocking",
+"Attaching ledgers and posts",
+"Reinforcing connections"
+],
+"tip": "Use the length and spacing on the box's code listing; no pilot hole is usually needed."
+},
+"stud-finder": {
+"name": "Stud finder",
+"kind": "measure",
+"what": "An electronic scanner that detects the wood or metal framing behind drywall.",
+"uses": [
+"Locating studs for mounting",
+"Finding joists",
+"Checking for framing before cutting"
+],
+"tip": "Scan from both directions and mark each edge; the stud center is halfway between. Confirm with a small nail where it will be hidden."
+},
+"table-lamp": {
+"name": "Lamp (outlet tester)",
+"kind": "tool",
+"what": "Any plug-in lamp used as a simple way to prove an outlet has power.",
+"uses": [
+"Checking a wall outlet or power strip",
+"Confirming a breaker is on"
+],
+"tip": "A plug-in outlet tester also shows wiring faults like open ground."
+},
+"tamper": {
+"name": "Tamper",
+"kind": "tool",
+"what": "A heavy flat plate on a handle for compacting soil and gravel.",
+"uses": [
+"Compacting gravel",
+"Packing soil",
+"Prepping bases"
+],
+"tip": "Compact in 3–4″ layers."
+},
+"tankless-flush-kit": {
+"name": "Tankless descaling kit (pump and hoses)",
+"kind": "tool",
+"what": "A small submersible pump plus two washing-machine-style hoses that circulate descaling solution through a tankless water heater's service ports.",
+"uses": [
+"Descaling tankless water heaters",
+"Flushing boilers or heat exchangers",
+"Circulating cleaning solution through plate exchangers"
+],
+"tip": "Make sure the hose ends match your service-port threads (usually 3/4″ garden-hose thread) and that the pump is rated for continuous duty."
+},
 "tape-measure": {
 "name": "Tape measure",
 "kind": "measure",
-"what": "A retractable measuring tape.",
+"what": "A retractable steel tape for measuring lengths and locating layout marks.",
 "uses": [
-"Measuring wiper blade length",
-"Bike tire size checks"
+"Measuring walls and boards",
+"Marking heights and spacing",
+"Checking openings"
 ],
-"tip": "For wipers, measure the rubber end to end in inches."
+"tip": "A 25 ft tape with a 1″ wide blade stays stiff over longer spans."
+},
+"taping-knife": {
+"name": "Drywall taping knife",
+"kind": "tool",
+"what": "A wide, flexible steel blade used to spread and feather joint compound smooth.",
+"uses": [
+"Applying compound over patches",
+"Feathering repairs into the wall",
+"Covering screw heads"
+],
+"tip": "Use a 6″ knife for the first coat and a wider 8″ to 12″ knife for later coats so each coat extends past the last."
+},
+"tarp": {
+"name": "Tarp",
+"kind": "consumable",
+"what": "A waterproof sheet for covering or collecting debris.",
+"uses": [
+"Catching gutter debris",
+"Protecting plants",
+"Holding dug soil and sod"
+],
+"tip": "Lay one under your work so cleanup is just folding it up."
+},
+"teflon-hose-washer": {
+"name": "Hose washer",
+"kind": "part",
+"what": "A flat rubber washer that sits inside a hose coupling to seal it against the threads.",
+"uses": [
+"Stopping leaks at hose connections",
+"Replacing worn washers in drain hoses",
+"Sealing tankless service hoses"
+],
+"tip": "Keep a small pack; most drips at a hose connection are a missing or flattened washer."
+},
+"temperature-monitor-app": {
+"name": "Temperature monitoring software",
+"kind": "tool",
+"what": "A free program that reads the CPU and GPU temperature sensors and fan speeds.",
+"uses": [
+"Checking before-and-after temperatures",
+"Spotting failing fans",
+"Watching load temperatures"
+],
+"tip": "Note idle and full-load readings under the same conditions so your comparison is fair."
+},
+"tent": {
+"name": "Dome tent",
+"kind": "part",
+"what": "A free-standing shelter made of a fabric body, flexible poles and a waterproof rainfly.",
+"uses": [
+"Camping",
+"Backyard sleepovers",
+"Emergency shelter"
+],
+"tip": "Practice pitching it at home before the first trip and check all parts are present."
+},
+"tent-footprint": {
+"name": "Tent footprint",
+"kind": "part",
+"what": "A ground cloth cut to the tent floor's shape that protects the floor from abrasion and moisture.",
+"uses": [
+"Protecting the tent floor",
+"Extra moisture barrier",
+"Clean pack-up"
+],
+"tip": "Keep it slightly smaller than the floor; an exposed edge funnels rain under the tent."
+},
+"tent-stake": {
+"name": "Tent stake",
+"kind": "fastener",
+"what": "A metal or plastic peg driven into the ground to hold tent corners and guylines.",
+"uses": [
+"Staking tent corners",
+"Guylines",
+"Tarps"
+],
+"tip": "Carry a few spares, and bring longer stakes or sand stakes for loose soil."
+},
+"test-lamp": {
+"name": "Lamp or phone charger (test load)",
+"kind": "tool",
+"what": "Any small plug-in device you know works, used to prove an outlet has power.",
+"uses": [
+"Checking a dead outlet",
+"Confirming a GFCI reset restored power",
+"Finding which breaker feeds an outlet"
+],
+"tip": "A lamp turned on is easy to see from the panel, so you can flip breakers until it goes out."
+},
+"thermal-paste": {
+"name": "Thermal paste",
+"kind": "material",
+"what": "A heat-conducting compound spread thinly between a CPU and its cooler to fill microscopic gaps.",
+"uses": [
+"Re-applying after removing a CPU cooler",
+"Lowering CPU temperatures",
+"GPU maintenance"
+],
+"tip": "If you lift the cooler for any reason, clean both surfaces and reapply a pea-sized dot."
+},
+"thermo-hygrometer": {
+"name": "Thermo-hygrometer",
+"kind": "measure",
+"what": "A digital gauge that shows temperature and relative humidity, often with min/max memory.",
+"uses": [
+"Monitoring grow tents",
+"Checking curing and drying rooms",
+"Basements and closets"
+],
+"tip": "Place the sensor at plant height out of direct light; a min/max readout shows overnight swings."
+},
+"thermostat": {
+"name": "Thermostat",
+"kind": "part",
+"what": "The wall control that tells the heating and cooling equipment when to run; smart models connect to Wi-Fi.",
+"uses": [
+"Replacing an old or failed thermostat",
+"Upgrading to a programmable or smart model",
+"Adding heat pump or multi-stage control"
+],
+"tip": "Check the maker's online compatibility tool with a photo of your wiring before buying; avoid line-voltage (120/240 V) heaters with low-voltage thermostats."
+},
+"thread-locker": {
+"name": "Thread locker (blue)",
+"kind": "adhesive",
+"what": "A liquid that hardens in bolt threads to stop vibration from loosening them; blue strength can still be undone with hand tools.",
+"uses": [
+"Keeping bolts tight",
+"Vibration-prone hardware",
+"Equipment repair"
+],
+"tip": "Apply a drop to clean, dry threads; blue is removable, red usually needs heat."
+},
+"thread-seal-tape": {
+"name": "Thread seal tape (PTFE)",
+"kind": "consumable",
+"what": "Thin white tape wrapped around threads to seal them.",
+"uses": [
+"Sealing threaded pipe",
+"Sprinkler risers"
+],
+"tip": "Wrap clockwise looking at the end of the threads."
+},
+"three-way-switch": {
+"name": "3-way switch",
+"kind": "part",
+"what": "A switch used in pairs to control a light from two locations. Has a dark COMMON screw, two brass traveler screws and a green ground.",
+"uses": [
+"Stairway and hallway lights",
+"Rooms with two entry doors",
+"Replacing one switch of a pair"
+],
+"tip": "A 3-way has no ON/OFF printed on the toggle; if you see that, you bought a single-pole."
+},
+"tinder": {
+"name": "Tinder",
+"kind": "material",
+"what": "Fine, dry, fast-burning material that catches a spark or flame, such as dry grass, birch bark or cotton balls with petroleum jelly.",
+"uses": [
+"Starting campfires",
+"Fire-starting kits",
+"Wood stoves"
+],
+"tip": "Gather or pack more than you think; a fist-sized bundle is the minimum."
 },
 "tire-levers": {
 "name": "Tire levers",
@@ -444,6 +5323,89 @@ TB.ITEMS = {
 ],
 "tip": "Check tires cold, using the pressure on the driver's door-jamb sticker, not the tire sidewall maximum."
 },
+"toilet-flapper": {
+"name": "Toilet flapper",
+"kind": "part",
+"what": "The rubber seal at the bottom of a toilet tank that lifts to flush and drops to hold water.",
+"uses": [
+"Fixing running toilets",
+"Stopping phantom refills"
+],
+"tip": "Measure the flush valve opening: 2″ or 3″."
+},
+"toilet-shim": {
+"name": "Toilet shim",
+"kind": "part",
+"what": "Small plastic wedges slid under the toilet base to stop it from rocking on an uneven floor.",
+"uses": [
+"Leveling a toilet",
+"Stopping a toilet from rocking, which breaks the wax seal"
+],
+"tip": "Snap off the excess after the toilet is tight, then caulk over them."
+},
+"toilet-supply-line": {
+"name": "Toilet supply line",
+"kind": "part",
+"what": "A flexible hose that connects the shutoff valve (usually 3/8″ compression) to the toilet fill valve (7/8″ ballcock thread).",
+"uses": [
+"Connecting a toilet to its shutoff",
+"Replacing old rigid or cracked supply lines"
+],
+"tip": "Choose braided stainless and replace it any time the toilet is pulled."
+},
+"tongs": {
+"name": "Kitchen tongs",
+"kind": "tool",
+"what": "Long-handled kitchen tongs used to reach into a garbage disposal without putting your hand inside.",
+"uses": [
+"Removing jammed objects from a disposal",
+"Picking debris out of a drain opening"
+],
+"tip": "Never put your hand in a disposal."
+},
+"tongue-and-groove-pliers": {
+"name": "Tongue-and-groove pliers",
+"kind": "tool",
+"what": "Adjustable pliers (often called channel-locks) whose jaws slide along grooves to open wide for large nuts and pipes.",
+"uses": [
+"Loosening slip nuts on drain traps",
+"Gripping faucet caps",
+"Holding a shower arm"
+],
+"tip": "Wrap the jaws with tape or a rag on finished surfaces to avoid scratches."
+},
+"toothpick": {
+"name": "Wood toothpicks or matchsticks",
+"kind": "part",
+"what": "Thin wood slivers glued into stripped screw holes to give the screw something to bite.",
+"uses": [
+"Repairing stripped hinge screw holes",
+"Fixing loose cabinet screws"
+],
+"tip": "Glue several in, let dry, snap off flush, then redrive the screw."
+},
+"torch-lighter": {
+"name": "Butane torch lighter",
+"kind": "tool",
+"what": "A refillable lighter with a hot, wind-resistant blue jet flame.",
+"uses": [
+"Flame-sterilizing needles and scalpels",
+"Lighting burners",
+"Small soldering and crafts"
+],
+"tip": "Keep it away from alcohol until all spray has evaporated."
+},
+"torpedo-level": {
+"name": "Torpedo level",
+"kind": "measure",
+"what": "A short 9″ level that fits in tight spaces and on small parts.",
+"uses": [
+"Checking short brackets",
+"Leveling items on a shelf",
+"Tight spots behind fixtures"
+],
+"tip": "Get one with a magnetic edge so it sticks to steel brackets and mounts."
+},
 "torque-wrench": {
 "name": "Torque wrench",
 "kind": "measure",
@@ -456,14 +5418,133 @@ TB.ITEMS = {
 "tip": "Store click-type wrenches at their lowest setting so the spring stays accurate."
 },
 "towel": {
-"name": "Towel",
+"name": "Old towels / rags",
 "kind": "consumable",
-"what": "A folded bath or shop towel used as padding or for wiping.",
+"what": "Absorbent cloth for wiping up spills, catching drips and drying parts.",
 "uses": [
-"Protecting the windshield under a wiper arm",
-"Drying parts"
+"Catching drips under valves and fittings",
+"Wiping parts clean",
+"Protecting floors"
 ],
-"tip": "Fold it thick; a wiper arm snapping onto bare glass can crack it."
+"tip": "Lay a towel under every connection before you open it; it's faster than mopping afterward."
+},
+"trailing-plant": {
+"name": "Trailing plants and pots",
+"kind": "material",
+"what": "Vining houseplants like pothos or philodendron in decorative pots.",
+"uses": [
+"Softening shelves",
+"Adding greenery"
+],
+"tip": "Use pots with a liner or saucer so water never sits on the wood shelf."
+},
+"trash-bag": {
+"name": "Trash bag",
+"kind": "consumable",
+"what": "A plastic bag for bagging dirty filters, debris and used rags so dust doesn't spread.",
+"uses": [
+"Bagging a dirty filter right away",
+"Collecting yard debris",
+"Cleanup after repairs"
+],
+"tip": "Slide the old filter straight into the bag at the furnace so trapped dust doesn't shed through the house."
+},
+"trellis-net": {
+"name": "Trellis net",
+"kind": "part",
+"what": "A stretchy plastic mesh stretched flat over plants to spread and support branches.",
+"uses": [
+"Spreading a canopy flat",
+"Supporting heavy flowers",
+"Vining vegetables"
+],
+"tip": "Install it before flowering; it is hard to thread branches in later."
+},
+"trim-board": {
+"name": "Trim boards (MDF or poplar)",
+"kind": "material",
+"what": "Smooth, often pre-primed boards in nominal widths like 1×3, 1×4 and 1×6 used for trim and wall paneling.",
+"uses": [
+"Battens and rails",
+"Picture ledges and hook rails",
+"Baseboards"
+],
+"tip": "Primed MDF is cheapest and stays flat; poplar is tougher at edges and better near floors or hook rails."
+},
+"trowel": {
+"name": "Garden trowel",
+"kind": "tool",
+"what": "A small hand shovel for digging small holes.",
+"uses": [
+"Scooping gutter muck",
+"Digging around sprinkler heads",
+"Planting"
+],
+"tip": "A narrow steel trowel digs neater holes in turf than a wide plastic one."
+},
+"tub-liner": {
+"name": "Tub liner",
+"kind": "consumable",
+"what": "A dark plastic bag or sheet lining the bottom of a tub so mushrooms only form on top.",
+"uses": [
+"Preventing side pins in monotubs",
+"Lining containers",
+"Light blocking"
+],
+"tip": "Wipe the liner with alcohol before adding substrate."
+},
+"turnbuckle": {
+"name": "Turnbuckle",
+"kind": "part",
+"what": "A threaded sleeve with a hook or eye on each end; turning it shortens or lengthens the cable.",
+"uses": [
+"Tensioning gate cables",
+"Guy wires",
+"Clotheslines"
+],
+"tip": "Unscrew it fully before installation so you have maximum tightening range."
+},
+"tv-wall-mount": {
+"name": "TV wall mount",
+"kind": "part",
+"what": "A steel wall plate and arms that hold a TV on the wall using its VESA bolt pattern.",
+"uses": [
+"Mounting flat-screen TVs",
+"Tilt or full-motion positioning"
+],
+"tip": "Check the TV's VESA pattern and weight against the mount's rating, and confirm the plate spans two studs."
+},
+"universal-remote": {
+"name": "Universal remote",
+"kind": "part",
+"what": "A remote that controls several devices.",
+"uses": [
+"Controlling TV, soundbar and streamer together"
+],
+"tip": "Check device compatibility before buying."
+},
+"utility-knife": {
+"name": "Utility knife",
+"kind": "tool",
+"what": "A handheld knife with replaceable, snap-off or swap-out razor blades.",
+"uses": [
+"Cutting drywall paper and caulk",
+"Trimming screen mesh",
+"Scoring paint lines",
+"Opening packaging"
+],
+"tip": "Change blades often; a dull blade tears drywall paper and screen instead of cutting cleanly."
+},
+"vacuum": {
+"name": "Vacuum with hose attachment",
+"kind": "power-tool",
+"what": "A household or shop vacuum with a hose and crevice or brush tool for picking up dust and debris.",
+"uses": [
+"Cleaning the filter slot and return grille",
+"Removing dust from equipment cabinets",
+"General cleanup after a repair"
+],
+"tip": "Use the brush attachment on grilles and fins so you lift dust without bending anything."
 },
 "valve-adapter": {
 "name": "Presta-to-Schrader adapter",
@@ -475,6 +5556,80 @@ TB.ITEMS = {
 ],
 "tip": "Keep one on the valve cap of a spare tube."
 },
+"vent-hood": {
+"name": "Exterior dryer vent hood",
+"kind": "part",
+"what": "The cover on the outside wall where the dryer exhausts, with a flap or louvers that close when the dryer is off.",
+"uses": [
+"Replacing a stuck or broken flap",
+"Keeping out pests and drafts"
+],
+"tip": "Avoid hoods with screens; screens trap lint and clog. Use a flap or louvered style."
+},
+"venturi-brush": {
+"name": "Venturi brush",
+"kind": "tool",
+"what": "A long, thin flexible brush made to clean the inside of grill burner and venturi tubes.",
+"uses": [
+"Clearing spider webs from burner tubes",
+"Cleaning burner inlets",
+"Cleaning pipes"
+],
+"tip": "Spiders and insects nest in venturi tubes; brush them each spring."
+},
+"vermiculite": {
+"name": "Vermiculite",
+"kind": "material",
+"what": "Expanded mica granules that soak up and hold water.",
+"uses": [
+"Mushroom substrate mixes",
+"Seed starting",
+"Lightening potting mix"
+],
+"tip": "Use medium or fine horticultural grade and wear a mask when pouring the dry dust."
+},
+"vinegar": {
+"name": "White vinegar",
+"kind": "consumable",
+"what": "Mild acidic cleaner that dissolves hard-water scale.",
+"uses": [
+"Soaking scaled filters",
+"Running a dishwasher cleaning cycle"
+],
+"tip": "Don't mix vinegar and bleach."
+},
+"wall-plate": {
+"name": "Thermostat wall plate",
+"kind": "part",
+"what": "A trim plate that covers old screw holes, paint lines and the wire hole behind a new thermostat.",
+"uses": [
+"Hiding marks from an old larger thermostat",
+"Finishing a cleaner install",
+"Covering an oversized wire hole"
+],
+"tip": "Many thermostats include one; check the old footprint before you patch and paint."
+},
+"wall-sconce": {
+"name": "Hardwired wall sconce",
+"kind": "part",
+"what": "A light fixture that mounts to an electrical box in the wall.",
+"uses": [
+"Accent and task lighting",
+"Lighting over panels and art"
+],
+"tip": "Hardwiring requires running a circuit; hire an electrician if you're not comfortable working on wiring and permits."
+},
+"washer": {
+"name": "Flat washer",
+"kind": "fastener",
+"what": "A flat ring that spreads the clamping force of a nut or bolt head.",
+"uses": [
+"Under nuts on wood",
+"Spreading load",
+"Preventing crushing"
+],
+"tip": "Use galvanized fender washers on wood so the nut doesn't sink in."
+},
 "washer-fluid": {
 "name": "Windshield washer fluid",
 "kind": "material",
@@ -484,6 +5639,82 @@ TB.ITEMS = {
 "Cleaning windows"
 ],
 "tip": "Use a winter blend rated to -20 °F or lower in cold climates; plain water can freeze and crack the reservoir."
+},
+"water-container": {
+"name": "Water container",
+"kind": "tool",
+"what": "A bucket or watering can for adding measured water to concrete mix.",
+"uses": [
+"Adding water to post mix",
+"Mixing",
+"Cleanup"
+],
+"tip": "Measure water; too much weakens concrete."
+},
+"water-heater-element": {
+"name": "Water heater heating element",
+"kind": "part",
+"what": "A screw-in electric resistance heater that sits inside the tank; marked with voltage and wattage.",
+"uses": [
+"Replacing a burned-out element",
+"Restoring hot water in electric tank heaters",
+"Upgrading to a low-watt-density element"
+],
+"tip": "Match both voltage (usually 240 V) and wattage from the tank's rating plate; the new one should come with its gasket."
+},
+"water-heater-thermostat": {
+"name": "Water heater thermostat",
+"kind": "part",
+"what": "A surface-mount control clipped against the tank that switches an element on and off; the upper one usually includes the reset button.",
+"uses": [
+"Replacing a failed thermostat",
+"Fixing repeated reset trips",
+"Restoring temperature control"
+],
+"tip": "If the reset trips again shortly after pressing it, test the thermostats and elements before replacing anything."
+},
+"watering-can": {
+"name": "Watering can",
+"kind": "tool",
+"what": "A container with a spout for gently pouring water onto plants.",
+"uses": [
+"Watering potted plants",
+"Applying diluted nutrients",
+"Seedlings"
+],
+"tip": "A long thin spout lets you water around the stem without splashing leaves."
+},
+"wax-ring": {
+"name": "Wax ring",
+"kind": "part",
+"what": "A thick ring of wax, often with a plastic horn, that seals the toilet’s outlet to the floor drain flange so water and sewer gas cannot escape.",
+"uses": [
+"Setting or resetting a toilet",
+"Stopping leaks at the toilet base"
+],
+"tip": "Use extra-thick for recessed flanges."
+},
+"weed-puller": {
+"name": "Crack weeder",
+"kind": "tool",
+"what": "A hooked blade on a handle for pulling weeds from cracks and pavers.",
+"uses": [
+"Pulling weeds from cracks",
+"Patio joints",
+"Cleaning tight gaps"
+],
+"tip": "Pull weeds out by the roots so they don't regrow under the filler."
+},
+"wet-dry-vac": {
+"name": "Wet/dry vac",
+"kind": "power-tool",
+"what": "A shop vacuum that can safely pick up water as well as dry debris.",
+"uses": [
+"Sucking clogs out of AC condensate lines",
+"Cleaning up spills and flooded pans",
+"Shop and garage cleanup"
+],
+"tip": "Remove or swap the paper filter for a foam sleeve before vacuuming water."
 },
 "wheel-chock": {
 "name": "Wheel chock",
@@ -505,6 +5736,39 @@ TB.ITEMS = {
 ],
 "tip": "Keep it in the glovebox or with the jack; shops cannot remove locks easily without it."
 },
+"wheelbarrow": {
+"name": "Wheelbarrow",
+"kind": "tool",
+"what": "A one-wheeled cart for moving soil, gravel and concrete.",
+"uses": [
+"Hauling soil",
+"Carrying bags",
+"Mixing concrete"
+],
+"tip": "Keep tires inflated; a flat-free tire is worth it."
+},
+"whisk-broom": {
+"name": "Whisk broom",
+"kind": "tool",
+"what": "A small hand broom.",
+"uses": [
+"Sweeping out tents",
+"Clearing debris",
+"Cleaning tables"
+],
+"tip": "Sweep the tent before packing so grit doesn't wear the fabric."
+},
+"wifi-analyzer-app": {
+"name": "Wi-Fi analyzer app",
+"kind": "tool",
+"what": "An app that shows nearby Wi-Fi networks, their channels and signal strength.",
+"uses": [
+"Finding less-crowded channels",
+"Mapping weak spots",
+"Checking signal by room"
+],
+"tip": "On 2.4 GHz stick to channels 1, 6 or 11 to avoid overlapping interference."
+},
 "wiper-blade": {
 "name": "Wiper blade",
 "kind": "part",
@@ -518,27 +5782,6925 @@ TB.ITEMS = {
 "wire-brush": {
 "name": "Wire brush",
 "kind": "tool",
-"what": "A brush with stiff steel or brass bristles for scrubbing corrosion and rust.",
+"what": "A brush with stiff steel bristles for scrubbing away rust, dirt and loose material.",
 "uses": [
-"Cleaning battery terminals",
-"Removing rust from wheel hubs",
-"Cleaning threads"
+"Cleaning cracks",
+"Removing rust",
+"Prepping surfaces"
 ],
-"tip": "A dedicated battery-terminal brush cleans both posts and clamps."
+"tip": "Wear safety glasses; bristles can break off and fly."
+},
+"wire-cutter": {
+"name": "Cable cutter",
+"kind": "tool",
+"what": "A cutter for cleanly snipping steel cable.",
+"uses": [
+"Trimming gate cable",
+"Cutting wire"
+],
+"tip": "Wrap tape around cable before cutting to stop fraying."
+},
+"wire-labels": {
+"name": "Wire labels",
+"kind": "consumable",
+"what": "Small adhesive tags or flags marked with terminal letters so you can identify each wire.",
+"uses": [
+"Labeling thermostat wires",
+"Marking circuits",
+"Labeling network cables"
+],
+"tip": "Many new thermostats include a sheet of labels; masking tape and a marker work too."
+},
+"wire-nut": {
+"name": "Twist-on wire connector (wire nut)",
+"kind": "fastener",
+"what": "A plastic cap with a metal spring inside that twists onto two or more wire ends to join them securely. Colors indicate size range.",
+"uses": [
+"Splicing house wires to fixture leads",
+"Joining pigtails",
+"Capping unused wires"
+],
+"tip": "Check the package chart: yellow typically holds 2-3 x 14 AWG, red holds 2-4 x 12 AWG; no bare copper should show below the cap."
+},
+"wire-stripper": {
+"name": "Wire stripper",
+"kind": "tool",
+"what": "Pliers with sized notches that cut and remove insulation from wire ends without nicking the copper. Most also cut wire and have a loop for bending hooks.",
+"uses": [
+"Stripping 3/4″ of insulation for a terminal",
+"Trimming damaged wire ends",
+"Bending terminal hooks"
+],
+"tip": "Use the notch matching the gauge printed on the cable (14 or 12 AWG); a nicked conductor can overheat later."
+},
+"wood-block": {
+"name": "Wood block or shims",
+"kind": "material",
+"what": "Scrap wood used to prop, block or hold parts in place.",
+"uses": [
+"Propping a gate level",
+"Stopping a mower blade from turning",
+"Shimming"
+],
+"tip": "Keep a few 2×4 scraps of different lengths handy."
+},
+"wood-chisel": {
+"name": "Wood chisel",
+"kind": "tool",
+"what": "A sharp flat steel blade on a handle for paring wood and scraping.",
+"uses": [
+"Scraping old glue from joints",
+"Deepening a strike plate mortise",
+"Trimming wood"
+],
+"tip": "Keep it sharp; a dull chisel needs more force and is more likely to slip."
+},
+"wood-filler": {
+"name": "Wood filler",
+"kind": "material",
+"what": "A paste that fills nail holes, dents and gaps in wood and can be sanded and painted.",
+"uses": [
+"Filling nail holes",
+"Filling old screw holes",
+"Repairing dents in trim"
+],
+"tip": "Overfill slightly because it shrinks as it dries, then sand flush."
+},
+"wood-glue": {
+"name": "Wood glue (PVA)",
+"kind": "adhesive",
+"what": "Yellow or white polyvinyl acetate glue that bonds wood stronger than the wood itself.",
+"uses": [
+"Regluing furniture joints",
+"Gluing shims",
+"Filling stripped screw holes with wood slivers"
+],
+"tip": "Clamp for at least 30 minutes and let it cure 24 hours before stressing the joint; wipe squeeze-out with a damp rag."
+},
+"wood-preservative": {
+"name": "Wood preservative",
+"kind": "material",
+"what": "A brush-on liquid that protects bare or cut wood from rot and insects.",
+"uses": [
+"Treating cut ends",
+"Treating joist tops",
+"Post bottoms"
+],
+"tip": "Copper naphthenate is the common choice for field treating treated lumber."
+},
+"wood-screw": {
+"name": "Wood screws",
+"kind": "fastener",
+"what": "Threaded screws designed to grip wood, sold by gauge and length.",
+"uses": [
+"Fastening hinges into framing",
+"Attaching blocking",
+"Locking shelves to brackets"
+],
+"tip": "Drill a pilot hole in hardwood or near board ends to prevent splitting."
+},
+"wood-shim": {
+"name": "Wood shims",
+"kind": "material",
+"what": "Thin tapered strips of wood used to fill gaps and level parts.",
+"uses": [
+"Filling joist-to-subfloor gaps",
+"Leveling and plumbing",
+"Packing behind trim"
+],
+"tip": "Slide pairs from opposite sides to make a flat, adjustable wedge; don't drive them hard."
+},
+"wood-stake": {
+"name": "Wood stake",
+"kind": "material",
+"what": "A pointed wooden stake driven into the ground to anchor braces or mark layout.",
+"uses": [
+"Anchoring braces",
+"Layout",
+"Holding forms"
+],
+"tip": "Drive stakes a foot or more into firm soil."
 },
 "work-gloves": {
 "name": "Work gloves",
 "kind": "safety",
-"what": "Durable fabric or leather gloves that protect hands from cuts, heat and grime.",
+"what": "Gloves that protect hands from cuts, grease, cold and chemicals; nitrile disposables for messy jobs, leather or coated for rough work.",
 "uses": [
-"Handling wheels and lug nuts",
-"Jumper cable clamps",
-"Gripping greasy parts"
+"Handling greasy parts",
+"Protecting hands in cold spaces",
+"Grip on tools"
 ],
-"tip": "Keep a pair in the trunk with your spare-tire tools."
+"tip": "Choose nitrile for wet, greasy work and coated knit for general handling."
+},
+"work-light": {
+"name": "Work light",
+"kind": "tool",
+"what": "A portable LED light you can set down or clip on.",
+"uses": [
+"Lighting the oven cavity",
+"Working behind appliances"
+],
+"tip": "A magnetic base light sticks to appliance panels."
+},
+"zip-tie": {
+"name": "Zip tie",
+"kind": "fastener",
+"what": "A plastic strap with a ratchet lock used to bundle cables or hold parts.",
+"uses": [
+"Holding a fan still while blowing dust",
+"Tidying PC cables",
+"Securing wires and hoses"
+],
+"tip": "Snip ties with flush cutters, not a knife, so you don't nick nearby cables."
+},
+"zip-top-bag": {
+"name": "Zip-top bag",
+"kind": "consumable",
+"what": "A resealable plastic bag that can be filled with vinegar and tied around a fixed shower head.",
+"uses": [
+"Soaking a shower head without removing it",
+"Holding small parts"
+],
+"tip": "Secure with a rubber band."
 }
 };
 TB.KITS = {
+"faucet-drip": {
+"items": [
+{
+"key": "replacement-cartridge",
+"name": "Replacement faucet cartridge",
+"spec": "Exact brand and model match; take the old one to the store",
+"kind": "part"
+},
+{
+"key": "silicone-plumbers-grease",
+"name": "Silicone plumber’s grease",
+"spec": "Small tube, 100% silicone (not petroleum)",
+"kind": "adhesive"
+},
+{
+"key": "hex-key-set",
+"name": "Hex (Allen) key set",
+"spec": "SAE and metric, incl. 3/32″, 7/64″ and 2.5 mm",
+"kind": "tool"
+},
+{
+"key": "adjustable-wrench",
+"name": "Adjustable wrench",
+"spec": "8″ or 10″",
+"kind": "tool"
+},
+{
+"key": "flat-screwdriver",
+"name": "Flat screwdriver",
+"spec": "Small (1/8″) for prying caps, plus medium",
+"kind": "tool"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "6″",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "10″, jaws wrapped with tape",
+"kind": "tool"
+},
+{
+"key": "cartridge-puller",
+"name": "Cartridge puller",
+"spec": "Optional, for seized cartridges (brand-specific or universal)",
+"kind": "tool"
+},
+{
+"key": "masking-tape",
+"name": "Masking or painter’s tape",
+"spec": "To pad wrench jaws and protect finish",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "2–3 clean cotton rags",
+"kind": "consumable"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "1 old bath towel to pad the basin",
+"kind": "consumable"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "1 cup, to soften scale on threads and seats",
+"kind": "consumable"
+},
+{
+"key": "old-toothbrush",
+"name": "Old toothbrush",
+"spec": "For scrubbing scale from the valve body",
+"kind": "consumable"
+},
+{
+"key": "small-container",
+"name": "Small bowl or parts tray",
+"spec": "To keep parts in removal order",
+"kind": "tool"
+},
+{
+"key": "smartphone-camera",
+"name": "Phone camera",
+"spec": "Photo each step for reassembly",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "For seeing set screws and under-sink valves",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Nitrile gloves",
+"spec": "Optional, keeps grease off hands",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "Protects eyes from springs and debris",
+"kind": "safety"
+}
+],
+"proTips": [
+"Before buying a cartridge, look under the sink or on the faucet body for the brand and model, or take the old cartridge to the store; cartridges that look alike often differ in length and spline count.",
+"If the hot and cold are reversed after reassembly, the cartridge is rotated 180 degrees; pull it and turn it rather than swapping supply lines.",
+"Use only silicone grease on O-rings; petroleum jelly and other petroleum products make rubber swell and fail early."
+],
+"sources": [
+"https://www.thisoldhouse.com/bathrooms/21017280/how-to-repair-a-shower-valve",
+"https://www.familyhandyman.com/project/how-to-repair-a-kitchen-faucet/",
+"https://cdn-origin.tmbi.com/TFH/Newsletters/give-away/easy-plumbing-repairs.pdf"
+]
+},
+"faucet-drip@compression": {
+"items": [
+{
+"key": "faucet-washer-assortment",
+"name": "Faucet washer and O-ring assortment",
+"spec": "Flat and beveled washers, brass screws; match the old one",
+"kind": "part"
+},
+{
+"key": "faucet-seat",
+"name": "Replacement valve seat",
+"spec": "Only if the old seat is pitted; match thread and size",
+"kind": "part"
+},
+{
+"key": "seat-wrench",
+"name": "Seat wrench",
+"spec": "L-shaped, square and hex ends",
+"kind": "tool"
+},
+{
+"key": "seat-dresser",
+"name": "Seat dresser (reseating tool)",
+"spec": "Optional, for seats that cannot be unscrewed",
+"kind": "tool"
+},
+{
+"key": "silicone-plumbers-grease",
+"name": "Silicone plumber’s grease",
+"spec": "Small tube",
+"kind": "adhesive"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "flat-screwdriver",
+"name": "Flat screwdriver",
+"spec": "Small (1/8″) for index caps",
+"kind": "tool"
+},
+{
+"key": "adjustable-wrench",
+"name": "Adjustable wrench",
+"spec": "8″ or 10″",
+"kind": "tool"
+},
+{
+"key": "handle-puller",
+"name": "Faucet handle puller",
+"spec": "Optional, for corroded handles",
+"kind": "tool"
+},
+{
+"key": "penetrating-oil",
+"name": "Penetrating oil",
+"spec": "Small can, for stuck handles and packing nuts",
+"kind": "consumable"
+},
+{
+"key": "masking-tape",
+"name": "Masking or painter’s tape",
+"spec": "Pad the wrench jaws",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "2–3",
+"kind": "consumable"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "1, pad the basin and plug the drain",
+"kind": "consumable"
+},
+{
+"key": "small-container",
+"name": "Small bowl or parts tray",
+"spec": "Keep parts in order",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "Inspect the seat",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Take the whole stem to the hardware store; washers, screws and seats come in many sizes and matching against the original is the only reliable way.",
+"If a new washer wears out in weeks, the seat is rough; replace it or dress it smooth, otherwise the leak will return.",
+"Turn the handle to the open position before unscrewing the stem; this backs the washer off the seat and makes the stem easier to remove."
+],
+"sources": [
+"https://homeguides.sfgate.com/use-plumbing-seat-wrench-29228.html",
+"https://www.kissler.com/Assets/PDF/COMPRESSION%20FAUCET%20REPAIR.pdf",
+"https://www.bobvila.com/articles/leaky-faucet/"
+]
+},
+"faucet-drip@ball": {
+"items": [
+{
+"key": "ball-faucet-repair-kit",
+"name": "Ball faucet repair kit",
+"spec": "Seats, springs, cam, packing, O-rings and spanner tool; match faucet brand",
+"kind": "part"
+},
+{
+"key": "faucet-ball",
+"name": "Replacement faucet ball",
+"spec": "Only if scratched or corroded (stainless preferred)",
+"kind": "part"
+},
+{
+"key": "spout-o-ring",
+"name": "Spout O-rings",
+"spec": "2, usually in the kit",
+"kind": "part"
+},
+{
+"key": "hex-key-set",
+"name": "Hex (Allen) key set",
+"spec": "SAE, for the handle set screw",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "10″",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "6″",
+"kind": "tool"
+},
+{
+"key": "flat-screwdriver",
+"name": "Flat screwdriver",
+"spec": "Small, to pick out seats",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "To cut off old O-rings",
+"kind": "tool"
+},
+{
+"key": "silicone-plumbers-grease",
+"name": "Silicone plumber’s grease",
+"spec": "Small tube",
+"kind": "adhesive"
+},
+{
+"key": "masking-tape",
+"name": "Masking or painter’s tape",
+"spec": "Wrap the cap before gripping",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "2–3",
+"kind": "consumable"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "Pad the sink",
+"kind": "consumable"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "To loosen scale on the body",
+"kind": "consumable"
+},
+{
+"key": "small-container",
+"name": "Small bowl or parts tray",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"If the only leak is around the handle base, try snugging the adjusting ring clockwise with the kit’s spanner tool before taking the faucet apart.",
+"Put each spring in wide end down with the seat on top; pressing them into place on the tip of a pencil or screwdriver keeps them from falling into the body.",
+"Tighten the adjusting ring until there is no leak when the handle is on, but not so tight that the handle is stiff to move."
+],
+"sources": [
+"https://www.danco.com/how-to-guide/how-to-repair-a-leaky-single-handle-ball-type-faucet/",
+"https://www.familyhandyman.com/project/how-to-repair-a-kitchen-faucet/",
+"https://support.deltafaucet.com/s/article/RP3614-Instructions"
+]
+},
+"faucet-pressure": {
+"items": [
+{
+"key": "slip-joint-pliers",
+"name": "Slip-joint pliers",
+"spec": "6″–8″, jaws taped",
+"kind": "tool"
+},
+{
+"key": "aerator-key",
+"name": "Aerator key",
+"spec": "Optional, for recessed (cache) aerators",
+"kind": "tool"
+},
+{
+"key": "rubber-jar-opener",
+"name": "Rubber jar opener or gripper pad",
+"spec": "Grips without scratching",
+"kind": "tool"
+},
+{
+"key": "masking-tape",
+"name": "Masking or painter’s tape",
+"spec": "Wrap plier jaws",
+"kind": "consumable"
+},
+{
+"key": "old-toothbrush",
+"name": "Old toothbrush",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "toothpick",
+"name": "Toothpick or pin",
+"spec": "Clear individual screen holes",
+"kind": "consumable"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "1 cup",
+"kind": "consumable"
+},
+{
+"key": "small-container",
+"name": "Small bowl",
+"spec": "To soak parts",
+"kind": "tool"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "Cover the drain",
+"kind": "consumable"
+},
+{
+"key": "replacement-aerator",
+"name": "Replacement aerator",
+"spec": "Only if damaged; match thread (male/female) and flow rate (e.g. 1.5 gpm)",
+"kind": "part"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Nitrile gloves",
+"spec": "Optional when using descaler",
+"kind": "safety"
+}
+],
+"proTips": [
+"Lay the parts out in the order they came off, or snap a photo; reversing the screen and restrictor cuts flow and causes spitting.",
+"If both hot and cold are weak right after plumbing work, debris was likely flushed into the aerator; clean it again after flushing the spout.",
+"When buying a new aerator, take the old one along: thread size (male or female) and flow rating both have to match."
+],
+"sources": [
+"https://www.thisoldhouse.com/plumbing/how-to-clean-clogged-faucet-aerator",
+"https://www.ruvati.com/how-to-clean-a-faucet-aerator/"
+]
+},
+"toilet-running": {
+"items": [
+{
+"key": "toilet-flapper",
+"name": "Replacement flapper",
+"spec": "2″ or 3″ to match the flush valve; universal or brand-specific",
+"kind": "part"
+},
+{
+"key": "flapper-chain",
+"name": "Flapper chain",
+"spec": "Usually included with the flapper",
+"kind": "part"
+},
+{
+"key": "flush-valve-seat-repair-kit",
+"name": "Flush valve seat repair kit",
+"spec": "Only if the seat is pitted",
+"kind": "part"
+},
+{
+"key": "dye-tablets",
+"name": "Food coloring or toilet dye tablets",
+"spec": "A few drops",
+"kind": "consumable"
+},
+{
+"key": "flat-screwdriver",
+"name": "Flat screwdriver",
+"spec": "For the fill-valve adjuster screw",
+"kind": "tool"
+},
+{
+"key": "diagonal-cutters",
+"name": "Diagonal cutters",
+"spec": "To trim extra chain",
+"kind": "tool"
+},
+{
+"key": "scrub-pad",
+"name": "Non-scratch scrub pad",
+"spec": "Clean the flush valve seat",
+"kind": "consumable"
+},
+{
+"key": "sponge",
+"name": "Sponge",
+"spec": "Remove remaining tank water",
+"kind": "consumable"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "Wring the sponge into it",
+"kind": "tool"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "Set the lid on it and catch drips",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "Inspect the seat",
+"kind": "tool"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Before buying a flapper, check whether the flush valve opening is 2″ or 3″; a 3″ flapper on a 2″ valve, or the reverse, will never seal.",
+"Some low-flow toilets need an adjustable or brand-specific flapper to keep the correct flush volume; a generic one can make the flush weak.",
+"Gently wipe the flush valve seat with a non-scratch pad before fitting the new flapper; mineral buildup on the seat causes the same leak as a worn flapper."
+],
+"sources": [
+"https://www.familyhandyman.com/project/fix-a-running-toilet/",
+"https://www.homedepot.com/c/ah/how-to-fix-a-running-toilet/9ba683603be9fa5395fab90138bd8691",
+"https://www.bobvila.com/articles/how-to-replace-toilet-flapper/"
+]
+},
+"toilet-running@canister": {
+"items": [
+{
+"key": "canister-seal",
+"name": "Canister flush valve seal",
+"spec": "Match the toilet brand and model",
+"kind": "part"
+},
+{
+"key": "scrub-pad",
+"name": "Non-scratch scrub pad",
+"spec": "Clean the valve seat",
+"kind": "consumable"
+},
+{
+"key": "sponge",
+"name": "Sponge",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "Set the lid on it",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Wipe the groove and seat",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Hold the canister by its center shaft near the top, press down and twist about 1/8 to 1/4 turn; rock it gently if mineral buildup has it stuck.",
+"Clean both the groove on the canister and the seat in the tank; a new seal pressing against scale will still leak.",
+"Flip the old seal over in an emergency to get a temporary seal until the replacement arrives."
+],
+"sources": [
+"https://www.ifixit.com/Guide/Toilet+Flush+Valve+Seal+Replacement/5794",
+"https://mrhardware.com/articles-and-videos/toilets/fix-kohler-toilet-canister-flush-valve-gasket-seal/",
+"https://toilethaven.com/2020/05/23/kohler-canister-flush-valve/"
+]
+},
+"toilet-clog": {
+"items": [
+{
+"key": "flange-plunger",
+"name": "Flange plunger",
+"spec": "Fold-out rubber sleeve, sized for toilets",
+"kind": "tool"
+},
+{
+"key": "closet-auger",
+"name": "Closet auger",
+"spec": "3 ft or 6 ft, rubber-sleeved bend",
+"kind": "tool"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber gloves",
+"spec": "Long-cuff",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "Splash protection",
+"kind": "safety"
+},
+{
+"key": "towel",
+"name": "Old towels",
+"spec": "2–3 around the base",
+"kind": "consumable"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "5 gal, for the test pour",
+"kind": "tool"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Wipe the auger cable",
+"kind": "consumable"
+},
+{
+"key": "trash-bag",
+"name": "Trash bag",
+"spec": "Carry the auger to the tub or outside",
+"kind": "consumable"
+},
+{
+"key": "disinfectant",
+"name": "Disinfectant cleaner",
+"spec": "Clean tools and floor afterward",
+"kind": "consumable"
+}
+],
+"proTips": [
+"Do not flush again to test; pour a bucket of water instead so a still-clogged bowl cannot overflow.",
+"Pull the plunger back sharply on the upstroke; the suction often loosens a clog better than the push.",
+"Keep the auger’s bend fully seated in the bowl outlet before cranking; the rubber sleeve stops the cable from scratching the porcelain."
+],
+"sources": [
+"https://www.thisoldhouse.com/bathrooms/how-to-unclog-a-toilet",
+"https://www.lowes.com/n/how-to/unclog-a-toilet",
+"https://www.hgtv.com/how-to/home-improvement/how-to-unclog-a-toilet"
+]
+},
+"sink-clog": {
+"items": [
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "Shallow, fits under the trap",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "10″, only for stuck nuts",
+"kind": "tool"
+},
+{
+"key": "hand-drain-snake",
+"name": "Hand drain snake",
+"spec": "1/4″ x 15–25 ft drum auger",
+"kind": "tool"
+},
+{
+"key": "barbed-drain-strip",
+"name": "Barbed drain-cleaning strip",
+"spec": "20″–25″ plastic",
+"kind": "tool"
+},
+{
+"key": "old-toothbrush",
+"name": "Old toothbrush",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "bottle-brush",
+"name": "Bottle or drain brush",
+"spec": "Scrub inside the trap",
+"kind": "tool"
+},
+{
+"key": "slip-joint-washer",
+"name": "Slip-joint washers",
+"spec": "1-1/4″ (bathroom); replace if flattened or cracked",
+"kind": "part"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "Line the cabinet floor",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "Debris can flick off the snake",
+"kind": "safety"
+}
+],
+"proTips": [
+"When refitting the trap, the tapered side of each slip-joint washer faces the threaded end of the joint; a reversed washer is the most common cause of drips.",
+"Tighten the pivot nut only enough to hold the rod; too tight and the pop-up will not move, too loose and it drips.",
+"If you need pliers on plastic nuts, go easy; plastic slip nuts crack under heavy force and are best snugged by hand."
+],
+"sources": [
+"https://www.homedepot.com/c/ah/how-to-remove-a-sink-stopper/9ba683603be9fa5395fab90112b01e44",
+"https://www.lowes.com/n/how-to/repair-popup-sink-stopper",
+"https://www.naturalhandyman.com/iip/infplumb/infpopup.html"
+]
+},
+"sink-clog@kitchen": {
+"items": [
+{
+"key": "hex-key-set",
+"name": "1/4″ hex key (disposal wrench)",
+"spec": "1/4″",
+"kind": "tool"
+},
+{
+"key": "cup-plunger",
+"name": "Cup plunger",
+"spec": "Flat-bottom sink plunger",
+"kind": "tool"
+},
+{
+"key": "tongs",
+"name": "Kitchen tongs",
+"spec": "Remove objects from the disposal; never use your hand",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "10″–12″",
+"kind": "tool"
+},
+{
+"key": "hand-drain-snake",
+"name": "Hand drain snake",
+"spec": "1/4″ x 25 ft",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "towel",
+"name": "Towels",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Plug the dishwasher drain hose / other basin",
+"kind": "consumable"
+},
+{
+"key": "slip-joint-washer",
+"name": "Slip-joint washers",
+"spec": "1-1/2″ (kitchen)",
+"kind": "part"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "Look into the disposal",
+"kind": "tool"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"If the kitchen has a dishwasher, clamp its drain hose or the plunger’s pressure just blows out through the dishwasher.",
+"Never put your hand into the disposal, even with the power off; use tongs or pliers and unplug or switch off the circuit first.",
+"Skip chemical drain cleaners before plunging or opening the trap; they can splash and burn skin and damage the disposal."
+],
+"sources": [
+"https://www.homedepot.com/c/ah/how-to-unclog-a-garbage-disposal/9ba683603be9fa5395fab90fb85ccbe",
+"https://www.homedepot.com/c/ah/how-to-unclog-a-sink/9ba683603be9fa5395fab90b9840228",
+"https://www.angi.com/articles/how-to-unclog-garbage-disposal.htm"
+]
+},
+"shower-head": {
+"items": [
+{
+"key": "adjustable-wrench",
+"name": "Adjustable wrench",
+"spec": "8″–10″",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "Second tool to hold the arm",
+"kind": "tool"
+},
+{
+"key": "ptfe-thread-tape",
+"name": "PTFE thread-seal tape",
+"spec": "1/2″ wide",
+"kind": "adhesive"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "2–4 cups",
+"kind": "consumable"
+},
+{
+"key": "zip-top-bag",
+"name": "Zip-top bag",
+"spec": "Gallon size, plus a rubber band for in-place soaking",
+"kind": "consumable"
+},
+{
+"key": "old-toothbrush",
+"name": "Old toothbrush",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "toothpick",
+"name": "Toothpick or pin",
+"spec": "Clear nozzles",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Wrap the nut to protect finish",
+"kind": "consumable"
+},
+{
+"key": "shower-head-washer",
+"name": "Shower head washer / screen",
+"spec": "Replace if flattened",
+"kind": "part"
+},
+{
+"key": "small-container",
+"name": "Bowl",
+"spec": "For soaking",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "Overhead work",
+"kind": "safety"
+}
+],
+"proTips": [
+"Hold the shower arm with a second tool or a hand while loosening; twisting the arm can crack the fitting inside the wall.",
+"Wrap PTFE tape clockwise as you face the end of the arm, the same way the head tightens, so the tape does not bunch up.",
+"Check that the rubber washer is inside the head’s nut; tape seals threads but the washer is what seals the joint."
+],
+"sources": [
+"https://cycloneplumbingusa.com/how-to-remove-replace-a-stuck-showerhead/",
+"https://nj.gov/health/cd/documents/topics/legion/ShowerHead_Cleaning_Guidance.pdf"
+]
+},
+"tub-drain": {
+"items": [
+{
+"key": "flat-screwdriver",
+"name": "Flat screwdriver",
+"spec": "Medium",
+"kind": "tool"
+},
+{
+"key": "hex-key-set",
+"name": "Hex key set",
+"spec": "For lift-and-turn stopper set screws",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "Grab hair at the crossbars",
+"kind": "tool"
+},
+{
+"key": "barbed-drain-strip",
+"name": "Barbed drain-cleaning strip",
+"spec": "20″–25″",
+"kind": "tool"
+},
+{
+"key": "hand-drain-snake",
+"name": "Hand drain snake",
+"spec": "1/4″, for deeper clogs",
+"kind": "tool"
+},
+{
+"key": "cup-plunger",
+"name": "Cup plunger",
+"spec": "Optional; cover the overflow with a wet rag",
+"kind": "tool"
+},
+{
+"key": "old-toothbrush",
+"name": "Old toothbrush",
+"spec": "Clean stopper",
+"kind": "consumable"
+},
+{
+"key": "trash-bag",
+"name": "Trash bag",
+"spec": "For the hair",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "towel",
+"name": "Towel",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Toe-touch stoppers often unscrew only in the open (up) position; if it will not turn, press it to open first.",
+"Plug the overflow opening with a wet rag if you plunge; otherwise the pressure escapes through the overflow instead of hitting the clog.",
+"Fit a drain hair catcher after cleaning to cut down how often this job comes back."
+],
+"sources": [
+"https://www.familyhandyman.com/project/unclog-a-bathtub-drain-without-chemicals/",
+"https://www.hunker.com/13726557/how-to-unclog-a-bathtub-drain/"
+]
+},
+"toilet-wax": {
+"items": [
+{
+"key": "wax-ring",
+"name": "Wax ring",
+"spec": "Standard or extra-thick with horn; or wax-free foam/rubber seal",
+"kind": "part"
+},
+{
+"key": "closet-bolt",
+"name": "Closet bolts",
+"spec": "5/16″ x 2-1/4″ brass with washers, nuts and caps",
+"kind": "fastener"
+},
+{
+"key": "toilet-supply-line",
+"name": "Toilet supply line",
+"spec": "3/8″ compression x 7/8″ ballcock, braided, 12″",
+"kind": "part"
+},
+{
+"key": "toilet-shim",
+"name": "Toilet shims",
+"spec": "Plastic, pack of several",
+"kind": "part"
+},
+{
+"key": "adjustable-wrench",
+"name": "Adjustable wrench",
+"spec": "8″–10″",
+"kind": "tool"
+},
+{
+"key": "socket-wrench",
+"name": "Ratchet and deep socket",
+"spec": "1/2″ or 7/16″ deep socket for closet nuts",
+"kind": "tool"
+},
+{
+"key": "putty-knife",
+"name": "Putty knife",
+"spec": "1-1/2″–2″ stiff",
+"kind": "tool"
+},
+{
+"key": "hacksaw",
+"name": "Mini hacksaw or oscillating tool",
+"spec": "To trim bolts after tightening",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "Torpedo level",
+"spec": "9″",
+"kind": "measure"
+},
+{
+"key": "sponge",
+"name": "Sponge",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "One to plug the drain",
+"kind": "consumable"
+},
+{
+"key": "cardboard",
+"name": "Cardboard",
+"spec": "To set the toilet on",
+"kind": "consumable"
+},
+{
+"key": "mineral-spirits",
+"name": "Mineral spirits",
+"spec": "Optional, removes wax residue",
+"kind": "consumable"
+},
+{
+"key": "caulk",
+"name": "Tub-and-tile silicone caulk",
+"spec": "Optional; leave the back open",
+"kind": "adhesive"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Lift and lower the toilet straight up and down; shifting it after the wax touches the horn breaks the seal, and you have to start with a new ring.",
+"Tighten the closet nuts a little at a time, alternating sides, only until the toilet stops rocking; overtightening cracks the porcelain.",
+"If the flange sits below the finished floor, use an extra-thick ring or a flange spacer instead of stacking two standard rings."
+],
+"sources": [
+"https://www.oatey.com/faqs-blog-videos-case-studies/blog/how-replace-toilet-wax-ring",
+"https://www.lowes.com/n/how-to/replace-toilet-wax-ring",
+"https://www.familyhandyman.com/project/how-to-replace-a-toilet/"
+]
+},
+"frozen-pipe": {
+"items": [
+{
+"key": "hair-dryer",
+"name": "Hair dryer",
+"spec": "Corded, use on medium-high",
+"kind": "power-tool"
+},
+{
+"key": "heat-gun",
+"name": "Heat gun",
+"spec": "Low setting only; keep moving",
+"kind": "power-tool"
+},
+{
+"key": "space-heater",
+"name": "Space heater",
+"spec": "With tip-over and overheat shutoff; keep clear of combustibles",
+"kind": "power-tool"
+},
+{
+"key": "heating-pad",
+"name": "Electric heating pad or hot towels",
+"spec": "Wraps the pipe",
+"kind": "tool"
+},
+{
+"key": "extension-cord",
+"name": "GFCI extension cord",
+"spec": "Heavy-duty, grounded",
+"kind": "power-tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "Crawlspaces and cabinets",
+"kind": "tool"
+},
+{
+"key": "pipe-insulation",
+"name": "Foam pipe insulation",
+"spec": "Sized to pipe (1/2″ or 3/4″), 6 ft lengths",
+"kind": "material"
+},
+{
+"key": "duct-tape",
+"name": "Duct tape or zip ties",
+"spec": "Close insulation seams",
+"kind": "adhesive"
+},
+{
+"key": "heat-tape",
+"name": "Heat cable (pipe heat tape)",
+"spec": "Optional, for chronically freezing runs",
+"kind": "material"
+},
+{
+"key": "towel",
+"name": "Towels",
+"spec": "Catch drips",
+"kind": "consumable"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "pipe-repair-clamp",
+"name": "Pipe repair clamp",
+"spec": "Sized to pipe, for emergency patch",
+"kind": "part"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Never use an open flame such as a torch or propane heater to thaw pipes; it is a leading cause of house fires and can burst the pipe.",
+"Keep the faucet open the whole time; moving water melts ice faster and relieves pressure between the ice and the faucet.",
+"If you cannot find or reach the frozen spot, or a pipe has split, close the main shutoff and call a licensed plumber."
+],
+"sources": [
+"https://www.redcross.org/get-help/how-to-prepare-for-emergencies/types-of-emergencies/winter-storm/frozen-pipes.html",
+"https://www.dcwater.com/about-dc-water/media/news/how-thaw-frozen-pipes",
+"https://www.city.waltham.ma.us/fire-department/pages/frozen-pipes"
+]
+},
+"dead-outlet": {
+"items": [
+{
+"key": "plug-in-outlet-tester",
+"name": "Plug-in outlet tester",
+"spec": "3-light tester with GFCI test button",
+"kind": "measure"
+},
+{
+"key": "test-lamp",
+"name": "Lamp or phone charger (test load)",
+"spec": "known-working lamp or charger",
+"kind": "tool"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style, battery checked",
+"kind": "measure"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp preferred",
+"kind": "tool"
+},
+{
+"key": "breaker-finder",
+"name": "Circuit breaker finder",
+"spec": "optional, for unlabeled panels",
+"kind": "measure"
+},
+{
+"key": "panel-label",
+"name": "Panel directory label or marker",
+"spec": "marker or label for the breaker",
+"kind": "consumable"
+},
+{
+"key": "multi-bit-screwdriver",
+"name": "Multi-bit (4-in-1 or 11-in-1) screwdriver",
+"spec": "for opening the panel door cover if needed",
+"kind": "tool"
+}
+],
+"proTips": [
+"Check every GFCI in the house, not just the room: a garage, bathroom or outdoor GFCI can feed outlets in other rooms.",
+"If the GFCI and breaker are fine, the usual culprit is a loose push-in (backstab) connection at this outlet or the one upstream; move those wires to the side screws rather than re-stabbing them.",
+"A burning smell, buzzing, or a warm cover plate means turn the breaker off and leave it off until the outlet is opened and inspected."
+],
+"sources": [
+"https://www.familyhandyman.com/project/troubleshooting-dead-outlets/",
+"https://www.familyhandyman.com/article/what-to-do-if-an-outlet-isnt-working-and-its-not-the-circuit-breaker/",
+"https://mrelectric.com/blog/what-to-do-if-electrical-outlet-not-working-but-breaker-not-tripped"
+]
+},
+"replace-outlet": {
+"items": [
+{
+"key": "receptacle",
+"name": "Receptacle (outlet)",
+"spec": "15 A or 20 A, tamper-resistant (TR), match circuit",
+"kind": "part"
+},
+{
+"key": "wall-plate",
+"name": "Wall plate (cover plate)",
+"spec": "matching duplex or decorator plate",
+"kind": "part"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "plug-in-outlet-tester",
+"name": "Plug-in outlet tester",
+"spec": "3-light",
+"kind": "measure"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "1/4″ blade",
+"kind": "tool"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2, insulated handle preferred",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "14/12 AWG",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "for terminal hooks",
+"kind": "tool"
+},
+{
+"key": "lineman-pliers",
+"name": "Lineman's pliers",
+"spec": "for pigtail twists",
+"kind": "tool"
+},
+{
+"key": "wire-nut",
+"name": "Twist-on wire connector (wire nut)",
+"spec": "yellow for 2-3 x 14 AWG or red for 12 AWG, for pigtails",
+"kind": "fastener"
+},
+{
+"key": "pigtail-wire",
+"name": "Pigtail wire",
+"spec": "6″ lengths, same gauge, black/white/bare",
+"kind": "material"
+},
+{
+"key": "electrical-tape",
+"name": "Electrical tape",
+"spec": "1 roll",
+"kind": "consumable"
+},
+{
+"key": "phone-camera",
+"name": "Phone camera",
+"spec": "wiring photo",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp preferred",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "to score paint around the plate",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Use the side screw terminals (or back-wire clamp terminals), not push-in backstab holes; backstabs are the most common cause of outlets that fail later.",
+"If two cables feed through the box, pigtail them to the outlet with a wire nut so downstream outlets don't depend on the receptacle's connections.",
+"Strip about 3/4″, wrap the hook three-quarters of the way clockwise around the screw, and wrap a turn of electrical tape around the device to cover the terminals before pushing it into a metal box."
+],
+"sources": [
+"https://www.familyhandyman.com/project/replacing-electrical-outlet/",
+"https://www.angi.com/articles/how-to-replace-electrical-outlet.htm",
+"https://www.electrical101.com/replace-receptacle.html"
+]
+},
+"replace-outlet@gfci": {
+"items": [
+{
+"key": "gfci-receptacle",
+"name": "GFCI receptacle",
+"spec": "15 A or 20 A, TR; WR for outdoor or damp locations",
+"kind": "part"
+},
+{
+"key": "wall-plate",
+"name": "Wall plate (cover plate)",
+"spec": "decorator (rectangular) style",
+"kind": "part"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "plug-in-outlet-tester",
+"name": "Plug-in outlet tester",
+"spec": "with GFCI test button",
+"kind": "measure"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "1/4″ blade",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "14/12 AWG, strip gauge on GFCI back",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wire-nut",
+"name": "Twist-on wire connector (wire nut)",
+"spec": "to temporarily cap wires and for pigtails",
+"kind": "fastener"
+},
+{
+"key": "pigtail-wire",
+"name": "Pigtail wire",
+"spec": "6″, if protecting only this outlet",
+"kind": "material"
+},
+{
+"key": "colored-tape",
+"name": "Colored marking tape",
+"spec": "to mark LINE pair",
+"kind": "consumable"
+},
+{
+"key": "electrical-tape",
+"name": "Electrical tape",
+"spec": "1 roll",
+"kind": "consumable"
+},
+{
+"key": "gfci-sticker",
+"name": "\"GFCI Protected Outlet\" sticker",
+"spec": "included with GFCI",
+"kind": "consumable"
+},
+{
+"key": "phone-camera",
+"name": "Phone camera",
+"spec": "wiring photo",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp preferred",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Most GFCIs ship with tape over the LOAD terminals and won't reset if power is wired to LOAD; identify LINE with a tester before connecting anything.",
+"GFCIs are deep devices; if the box is crowded, protect only this outlet and pigtail the downstream pair instead of using LOAD terminals.",
+"After installing, press TEST with a plug-in tester in each downstream outlet to confirm exactly which outlets lost power, then sticker only those."
+],
+"sources": [
+"https://www.familyhandyman.com/project/replacing-electrical-outlet/",
+"https://blog.supplyhouse.com/how-to-install-gfci-outlet/",
+"https://expertce.com/learn-articles/how-to-wire-gfci-outlet-line-load/"
+]
+},
+"replace-switch": {
+"items": [
+{
+"key": "single-pole-switch",
+"name": "Single-pole light switch",
+"spec": "15 A or 20 A, match circuit",
+"kind": "part"
+},
+{
+"key": "wall-plate",
+"name": "Wall plate (cover plate)",
+"spec": "toggle or decorator to match",
+"kind": "part"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "1/4″ blade",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "for hooks",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "to refresh nicked ends",
+"kind": "tool"
+},
+{
+"key": "masking-tape",
+"name": "Masking or painter's tape",
+"spec": "for wire labels",
+"kind": "consumable"
+},
+{
+"key": "electrical-tape",
+"name": "Electrical tape",
+"spec": "to mark a white wire used as hot",
+"kind": "consumable"
+},
+{
+"key": "phone-camera",
+"name": "Phone camera",
+"spec": "wiring photo",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp preferred",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"If the old switch has three or more insulated wires attached, it isn't a single-pole; stop and check whether it's a 3-way before swapping.",
+"A white wire on a switch loop is actually a hot; wrap it with black tape so the next person knows.",
+"Check the switch with the tester after the breaker is off; boxes sometimes contain a second circuit fed from another breaker."
+],
+"sources": [
+"https://www.familyhandyman.com/article/replacing-a-3-way-switch/",
+"https://extension.missouri.edu/publications/g1770"
+]
+},
+"replace-switch@threeway": {
+"items": [
+{
+"key": "three-way-switch",
+"name": "3-way switch",
+"spec": "15 A, match old amp rating",
+"kind": "part"
+},
+{
+"key": "wall-plate",
+"name": "Wall plate (cover plate)",
+"spec": "toggle or decorator to match",
+"kind": "part"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "1/4″ blade",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "for hooks",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "14/12 AWG",
+"kind": "tool"
+},
+{
+"key": "colored-tape",
+"name": "Colored marking tape",
+"spec": "to mark the common wire",
+"kind": "consumable"
+},
+{
+"key": "masking-tape",
+"name": "Masking or painter's tape",
+"spec": "to label travelers",
+"kind": "consumable"
+},
+{
+"key": "phone-camera",
+"name": "Phone camera",
+"spec": "wiring photo",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp preferred",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Mark the wire on the dark COMMON screw before removing anything; it's the one wire that must go back on a specific screw.",
+"Old 3-way switches may have the common in a different spot than the new one, so go by the screw color and COM label, not position.",
+"If the light still works from only one switch after the swap, the common and a traveler are swapped at one of the two switches."
+],
+"sources": [
+"https://www.familyhandyman.com/article/replacing-a-3-way-switch/",
+"https://www.dummies.com/article/home-auto-hobbies/home-improvement-appliances/electrical/how-to-replace-a-three-way-light-switch-185345/"
+]
+},
+"replace-switch@dimmer": {
+"items": [
+{
+"key": "dimmer-switch",
+"name": "LED-rated (C·L) dimmer",
+"spec": "C·L / LED-rated, LED rating above total bulb watts",
+"kind": "part"
+},
+{
+"key": "dimmable-led-bulb",
+"name": "Dimmable LED bulb",
+"spec": "matching set for every socket",
+"kind": "part"
+},
+{
+"key": "wall-plate",
+"name": "Wall plate (cover plate)",
+"spec": "decorator plate if dimmer requires",
+"kind": "part"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "small, for trim dial",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "strip to dimmer's strip gauge",
+"kind": "tool"
+},
+{
+"key": "lineman-pliers",
+"name": "Lineman's pliers",
+"spec": "for twisting wires",
+"kind": "tool"
+},
+{
+"key": "wire-nut",
+"name": "Twist-on wire connector (wire nut)",
+"spec": "usually included; yellow for 14 AWG",
+"kind": "fastener"
+},
+{
+"key": "electrical-tape",
+"name": "Electrical tape",
+"spec": "to cap the red lead",
+"kind": "consumable"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp preferred",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Dimmers are bigger than switches and generate a little heat; fold wires to the back of the box first so the dimmer seats without crushing them.",
+"In a gang box with several dimmers, side fins may need to be broken off, which lowers the dimmer's rating; check the chart in the instructions.",
+"Smart and some LED dimmers need a neutral wire; check the box for a white bundle before buying."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-install-a-dimmer-switch/",
+"https://assets.lutron.com/a/documents/0302048.pdf",
+"https://www.soundadvice.com/blogs/news/how-to-install-a-lutron-dimmer-2609-92"
+]
+},
+"smoke-alarm": {
+"items": [
+{
+"key": "smoke-alarm",
+"name": "Smoke alarm (battery)",
+"spec": "photoelectric or combination smoke/CO",
+"kind": "part"
+},
+{
+"key": "alarm-battery",
+"name": "Alarm backup battery",
+"spec": "type specified on alarm, if not sealed",
+"kind": "part"
+},
+{
+"key": "step-ladder",
+"name": "Step ladder",
+"spec": "6 ft",
+"kind": "tool"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "for pilot holes if new location",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit-set",
+"name": "Drill bit set",
+"spec": "sized for anchors",
+"kind": "consumable"
+},
+{
+"key": "drywall-anchor",
+"name": "Drywall anchor",
+"spec": "2, included with alarm",
+"kind": "fastener"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "for 4″ clearance from wall",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "permanent-marker",
+"name": "Permanent marker",
+"spec": "for install date",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "overhead dust",
+"kind": "safety"
+}
+],
+"proTips": [
+"Mount ceiling alarms at least 4″ from the wall, and wall units with the top 4 to 12″ below the ceiling; keep them about 10 ft from cooking appliances.",
+"Replace every alarm 10 years from the manufacture date on the back, even if it still tests fine; the sensor degrades with age.",
+"Alarms with a hush button in the kitchen area cut down on nuisance trips that tempt people to remove the battery."
+],
+"sources": [
+"https://www.firstalertstore.com/store/product-support/replace-first-alert-smoke-alarm-step-by-step.htm",
+"https://support.firstalert.com/s/article/Ceiling-or-Wall-Smoke-Alarm-Installation",
+"https://www.fortsmithar.gov/government/departments/fire/citizen-fire-resources/smoke-alarm-safety"
+]
+},
+"smoke-alarm@wired": {
+"items": [
+{
+"key": "hardwired-smoke-alarm",
+"name": "Hardwired smoke alarm (120 V)",
+"spec": "120 V, battery backup, same brand as others",
+"kind": "part"
+},
+{
+"key": "alarm-harness",
+"name": "Alarm wiring harness (pigtail connector)",
+"spec": "included; adapter if switching brands",
+"kind": "part"
+},
+{
+"key": "alarm-battery",
+"name": "Alarm backup battery",
+"spec": "as specified",
+"kind": "part"
+},
+{
+"key": "step-ladder",
+"name": "Step ladder",
+"spec": "6 ft",
+"kind": "tool"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "14 AWG",
+"kind": "tool"
+},
+{
+"key": "wire-nut",
+"name": "Twist-on wire connector (wire nut)",
+"spec": "yellow, for 2-3 x 14 AWG",
+"kind": "fastener"
+},
+{
+"key": "electrical-tape",
+"name": "Electrical tape",
+"spec": "to cap unused red wire",
+"kind": "consumable"
+},
+{
+"key": "permanent-marker",
+"name": "Permanent marker",
+"spec": "for install date",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp preferred",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "overhead dust",
+"kind": "safety"
+}
+],
+"proTips": [
+"Turn off the breaker before swapping harnesses; the alarm gets 120 V even with its battery removed.",
+"Mixed brands usually won't interconnect; replace all alarms in the system at once if they're all near the 10-year mark.",
+"After restoring power, press TEST on one alarm and walk the house to confirm every interconnected unit sounds."
+],
+"sources": [
+"https://www.x-sense.com/blogs/tips/how-to-replace-hard-wired-smoke-detectors",
+"https://www.inverseelectric.com/blog/how-to-replace-hardwired-smoke-detectors",
+"https://www.firstalertstore.com/store/product-support/replace-first-alert-smoke-alarm-step-by-step.htm"
+]
+},
+"light-fixture": {
+"items": [
+{
+"key": "light-fixture",
+"name": "Ceiling light fixture",
+"spec": "with mounting strap and hardware",
+"kind": "part"
+},
+{
+"key": "mounting-strap",
+"name": "Fixture mounting strap (crossbar)",
+"spec": "included with fixture",
+"kind": "part"
+},
+{
+"key": "ground-screw",
+"name": "Green grounding screw",
+"spec": "green 10-32, if strap lacks one",
+"kind": "fastener"
+},
+{
+"key": "box-screw",
+"name": "Electrical box machine screws",
+"spec": "8-32 assortment, spares",
+"kind": "fastener"
+},
+{
+"key": "wire-nut",
+"name": "Twist-on wire connector (wire nut)",
+"spec": "included; yellow for 14 AWG",
+"kind": "fastener"
+},
+{
+"key": "light-bulb",
+"name": "Light bulbs",
+"spec": "at or below fixture's max wattage",
+"kind": "part"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "step-ladder",
+"name": "Step ladder",
+"spec": "6 ft",
+"kind": "tool"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "1/4″",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "14/12 AWG",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "lineman-pliers",
+"name": "Lineman's pliers",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "to score paint around canopy",
+"kind": "tool"
+},
+{
+"key": "electrical-tape",
+"name": "Electrical tape",
+"spec": "1 roll",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp",
+"kind": "tool"
+},
+{
+"key": "helper",
+"name": "Helper",
+"spec": "to hold fixture",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "overhead work",
+"kind": "safety"
+}
+],
+"proTips": [
+"Hang the fixture from a wire hook or bent coat-hanger on the strap while you make connections so the fixture wires never carry its weight.",
+"On a lamp-cord style fixture, the neutral wire has ribbed or marked insulation; that one goes to the house white wire.",
+"If you find cloth-insulated wires that crumble when bent, stop and slip on heat-shrink tubing or call an electrician rather than forcing them."
+],
+"sources": [
+"https://www.thisoldhouse.com/21097238/how-to-safely-replace-a-ceiling-light",
+"https://www.familyhandyman.com/project/how-to-replace-a-light-fixture/",
+"https://www.hgtv.com/how-to/home-improvement/how-to-change-a-light-fixture"
+]
+},
+"ceiling-fan": {
+"items": [
+{
+"key": "ceiling-fan",
+"name": "Ceiling fan kit",
+"spec": "with downrod, bracket, canopy, blades, hardware",
+"kind": "part"
+},
+{
+"key": "fan-brace",
+"name": "Fan-rated expanding brace with box",
+"spec": "expanding brace with fan-rated box, rated for fan weight",
+"kind": "part"
+},
+{
+"key": "cable-connector",
+"name": "Cable clamp connector",
+"spec": "if new box requires one",
+"kind": "fastener"
+},
+{
+"key": "wire-nut",
+"name": "Twist-on wire connector (wire nut)",
+"spec": "included; yellow or red sized to wires",
+"kind": "fastener"
+},
+{
+"key": "balancing-kit",
+"name": "Fan balancing kit",
+"spec": "included with fan",
+"kind": "part"
+},
+{
+"key": "light-bulb",
+"name": "Light bulbs",
+"spec": "for light kit, within rated watts",
+"kind": "part"
+},
+{
+"key": "lock-washer",
+"name": "Lock washer",
+"spec": "included with bracket screws",
+"kind": "fastener"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "pen-style",
+"kind": "measure"
+},
+{
+"key": "step-ladder",
+"name": "Step ladder",
+"spec": "6 to 8 ft",
+"kind": "tool"
+},
+{
+"key": "multi-bit-screwdriver",
+"name": "Multi-bit (4-in-1 or 11-in-1) screwdriver",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "nut-driver",
+"name": "Nut driver",
+"spec": "3/8″ for brace",
+"kind": "tool"
+},
+{
+"key": "adjustable-wrench",
+"name": "Adjustable wrench",
+"spec": "adjustable, for downrod and brace",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "14/12 AWG",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "to knock out old box",
+"kind": "tool"
+},
+{
+"key": "drywall-saw",
+"name": "Drywall jab saw",
+"spec": "if enlarging hole",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "blade height and clearance",
+"kind": "measure"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "2 ft or torpedo",
+"kind": "measure"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "headlamp",
+"kind": "tool"
+},
+{
+"key": "helper",
+"name": "Helper",
+"spec": "to hold motor",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "overhead work",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "when removing old box",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Keep fan blades at least 7 ft off the floor and about 18″ from walls; use a longer downrod on ceilings over 9 ft.",
+"Tighten the downrod set screws and install the pin and cotter clip before lifting; that pin is what keeps the fan from falling.",
+"Most wobble comes from loose blade screws or blades at different heights: tighten every screw and measure each blade tip to the ceiling before using balance weights."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-install-ceiling-fans/",
+"https://www.familyhandyman.com/article/how-to-install-a-ceiling-fan-brace/",
+"https://www.finehomebuilding.com/project-guides/wiring/installing-a-ceiling-fan"
+]
+},
+"dryer-slow": {
+"items": [
+{
+"key": "dryer-vent-brush",
+"name": "Dryer vent brush kit",
+"spec": "10 to 20 ft rod kit",
+"kind": "tool"
+},
+{
+"key": "lint-trap-brush",
+"name": "Lint trap brush",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "to spin brush, low speed",
+"kind": "power-tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum or vacuum",
+"spec": "with crevice tool",
+"kind": "tool"
+},
+{
+"key": "crevice-tool",
+"name": "Vacuum crevice tool",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "nut-driver",
+"name": "Nut driver",
+"spec": "5/16″ for clamps",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "for clamps",
+"kind": "tool"
+},
+{
+"key": "semi-rigid-duct",
+"name": "Semi-rigid aluminum transition duct",
+"spec": "4″ diameter, UL 2158A, under 8 ft",
+"kind": "material"
+},
+{
+"key": "duct-clamp",
+"name": "Duct clamp",
+"spec": "2 x 4″ worm-drive",
+"kind": "fastener"
+},
+{
+"key": "foil-tape",
+"name": "Aluminum foil tape",
+"spec": "UL 181 aluminum, 2″",
+"kind": "adhesive"
+},
+{
+"key": "vent-hood",
+"name": "Exterior dryer vent hood",
+"spec": "replacement flap hood if damaged",
+"kind": "part"
+},
+{
+"key": "dish-soap",
+"name": "Dish soap (degreasing)",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "soft-brush",
+"name": "Soft-bristle brush",
+"spec": "for lint screen",
+"kind": "tool"
+},
+{
+"key": "appliance-dolly",
+"name": "Appliance mover slides",
+"spec": "to protect floor",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "N95",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Test the lint screen by running water over it; if water pools, dryer-sheet film is clogging the mesh and needs scrubbing with soap.",
+"Keep the transition duct short and straight; every sharp bend adds resistance and catches lint. Avoid crushing it when you push the dryer back.",
+"Remove any screen from the outdoor hood; screens catch lint and quickly block the exhaust."
+],
+"sources": [
+"https://basc.pnnl.gov/resource-guides/proper-clothes-dryer-venting",
+"https://www.nachi.org/inspecting-dryer-exhaust.htm",
+"https://structuretech.com/foil-dryer-ducts-code-approved/"
+]
+},
+"fridge-warm": {
+"items": [
+{
+"key": "refrigerator-coil-brush",
+"name": "Refrigerator coil brush",
+"spec": "long, flexible",
+"kind": "tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum or vacuum",
+"spec": "with crevice tool",
+"kind": "tool"
+},
+{
+"key": "crevice-tool",
+"name": "Vacuum crevice tool",
+"spec": "flexible extension preferred",
+"kind": "tool"
+},
+{
+"key": "appliance-thermometer",
+"name": "Appliance thermometer",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "dollar-bill",
+"name": "Dollar bill or paper strip",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "multi-bit-screwdriver",
+"name": "Multi-bit (4-in-1 or 11-in-1) screwdriver",
+"spec": "for grille screws on some models",
+"kind": "tool"
+},
+{
+"key": "microfiber-cloth",
+"name": "Microfiber cloth",
+"spec": "for gaskets",
+"kind": "consumable"
+},
+{
+"key": "dish-soap",
+"name": "Dish soap (degreasing)",
+"spec": "to clean gaskets",
+"kind": "consumable"
+},
+{
+"key": "appliance-dolly",
+"name": "Appliance mover slides",
+"spec": "if coils are on the back",
+"kind": "tool"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "N95",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Clean the door gaskets with warm soapy water first; sticky residue often causes poor sealing that looks like a worn gasket.",
+"Don't bend the condenser fan blades while cleaning; check that the fan spins freely once you plug the fridge back in.",
+"Keep at least a couple of inches of clearance behind and above the fridge so the condenser can shed heat."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-clean-refrigerator-coils/",
+"https://www.searspartsdirect.com/diy/repair-guide/how-to-clean-refrigerator-condenser-coils",
+"https://www.familyhandyman.com/list/things-you-can-do-to-help-avoid-refrigerator-repairs/"
+]
+},
+"dishwasher-filter": {
+"items": [
+{
+"key": "soft-brush",
+"name": "Soft-bristle brush",
+"spec": "soft nylon or old toothbrush",
+"kind": "tool"
+},
+{
+"key": "dish-soap",
+"name": "Dish soap (degreasing)",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "towel",
+"name": "Towels",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "toothpick",
+"name": "Toothpick or wooden skewer",
+"spec": "wooden",
+"kind": "tool"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "for scale",
+"kind": "consumable"
+},
+{
+"key": "gloves-disposable",
+"name": "Disposable nitrile gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "to inspect the sump",
+"kind": "tool"
+},
+{
+"key": "dishwasher-filter",
+"name": "Replacement dishwasher filter",
+"spec": "replacement, only if cracked or torn",
+"kind": "part"
+}
+],
+"proTips": [
+"Clean the filter monthly, or more often if you don't scrape plates.",
+"When reinstalling, line up the lower screen under its locating tabs first or the cylinder won't lock and food will bypass the filter.",
+"Never run the dishwasher without the filter in; debris can jam the pump."
+],
+"sources": [
+"https://producthelp.whirlpool.com/Dishwashers/Product_Info/Dishwasher_Cleaning_and_Care/How_to_Clean_the_Dishwasher_Filters",
+"https://www.whirlpool.com/blog/kitchen/fixing-removing-and-replacing-dishwasher-filters.html",
+"https://www.partselect.com/blog/how-to-clean-whirlpool-dishwasher-filter/"
+]
+},
+"washer-drain": {
+"items": [
+{
+"key": "towel",
+"name": "Towels",
+"spec": "3 to 4",
+"kind": "consumable"
+},
+{
+"key": "shallow-pan",
+"name": "Shallow pan or baking dish",
+"spec": "fits under hose spout",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "to empty the pan",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "or coin, for access panel",
+"kind": "tool"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber cleaning gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "soft-brush",
+"name": "Soft-bristle brush",
+"spec": "for the filter",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "to pull debris from pump",
+"kind": "tool"
+}
+],
+"proTips": [
+"Expect a gallon or more behind the filter; drain slowly through the small hose and empty the pan often rather than unscrewing the filter all at once.",
+"Look into the pump cavity after removing the filter; coins and hair ties can hide past the filter screen.",
+"Clean the pump filter every few months; it also cures odors."
+],
+"sources": [
+"https://producthelp.whirlpool.com/Laundry/Washers/Product_Info/Washer_Cleaning_and_Care/Cleaning_the_Pump_Filter_-_Front_Load_Washer",
+"https://academy.fredsappliance.com/washer-training/clean-drain-pump-filter-on-front-load-washer/",
+"https://www.searshomeservices.com/blog/what-to-do-when-your-washing-machine-wont-drain-guide"
+]
+},
+"washer-drain@top": {
+"items": [
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "5 gal",
+"kind": "tool"
+},
+{
+"key": "cup",
+"name": "Plastic cup or pitcher",
+"spec": "for bailing",
+"kind": "tool"
+},
+{
+"key": "towel",
+"name": "Towels",
+"spec": "3 to 4",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight or headlamp",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "drain-snake",
+"name": "Small drain snake (hand auger)",
+"spec": "1/4″ x 25 ft",
+"kind": "tool"
+},
+{
+"key": "slip-joint-pliers",
+"name": "Slip-joint pliers",
+"spec": "for spring hose clamp",
+"kind": "tool"
+},
+{
+"key": "hose-clamp",
+"name": "Hose clamp",
+"spec": "replacement, if rusted",
+"kind": "fastener"
+},
+{
+"key": "drain-hose",
+"name": "Washer drain hose",
+"spec": "replacement, if cracked",
+"kind": "part"
+},
+{
+"key": "cable-tie",
+"name": "Cable ties",
+"spec": "to secure hose guide",
+"kind": "consumable"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum or vacuum",
+"spec": "wet/dry, to remove water",
+"kind": "tool"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber cleaning gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "appliance-dolly",
+"name": "Appliance mover slides",
+"spec": "",
+"kind": "tool"
+}
+],
+"proTips": [
+"The drain hose should go only 6 to 8″ into the standpipe; deeper can siphon water out or trap it.",
+"Too many suds from non-HE detergent can stop draining too; run a rinse with no detergent before chasing parts.",
+"A wet/dry vac pulls water out of a full tub much faster than bailing."
+],
+"sources": [
+"https://www.searspartsdirect.com/diy/article/troubleshooting-a-top-load-washer-that-wont-drain-or-spin-video",
+"https://www.mrappliance.com/blog/2019/october/what-to-do-when-your-washing-machine-won-t-drain/",
+"https://safroappliancerepair.com/blog/top-loader-stuck-with-water/"
+]
+},
+"hood-filter": {
+"items": [
+{
+"key": "sink",
+"name": "Sink or tub",
+"spec": "or tub",
+"kind": "tool"
+},
+{
+"key": "dish-soap",
+"name": "Dish soap (degreasing)",
+"spec": "degreasing, 2 to 3 Tbsp",
+"kind": "consumable"
+},
+{
+"key": "baking-soda",
+"name": "Baking soda",
+"spec": "1/4 cup",
+"kind": "consumable"
+},
+{
+"key": "soft-brush",
+"name": "Soft-bristle brush",
+"spec": "non-abrasive",
+"kind": "tool"
+},
+{
+"key": "towel",
+"name": "Towels",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "degreaser",
+"name": "Kitchen degreaser spray",
+"spec": "for hood interior",
+"kind": "consumable"
+},
+{
+"key": "microfiber-cloth",
+"name": "Microfiber cloth",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "rubber-gloves",
+"name": "Rubber cleaning gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "range-hood-filter",
+"name": "Replacement range hood filter",
+"spec": "replacement for charcoal filters",
+"kind": "part"
+}
+],
+"proTips": [
+"Charcoal (recirculating) filters can't be washed; replace them every few months.",
+"Very greasy filters may need a 30 to 60 minute soak; refresh with hot water if it cools.",
+"Clean mesh filters monthly with regular cooking; they also go in the dishwasher, though it may discolor aluminum."
+],
+"sources": [
+"https://hauslane.com/blogs/resources/how-to-clean-a-range-hood-filter",
+"https://prolinerangehoods.com/blogs/news/clean-range-hood-filters",
+"https://therangehoodstore.com/a/blog/how-to-clean-range-hood-filters-a-complete-guide"
+]
+},
+"oven-element": {
+"items": [
+{
+"key": "oven-element",
+"name": "Oven bake element",
+"spec": "matched to oven model number",
+"kind": "part"
+},
+{
+"key": "multimeter",
+"name": "Digital multimeter",
+"spec": "ohms setting",
+"kind": "measure"
+},
+{
+"key": "nut-driver",
+"name": "Nut driver",
+"spec": "1/4″",
+"kind": "tool"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "to pull connectors",
+"kind": "tool"
+},
+{
+"key": "spade-connector",
+"name": "High-temperature spade terminal",
+"spec": "high-temp, if old ones are burned",
+"kind": "part"
+},
+{
+"key": "masking-tape",
+"name": "Masking or painter's tape",
+"spec": "to keep wires from falling back in",
+"kind": "consumable"
+},
+{
+"key": "phone-camera",
+"name": "Phone camera",
+"spec": "wire photo and model tag",
+"kind": "tool"
+},
+{
+"key": "work-light",
+"name": "Work light",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"A good bake element usually reads about 19 to 29 ohms; open (OL) or near zero means replace it.",
+"Tape the wires to the back wall or hold them with pliers so they don't slip back through the hole.",
+"Pull connectors off by the metal terminal, not the wire; replace discolored terminals or the new element can fail too."
+],
+"sources": [
+"https://www.lowes.com/n/how-to/replace-an-oven-element",
+"https://partsdr.com/blog/how-to-test-an-oven-element-a-step-by-step-guide",
+"https://www.partselect.com/Repair/Range-Stove-Oven/No-Heat-When-Baking/"
+]
+},
+"furnace-filter": {
+"items": [
+{
+"key": "furnace-filter",
+"name": "Furnace / AC air filter",
+"spec": "1, exact nominal size and depth from old frame (e.g. 16×25×1), MERV 8–11 for 1″ slots",
+"kind": "part"
+},
+{
+"key": "permanent-marker",
+"name": "Permanent marker",
+"spec": "fine point",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "LED",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "16–25 ft, if the size isn't printed",
+"kind": "measure"
+},
+{
+"key": "vacuum",
+"name": "Vacuum with hose attachment",
+"spec": "with brush or crevice tool",
+"kind": "power-tool"
+},
+{
+"key": "trash-bag",
+"name": "Trash bag",
+"spec": "1 large, to bag the dirty filter",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask / N95 respirator",
+"spec": "N95, optional for very dusty filters",
+"kind": "safety"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2, for screw-held return grilles",
+"kind": "tool"
+}
+],
+"proTips": [
+"Filter depth, not the MERV number, mostly drives airflow resistance: a high-MERV 1″ filter can choke airflow, while the same rating in a 4–5″ cabinet filter is fine.",
+"Bag the old filter right at the furnace and keep it level as you pull it out so the trapped dust doesn't fall into the blower or onto the floor.",
+"If there is no slot cover, tape over the opening with foil HVAC tape after installing; unfiltered air pulled in through the gap bypasses the filter."
+],
+"sources": [
+"https://www.carrier.com/us/en/residential/hvac-resources/furnaces/changing-furnace-filters/",
+"https://filterbuy.com/resources/air-filter-basics/furnace-filters/furnace-filter-installation/",
+"https://hvacdatabase.com/us/articles/how-to-replace-a-furnace-filter/"
+]
+},
+"ac-condenser": {
+"items": [
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "to confirm the disconnect is off",
+"kind": "measure"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "50 ft",
+"kind": "tool"
+},
+{
+"key": "hose-spray-nozzle",
+"name": "Adjustable hose spray nozzle",
+"spec": "shower or fan setting",
+"kind": "tool"
+},
+{
+"key": "soft-brush",
+"name": "Soft-bristle brush",
+"spec": "long soft bristles",
+"kind": "tool"
+},
+{
+"key": "fin-comb",
+"name": "Fin comb",
+"spec": "multi-size, matched to fins per inch",
+"kind": "tool"
+},
+{
+"key": "coil-cleaner",
+"name": "Coil cleaner",
+"spec": "non-acid foaming, 1–2 cans",
+"kind": "consumable"
+},
+{
+"key": "vacuum",
+"name": "Vacuum with hose attachment",
+"spec": "shop vac with brush tool, optional",
+"kind": "power-tool"
+},
+{
+"key": "nut-driver",
+"name": "Nut driver",
+"spec": "1/4″ and 5/16″, for top or side panels",
+"kind": "tool"
+},
+{
+"key": "pruning-shears",
+"name": "Pruning shears",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Leaf rake",
+"spec": "shrub rake for leaves",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "cut-resistant, fins are sharp",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Verify the disconnect is really dead with a non-contact tester before touching anything; some units are fed by a breaker and the pull-out disconnect may be bypassed.",
+"Never use a pressure washer or a jet nozzle on the coil; concentrated streams fold the soft aluminum fins and cut airflow.",
+"Let foaming coil cleaner dwell for the time on the label (often 5–10 minutes) before rinsing, and rinse from the inside out until the water runs clear."
+],
+"sources": [
+"https://www.bryant.com/en/us/products/air-conditioners/how-to-clean-ac-coils/",
+"https://blog.supplyhouse.com/how-to-clean-ac-condenser-coils-for-peak-cooling-performance/",
+"https://simplegreen.com/professional/cleaning-tips/outdoors/air-conditioner-coils/"
+]
+},
+"water-heater-flush": {
+"items": [
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "rubber, long enough to reach a floor drain or outside",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "for slotted drain valves",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "to loosen a stiff hose connection",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "5-gallon, to check sediment",
+"kind": "tool"
+},
+{
+"key": "hose-cap",
+"name": "Garden-hose thread cap",
+"spec": "garden-hose thread, spare with washer",
+"kind": "part"
+},
+{
+"key": "teflon-hose-washer",
+"name": "Hose washer",
+"spec": "spare, for the hose coupling",
+"kind": "part"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "heat-resistant, water is hot",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "towel",
+"name": "Old towels / rags",
+"spec": "several",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "drain-valve",
+"name": "Water heater drain valve (replacement)",
+"spec": "3/4″ MPT brass, only if the old one leaks or clogs",
+"kind": "part"
+},
+{
+"key": "ptfe-thread-tape",
+"name": "PTFE thread seal tape",
+"spec": "1/2″ roll, for a replacement drain valve",
+"kind": "adhesive"
+}
+],
+"proTips": [
+"Let the water cool for a few hours (or overnight) before draining, or turn the heat off well ahead; tank water at 120–140°F can scald through a leaking hose connection.",
+"Plastic drain valves crack if overtightened and often clog with sediment; many pros swap in a full-port brass drain valve during the flush.",
+"If flow stops partway, sediment is plugging the valve: briefly open the cold supply to push water through, or close the valve and clear the opening before continuing."
+],
+"sources": [
+"https://www.hometips.com/repair-fix/flush-water-heater.html",
+"https://www.allstate.com/resources/home-insurance/how-to-drain-a-water-heater",
+"https://myhealth.alberta.ca/alberta/pages/Flushing-Your-Water-Heater.aspx"
+]
+},
+"water-heater-flush@electric": {
+"items": [
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "rubber, long enough to reach a floor drain or outside",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "for slotted drain valves",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "to loosen a stiff hose connection",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "5-gallon, to check sediment",
+"kind": "tool"
+},
+{
+"key": "hose-cap",
+"name": "Garden-hose thread cap",
+"spec": "garden-hose thread, spare with washer",
+"kind": "part"
+},
+{
+"key": "teflon-hose-washer",
+"name": "Hose washer",
+"spec": "spare, for the hose coupling",
+"kind": "part"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "heat-resistant, water is hot",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "towel",
+"name": "Old towels / rags",
+"spec": "several",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "drain-valve",
+"name": "Water heater drain valve (replacement)",
+"spec": "3/4″ MPT brass, only if the old one leaks or clogs",
+"kind": "part"
+},
+{
+"key": "ptfe-thread-tape",
+"name": "PTFE thread seal tape",
+"spec": "1/2″ roll, for a replacement drain valve",
+"kind": "adhesive"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "to confirm the breaker is off",
+"kind": "measure"
+}
+],
+"proTips": [
+"Never restore power until the tank is completely full; an element that energizes in air burns out within seconds.",
+"Label the double-pole water heater breaker clearly so the next person doesn't switch it on with the tank empty.",
+"Run a hot tap until it flows without sputtering, which proves the air pocket at the top of the tank is gone."
+],
+"sources": [
+"https://www.hometips.com/repair-fix/flush-water-heater.html",
+"https://www.appliancepartspros.com/b/how-to-test-and-replace-the-heating-element-in-your-electric-water-heater/",
+"https://www.allstate.com/resources/home-insurance/how-to-drain-a-water-heater"
+]
+},
+"water-heater-flush@tankless": {
+"items": [
+{
+"key": "tankless-flush-kit",
+"name": "Tankless descaling kit (pump and hoses)",
+"spec": "submersible pump + 2 hoses with 3/4″ hose-thread ends",
+"kind": "tool"
+},
+{
+"key": "five-gallon-bucket",
+"name": "5-gallon bucket",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "2–4 gal undiluted, or use a descaler",
+"kind": "consumable"
+},
+{
+"key": "descaling-solution",
+"name": "Water heater descaler",
+"spec": "per manufacturer, instead of vinegar",
+"kind": "consumable"
+},
+{
+"key": "adjustable-wrench",
+"name": "Adjustable wrench",
+"spec": "8–10″, for service-port caps",
+"kind": "tool"
+},
+{
+"key": "tongue-and-groove-pliers",
+"name": "Tongue-and-groove pliers",
+"spec": "for stuck caps",
+"kind": "tool"
+},
+{
+"key": "flathead-screwdriver",
+"name": "Flathead screwdriver",
+"spec": "for some isolation valve handles",
+"kind": "tool"
+},
+{
+"key": "inlet-filter-screen",
+"name": "Inlet water filter screen",
+"spec": "replacement, only if torn",
+"kind": "part"
+},
+{
+"key": "old-toothbrush",
+"name": "Old toothbrush",
+"spec": "to scrub the inlet screen",
+"kind": "tool"
+},
+{
+"key": "teflon-hose-washer",
+"name": "Hose washer",
+"spec": "spares for hose ends",
+"kind": "part"
+},
+{
+"key": "towel",
+"name": "Old towels / rags",
+"spec": "several",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "chemical-resistant nitrile",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+}
+],
+"proTips": [
+"Check your manual before using vinegar; some makers specify their own descaler or limit contact time, and using the wrong chemical can affect the warranty.",
+"On hard water, swap in fresh solution halfway through the circulation, or repeat the cycle, for heavy scale.",
+"After descaling, rinse with fresh cold water for at least 5 minutes so no acid stays in the heat exchanger."
+],
+"sources": [
+"https://noritz.com/post/how-to-descale-a-noritz-tankless-water-heater",
+"https://tanklessgeek.com/how-to-descale-tankless-water-heater",
+"https://www.superbrothers.com/descaling-tankless-water-heater-step-by-step-guide/"
+]
+},
+"thermostat": {
+"items": [
+{
+"key": "thermostat",
+"name": "Thermostat",
+"spec": "new, checked for system compatibility",
+"kind": "part"
+},
+{
+"key": "screwdriver-set",
+"name": "Screwdriver set",
+"spec": "Phillips and small flathead",
+"kind": "tool"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "to confirm the furnace is off",
+"kind": "measure"
+},
+{
+"key": "multimeter",
+"name": "Digital multimeter",
+"spec": "to check 24 VAC between R and C, optional",
+"kind": "measure"
+},
+{
+"key": "phone-camera",
+"name": "Smartphone camera",
+"spec": "for wiring photos",
+"kind": "tool"
+},
+{
+"key": "wire-labels",
+"name": "Wire labels",
+"spec": "usually included",
+"kind": "consumable"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "for 18 AWG thermostat wire",
+"kind": "tool"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "torpedo",
+"kind": "measure"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit-set",
+"name": "Drill bit set",
+"spec": "sized to anchors",
+"kind": "tool"
+},
+{
+"key": "drywall-anchor",
+"name": "Drywall anchor",
+"spec": "2–4, if no stud",
+"kind": "fastener"
+},
+{
+"key": "c-wire-adapter",
+"name": "C-wire power adapter",
+"spec": "only if no C wire is available",
+"kind": "part"
+},
+{
+"key": "wall-plate",
+"name": "Thermostat wall plate",
+"spec": "if the old footprint shows",
+"kind": "part"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+}
+],
+"proTips": [
+"Before buying, photograph your existing wiring and check the thermostat maker's compatibility checker; look for an unused wire folded back in the wall that can serve as the C wire.",
+"If the wire ends are nicked or corroded, snip and restrip about 1/4″ of fresh copper so they seat firmly in push-in terminals.",
+"Never connect a low-voltage thermostat to thick 120/240 V wiring; that indicates a line-voltage system that needs a line-voltage thermostat."
+],
+"sources": [
+"https://www.homedepot.com/c/ah/wiring-a-thermostat/9ba683603be9fa5395fab908af393aa",
+"https://www.angi.com/articles/how-to-install-c-wire.htm",
+"https://www.pickhvac.com/thermostat/wiring/"
+]
+},
+"flame-sensor": {
+"items": [
+{
+"key": "nut-driver",
+"name": "Nut driver",
+"spec": "1/4″ (some use 5/16″)",
+"kind": "tool"
+},
+{
+"key": "emery-cloth",
+"name": "Fine emery cloth",
+"spec": "fine grit, about 320+",
+"kind": "consumable"
+},
+{
+"key": "abrasive-pad",
+"name": "Fine abrasive pad",
+"spec": "very fine, alternative",
+"kind": "consumable"
+},
+{
+"key": "lint-free-cloth",
+"name": "Lint-free cloth",
+"spec": "clean, dry",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "phone",
+"name": "Smartphone",
+"spec": "to record the blink code",
+"kind": "tool"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "for some door panels",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "thin nitrile, to keep skin oil off the rod",
+"kind": "safety"
+},
+{
+"key": "flame-sensor",
+"name": "Furnace flame sensor",
+"spec": "replacement, if cracked or cleaning didn't last",
+"kind": "part"
+}
+],
+"proTips": [
+"Keep the abrasive off the porcelain insulator and wiring; a cracked porcelain base means replace the sensor, not clean it.",
+"If you've had to clean the sensor more than once in the same season, replace it; each cleaning roughens the rod and speeds up the next buildup.",
+"Avoid sandpaper and steel wool that can leave grit or strands on the rod; if you do use fine steel wool, check carefully for stray fibers before reinstalling."
+],
+"sources": [
+"https://www.homeserve.com/blog/how-to/clean-furnace-flame-sensor",
+"https://filterbuy.com/resources/furnaces/furnace-knowledge/furnace-flame-sensor-replacement-guide-costs-cleaning-tips-diy-repair-steps-bad-sensor-symptoms/",
+"https://hvacprosales.com/blog/how-to-clean-an-hvac-flame-sensor-a-step-by-step-guide/"
+]
+},
+"condensate-drain": {
+"items": [
+{
+"key": "wet-dry-vac",
+"name": "Wet/dry vac",
+"spec": "with paper filter removed",
+"kind": "power-tool"
+},
+{
+"key": "duct-tape",
+"name": "Duct tape",
+"spec": "to seal the vac hose to the pipe",
+"kind": "adhesive"
+},
+{
+"key": "towel",
+"name": "Old towels / rags",
+"spec": "several, plus a rag to seal the hose",
+"kind": "consumable"
+},
+{
+"key": "funnel",
+"name": "Funnel",
+"spec": "small",
+"kind": "tool"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "1 cup, plus warm water",
+"kind": "consumable"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "for flushing water",
+"kind": "tool"
+},
+{
+"key": "drain-line-brush",
+"name": "Flexible drain-line brush",
+"spec": "for 3/4″ pipe, optional",
+"kind": "tool"
+},
+{
+"key": "cleanout-cap",
+"name": "Condensate cleanout cap / plug",
+"spec": "replacement 3/4″, if missing",
+"kind": "part"
+},
+{
+"key": "condensate-pan-tablet",
+"name": "Condensate pan tablet",
+"spec": "optional, HVAC-rated",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "nitrile",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Vacuum for 2–3 minutes at the outlet, pour water in at the tee, then vacuum again; repeat until the water exits clear.",
+"If your drain uses a pump or a trap, prime the trap with water afterward; an empty trap can pull air and stop the drain from flowing.",
+"Repeat a cup of vinegar every few months during cooling season to keep algae from building back up."
+],
+"sources": [
+"https://www.carrier.com/us/en/residential/hvac-resources/air-conditioners/how-to-clean-ac-drain-line/",
+"https://www.angi.com/articles/how-to-clean-ac-drain-line.htm",
+"https://www.oliverheatcool.com/diy/cooling-repair/how-to-use-a-wet-dry-vacuum-to-unclog-an-ac-condensate-drain/"
+]
+},
+"wh-element": {
+"items": [
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "multimeter",
+"name": "Digital multimeter",
+"spec": "ohms and AC volts",
+"kind": "measure"
+},
+{
+"key": "insulated-screwdriver",
+"name": "Insulated screwdriver",
+"spec": "Phillips and flathead",
+"kind": "tool"
+},
+{
+"key": "element-wrench",
+"name": "Water heater element wrench",
+"spec": "1-1/2″ thin-wall socket",
+"kind": "tool"
+},
+{
+"key": "ratchet",
+"name": "Socket ratchet / breaker bar",
+"spec": "1/2″ drive or breaker bar",
+"kind": "tool"
+},
+{
+"key": "water-heater-element",
+"name": "Water heater heating element",
+"spec": "match voltage and wattage on the rating plate",
+"kind": "part"
+},
+{
+"key": "element-gasket",
+"name": "Element gasket",
+"spec": "new, usually included",
+"kind": "part"
+},
+{
+"key": "water-heater-thermostat",
+"name": "Water heater thermostat",
+"spec": "matching, only if testing shows it's bad",
+"kind": "part"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "towel",
+"name": "Old towels / rags",
+"spec": "several",
+"kind": "consumable"
+},
+{
+"key": "phone-camera",
+"name": "Smartphone camera",
+"spec": "to photograph wiring",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+}
+],
+"proTips": [
+"A good element typically reads roughly 10–30 ohms between its screws; an open (OL) reading means it's bad. Also check from each screw to the tank: any reading there means a shorted element.",
+"Before draining, test the upper and lower elements and thermostats; if only the lower element is bad you only need to drain below that level.",
+"Never energize the element before the tank is full and air is purged from a hot tap, or the new element will burn out instantly."
+],
+"sources": [
+"https://www.appliancepartspros.com/b/how-to-test-and-replace-the-heating-element-in-your-electric-water-heater/",
+"https://www.appliancepartspros.com/b/how-to-test-if-your-electric-water-heater-element-is-failing/",
+"https://thefurnaceoutlet.com/blogs/news/how-to-test-and-replace-heating-elements-in-50-60-gallon-electric-water-heaters-without-freaking-out"
+]
+},
+"pc-no-power": {
+"items": [
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2 magnetic",
+"kind": "tool"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "plug-in-outlet-tester",
+"name": "Plug-in outlet tester",
+"spec": "or a lamp",
+"kind": "measure"
+},
+{
+"key": "table-lamp",
+"name": "Lamp (outlet tester)",
+"spec": "alternative outlet check",
+"kind": "tool"
+},
+{
+"key": "pc-power-cord",
+"name": "Computer power cord",
+"spec": "known-good spare",
+"kind": "part"
+},
+{
+"key": "anti-static-wrist-strap",
+"name": "Anti-static wrist strap",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "motherboard-manual",
+"name": "Motherboard manual",
+"spec": "PDF from maker",
+"kind": "material"
+},
+{
+"key": "paper-clip",
+"name": "Paper clip",
+"spec": "for PSU jump test, optional",
+"kind": "tool"
+},
+{
+"key": "psu-tester",
+"name": "Power supply tester",
+"spec": "optional",
+"kind": "measure"
+},
+{
+"key": "cmos-battery",
+"name": "CMOS battery",
+"spec": "CR2032, optional",
+"kind": "part"
+},
+{
+"key": "pc-memory-module",
+"name": "RAM module",
+"spec": "known-good, optional for swap testing",
+"kind": "part"
+},
+{
+"key": "phone-camera",
+"name": "Smartphone camera",
+"spec": "to photograph connectors",
+"kind": "tool"
+}
+],
+"proTips": [
+"Check that the front-panel power-switch pins are on the correct motherboard header; a loose or misplaced lead looks exactly like a dead PC.",
+"If reseating doesn't help, test with a single RAM stick in the slot the motherboard manual specifies to isolate a bad module.",
+"The paperclip test only proves the PSU turns on, not that it delivers correct voltages under load; a known-good PSU swap is the definitive test."
+],
+"sources": [
+"https://www.pugetsystems.com/support/guides/psu-paperclip-test/",
+"https://sunbeamtech.com/troubleshooting/pc-wont-turn-on-step-by-step-fix-checklist/",
+"https://www.teamviewer.com/en-us/insights/how-to-fix-a-computer-that-wont-turn-on/"
+]
+},
+"pc-overheat": {
+"items": [
+{
+"key": "compressed-air",
+"name": "Compressed air duster",
+"spec": "1–2 cans",
+"kind": "consumable"
+},
+{
+"key": "electric-duster",
+"name": "Electric air duster",
+"spec": "alternative to cans",
+"kind": "power-tool"
+},
+{
+"key": "phillips-screwdriver",
+"name": "Phillips screwdriver",
+"spec": "#2",
+"kind": "tool"
+},
+{
+"key": "soft-brush",
+"name": "Soft-bristle brush",
+"spec": "anti-static",
+"kind": "tool"
+},
+{
+"key": "zip-tie",
+"name": "Zip tie",
+"spec": "or a pencil, to hold fans",
+"kind": "fastener"
+},
+{
+"key": "temperature-monitor-app",
+"name": "Temperature monitoring software",
+"spec": "free",
+"kind": "tool"
+},
+{
+"key": "microfiber-cloth",
+"name": "Microfiber cloth",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "cotton-swab",
+"name": "Cotton swab",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "isopropyl-alcohol",
+"name": "Isopropyl alcohol (90%+)",
+"spec": "90%+",
+"kind": "consumable"
+},
+{
+"key": "thermal-paste",
+"name": "Thermal paste",
+"spec": "only if removing the CPU cooler",
+"kind": "material"
+},
+{
+"key": "case-fan",
+"name": "Case fan",
+"spec": "replacement 120 or 140 mm, only if one is noisy",
+"kind": "part"
+},
+{
+"key": "anti-static-wrist-strap",
+"name": "Anti-static wrist strap",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask / N95 respirator",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "",
+"kind": "tool"
+}
+],
+"proTips": [
+"Do the cleaning outdoors or in a garage; blowing dust indoors just moves it to the next intake.",
+"Hold a microfiber cloth behind fans and filters while blowing so dust doesn't scatter deeper into the case.",
+"Keep the compressed-air can upright and use short bursts 3–4 inches away; long bursts or tilting can spray freezing propellant onto parts."
+],
+"sources": [
+"https://www.ifixit.com/Guide/Fan+&+Interior+Cleaning/144122",
+"https://www.corsair.com/us/en/explorer/diy-builder/how-tos/how-to-clean-your-pc-and-how-often-you-should-do-it/",
+"https://www.computerhope.com/issues/ch001339.htm"
+]
+},
+"wifi-slow": {
+"items": [
+{
+"key": "phone",
+"name": "Smartphone",
+"spec": "with Wi-Fi",
+"kind": "tool"
+},
+{
+"key": "speed-test-app",
+"name": "Speed test app",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "router-admin-login",
+"name": "Router admin login",
+"spec": "from the router sticker or app",
+"kind": "material"
+},
+{
+"key": "wifi-analyzer-app",
+"name": "Wi-Fi analyzer app",
+"spec": "optional",
+"kind": "tool"
+},
+{
+"key": "ethernet-cable",
+"name": "Ethernet cable",
+"spec": "Cat 5e or Cat 6, for a wired test",
+"kind": "part"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "to read status lights behind furniture",
+"kind": "tool"
+},
+{
+"key": "mesh-wifi-system",
+"name": "Mesh Wi-Fi system / extender",
+"spec": "only if dead zones remain",
+"kind": "part"
+},
+{
+"key": "router",
+"name": "Wi-Fi router",
+"spec": "replacement, only if old or failing",
+"kind": "part"
+}
+],
+"proTips": [
+"Plug a computer into the router with an Ethernet cable and run a speed test: if wired is fast and Wi-Fi is slow, the problem is Wi-Fi; if both are slow, call your provider.",
+"On 2.4 GHz, use channel 1, 6 or 11; a Wi-Fi analyzer app shows which is least crowded in your area.",
+"Check the router admin page for a firmware update after rebooting; outdated firmware commonly causes drops and security risks."
+],
+"sources": [
+"https://www.highspeedinternet.com/resources/improve-your-wi-fi-speed-in-10-simple-steps",
+"https://epb.com/get-connected/gig-internet/9-simple-ways-to-fix-weak-wifi-signal/",
+"https://www.astound.com/learn/internet/optimize-wifi-speed/"
+]
+},
+"drywall-hole": {
+"items": [
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "Fresh blade",
+"kind": "tool"
+},
+{
+"key": "mesh-patch",
+"name": "Self-adhesive drywall patch",
+"spec": "Sized 2″ larger than the hole (4″, 6″ or 8″)",
+"kind": "part"
+},
+{
+"key": "joint-compound",
+"name": "Joint compound",
+"spec": "Lightweight premixed, 1 qt",
+"kind": "material"
+},
+{
+"key": "setting-compound",
+"name": "Setting-type joint compound",
+"spec": "Optional, 20-min powder for a fast first coat",
+"kind": "material"
+},
+{
+"key": "mud-pan",
+"name": "Mud pan",
+"spec": "12″",
+"kind": "tool"
+},
+{
+"key": "taping-knife",
+"name": "Drywall taping knife",
+"spec": "6″ and 10″",
+"kind": "tool"
+},
+{
+"key": "sanding-sponge",
+"name": "Sanding sponge",
+"spec": "Fine/medium, 180–220 grit",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight / work light",
+"spec": "For raking light",
+"kind": "tool"
+},
+{
+"key": "primer",
+"name": "Primer",
+"spec": "PVA or stain-blocking, 1 qt",
+"kind": "material"
+},
+{
+"key": "paint",
+"name": "Paint",
+"spec": "Matching wall color and sheen",
+"kind": "material"
+},
+{
+"key": "paintbrush",
+"name": "Angled paintbrush",
+"spec": "2″ angled",
+"kind": "tool"
+},
+{
+"key": "paint-roller",
+"name": "Paint roller and covers",
+"spec": "4″ or 6″ mini roller, ⅜″ nap",
+"kind": "tool"
+},
+{
+"key": "paint-tray",
+"name": "Paint tray",
+"spec": "Mini tray with liner",
+"kind": "tool"
+},
+{
+"key": "drop-cloth",
+"name": "Drop cloth",
+"spec": "1, canvas or plastic",
+"kind": "consumable"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "1½″ roll",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Damp, for wiping dust",
+"kind": "consumable"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "With fine-dust filter",
+"kind": "power-tool"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "N95",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Keep coats thin: two or three thin coats feathered well past the patch sand faster and show less than one thick coat.",
+"Before priming, shine a flashlight flat across the wall and run your fingertips over the edge; if you can feel the edge of the patch, it will show through paint.",
+"Spot-prime the dry compound first; raw compound absorbs paint differently and leaves a dull spot even with matching paint."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-repair-holes-in-drywall/",
+"https://www.familyhandyman.com/list/tips-for-patching-drywall/",
+"https://www.lowes.com/n/how-to/patch-and-repair-drywall",
+"https://www.acehardware.com/tips/maintenance-repair/how-to-patch-a-hole-in-drywall/"
+]
+},
+"nail-pops": {
+"items": [
+{
+"key": "stud-finder",
+"name": "Stud finder",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drywall-screw-setter",
+"name": "Drywall screw-setter bit",
+"spec": "#2 Phillips with depth collar",
+"kind": "tool"
+},
+{
+"key": "drywall-screw",
+"name": "Drywall screws",
+"spec": "1¼″ coarse-thread, about 2 per pop",
+"kind": "fastener"
+},
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "16 oz",
+"kind": "tool"
+},
+{
+"key": "nail-set",
+"name": "Nail set",
+"spec": "1/32″ or 2/32″ tip",
+"kind": "tool"
+},
+{
+"key": "joint-compound",
+"name": "Joint compound",
+"spec": "Lightweight premixed, 1 qt",
+"kind": "material"
+},
+{
+"key": "mud-pan",
+"name": "Mud pan",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "taping-knife",
+"name": "Drywall taping knife",
+"spec": "6″ and 8″",
+"kind": "tool"
+},
+{
+"key": "sanding-sponge",
+"name": "Sanding sponge",
+"spec": "Fine, 180–220 grit",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight / work light",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "primer",
+"name": "Primer",
+"spec": "PVA drywall primer",
+"kind": "material"
+},
+{
+"key": "paint",
+"name": "Paint",
+"spec": "Matching wall paint",
+"kind": "material"
+},
+{
+"key": "paintbrush",
+"name": "Angled paintbrush",
+"spec": "2″ angled",
+"kind": "tool"
+},
+{
+"key": "drop-cloth",
+"name": "Drop cloth",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "N95",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Don't just hammer the nail back in; it will pop again. The new screw does the holding, so press the board tight to the stud while you drive it.",
+"Drive the screw so it dimples just below the paper without tearing it; a torn face loses holding power. If you break the paper, add another screw an inch or two away.",
+"If the nail is loose, pull it out instead of setting it, then fill the hole with the screw heads."
+],
+"sources": [
+"https://www.finehomebuilding.com/project-guides/drywall/repairing-popped-drywall-fasteners",
+"https://www.bobvila.com/articles/popped-nails/",
+"https://www.homedepot.com/c/ah/how-to-patch-drywall/9ba683603be9fa5395fab90db38ddbf"
+]
+},
+"recaulk-tub": {
+"items": [
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "caulk-removal-tool",
+"name": "Caulk removal tool",
+"spec": "Plastic for acrylic/fiberglass",
+"kind": "tool"
+},
+{
+"key": "razor-scraper",
+"name": "Razor scraper",
+"spec": "Plastic blades for tubs",
+"kind": "tool"
+},
+{
+"key": "caulk-remover",
+"name": "Caulk remover gel",
+"spec": "Optional, for stubborn caulk",
+"kind": "material"
+},
+{
+"key": "mildew-remover",
+"name": "Mold and mildew cleaner",
+"spec": "Bleach-based",
+"kind": "material"
+},
+{
+"key": "rubbing-alcohol",
+"name": "Rubbing alcohol",
+"spec": "70–91% isopropyl",
+"kind": "material"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Lint-free",
+"kind": "consumable"
+},
+{
+"key": "paper-towel",
+"name": "Paper towels",
+"spec": "1 roll",
+"kind": "consumable"
+},
+{
+"key": "hair-dryer",
+"name": "Hair dryer",
+"spec": "Optional, to dry the joint",
+"kind": "power-tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "For debris",
+"kind": "power-tool"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "1″ roll",
+"kind": "consumable"
+},
+{
+"key": "silicone-caulk",
+"name": "100% silicone caulk",
+"spec": "100% silicone kitchen and bath, 1 tube (10 oz)",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "Dripless",
+"kind": "tool"
+},
+{
+"key": "spray-bottle",
+"name": "Spray bottle",
+"spec": "Water with a few drops of dish soap",
+"kind": "consumable"
+},
+{
+"key": "caulk-tool",
+"name": "Caulk finishing tool",
+"spec": "Optional",
+"kind": "tool"
+},
+{
+"key": "nitrile-gloves",
+"name": "Nitrile gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"New silicone won't stick to old silicone; get every trace of residue out, then clean with alcohol so the bead bonds to bare surfaces.",
+"Push the gun forward along the joint rather than pulling it; pushing forces caulk into the gap instead of laying it on top.",
+"Mist the bead with soapy water before tooling so your finger glides, and pull the tape while the caulk is still wet."
+],
+"sources": [
+"https://www.loctiteproducts.com/ideas/build-things/caulk-a-bathtub.html",
+"https://thediyplaybook.com/how-to-recaulk-a-bathtub/",
+"https://thediyplaybook.com/caulk-101/"
+]
+},
+"door-sticks": {
+"items": [
+{
+"key": "screwdriver",
+"name": "Screwdriver set",
+"spec": "#2 Phillips",
+"kind": "tool"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit",
+"name": "Drill bits",
+"spec": "⅛″ pilot bit",
+"kind": "tool"
+},
+{
+"key": "hinge-screw",
+"name": "Long hinge screws",
+"spec": "3″ #9 or #10, 2–3, finish to match hinges",
+"kind": "fastener"
+},
+{
+"key": "toothpick",
+"name": "Wood toothpicks or matchsticks",
+"spec": "Wood, plus wood glue for stripped holes",
+"kind": "part"
+},
+{
+"key": "wood-glue",
+"name": "Wood glue (PVA)",
+"spec": "",
+"kind": "adhesive"
+},
+{
+"key": "dry-erase-marker",
+"name": "Lipstick or dry-erase marker",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "metal-file",
+"name": "Metal file",
+"spec": "Flat or half-round",
+"kind": "tool"
+},
+{
+"key": "wood-chisel",
+"name": "Wood chisel",
+"spec": "¾″, for moving the strike mortise",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "To score paint around strike",
+"kind": "tool"
+},
+{
+"key": "wood-screw",
+"name": "Wood screws",
+"spec": "1¼″, if relocating the strike",
+"kind": "fastener"
+},
+{
+"key": "wood-filler",
+"name": "Wood filler",
+"spec": "For old strike holes",
+"kind": "material"
+},
+{
+"key": "flashlight",
+"name": "Flashlight / work light",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "block-plane",
+"name": "Block plane",
+"spec": "Only if the door still rubs after adjusting",
+"kind": "tool"
+},
+{
+"key": "sandpaper",
+"name": "Sandpaper",
+"spec": "120 grit, to seal any planed edge",
+"kind": "consumable"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Work on the top hinge first and replace one screw at a time so the door stays hung; the screw closest to the stop pulls the door toward the latch-side jamb.",
+"Fix stripped hinge holes with glued wood slivers or toothpicks, let dry, trim flush and redrive the screw.",
+"If you plane a door edge, seal the bare wood with primer or paint so it doesn't absorb humidity and swell again."
+],
+"sources": [
+"https://www.woodsmith.com/review/how-to-fix-a-sagging-door/",
+"https://www.thisoldhouse.com/doors/realigning-dead-bolts-strike-plates",
+"https://www.homedepot.com/c/ah/how-to-fix-an-interior-door/9ba683603be9fa5395fab9016815bceb"
+]
+},
+"squeaky-hinge": {
+"items": [
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "pin-punch",
+"name": "Pin punch",
+"spec": "Or an 8d nail",
+"kind": "tool"
+},
+{
+"key": "common-nail",
+"name": "Nail (8d or 16d)",
+"spec": "8d, as a punch",
+"kind": "fastener"
+},
+{
+"key": "flat-screwdriver",
+"name": "Small flat screwdriver",
+"spec": "To wedge under the pin head",
+"kind": "tool"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "To pull the pin",
+"kind": "tool"
+},
+{
+"key": "steel-wool",
+"name": "Steel wool",
+"spec": "#0000",
+"kind": "consumable"
+},
+{
+"key": "mineral-spirits",
+"name": "Mineral spirits",
+"spec": "Optional, to degrease",
+"kind": "material"
+},
+{
+"key": "lithium-grease",
+"name": "White lithium grease",
+"spec": "White lithium (or petroleum jelly), small tube",
+"kind": "material"
+},
+{
+"key": "paste-wax",
+"name": "Paste wax",
+"spec": "Alternative lubricant",
+"kind": "material"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "paper-towel",
+"name": "Paper towels",
+"spec": "To catch drips",
+"kind": "consumable"
+},
+{
+"key": "nitrile-gloves",
+"name": "Nitrile gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"If the pin binds, lift up on the door handle to take the weight off the hinge while you tap.",
+"Use a clinging lubricant like grease, petroleum jelly or paste wax; spray oils drip down the door and attract dust.",
+"Also tighten the hinge screws while you're there; a loose hinge can squeak even with a lubricated pin."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-silence-a-squeaking-hinge/",
+"https://www.bobvila.com/articles/how-to-fix-a-squeaky-door/",
+"https://www.naturalhandyman.com/iip/infdoor/infdoor4.html"
+]
+},
+"window-screen": {
+"items": [
+{
+"key": "screen-mesh",
+"name": "Screen mesh",
+"spec": "Fiberglass, cut 2″ larger than the frame all around",
+"kind": "material"
+},
+{
+"key": "screen-spline",
+"name": "Screen spline",
+"spec": "Matched to channel, often 0.125″–0.160″, length = frame perimeter + 1 ft",
+"kind": "part"
+},
+{
+"key": "spline-roller",
+"name": "Spline roller",
+"spec": "Convex and concave wheels",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "New blade",
+"kind": "tool"
+},
+{
+"key": "flat-screwdriver",
+"name": "Small flat screwdriver",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "spring-clamp",
+"name": "Spring clamps",
+"spec": "2–4",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "To clean the frame channel",
+"kind": "consumable"
+}
+],
+"proTips": [
+"Install opposite sides first so tension stays even and the frame doesn't bow inward; don't stretch the mesh drum-tight before rolling.",
+"Take a piece of the old spline to the store to match diameter; a spline that's too thin won't grip the mesh.",
+"Tuck the spline into corners with a flat screwdriver rather than cutting it at each corner; one continuous piece holds best."
+],
+"sources": [
+"https://www.phifer.com/screening/diy/installation/",
+"https://www.ritescreen.com/blog/post/how-to-rescreen-window-screens.html",
+"https://www.theartofdoingstuff.com/how-to-replace-a-window-screen/"
+]
+},
+"squeaky-floor": {
+"items": [
+{
+"key": "flashlight",
+"name": "Flashlight / work light",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "To locate the joist from above",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "wood-shim",
+"name": "Wood shims",
+"spec": "1 pack",
+"kind": "material"
+},
+{
+"key": "construction-adhesive",
+"name": "Construction adhesive",
+"spec": "1 tube",
+"kind": "adhesive"
+},
+{
+"key": "wood-glue",
+"name": "Wood glue (PVA)",
+"spec": "Alternative to adhesive on shims",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "To tap shims",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "To score and snap shims",
+"kind": "tool"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit",
+"name": "Drill bits",
+"spec": "⅛″ pilot",
+"kind": "tool"
+},
+{
+"key": "wood-screw",
+"name": "Wood screws",
+"spec": "1⅝″, for cleats into joist",
+"kind": "fastener"
+},
+{
+"key": "lumber-2x4",
+"name": "2×4 lumber",
+"spec": "Cleat, length to suit gap",
+"kind": "material"
+},
+{
+"key": "squeak-repair-kit",
+"name": "Floor squeak repair kit",
+"spec": "For work from above",
+"kind": "part"
+},
+{
+"key": "stud-finder",
+"name": "Stud finder",
+"spec": "To locate joists from above",
+"kind": "measure"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "For basement dust",
+"kind": "safety"
+}
+],
+"proTips": [
+"Slide shims in lightly from both sides; driving them hard widens the gap and can create a new squeak.",
+"Put construction adhesive on both faces of the shims and stay off the floor for about four hours while it sets.",
+"When screwing a cleat from below, make sure the screws are short enough that they can't poke through the finished floor."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-fix-squeaky-floors/",
+"https://homedepot.com/c/ah/how-to-fix-squeaky-floors/9ba683603be9fa5395fab90ad245bee",
+"https://www.naturalhandyman.com/iip/inffloor/infsqe.html"
+]
+},
+"regrout": {
+"items": [
+{
+"key": "grout-saw",
+"name": "Grout saw",
+"spec": "Carbide-grit",
+"kind": "tool"
+},
+{
+"key": "oscillating-tool",
+"name": "Oscillating multi-tool",
+"spec": "Optional, faster",
+"kind": "power-tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "For corners",
+"kind": "tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "Fine-dust filter",
+"kind": "power-tool"
+},
+{
+"key": "grout",
+"name": "Grout",
+"spec": "Sanded for ≥⅛″ joints; 10 lb covers a typical bathroom floor",
+"kind": "material"
+},
+{
+"key": "bucket",
+"name": "Buckets",
+"spec": "2",
+"kind": "tool"
+},
+{
+"key": "margin-trowel",
+"name": "Margin trowel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "grout-float",
+"name": "Rubber grout float",
+"spec": "Rubber",
+"kind": "tool"
+},
+{
+"key": "grout-sponge",
+"name": "Grout sponge",
+"spec": "2",
+"kind": "consumable"
+},
+{
+"key": "microfiber-cloth",
+"name": "Microfiber cloth",
+"spec": "For haze",
+"kind": "consumable"
+},
+{
+"key": "grout-sealer",
+"name": "Penetrating grout sealer",
+"spec": "Penetrating, 1 qt",
+"kind": "material"
+},
+{
+"key": "sealer-applicator",
+"name": "Sealer applicator brush",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "To protect tub edges",
+"kind": "consumable"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "nitrile-gloves",
+"name": "Nitrile gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "N95",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "If using a power tool",
+"kind": "safety"
+}
+],
+"proTips": [
+"Keep the blade centered in the joint and use short, controlled strokes; most chipped tile edges come from wandering blades or too much pressure.",
+"Mix grout to a peanut-butter thickness, let it slake (rest) about 5–10 minutes, then remix before spreading.",
+"Wring the sponge until barely damp; excess water pulls cement out of the joints and makes the grout weak and blotchy."
+],
+"sources": [
+"https://www.thisoldhouse.com/kitchens/how-to-remove-old-grout",
+"https://www.rubi.com/us/blog/how-to-regrout-tile/",
+"https://www.tilebar.com/learn/how-to-regrout-tile/"
+]
+},
+"wobbly-chair": {
+"items": [
+{
+"key": "rubber-mallet",
+"name": "Rubber mallet",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "Mark parts before disassembly",
+"kind": "measure"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "To label parts",
+"kind": "consumable"
+},
+{
+"key": "vinegar",
+"name": "White vinegar",
+"spec": "Warm, to soften old glue",
+"kind": "material"
+},
+{
+"key": "cabinet-scraper",
+"name": "Card scraper",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wood-chisel",
+"name": "Wood chisel",
+"spec": "Sharp, ½″",
+"kind": "tool"
+},
+{
+"key": "sandpaper",
+"name": "Sandpaper",
+"spec": "120 grit, light use only",
+"kind": "consumable"
+},
+{
+"key": "wood-glue",
+"name": "Wood glue (PVA)",
+"spec": "PVA (or hide glue)",
+"kind": "adhesive"
+},
+{
+"key": "hide-glue",
+"name": "Liquid hide glue",
+"spec": "For antiques",
+"kind": "adhesive"
+},
+{
+"key": "glue-syringe",
+"name": "Glue syringe",
+"spec": "Optional",
+"kind": "tool"
+},
+{
+"key": "strap-clamp",
+"name": "Strap clamp",
+"spec": "1–2",
+"kind": "tool"
+},
+{
+"key": "bar-clamp",
+"name": "Bar clamp",
+"spec": "Optional, for rungs",
+"kind": "tool"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Damp, for squeeze-out",
+"kind": "consumable"
+},
+{
+"key": "drop-cloth",
+"name": "Drop cloth",
+"spec": "To protect the floor and finish",
+"kind": "consumable"
+},
+{
+"key": "nitrile-gloves",
+"name": "Nitrile gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Scrape glue off rather than sanding; removing wood from tenons makes the joint even looser.",
+"If the chair was built with hide glue, new hide glue will bond to the old glue, so you don't have to remove every trace.",
+"Dry-fit the whole chair before gluing, and check it sits flat on the floor while it's clamped."
+],
+"sources": [
+"https://www.popularwoodworking.com/article/the_best_way_to_reglue_furniture1/",
+"https://home.howstuffworks.com/home-improvement/home-diy/projects/how-to-repair-wooden-furniture2.htm",
+"https://www.finewoodworking.com/forum/loose-chair-legs"
+]
+},
+"sticky-drawer": {
+"items": [
+{
+"key": "rag",
+"name": "Rags",
+"spec": "Old towel to set the drawer on",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight / work light",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "With crevice tool",
+"kind": "power-tool"
+},
+{
+"key": "sandpaper",
+"name": "Sandpaper",
+"spec": "150 grit",
+"kind": "consumable"
+},
+{
+"key": "sanding-block",
+"name": "Sanding block",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wood-glue",
+"name": "Wood glue (PVA)",
+"spec": "",
+"kind": "adhesive"
+},
+{
+"key": "bar-clamp",
+"name": "Bar clamp",
+"spec": "For regluing corners",
+"kind": "tool"
+},
+{
+"key": "screwdriver",
+"name": "Screwdriver set",
+"spec": "To tighten runners",
+"kind": "tool"
+},
+{
+"key": "paraffin-wax",
+"name": "Paraffin wax",
+"spec": "Block or plain candle",
+"kind": "material"
+},
+{
+"key": "block-plane",
+"name": "Block plane",
+"spec": "Only for swollen drawer sides",
+"kind": "tool"
+}
+],
+"proTips": [
+"Wax both the drawer bottoms and the runners, then work the drawer in and out to spread the wax.",
+"If the drawer only sticks in humid weather, seal the unfinished drawer sides and runners with a coat of wax or finish to slow swelling.",
+"Use plain paraffin rather than colored or scented candles, which can stain wood."
+],
+"sources": [
+"https://www.familyhandyman.com/article/wooden-drawer-slides-stuck-fix/",
+"https://www.thisoldhouse.com/furniture/21019302/fast-fix-for-worn-drawers",
+"https://www.familyhandyman.com/article/gulf-wax-for-sticky-drawers/"
+]
+},
+"floating-shelves": {
+"items": [
+{
+"key": "stud-finder",
+"name": "Stud finder",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "finish-nail",
+"name": "Finish nail",
+"spec": "To confirm studs",
+"kind": "fastener"
+},
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "4 ft",
+"kind": "measure"
+},
+{
+"key": "torpedo-level",
+"name": "Torpedo level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "laser-level",
+"name": "Laser level",
+"spec": "Optional",
+"kind": "measure"
+},
+{
+"key": "floating-shelf-bracket",
+"name": "Hidden floating shelf bracket",
+"spec": "36″, 3",
+"kind": "part"
+},
+{
+"key": "lag-screw",
+"name": "Lag screws",
+"spec": "Supplied with brackets, typically 5/16″ × 3″",
+"kind": "fastener"
+},
+{
+"key": "shelf-board",
+"name": "Solid wood shelf",
+"spec": "Solid oak, 3, drilled for the rods",
+"kind": "material"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "impact-driver",
+"name": "Impact driver",
+"spec": "Optional",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit",
+"name": "Drill bits",
+"spec": "Pilot bit sized for lags (often 3/16″)",
+"kind": "tool"
+},
+{
+"key": "socket-set",
+"name": "Socket set + drill adapter",
+"spec": "⅜″ socket + hex adapter",
+"kind": "tool"
+},
+{
+"key": "wood-screw",
+"name": "Wood screws",
+"spec": "#6 × ¾″, 1 per shelf",
+"kind": "fastener"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Get at least two lag screws into studs per bracket and keep the drill perpendicular to the wall so the rods don't tilt down.",
+"Before sliding the shelf on, check the rods for level and sight down them; shim behind the bracket if the wall is bowed.",
+"Test-fit each shelf before final tightening; a few thousandths of droop at the wall becomes visible at the front edge."
+],
+"sources": [
+"https://www.osbornewood.com/blog/diy-tutorials/how-to-install-floating-shelves",
+"https://www.wwhardware.com/blog/the-ultimate-guide-to-choosing-and-installing-floating-shelf-brackets/",
+"https://rightonbracket.com/how-to-install-a-floating-shelf-bracket/"
+]
+},
+"accent-wall": {
+"items": [
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "To score caulk",
+"kind": "tool"
+},
+{
+"key": "flat-bar",
+"name": "Flat pry bar",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "putty-knife",
+"name": "Putty knife",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "spackle",
+"name": "Spackling compound",
+"spec": "For old holes",
+"kind": "material"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "stud-finder",
+"name": "Stud finder",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "4 ft",
+"kind": "measure"
+},
+{
+"key": "laser-level",
+"name": "Laser level",
+"spec": "Or chalk line",
+"kind": "measure"
+},
+{
+"key": "chalk-line",
+"name": "Chalk line",
+"spec": "Blue chalk",
+"kind": "measure"
+},
+{
+"key": "combination-square",
+"name": "Combination square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "trim-board",
+"name": "Trim boards (MDF or poplar)",
+"spec": "1×6 base rail, 1×4 top rail, 1×3 battens, primed MDF or poplar",
+"kind": "material"
+},
+{
+"key": "miter-saw",
+"name": "Miter saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "brad-nailer",
+"name": "Brad nailer",
+"spec": "18-ga",
+"kind": "power-tool"
+},
+{
+"key": "brad-nail",
+"name": "Brad nails",
+"spec": "18-ga 2″",
+"kind": "fastener"
+},
+{
+"key": "air-compressor",
+"name": "Air compressor and hose",
+"spec": "If nailer is pneumatic",
+"kind": "power-tool"
+},
+{
+"key": "construction-adhesive",
+"name": "Construction adhesive",
+"spec": "2–3 tubes",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wood-filler",
+"name": "Wood filler",
+"spec": "",
+"kind": "material"
+},
+{
+"key": "paintable-caulk",
+"name": "Paintable acrylic latex caulk",
+"spec": "3–4 tubes",
+"kind": "adhesive"
+},
+{
+"key": "sanding-sponge",
+"name": "Sanding sponge",
+"spec": "220 grit",
+"kind": "consumable"
+},
+{
+"key": "sandpaper",
+"name": "Sandpaper",
+"spec": "120 and 220 grit",
+"kind": "consumable"
+},
+{
+"key": "primer",
+"name": "Primer",
+"spec": "For any raw wood or cut ends",
+"kind": "material"
+},
+{
+"key": "paint",
+"name": "Paint",
+"spec": "Satin or semi-gloss, 1 gal",
+"kind": "material"
+},
+{
+"key": "paintbrush",
+"name": "Angled paintbrush",
+"spec": "2½″ angled",
+"kind": "tool"
+},
+{
+"key": "paint-roller",
+"name": "Paint roller and covers",
+"spec": "4″ foam/mini and 9″ ⅜″ nap",
+"kind": "tool"
+},
+{
+"key": "paint-tray",
+"name": "Paint tray",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "drop-cloth",
+"name": "Drop cloth",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "rag",
+"name": "Rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "N95",
+"kind": "safety"
+}
+],
+"proTips": [
+"Battens don't have to land on studs; with adhesive behind them, shoot pairs of brads at opposing angles so they cross and lock the board to the wall.",
+"Overfill nail holes slightly because filler shrinks as it dries, then sand flush; caulk only where wood meets wall, not on wood-to-wood joints that need filler.",
+"Cut a spacer block to your bay width and use it to set each batten instead of measuring every time."
+],
+"sources": [
+"https://www.lowes.com/n/how-to/board-batten-accent-wall",
+"https://www.hgtv.com/decorating/design-ideas/how-to-install-board-and-batten-accent-wall",
+"https://homedepot.com/c/ah/how-to-make-a-board-and-batten-wall-accent/9ba683603be9fa5395fab90118469a03",
+"https://www.jennasuedesign.com/diy-board-and-batten-tutorial/"
+]
+},
+"tv-mount": {
+"items": [
+{
+"key": "tv-wall-mount",
+"name": "TV wall mount",
+"spec": "Matching TV's VESA pattern and weight",
+"kind": "part"
+},
+{
+"key": "lag-screw",
+"name": "Lag screws",
+"spec": "Supplied with mount, usually 5/16″ × 2½–3″",
+"kind": "fastener"
+},
+{
+"key": "in-wall-power-kit",
+"name": "In-wall TV power kit",
+"spec": "Listed kit with templates and in-wall rated cable",
+"kind": "part"
+},
+{
+"key": "hdmi-cable",
+"name": "In-wall rated HDMI cable",
+"spec": "In-wall rated CL2/CL3",
+"kind": "part"
+},
+{
+"key": "stud-finder",
+"name": "Stud finder",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "non-contact-voltage-tester",
+"name": "Non-contact voltage tester",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Pencil",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "2 ft or torpedo",
+"kind": "measure"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit",
+"name": "Drill bits",
+"spec": "Pilot bit per mount instructions (often 7/32″)",
+"kind": "tool"
+},
+{
+"key": "socket-set",
+"name": "Socket set + drill adapter",
+"spec": "Size to match lag heads",
+"kind": "tool"
+},
+{
+"key": "drywall-saw",
+"name": "Drywall saw",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "fish-tape",
+"name": "Fish tape",
+"spec": "Optional",
+"kind": "tool"
+},
+{
+"key": "screwdriver",
+"name": "Screwdriver set",
+"spec": "For TV bolts and kit boxes",
+"kind": "tool"
+},
+{
+"key": "moving-blanket",
+"name": "Moving blanket",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "cable-tie",
+"name": "Hook-and-loop cable ties",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight / work light",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask (N95)",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Use a pilot hole roughly 60–70 percent of the lag diameter, and stop driving when the plate is snug; overtightening strips the stud.",
+"Before cutting, scan between the studs for wires, pipes and fire blocking, and check the kit's openings stay in the same stud bay.",
+"Never run a regular power cord or extension cord inside the wall; only the listed in-wall cable from the kit is allowed."
+],
+"sources": [
+"https://www.mount-it.com/blogs/articles/tv-mount-stud",
+"https://www.sanus.com/en_US/products/cable-management/wsiwpsb1/",
+"https://www.mount-it.com/products/in-wall-tv-cable-concealer-with-recessed-power"
+]
+},
+"replace-shingle": {
+"items": [
+{
+"key": "extension-ladder",
+"name": "Extension ladder",
+"spec": "Reaches 3 ft past eave, Type IA",
+"kind": "tool"
+},
+{
+"key": "ladder-standoff",
+"name": "Ladder standoff (stabilizer)",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "fall-protection-kit",
+"name": "Roof fall-protection kit",
+"spec": "Harness, lanyard/rope grab, lifeline",
+"kind": "safety"
+},
+{
+"key": "roof-anchor",
+"name": "Roof anchor",
+"spec": "Screwed into a rafter",
+"kind": "safety"
+},
+{
+"key": "soft-sole-shoes",
+"name": "Soft-soled roofing shoes",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "flat-bar",
+"name": "Flat pry bar",
+"spec": "Wide flat roofing bar",
+"kind": "tool"
+},
+{
+"key": "shingle-ripper",
+"name": "Shingle ripper",
+"spec": "Optional",
+"kind": "tool"
+},
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "16 oz or roofing hatchet",
+"kind": "tool"
+},
+{
+"key": "roofing-nail",
+"name": "Roofing nail",
+"spec": "1¼″ hot-dipped galvanized; ~16",
+"kind": "fastener"
+},
+{
+"key": "asphalt-shingle",
+"name": "Replacement asphalt shingle",
+"spec": "1 bundle or matching pieces",
+"kind": "material"
+},
+{
+"key": "roofing-cement",
+"name": "Roofing cement",
+"spec": "10 oz tube",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hook-blade",
+"name": "Hook blade",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "putty-knife",
+"name": "Putty knife",
+"spec": "1½″",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Work on a cool morning in warm weather: shingles are flexible enough not to crack but the seal strips aren't gooey.",
+"Don't put nails back into old holes; offset new nails slightly and dab roof cement on the old holes.",
+"If the replacement shingle is a slightly different color, take it from an inconspicuous area (back roof) and use the new one there."
+],
+"sources": [
+"https://www.thisoldhouse.com/roofing/21015127/fixing-damaged-roof-shingles",
+"https://www.angi.com/articles/how-repair-asphalt-roof.htm",
+"https://todayshomeowner.com/roofing/video/how-to-replace-a-damaged-asphalt-roof-shingle/"
+]
+},
+"clean-gutters": {
+"items": [
+{
+"key": "extension-ladder",
+"name": "Extension ladder",
+"spec": "Reaches 3 ft past eave",
+"kind": "tool"
+},
+{
+"key": "ladder-standoff",
+"name": "Ladder standoff (stabilizer)",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "ladder-leveler",
+"name": "Ladder leveler",
+"spec": "For sloped ground",
+"kind": "part"
+},
+{
+"key": "gutter-scoop",
+"name": "Gutter scoop",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "5 gallon",
+"kind": "tool"
+},
+{
+"key": "ladder-hook",
+"name": "Ladder bucket hook",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "tarp",
+"name": "Tarp",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hose-nozzle",
+"name": "Hose spray nozzle",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "plumbing-snake",
+"name": "Plumbing snake (drain auger)",
+"spec": "25 ft",
+"kind": "tool"
+},
+{
+"key": "screwdriver",
+"name": "Screwdriver",
+"spec": "Or drill/driver",
+"kind": "tool"
+},
+{
+"key": "gutter-screw",
+"name": "Gutter hanger screw",
+"spec": "As needed",
+"kind": "fastener"
+},
+{
+"key": "gutter-sealant",
+"name": "Gutter sealant",
+"spec": "For leaky seams",
+"kind": "adhesive"
+},
+{
+"key": "downspout-extension",
+"name": "Downspout extension",
+"spec": "4–6 ft",
+"kind": "part"
+},
+{
+"key": "splash-block",
+"name": "Splash block",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "Waterproof",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Start at the downspout and work away so the opening isn't buried in debris.",
+"Never lean the ladder on the gutter; use a standoff and have someone watch the base.",
+"Run water while you watch: standing pools in the gutter show low spots that need hangers adjusted."
+],
+"sources": [
+"https://www.thisoldhouse.com/gutters/how-to-clean-gutters",
+"https://www.rotorooter.com/blog/outdoor-plumbing/how-to-clean-your-gutters/",
+"https://www.littlegiantladders.com/blogs/blog/cleaning-gutters-with-ladder-tips"
+]
+},
+"deck-board": {
+"items": [
+{
+"key": "awl",
+"name": "Awl or probe",
+"spec": "Or screwdriver",
+"kind": "tool"
+},
+{
+"key": "cats-paw",
+"name": "Cat's paw",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "flat-bar",
+"name": "Flat pry bar",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "locking-pliers",
+"name": "Locking pliers",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "impact-driver",
+"name": "Impact driver",
+"spec": "Optional",
+"kind": "power-tool"
+},
+{
+"key": "circular-saw",
+"name": "Circular saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "jigsaw",
+"name": "Jigsaw",
+"spec": "For cutting boards beside joists",
+"kind": "power-tool"
+},
+{
+"key": "oscillating-tool",
+"name": "Oscillating multi-tool",
+"spec": "For flush-cutting fasteners",
+"kind": "power-tool"
+},
+{
+"key": "speed-square",
+"name": "Speed square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Carpenter's pencil",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "deck-board",
+"name": "Deck board",
+"spec": "Match thickness and width",
+"kind": "material"
+},
+{
+"key": "cleat",
+"name": "Joist cleat (sister block)",
+"spec": "Treated 2×4, 12″ long",
+"kind": "material"
+},
+{
+"key": "deck-screw",
+"name": "Deck screw",
+"spec": "2½″ coated; 2 per joist",
+"kind": "fastener"
+},
+{
+"key": "end-grain-sealer",
+"name": "End-grain sealer",
+"spec": "",
+"kind": "material"
+},
+{
+"key": "paintbrush",
+"name": "Paintbrush",
+"spec": "1″",
+"kind": "tool"
+},
+{
+"key": "gap-spacer",
+"name": "Gap spacer (16d nail)",
+"spec": "16d nail",
+"kind": "tool"
+},
+{
+"key": "joist-tape",
+"name": "Joist flashing tape",
+"spec": "Optional",
+"kind": "material"
+},
+{
+"key": "wood-preservative",
+"name": "Wood preservative",
+"spec": "Copper naphthenate, for cleats",
+"kind": "material"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"New boards should span at least three joists or cleats.",
+"Predrill screws near board ends to prevent splitting.",
+"Leave a 1/16″ gap at butt joints so ends can dry."
+],
+"sources": [
+"https://www.familyhandyman.com/project/replacing-deck-boards/",
+"https://www.decksdirect.com/knowledge-builders/how-to-remove-and-replace-old-deck-boards",
+"https://www.thehonestcarpenter.com/blog/my-deck-boards-are-rotted-how-do-i-replace-them"
+]
+},
+"deck-rail": {
+"items": [
+{
+"key": "level",
+"name": "Level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "clamp",
+"name": "Bar clamp",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "corded-drill",
+"name": "½″ corded drill",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "auger-bit",
+"name": "Auger bit",
+"spec": "½″ × 12″",
+"kind": "consumable"
+},
+{
+"key": "carriage-bolt",
+"name": "Carriage bolt",
+"spec": "½″ × 8″ hot-dipped galvanized; 2",
+"kind": "fastener"
+},
+{
+"key": "washer",
+"name": "Flat washer",
+"spec": "½″ galvanized",
+"kind": "fastener"
+},
+{
+"key": "hex-nut",
+"name": "Hex nut",
+"spec": "½″ galvanized",
+"kind": "fastener"
+},
+{
+"key": "socket-wrench",
+"name": "Socket wrench (ratchet and sockets)",
+"spec": "¾″ socket",
+"kind": "tool"
+},
+{
+"key": "combination-wrench",
+"name": "Combination wrench",
+"spec": "¾″",
+"kind": "tool"
+},
+{
+"key": "hammer",
+"name": "Hammer",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "blocking",
+"name": "Pressure-treated blocking",
+"spec": "2× treated",
+"kind": "material"
+},
+{
+"key": "structural-screw",
+"name": "Structural screw",
+"spec": "#10 × 3″ for blocking",
+"kind": "fastener"
+},
+{
+"key": "lag-screw",
+"name": "Lag screw",
+"spec": "⅜″ × 5″ galvanized, optional extra",
+"kind": "fastener"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Bolts alone may not be enough; adding blocking behind the post stiffens the rim joist.",
+"Space bolts far apart vertically: farther spacing resists lever forces better.",
+"Use bolts at least 1″ longer than post plus rim thickness."
+],
+"sources": [
+"https://fortressbp.com/blog/162/tips-for-fixing-a-wobbly-deck-railing-diy-railing-fixes",
+"https://fixupfirst.com/blog/how-to-fix-a-loose-deck-railing-post/"
+]
+},
+"deck-seal": {
+"items": [
+{
+"key": "deck-cleaner",
+"name": "Oxygen-bleach deck cleaner",
+"spec": "Oxygen-bleach (sodium percarbonate); 1 gal concentrate per ~250 sq ft",
+"kind": "material"
+},
+{
+"key": "deck-brightener",
+"name": "Deck brightener",
+"spec": "Oxalic-acid type; same coverage as cleaner",
+"kind": "material"
+},
+{
+"key": "deck-brush",
+"name": "Deck brush on a pole",
+"spec": "Stiff synthetic bristles, threaded pole",
+"kind": "tool"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "5/8″, long enough to reach the whole deck",
+"kind": "tool"
+},
+{
+"key": "hose-nozzle",
+"name": "Hose spray nozzle",
+"spec": "Shower and jet settings",
+"kind": "part"
+},
+{
+"key": "pressure-washer",
+"name": "Pressure washer",
+"spec": "Optional; 25°–40° tip, 500–1,200 psi on wood",
+"kind": "power-tool"
+},
+{
+"key": "pump-sprayer",
+"name": "Pump sprayer",
+"spec": "1–2 gal, chemical-resistant",
+"kind": "tool"
+},
+{
+"key": "deck-stain",
+"name": "Deck stain/sealer",
+"spec": "Penetrating semi-transparent, oil or water based; ~1 gal per 150–300 sq ft",
+"kind": "material"
+},
+{
+"key": "stain-pad",
+"name": "Stain applicator pad",
+"spec": "On extension pole",
+"kind": "tool"
+},
+{
+"key": "paint-roller",
+"name": "Paint roller and tray",
+"spec": "9″ frame, ½″ nap, tray",
+"kind": "tool"
+},
+{
+"key": "extension-pole",
+"name": "Extension pole",
+"spec": "2–4 ft",
+"kind": "tool"
+},
+{
+"key": "paintbrush",
+"name": "Paintbrush",
+"spec": "3″ for back-brushing and rail edges",
+"kind": "tool"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "Exterior grade, 1½″",
+"kind": "consumable"
+},
+{
+"key": "plastic-sheeting",
+"name": "Plastic sheeting",
+"spec": "To protect siding and plants",
+"kind": "consumable"
+},
+{
+"key": "moisture-meter",
+"name": "Moisture meter",
+"spec": "Pin type; under ~15% before staining",
+"kind": "measure"
+},
+{
+"key": "rag",
+"name": "Shop rags",
+"spec": "Lint-free",
+"kind": "consumable"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "5 gallon for mixing",
+"kind": "tool"
+},
+{
+"key": "chemical-gloves",
+"name": "Chemical-resistant gloves",
+"spec": "Nitrile, long cuff",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "Splash-rated",
+"kind": "safety"
+},
+{
+"key": "rubber-boots",
+"name": "Rubber boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Wet surrounding plants and siding before applying cleaner, and rinse them again afterward; keep everything wet while the cleaner dwells.",
+"Follow an oxygen-bleach cleaner with an oxalic-acid brightener: it neutralizes the cleaner's alkalinity and opens the wood so stain absorbs evenly.",
+"Don't stain in direct midday sun or on hot boards; the finish flashes dry, leaves lap marks and won't penetrate. Late afternoon shade on a 50–90°F day is ideal."
+],
+"sources": [
+"https://www.askthebuilder.com/oxygen-bleach-deck-cleaning/",
+"https://www.treatedwood.com/woodchat/part-5-cleaning-wood-decks",
+"https://www.deckstainhelp.com/best-deck-cleaners/",
+"https://fixupfirst.com/blog/how-to-clean-a-deck/"
+]
+},
+"leaning-post": {
+"items": [
+{
+"key": "bracing-lumber",
+"name": "2×4 brace",
+"spec": "2×4 × 8 ft; 2–3",
+"kind": "material"
+},
+{
+"key": "wood-stake",
+"name": "Wood stake",
+"spec": "2×2 or 2×4, 18″; 2–3",
+"kind": "material"
+},
+{
+"key": "exterior-screw",
+"name": "Exterior wood screw",
+"spec": "3″ coated; ~1 lb",
+"kind": "fastener"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "shovel",
+"name": "Shovel",
+"spec": "Round point",
+"kind": "tool"
+},
+{
+"key": "post-hole-digger",
+"name": "Post-hole digger",
+"spec": "Clamshell type",
+"kind": "tool"
+},
+{
+"key": "digging-bar",
+"name": "Digging bar",
+"spec": "5–6 ft",
+"kind": "tool"
+},
+{
+"key": "reciprocating-saw",
+"name": "Reciprocating saw",
+"spec": "Demolition blade, if the post must be cut out",
+"kind": "power-tool"
+},
+{
+"key": "fence-post",
+"name": "Fence post",
+"spec": "4×4 ground-contact treated (UC4A+), if rotted",
+"kind": "material"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "2 ft",
+"kind": "measure"
+},
+{
+"key": "post-level",
+"name": "Post level",
+"spec": "Strap-on, optional",
+"kind": "measure"
+},
+{
+"key": "gravel",
+"name": "Gravel (crushed stone)",
+"spec": "¾″ crushed stone; about ½ bag (0.5 cu ft)",
+"kind": "material"
+},
+{
+"key": "tamper",
+"name": "Tamper",
+"spec": "Or the end of a 2×4",
+"kind": "tool"
+},
+{
+"key": "fast-setting-concrete",
+"name": "Fast-setting concrete mix",
+"spec": "50 lb bags; 2–3",
+"kind": "material"
+},
+{
+"key": "water-container",
+"name": "Water container",
+"spec": "Bucket; about 1 gal water per 50 lb bag",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "For soil and old concrete",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Make the hole about 3 times the post width and 1/3 to 1/2 as deep as the post's above-ground height, plus 6″ for gravel. Most fence posts need 24–36″ or below local frost depth.",
+"Call 811 a few days before digging, even for one post; utility lines are often shallow near fences.",
+"Fast-setting mix sets in 20–40 minutes, but wait about 4 hours before re-hanging rails or putting weight on the post."
+],
+"sources": [
+"https://www.quikrete.com/pdfs/projects/settingposts.pdf",
+"https://www.quikrete.com/athome/settingposts.asp",
+"https://todayshomeowner.com/concrete/video/setting-posts-in-concrete-the-easy-way/"
+]
+},
+"gate-sag": {
+"items": [
+{
+"key": "anti-sag-kit",
+"name": "Anti-sag gate kit",
+"spec": "Cable, turnbuckle, 2 corner brackets, cable clamps",
+"kind": "part"
+},
+{
+"key": "turnbuckle",
+"name": "Turnbuckle",
+"spec": "Included in kit",
+"kind": "part"
+},
+{
+"key": "cable-clamp",
+"name": "Wire rope clamp",
+"spec": "Included in kit; 2",
+"kind": "part"
+},
+{
+"key": "drill-driver",
+"name": "Drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "exterior-screw",
+"name": "Exterior wood screw",
+"spec": "#10 × 1½″ coated, for brackets",
+"kind": "fastener"
+},
+{
+"key": "hinge-screw",
+"name": "Long hinge screw",
+"spec": "#10 or #12 × 2½″–3″ exterior, to replace stripped ones",
+"kind": "fastener"
+},
+{
+"key": "gate-hinge",
+"name": "Heavy-duty gate hinge",
+"spec": "Heavy-duty strap or T-hinge, if bent",
+"kind": "part"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "2 ft",
+"kind": "measure"
+},
+{
+"key": "wood-block",
+"name": "Wood block or shims",
+"spec": "2×4 scraps to prop the latch corner",
+"kind": "material"
+},
+{
+"key": "pliers",
+"name": "Pliers",
+"spec": "Lineman's",
+"kind": "tool"
+},
+{
+"key": "wire-cutter",
+"name": "Cable cutter",
+"spec": "To trim extra cable",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "To check the diagonal against cable length",
+"kind": "measure"
+},
+{
+"key": "screwdriver",
+"name": "Screwdriver",
+"spec": "To turn the turnbuckle body",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Measure the gate's diagonal before buying a kit; many kits only fit gates up to about 4 ft wide without extra cable.",
+"Unscrew the turnbuckle to its longest length before hooking it up so you have the full adjustment range for future tightening.",
+"Stop tightening once the gate clears and latches; over-tensioning can twist the frame. Re-check it each season as the wood moves."
+],
+"sources": [
+"https://todayshomeowner.com/fence/video/repairing-a-sagging-fence-gate-with-an-anti-sag-gate-kit/",
+"https://www.angi.com/articles/how-to-fix-a-sagging-gate.htm",
+"https://diy.dunnlumber.com/projects/how-to-fix-a-sagging-gate"
+]
+},
+"concrete-crack": {
+"items": [
+{
+"key": "wire-brush",
+"name": "Wire brush",
+"spec": "Steel, hand or drill-mounted",
+"kind": "tool"
+},
+{
+"key": "screwdriver",
+"name": "Screwdriver",
+"spec": "Flat blade, for scraping",
+"kind": "tool"
+},
+{
+"key": "cold-chisel",
+"name": "Cold chisel",
+"spec": "Optional, to widen hairline cracks to ¼″",
+"kind": "tool"
+},
+{
+"key": "small-sledge",
+"name": "Small sledge (hand drilling hammer)",
+"spec": "2–3 lb",
+"kind": "tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "With crevice tool",
+"kind": "power-tool"
+},
+{
+"key": "leaf-blower",
+"name": "Leaf blower",
+"spec": "Optional",
+"kind": "power-tool"
+},
+{
+"key": "backer-rod",
+"name": "Foam backer rod",
+"spec": "Closed-cell, ~25% wider than the crack",
+"kind": "material"
+},
+{
+"key": "concrete-crack-sealant",
+"name": "Concrete crack sealant",
+"spec": "Self-leveling polyurethane, 10 oz tubes; ~1 tube per 25 ft of ¼″×¼″ joint",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "High-thrust, dripless",
+"kind": "tool"
+},
+{
+"key": "putty-knife",
+"name": "Putty knife",
+"spec": "1½″",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "broom",
+"name": "Push broom",
+"spec": "Stiff push broom",
+"kind": "tool"
+},
+{
+"key": "rag",
+"name": "Shop rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "Nitrile",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Sealant only bonds to clean, dry, sound concrete; wait at least a day or two after rain, and seal when it's above 40°F.",
+"Use backer rod in cracks deeper than about ½″ so the sealant stays about ¼–½″ deep. Too deep a bead wastes sealant and cracks as it cures.",
+"Self-leveling sealant is for flat slabs only; on sloped drives or steps use a non-sag sealant and tool it with a putty knife."
+],
+"sources": [
+"https://www.quikrete.com/athome/video-repairing-sealing-cracks.asp",
+"https://can.sika.com/en/do-it-yourself/sika-products/sealing-bonding/sealants/sikaflex-self-levelingsealant.html",
+"https://www.bobvila.com/articles/how-to-seal-concrete/"
+]
+},
+"sealcoat": {
+"items": [
+{
+"key": "driveway-sealer",
+"name": "Asphalt driveway sealer",
+"spec": "5 gal pails; ~250–400 sq ft per pail per coat",
+"kind": "material"
+},
+{
+"key": "sealer-squeegee",
+"name": "Squeegee/brush applicator",
+"spec": "Squeegee/brush combo, long handle",
+"kind": "tool"
+},
+{
+"key": "asphalt-crack-filler",
+"name": "Asphalt crack filler",
+"spec": "Pourable jug or tube",
+"kind": "material"
+},
+{
+"key": "asphalt-patch",
+"name": "Asphalt patch (cold patch)",
+"spec": "Cold patch, for holes",
+"kind": "material"
+},
+{
+"key": "degreaser",
+"name": "Driveway degreaser",
+"spec": "Driveway/oil-stain cleaner",
+"kind": "material"
+},
+{
+"key": "oil-spot-primer",
+"name": "Oil spot primer",
+"spec": "For stains that won't lift",
+"kind": "material"
+},
+{
+"key": "deck-brush",
+"name": "Deck brush on a pole",
+"spec": "Stiff scrub brush",
+"kind": "tool"
+},
+{
+"key": "broom",
+"name": "Push broom",
+"spec": "Stiff push broom",
+"kind": "tool"
+},
+{
+"key": "leaf-blower",
+"name": "Leaf blower",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "edger",
+"name": "Lawn edger or string trimmer",
+"spec": "Or string trimmer",
+"kind": "power-tool"
+},
+{
+"key": "edging-tape",
+"name": "Edging tape",
+"spec": "Wide masking tape",
+"kind": "consumable"
+},
+{
+"key": "sealer-stir-stick",
+"name": "Sealer mixing stick",
+"spec": "Or drill mixing paddle",
+"kind": "tool"
+},
+{
+"key": "tamper",
+"name": "Tamper",
+"spec": "For packing cold patch",
+"kind": "tool"
+},
+{
+"key": "barricade",
+"name": "Barricade or caution tape",
+"spec": "Caution tape or cones",
+"kind": "consumable"
+},
+{
+"key": "old-clothes",
+"name": "Old clothes",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "rubber-boots",
+"name": "Rubber boots",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "Nitrile",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Seal only when it's 50°F and rising and no rain is forecast for 24–48 hours; avoid surfaces above about 90°F in direct sun because sealer dries too fast.",
+"Two thin coats last longer than one thick one; a heavy coat tracks, peels and cures poorly. Wait 6–12 hours between coats.",
+"Mist the dry driveway lightly before sealing on a hot day so the sealer doesn't flash dry, but never apply on standing water."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-seal-an-asphalt-driveway/",
+"https://www.angi.com/articles/diy-how-seal-driveway-asphalt.htm",
+"https://latexite.com/seal-a-driveway-walkway-parking-lot/"
+]
+},
+"mower-start": {
+"items": [
+{
+"key": "gasoline",
+"name": "Fresh gasoline",
+"spec": "Fresh unleaded, 87+ octane, ethanol-free preferred",
+"kind": "material"
+},
+{
+"key": "fuel-stabilizer",
+"name": "Fuel stabilizer",
+"spec": "",
+"kind": "material"
+},
+{
+"key": "gas-can",
+"name": "Gas can",
+"spec": "Approved, 1–2 gal",
+"kind": "tool"
+},
+{
+"key": "siphon-pump",
+"name": "Siphon pump",
+"spec": "Hand pump",
+"kind": "tool"
+},
+{
+"key": "drain-pan",
+"name": "Drain pan",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "spark-plug-socket",
+"name": "Spark plug socket",
+"spec": "13/16″ or ⅝″",
+"kind": "tool"
+},
+{
+"key": "socket-wrench",
+"name": "Socket wrench (ratchet and sockets)",
+"spec": "3/8″ drive ratchet",
+"kind": "tool"
+},
+{
+"key": "spark-plug",
+"name": "Spark plug",
+"spec": "Part number from manual",
+"kind": "part"
+},
+{
+"key": "gap-gauge",
+"name": "Spark plug gap gauge",
+"spec": "Wire type; usually 0.030″",
+"kind": "measure"
+},
+{
+"key": "spark-tester",
+"name": "Inline spark tester",
+"spec": "Inline",
+"kind": "measure"
+},
+{
+"key": "air-filter",
+"name": "Air filter",
+"spec": "Paper or foam, per model",
+"kind": "part"
+},
+{
+"key": "engine-oil",
+"name": "Small-engine oil",
+"spec": "SAE 30 or per manual, for foam filter",
+"kind": "material"
+},
+{
+"key": "carburetor-cleaner",
+"name": "Carburetor cleaner",
+"spec": "Aerosol",
+"kind": "material"
+},
+{
+"key": "screwdriver",
+"name": "Screwdriver",
+"spec": "For filter cover",
+"kind": "tool"
+},
+{
+"key": "rag",
+"name": "Shop rags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "Nitrile",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Use an inline spark tester before buying parts: no spark points to the plug, plug wire or safety switch; spark but no start points to fuel.",
+"Gas starts to break down in 30–60 days; add stabilizer when you fill the can, not when you fill the mower.",
+"Before tipping the mower, turn off the fuel and keep the air filter side up so gas and oil don't flood the filter."
+],
+"sources": [
+"https://www.briggsandstratton.com/en-gb/support/faqs/engine-problem-solving-tips",
+"https://www.pediamower.com/lawn-mower-wont-start-troubleshooting/"
+]
+},
+"mower-blade": {
+"items": [
+{
+"key": "socket-wrench",
+"name": "Socket wrench (ratchet and sockets)",
+"spec": "Usually ⅝″ or ¾″ socket",
+"kind": "tool"
+},
+{
+"key": "torque-wrench",
+"name": "Torque wrench",
+"spec": "Click type, 20–100 ft-lb range",
+"kind": "tool"
+},
+{
+"key": "wood-block",
+"name": "Wood block or shims",
+"spec": "2×4 scrap",
+"kind": "material"
+},
+{
+"key": "bench-vise",
+"name": "Bench vise",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "mill-file",
+"name": "Mill file",
+"spec": "10″ mill bastard",
+"kind": "tool"
+},
+{
+"key": "bench-grinder",
+"name": "Bench grinder or angle grinder",
+"spec": "Optional, or angle grinder",
+"kind": "power-tool"
+},
+{
+"key": "blade-balancer",
+"name": "Blade balancer",
+"spec": "Or a nail in the wall",
+"kind": "tool"
+},
+{
+"key": "marking-paint",
+"name": "Paint marker",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "wire-brush",
+"name": "Wire brush",
+"spec": "To clean caked grass",
+"kind": "tool"
+},
+{
+"key": "replacement-blade",
+"name": "Replacement mower blade",
+"spec": "If bent, cracked or thin",
+"kind": "part"
+},
+{
+"key": "cut-resistant-gloves",
+"name": "Cut-resistant gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "rag",
+"name": "Shop rags",
+"spec": "",
+"kind": "consumable"
+}
+],
+"proTips": [
+"Aim for butter-knife sharp, not razor-sharp; a razor edge dulls and chips quickly. 30–50 file strokes per side usually do it.",
+"Replace the blade instead of sharpening if it's bent, cracked or worn thin, or the fins at the ends are eroded.",
+"Torque the bolt to the manual's value, often 38–50 ft-lbs on push mowers. An under-tightened blade bolt is a real hazard."
+],
+"sources": [
+"https://www.familyhandyman.com/project/lawn-mower-blade-sharpening/",
+"https://www.familyhandyman.com/project/sharpen-your-lawn-mower-blade/",
+"https://www.lowes.com/n/how-to/sharpen-lawn-mower-blades"
+]
+},
+"sprinkler-head": {
+"items": [
+{
+"key": "trowel",
+"name": "Garden trowel",
+"spec": "Narrow steel",
+"kind": "tool"
+},
+{
+"key": "sod-cutter-spade",
+"name": "Flat spade",
+"spec": "Flat spade",
+"kind": "tool"
+},
+{
+"key": "tarp",
+"name": "Tarp",
+"spec": "To hold soil and sod",
+"kind": "consumable"
+},
+{
+"key": "sprinkler-head",
+"name": "Replacement sprinkler head",
+"spec": "Same brand, pop-up height and ½″ inlet",
+"kind": "part"
+},
+{
+"key": "sprinkler-nozzle",
+"name": "Sprinkler nozzle",
+"spec": "Same arc and radius",
+"kind": "part"
+},
+{
+"key": "riser",
+"name": "Sprinkler riser",
+"spec": "½″ nipple, if broken",
+"kind": "part"
+},
+{
+"key": "riser-extractor",
+"name": "Riser extractor",
+"spec": "If riser broke off in fitting",
+"kind": "tool"
+},
+{
+"key": "thread-seal-tape",
+"name": "Thread seal tape (PTFE)",
+"spec": "½″ PTFE",
+"kind": "consumable"
+},
+{
+"key": "needle-nose-pliers",
+"name": "Needle-nose pliers",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "nozzle-adjustment-tool",
+"name": "Sprinkler adjustment tool",
+"spec": "Brand-specific",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "With water",
+"kind": "tool"
+},
+{
+"key": "flag-marker",
+"name": "Marking flags",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Dig only about 6″ deep and keep the hole small; deeper digging risks nicking the lateral line.",
+"Run the zone briefly with the head off (cover the opening loosely) to flush grit that would clog the new nozzle.",
+"Set the new head's top flush with the soil, not above it, so mowers don't clip it."
+],
+"sources": [
+"https://school.sprinklerwarehouse.com/sprinkler_rotors/how-to-replace-a-pop-up-irrigation-spray-head/",
+"https://www.rainbird.com/homeowners/blog/3-Simple-Repairs-and-Upgrades-for-Your-Pop-Up-Sprinklers",
+"https://irrigationrepair.com/how_to_replace_pop_up_spray_head.html"
+]
+},
 "jump-start": {
 "items": [
 {
@@ -1069,6 +13231,1075 @@ TB.KITS = {
 "sources": [
 "https://www.parktool.com/en-us/blog/repair-help/chain-cleaning-with-a-park-tool-chain-scrubber",
 "https://www.parktool.com/en-us/product/chain-and-drivetrain-cleaning-kit-cg-2-4"
+]
+},
+"grow-cannabis": {
+"items": [
+{
+"key": "grow-tent",
+"name": "Grow tent",
+"spec": "1, 2x2 to 3x3 ft, 5–6 ft tall, 1680D/600D with Mylar lining",
+"kind": "tool"
+},
+{
+"key": "led-grow-light",
+"name": "LED grow light",
+"spec": "1, full-spectrum dimmable, 100–200 W true wall draw",
+"kind": "power-tool"
+},
+{
+"key": "rope-ratchet",
+"name": "Rope ratchet hanger",
+"spec": "1 pair, rated over the light's weight",
+"kind": "part"
+},
+{
+"key": "inline-fan",
+"name": "Inline duct fan",
+"spec": "1, 4″, about 150–200 CFM with speed controller",
+"kind": "power-tool"
+},
+{
+"key": "carbon-filter",
+"name": "Carbon filter",
+"spec": "1, 4″ flange, matched to fan CFM",
+"kind": "part"
+},
+{
+"key": "ducting",
+"name": "Flexible ducting",
+"spec": "4″ x 6–8 ft",
+"kind": "part"
+},
+{
+"key": "duct-clamp",
+"name": "Duct clamp",
+"spec": "2–4, 4″",
+"kind": "fastener"
+},
+{
+"key": "clip-fan",
+"name": "Clip fan",
+"spec": "1, 6″ oscillating",
+"kind": "power-tool"
+},
+{
+"key": "outlet-timer",
+"name": "Outlet timer",
+"spec": "1, grounded heavy-duty digital, 15 A",
+"kind": "power-tool"
+},
+{
+"key": "power-strip",
+"name": "Surge-protected power strip",
+"spec": "1, surge-protected, GFCI outlet recommended",
+"kind": "part"
+},
+{
+"key": "fabric-pot",
+"name": "Fabric pot",
+"spec": "1, 5 gal",
+"kind": "part"
+},
+{
+"key": "plant-saucer",
+"name": "Plant saucer",
+"spec": "1, fits 5 gal pot",
+"kind": "part"
+},
+{
+"key": "potting-soil",
+"name": "Potting soil",
+"spec": "1.5–2 cu ft quality container mix",
+"kind": "material"
+},
+{
+"key": "perlite",
+"name": "Perlite",
+"spec": "1 bag, 4–8 qt (to lighten mix to about 30%)",
+"kind": "material"
+},
+{
+"key": "plant-nutrient",
+"name": "Plant nutrient",
+"spec": "1 starter set, veg and bloom",
+"kind": "consumable"
+},
+{
+"key": "measuring-cup",
+"name": "Measuring cup",
+"spec": "1 set plus 10 ml syringe",
+"kind": "measure"
+},
+{
+"key": "ph-meter",
+"name": "pH meter",
+"spec": "1 digital pen with calibration solution (or pH drop kit)",
+"kind": "measure"
+},
+{
+"key": "ph-adjuster",
+"name": "pH up and down solution",
+"spec": "pH up and pH down, small bottles",
+"kind": "consumable"
+},
+{
+"key": "watering-can",
+"name": "Watering can",
+"spec": "1, 1–2 gal with long spout",
+"kind": "tool"
+},
+{
+"key": "thermo-hygrometer",
+"name": "Thermo-hygrometer",
+"spec": "1 digital with min/max",
+"kind": "measure"
+},
+{
+"key": "humidifier",
+"name": "Humidifier",
+"spec": "1 small, for seedlings if room is dry",
+"kind": "power-tool"
+},
+{
+"key": "dehumidifier",
+"name": "Dehumidifier",
+"spec": "1, 20–35 pint, if humidity runs over 50% in flower",
+"kind": "power-tool"
+},
+{
+"key": "plant-tie",
+"name": "Soft plant ties",
+"spec": "1 roll soft plant ties",
+"kind": "fastener"
+},
+{
+"key": "trellis-net",
+"name": "Trellis net",
+"spec": "1, sized to tent",
+"kind": "part"
+},
+{
+"key": "paper-towel",
+"name": "Paper towels",
+"spec": "1 roll (for germination)",
+"kind": "consumable"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "1",
+"kind": "measure"
+},
+{
+"key": "zip-tie",
+"name": "Zip ties",
+"spec": "1 pack",
+"kind": "fastener"
+},
+{
+"key": "grow-glasses",
+"name": "LED grow glasses",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "jewelers-loupe",
+"name": "Jeweler's loupe",
+"spec": "1, 60x lighted",
+"kind": "measure"
+},
+{
+"key": "pruning-snips",
+"name": "Pruning snips",
+"spec": "1, fine tip",
+"kind": "tool"
+},
+{
+"key": "nitrile-gloves",
+"name": "Nitrile gloves",
+"spec": "1 box",
+"kind": "safety"
+},
+{
+"key": "isopropyl-alcohol",
+"name": "Isopropyl alcohol (70%)",
+"spec": "1 bottle (to clean snips and jars)",
+"kind": "consumable"
+},
+{
+"key": "drying-rack",
+"name": "Drying line or rack",
+"spec": "1 line, hangers or mesh rack",
+"kind": "tool"
+},
+{
+"key": "glass-jar",
+"name": "Glass jar",
+"spec": "4–6, quart wide-mouth",
+"kind": "part"
+},
+{
+"key": "humidity-pack",
+"name": "Two-way humidity pack",
+"spec": "1 per jar, 58–62%",
+"kind": "consumable"
+},
+{
+"key": "mini-hygrometer",
+"name": "Jar hygrometer",
+"spec": "1–2 jar-size",
+"kind": "measure"
+}
+],
+"proTips": [
+"Size the exhaust fan to swap the tent's air about once per minute and add 20–30% to cover the carbon filter's resistance; mount the filter high where warm air collects.",
+"Check the timer after any power outage; a light that comes on during the dark period of flowering can stress photoperiod plants and cause them to revert or turn hermaphrodite.",
+"Dry slowly near 60 °F and 60% humidity; if small stems snap in under 5 days, the room is too dry and flavor suffers, so slow it down with less airflow."
+],
+"sources": [
+"https://www.gorillagrowtent.com/blogs/news/3x3-grow-tent-how-large-inline-fan",
+"https://www.spider-farmer.com/blog/grow-tent-ventilation/",
+"https://www.leafly.com/learn/growing/harvesting-marijuana/drying-curing-cannabis",
+"https://www.growweedeasy.com/drying-curing"
+]
+},
+"grow-mushrooms": {
+"items": [
+{
+"key": "spore-syringe",
+"name": "Spore syringe or liquid culture",
+"spec": "1, 10–12 cc spore syringe or liquid culture",
+"kind": "consumable"
+},
+{
+"key": "grain-spawn-bag",
+"name": "Sterilized grain bag",
+"spec": "2–3, 3 lb pre-sterilized rye or millet with injection port",
+"kind": "material"
+},
+{
+"key": "still-air-box",
+"name": "Still-air box",
+"spec": "1, 50–66 qt clear tote with two 4″ arm holes",
+"kind": "tool"
+},
+{
+"key": "isopropyl-alcohol",
+"name": "Isopropyl alcohol (70%)",
+"spec": "1 qt, 70%",
+"kind": "consumable"
+},
+{
+"key": "spray-bottle",
+"name": "Spray bottle",
+"spec": "2 (one for alcohol, one for water misting)",
+"kind": "tool"
+},
+{
+"key": "torch-lighter",
+"name": "Butane torch lighter",
+"spec": "1 butane torch or lighter",
+"kind": "tool"
+},
+{
+"key": "paper-towel",
+"name": "Paper towels",
+"spec": "1 roll",
+"kind": "consumable"
+},
+{
+"key": "coco-coir",
+"name": "Coco coir",
+"spec": "1 brick, 650 g",
+"kind": "material"
+},
+{
+"key": "vermiculite",
+"name": "Vermiculite",
+"spec": "2 qt (about 2 liters)",
+"kind": "material"
+},
+{
+"key": "gypsum",
+"name": "Gypsum",
+"spec": "1 cup",
+"kind": "material"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "1, 5 gal with lid",
+"kind": "tool"
+},
+{
+"key": "stock-pot",
+"name": "Large pot or kettle",
+"spec": "1 kettle or pot for 4–5 L of boiling water",
+"kind": "tool"
+},
+{
+"key": "kitchen-scale",
+"name": "Kitchen scale",
+"spec": "1",
+"kind": "measure"
+},
+{
+"key": "measuring-cup",
+"name": "Measuring cup",
+"spec": "1",
+"kind": "measure"
+},
+{
+"key": "monotub",
+"name": "Monotub",
+"spec": "1, 54–66 qt clear tote",
+"kind": "part"
+},
+{
+"key": "drill",
+"name": "Cordless drill",
+"spec": "1",
+"kind": "power-tool"
+},
+{
+"key": "hole-saw",
+"name": "Hole saw",
+"spec": "1, 2″",
+"kind": "tool"
+},
+{
+"key": "micropore-tape",
+"name": "Micropore tape",
+"spec": "1 roll, 1″",
+"kind": "consumable"
+},
+{
+"key": "tub-liner",
+"name": "Tub liner",
+"spec": "1 dark contractor bag",
+"kind": "consumable"
+},
+{
+"key": "scissors",
+"name": "Scissors",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "thermo-hygrometer",
+"name": "Thermo-hygrometer",
+"spec": "1 digital with min/max",
+"kind": "measure"
+},
+{
+"key": "nitrile-gloves",
+"name": "Nitrile gloves",
+"spec": "1 box",
+"kind": "safety"
+},
+{
+"key": "face-mask",
+"name": "Face mask",
+"spec": "1 box",
+"kind": "safety"
+},
+{
+"key": "food-dehydrator",
+"name": "Food dehydrator",
+"spec": "1, adjustable thermostat",
+"kind": "power-tool"
+},
+{
+"key": "glass-jar",
+"name": "Glass jar",
+"spec": "2–3 airtight",
+"kind": "part"
+},
+{
+"key": "silica-desiccant",
+"name": "Silica gel desiccant",
+"spec": "1 packet per jar, food-safe",
+"kind": "consumable"
+}
+],
+"proTips": [
+"Test field capacity by squeezing a handful of cooled substrate: only a few drops should come out. Too wet invites bacteria; too dry stalls growth.",
+"Line the tub sides and bottom with a dark bag so pins form only on the surface, not against the clear walls.",
+"Spray alcohol into the still-air box and wait a few minutes for airborne particles to settle before opening any bag; slow arm movements matter more than the box itself."
+],
+"sources": [
+"https://northspore.com/blogs/the-black-trumpet/how-to-make-a-monotub-the-complete-monotub-tek-guide-for-growing-mushrooms",
+"https://learnshrooms.com/grow/monotub-tek/",
+"https://mycologysimplified.com/blogs/teks-and-directions/how-to-make-cvg-substrate-using-the-bucket-tek-method"
+]
+},
+"build-fire": {
+"items": [
+{
+"key": "tinder",
+"name": "Tinder",
+"spec": "1–2 fist-sized bundles",
+"kind": "material"
+},
+{
+"key": "fire-starter",
+"name": "Fire starter",
+"spec": "3–4 pieces (cotton balls with petroleum jelly or cubes)",
+"kind": "consumable"
+},
+{
+"key": "kindling",
+"name": "Kindling",
+"spec": "1 armload, pencil to thumb thick",
+"kind": "material"
+},
+{
+"key": "firewood",
+"name": "Firewood",
+"spec": "1 bundle, wrist thick and up, dry and local",
+"kind": "material"
+},
+{
+"key": "lighter",
+"name": "Lighter or matches",
+"spec": "1 plus waterproof matches as backup",
+"kind": "tool"
+},
+{
+"key": "hatchet",
+"name": "Hatchet",
+"spec": "1, for splitting kindling",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Rake",
+"spec": "1, to clear a 10 ft circle",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "1, full of water",
+"kind": "tool"
+},
+{
+"key": "water-container",
+"name": "Water jug",
+"spec": "2–3 gal extra water",
+"kind": "tool"
+},
+{
+"key": "shovel",
+"name": "Shovel",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "1 pair, leather",
+"kind": "safety"
+},
+{
+"key": "headlamp",
+"name": "Headlamp",
+"spec": "1",
+"kind": "tool"
+}
+],
+"proTips": [
+"Gather all three sizes of wood before you strike a match; running off to find kindling while the tinder burns out is the most common reason a fire fails.",
+"Never use gasoline or other flammable liquids to start or revive a fire.",
+"Buy firewood near where you'll burn it; transported wood spreads invasive insects."
+],
+"sources": [
+"https://smokeybear.com/campfire-safety",
+"https://www.rei.com/learn/expert-advice/campfire-basics.html",
+"https://adcouncil-campaigns.brightspotcdn.com/32/bd/8b854cad4375aa281a0a08a25673/smokeycampfiresafetyguide.pdf"
+]
+},
+"extinguish-fire": {
+"items": [
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "2–3, filled with water",
+"kind": "tool"
+},
+{
+"key": "water-container",
+"name": "Water jug",
+"spec": "2–3 gal extra water",
+"kind": "tool"
+},
+{
+"key": "shovel",
+"name": "Shovel",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "1 pair, leather",
+"kind": "safety"
+},
+{
+"key": "headlamp",
+"name": "Headlamp",
+"spec": "1",
+"kind": "tool"
+}
+],
+"proTips": [
+"Use water rather than dirt alone; dirt can insulate coals that reignite hours later.",
+"Scrape partly burned logs with the shovel to knock off embers, and flip them so the underside gets wet too.",
+"If you don't have enough water, mix in dirt or sand while stirring, but keep going until every bit is cool to the touch."
+],
+"sources": [
+"https://smokeybear.com/campfire-safety",
+"https://adcouncil-campaigns.brightspotcdn.com/32/bd/8b854cad4375aa281a0a08a25673/smokeycampfiresafetyguide.pdf",
+"https://tfsweb.tamu.edu/wp-content/uploads/2024/12/Smokey-how-to-Campfire.pdf"
+]
+},
+"pitch-tent": {
+"items": [
+{
+"key": "tent",
+"name": "Dome tent",
+"spec": "1, with body, poles and rainfly",
+"kind": "part"
+},
+{
+"key": "tent-footprint",
+"name": "Tent footprint",
+"spec": "1, matched to tent floor",
+"kind": "part"
+},
+{
+"key": "tent-stake",
+"name": "Tent stake",
+"spec": "1 per corner and guyout point plus 2–4 spares",
+"kind": "fastener"
+},
+{
+"key": "stake-mallet",
+"name": "Stake mallet",
+"spec": "1 (or a flat rock)",
+"kind": "tool"
+},
+{
+"key": "guyline",
+"name": "Guyline cord",
+"spec": "4–6 lines with tensioners",
+"kind": "part"
+},
+{
+"key": "pole-repair-sleeve",
+"name": "Pole repair sleeve",
+"spec": "1",
+"kind": "part"
+},
+{
+"key": "duct-tape",
+"name": "Duct tape",
+"spec": "a few feet",
+"kind": "adhesive"
+},
+{
+"key": "whisk-broom",
+"name": "Whisk broom",
+"spec": "1 small",
+"kind": "tool"
+},
+{
+"key": "headlamp",
+"name": "Headlamp",
+"spec": "1",
+"kind": "tool"
+}
+],
+"proTips": [
+"Drive stakes fully vertical in most soil for maximum holding power, leaving just enough exposed to slip the loop over.",
+"Set up guylines before dark while the weather is calm; at minimum guy out the windward side.",
+"Do a practice pitch at home to confirm all poles, stakes and clips are in the bag."
+],
+"sources": [
+"https://www.rei.com/learn/expert-advice/tent-set-up.html",
+"https://www.rei.com/blog/camp/infographic-10-tent-tips-for-happy-camping"
+]
+},
+"hoop-net": {
+"items": [
+{
+"key": "step-ladder",
+"name": "Stepladder",
+"spec": "1, tall enough to reach a 10 ft rim",
+"kind": "tool"
+},
+{
+"key": "basketball-net",
+"name": "Basketball net",
+"spec": "1, 12-loop all-weather nylon",
+"kind": "part"
+},
+{
+"key": "scissors",
+"name": "Scissors",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "flat-screwdriver",
+"name": "Flat screwdriver",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "pliers",
+"name": "Pliers",
+"spec": "1, needle-nose",
+"kind": "tool"
+},
+{
+"key": "rag",
+"name": "Shop rag",
+"spec": "1",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "1 pair",
+"kind": "safety"
+}
+],
+"proTips": [
+"The end of the net with the longer loops goes on the rim.",
+"After all 12 loops are on, tug the net all the way around to make sure every loop is seated tight in its hook.",
+"If you have to pry a closed hook open, squeeze it back nearly closed with pliers so the net can't pop off."
+],
+"sources": [
+"https://qualityhoops.com/blogs/news/how-to-replace-your-basketball-net",
+"https://dunkorthree.com/how-to-replace-basketball-net/"
+]
+},
+"hoop-rim": {
+"items": [
+{
+"key": "socket-set",
+"name": "Socket set",
+"spec": "1, with 9/16″ and ¾″ sockets",
+"kind": "tool"
+},
+{
+"key": "combination-wrench",
+"name": "Combination wrench set",
+"spec": "1 set, 9/16″ and ¾″",
+"kind": "tool"
+},
+{
+"key": "torque-wrench",
+"name": "Torque wrench",
+"spec": "1, optional",
+"kind": "measure"
+},
+{
+"key": "step-ladder",
+"name": "Stepladder",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "thread-locker",
+"name": "Thread locker (blue)",
+"spec": "1 tube, blue",
+"kind": "adhesive"
+},
+{
+"key": "silicone-spray",
+"name": "Silicone spray lubricant",
+"spec": "1 can",
+"kind": "consumable"
+},
+{
+"key": "penetrating-oil",
+"name": "Penetrating oil",
+"spec": "1 can",
+"kind": "consumable"
+},
+{
+"key": "wire-brush",
+"name": "Wire brush",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "hex-bolt",
+"name": "Replacement bolt and nut",
+"spec": "as needed, galvanized with nylon lock nuts",
+"kind": "fastener"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "1, 24″",
+"kind": "measure"
+},
+{
+"key": "rag",
+"name": "Shop rag",
+"spec": "2",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "1 pair",
+"kind": "safety"
+}
+],
+"proTips": [
+"Tighten rim nuts only until the rim stops wobbling; overtightening on breakaway rims changes spring tension and can crush the backboard.",
+"Tighten the hardware in an X pattern so the rim plate pulls down evenly.",
+"Inspect and tighten all nuts and bolts at least once a year and before each season."
+],
+"sources": [
+"https://manuals.plus/asin/B00TRKRH32",
+"https://joysportstore.com/blogs/news/essential-basketball-hoop-maintenance-checklist",
+"https://www.sportssio.com/how-to-adjust-lifetime-basketball-hoop/"
+]
+},
+"court-crack": {
+"items": [
+{
+"key": "wire-brush",
+"name": "Wire brush",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "weed-puller",
+"name": "Crack weeder",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "leaf-blower",
+"name": "Leaf blower",
+"spec": "1 (or shop vac)",
+"kind": "power-tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "1",
+"kind": "power-tool"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "1 with jet nozzle",
+"kind": "tool"
+},
+{
+"key": "backer-rod",
+"name": "Backer rod",
+"spec": "as needed for cracks deeper than ½″",
+"kind": "material"
+},
+{
+"key": "crack-filler",
+"name": "Flexible crack filler",
+"spec": "1 gal fills about 75–150 ft of crack (or cartridges)",
+"kind": "material"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "1, if using cartridges",
+"kind": "tool"
+},
+{
+"key": "putty-knife",
+"name": "Putty knife",
+"spec": "1, 2–3″ flexible",
+"kind": "tool"
+},
+{
+"key": "squeegee",
+"name": "Squeegee",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "court-paint",
+"name": "Court paint",
+"spec": "1 gal, color matched (optional)",
+"kind": "material"
+},
+{
+"key": "paint-roller",
+"name": "Paint roller",
+"spec": "1 with tray (optional)",
+"kind": "tool"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "1 roll",
+"kind": "consumable"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "Dust mask",
+"spec": "1",
+"kind": "safety"
+}
+],
+"proTips": [
+"Use a flexible acrylic crack filler made for sport surfaces so it bonds to both sides and stretches with seasonal movement; rigid patch mixes crack again.",
+"Let the crack dry fully after washing and fill on a dry day above 50 °F.",
+"Large cracks may need two thin passes because fillers shrink as they cure."
+],
+"sources": [
+"https://www.sportmaster.net/how-to-fill-cracks-on-a-tennis-court/",
+"https://www.sportmaster.net/crack-magic/",
+"https://legendarysportsconstruction.com/basketball-court-repair/"
+]
+},
+"grill-light": {
+"items": [
+{
+"key": "aa-battery",
+"name": "AA or AAA battery",
+"spec": "1, AA or AAA per igniter",
+"kind": "part"
+},
+{
+"key": "long-lighter",
+"name": "Long grill lighter",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "dish-soap",
+"name": "Dish soap",
+"spec": "1 bottle",
+"kind": "consumable"
+},
+{
+"key": "spray-bottle",
+"name": "Spray bottle",
+"spec": "1 (or bowl)",
+"kind": "tool"
+},
+{
+"key": "chip-brush",
+"name": "Small brush",
+"spec": "1, 1″",
+"kind": "tool"
+},
+{
+"key": "venturi-brush",
+"name": "Venturi brush",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "pipe-cleaner",
+"name": "Pipe cleaner",
+"spec": "2–3",
+"kind": "consumable"
+},
+{
+"key": "flashlight",
+"name": "Flashlight",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "grill-regulator",
+"name": "Grill regulator and hose",
+"spec": "1 if needed, model-matched",
+"kind": "part"
+},
+{
+"key": "propane-tank",
+"name": "Propane tank",
+"spec": "1, 20 lb, filled",
+"kind": "part"
+}
+],
+"proTips": [
+"Open the tank valve slowly; cracking it open fast is the top cause of the regulator's flow limiter tripping and leaving a low flame.",
+"If the flame is still weak after two correct resets, the regulator has likely failed and should be replaced.",
+"Do the soapy-water leak test outdoors with no flames nearby; never use a match to look for leaks."
+],
+"sources": [
+"https://virtualwebergasgrill.com/2017/04/troubleshooting-low-heat-weak-flame-weber-gas-grills/",
+"https://qualitygrillparts.com/grill-regulator-reset/",
+"https://www.hunker.com/13408162/how-to-reset-the-propane-regulator-for-a-gas-grill/"
+]
+},
+"grill-clean": {
+"items": [
+{
+"key": "grill-scraper",
+"name": "Grill scraper",
+"spec": "1, bristle-free",
+"kind": "tool"
+},
+{
+"key": "grill-brush",
+"name": "Stainless grill brush",
+"spec": "1, stainless",
+"kind": "tool"
+},
+{
+"key": "plastic-scraper",
+"name": "Plastic scraper",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "Bucket",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "dish-soap",
+"name": "Dish soap",
+"spec": "1 bottle",
+"kind": "consumable"
+},
+{
+"key": "grill-degreaser",
+"name": "Grill degreaser",
+"spec": "1 bottle, food-safe (optional)",
+"kind": "consumable"
+},
+{
+"key": "scrub-sponge",
+"name": "Scrub sponge",
+"spec": "2",
+"kind": "consumable"
+},
+{
+"key": "venturi-brush",
+"name": "Venturi brush",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "paper-clip",
+"name": "Paper clip",
+"spec": "1 (or toothpick)",
+"kind": "tool"
+},
+{
+"key": "shop-vac",
+"name": "Shop vacuum",
+"spec": "1 (optional, for cookbox debris)",
+"kind": "power-tool"
+},
+{
+"key": "drip-pan-liner",
+"name": "Drip pan liner",
+"spec": "1",
+"kind": "part"
+},
+{
+"key": "cooking-oil",
+"name": "High-heat cooking oil",
+"spec": "small amount, high smoke point",
+"kind": "consumable"
+},
+{
+"key": "paper-towel",
+"name": "Paper towels",
+"spec": "1 roll",
+"kind": "consumable"
+},
+{
+"key": "tongs",
+"name": "Grill tongs",
+"spec": "1",
+"kind": "tool"
+},
+{
+"key": "heat-gloves",
+"name": "Heat-resistant gloves",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "nitrile-gloves",
+"name": "Nitrile gloves",
+"spec": "1 pair",
+"kind": "safety"
+},
+{
+"key": "rag",
+"name": "Shop rag",
+"spec": "2",
+"kind": "consumable"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose",
+"spec": "1",
+"kind": "tool"
+}
+],
+"proTips": [
+"Brush burner tubes side to side across the ports, not along their length, so you don't push debris into the holes.",
+"Scrape cookbox grease down into the grease tray with a plastic scraper, then empty and replace the drip tray liner.",
+"Give the grill a full deep clean about every three months if you cook often; wipe the outside monthly."
+],
+"sources": [
+"https://www.weber.com/US/en/blog/tips-techniques/gas-grill-maintenance/weber-31176.html",
+"https://www.weber.com/GB/en/blog/gas-barbecue-maintenance-tips/weber-207360.html",
+"https://virtualwebergasgrill.com/2015/08/deep-cleaning-your-weber-gas-grill/"
 ]
 }
 };

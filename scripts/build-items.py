@@ -8,6 +8,13 @@ Usage: python3 scripts/build-items.py <research-dir>
 import glob, json, os, sys
 
 src = sys.argv[1] if len(sys.argv) > 1 else 'research'
+# Same item named differently by different research passes -> one canonical key.
+ALIAS = {
+    'rags': 'rag', 'cable-ties': 'cable-tie', 'wrench': 'adjustable-wrench', 'channel-lock-pliers': 'tongue-and-groove-pliers',
+    'pry-bar': 'flat-bar', 'voltage-tester': 'non-contact-voltage-tester', 'wd-40': 'penetrating-oil',
+    'receptacle-tester': 'plug-in-outlet-tester', 'ptfe-tape': 'ptfe-thread-tape', 'shop-vacuum': 'shop-vac',
+    'stepladder': 'step-ladder', 'white-vinegar': 'vinegar',
+}
 items, kits = {}, {}
 for f in sorted(glob.glob(os.path.join(src, 'out_*.json'))):
     d = json.load(open(f))
@@ -15,6 +22,19 @@ for f in sorted(glob.glob(os.path.join(src, 'out_*.json'))):
         if k not in items or len(v.get('what', '')) > len(items[k].get('what', '')):
             items[k] = v
     kits.update(d.get('guides', {}))
+for a, c in ALIAS.items():
+    if a in items:
+        items.setdefault(c, items[a])
+        del items[a]
+for g in kits.values():
+    seen, out = set(), []
+    for it in g['items']:
+        it['key'] = ALIAS.get(it['key'], it['key'])
+        if it['key'] in seen:
+            continue
+        seen.add(it['key'])
+        out.append(it)
+    g['items'] = out
 missing = sorted({it['key'] for g in kits.values() for it in g['items'] if it['key'] not in items})
 for k in missing:  # fall back to a stub so the UI never breaks
     items[k] = {'name': k.replace('-', ' ').capitalize(), 'kind': 'material', 'what': '', 'uses': [], 'tip': ''}
