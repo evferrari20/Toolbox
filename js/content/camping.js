@@ -98,6 +98,7 @@
     repairs: [
       {
         id: 'build-fire',
+        kind: 'build',
         title: 'Build a campfire',
         model: 'campfire',
         level: 1,
@@ -156,6 +157,7 @@
       },
       {
         id: 'pitch-tent',
+        kind: 'build',
         title: 'Pitch a dome tent',
         model: 'tent',
         level: 1,

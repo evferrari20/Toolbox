@@ -528,3 +528,46 @@ body.learn .learn-only { display: grid !important; }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
 }
+/* hidden private section accent */
+.d-private { --dc: #4c8a3a; --dbg: #e3f2dc; }
+.private-note { font-size: 0.88rem; color: var(--green-ink); background: var(--green-100); padding: 8px 12px; border-radius: 10px; margin-bottom: 16px; width: fit-content; }
+
+/* ---------- Repair / Build split ---------- */
+.kind-repair { --kc: var(--blue); --kbg: var(--blue-100); --kink: var(--blue-700); }
+.kind-build { --kc: var(--yellow-600); --kbg: var(--yellow-100); --kink: var(--yellow-ink); }
+.pill.kind-repair, .pill.kind-build { background: var(--kbg); color: var(--kink); }
+.domnav a.mode { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--kink); background: var(--kbg); }
+.domnav a.mode svg { width: 16px; height: 16px; }
+.domnav a.mode.on { border-color: var(--kc); }
+.nav-sep { flex: none; width: 1px; background: var(--line); margin: 4px 6px; }
+.doors { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 18px; }
+.door {
+  display: grid; grid-template-columns: auto 1fr; gap: 6px 16px; align-items: start;
+  padding: 22px; border-radius: var(--r-lg); text-decoration: none; color: var(--ink);
+  background: var(--surface); box-shadow: var(--shadow); border: 2px solid transparent;
+  transition: transform 0.16s, box-shadow 0.16s, border-color 0.16s;
+}
+.door:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); border-color: var(--kc); }
+.door-ico { width: 56px; height: 56px; border-radius: 16px; display: grid; place-items: center; background: var(--kbg); color: var(--kc); }
+.door-ico svg { width: 30px; height: 30px; }
+.door h2 { font-size: 1.5rem; font-weight: 900; }
+.door p { color: var(--ink-soft); margin-top: 4px; }
+.door-n { display: inline-block; margin-top: 8px; font-weight: 800; color: var(--kink); }
+.door ul { grid-column: 1 / -1; list-style: none; margin: 6px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.door li { font-size: 0.85rem; padding: 4px 10px; border-radius: 999px; background: var(--kbg); color: var(--kink); font-weight: 600; }
+.kind-group + .kind-group { margin-top: 18px; }
+.kind-h { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; font-size: 1.05rem; font-weight: 800; color: var(--kink); margin-bottom: 10px; }
+.kind-h svg { width: 18px; height: 18px; align-self: center; }
+.kind-h small { font-family: var(--f-body); font-size: 0.86rem; font-weight: 600; color: var(--ink-faint); }
+.cat-ico.big { width: 60px; height: 60px; border-radius: 18px; background: var(--kbg); color: var(--kc); }
+.cat-ico.big svg { width: 32px; height: 32px; }
+
+/* ---------- Shop links (affiliate framework) ---------- */
+.shop { margin-top: 12px; background: var(--surface); border-radius: var(--r); box-shadow: var(--shadow); padding: 10px 14px; }
+.shop summary { cursor: pointer; font-weight: 800; color: var(--blue-700); }
+.shop-rows { display: grid; gap: 6px; margin-top: 10px; }
+.shop-row { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 0.92rem; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.shop-links { display: flex; gap: 10px; flex-wrap: wrap; }
+.shop-links a { font-weight: 700; font-size: 0.85rem; }
+.shop-note { font-size: 0.8rem; color: var(--ink-faint); margin-top: 8px; }
+@media (max-width: 680px) { .doors { grid-template-columns: 1fr; } }

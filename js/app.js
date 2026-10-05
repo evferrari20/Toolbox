@@ -25,7 +25,29 @@
 
   const byId = {};
   for (const c of TB.categories) for (const r of c.repairs) byId[r.id] = { cat: c, rep: r };
-  const domainOf = (c) => TB.DOMAINS.find((d) => d.id === c.domain) || TB.DOMAINS[0];
+
+  /* Hidden categories stay out of menus, lists and search until unlocked on this device:
+     tap the yellow wrench logo 5 times within 6 seconds (do it again to lock). */
+  const unlocked = () => !!store.get('pv', false);
+  const visibleCats = () => TB.categories.filter((c) => !c.hidden || unlocked());
+  let taps = [];
+  document.querySelector('.brand-mark').addEventListener('click', (e) => {
+    // The logo is also the home link; handle navigation here so the unlock isn't overridden.
+    e.preventDefault();
+    const now = Date.now();
+    taps = taps.filter((t) => now - t < 6000).concat(now);
+    if (taps.length < 5) {
+      if (location.hash) location.hash = '';
+      return;
+    }
+    taps = [];
+    const on = !unlocked();
+    store.set('pv', on);
+    celebrate(on ? 'Private garden unlocked' : 'Private garden hidden');
+    if (location.hash === '#private' || (!on && !location.hash)) route();
+    else location.hash = on ? 'private' : '';
+  });
+  const domainOf = (c) => TB.DOMAINS.find((d) => d.id === c.domain) || { id: c.domain, name: c.name, blurb: c.blurb };
 
   /* ---------- Variants ---------- */
   // A variant overrides any repair field (model, intro, steps, tools, safety, causes, learn, pro, ...).
@@ -56,7 +78,15 @@
   setLearn(store.get('learn', false));
 
   /* ---------- Shared bits ---------- */
-  const KIND = (c) => (c.kind === 'project' ? 'project' : 'repair');
+  // Every guide is either a Repair (fix what's broken) or a Build (add something new).
+  const kindOf = (r, c) => r.kind || (c && c.kind === 'project' ? 'build' : 'repair');
+  const KINDS = { repair: { name: 'Repairs', one: 'repair', blurb: 'Fix what’s broken, worn out or not working right.' }, build: { name: 'Builds', one: 'build', blurb: 'Add onto what you have, or build something new from scratch.' } };
+  const kindPill = (k) => `<span class="pill kind-${k}">${k === 'build' ? I.cube : I.wrench}${k === 'build' ? 'Build' : 'Repair'}</span>`;
+  const splitByKind = (c) => ({ repair: c.repairs.filter((r) => kindOf(r, c) === 'repair'), build: c.repairs.filter((r) => kindOf(r, c) === 'build') });
+  const countLine = (c) => {
+    const s = splitByKind(c);
+    return [s.repair.length ? `${s.repair.length} repair${s.repair.length > 1 ? 's' : ''}` : '', s.build.length ? `${s.build.length} build${s.build.length > 1 ? 's' : ''}` : ''].filter(Boolean).join(' · ');
+  };
   const LEVEL = { 1: 'Easy', 2: 'Moderate', 3: 'Advanced' };
   const level = (n) => `<span class="pill lvl-${n}"><span class="dots">${[1, 2, 3].map((i) => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span>${LEVEL[n]}</span>`;
   const doneCount = (r) => {
@@ -69,9 +99,11 @@
 
   /* ---------- Nav ---------- */
   const nav = $('#domnav');
-  nav.innerHTML = TB.DOMAINS.filter((d) => TB.categories.some((c) => c.domain === d.id))
-    .map((d) => `<a href="#d.${d.id}" class="d-${d.id}" data-d="${d.id}">${esc(d.name)}</a>`)
-    .join('');
+  nav.innerHTML =
+    `<a href="#mode.repair" class="mode kind-repair" data-d="mode.repair">${I.wrench}Repairs</a><a href="#mode.build" class="mode kind-build" data-d="mode.build">${I.cube}Builds</a><span class="nav-sep"></span>` +
+    TB.DOMAINS.filter((d) => TB.categories.some((c) => c.domain === d.id && !c.hidden))
+      .map((d) => `<a href="#d.${d.id}" class="d-${d.id}" data-d="${d.id}">${esc(d.name)}</a>`)
+      .join('');
 
   let viewer = null;
   let heroViewer = null;
@@ -97,7 +129,7 @@
     const done = doneCount(r);
     const n = r.steps.length;
     return `<a class="rep-card ${compact ? 'compact' : ''}" href="#${c.id}.${r.id}">
-      <div class="rep-top">${catIcon(c)}<span class="rep-cat">${esc(c.name)}</span>${r.variants ? `<span class="pill var">${r.variants.length} versions</span>` : ''}</div>
+      <div class="rep-top">${catIcon(c)}<span class="rep-cat">${esc(c.name)}</span>${kindPill(kindOf(r, c))}${r.variants ? `<span class="pill var">${r.variants.length} versions</span>` : ''}</div>
       <h3>${esc(r.title)}</h3>
       ${compact ? '' : `<p>${esc(r.summary)}</p>`}
       <div class="meta">${level(r.level)}<span class="pill">${I.clock}${esc(r.time)}</span>${compact ? '' : `<span class="pill">${I.coin}${esc(r.cost)}</span>`}${
@@ -107,8 +139,8 @@
   }
 
   function renderHome() {
-    const total = TB.categories.reduce((n, c) => n + c.repairs.length, 0);
-    const pop = POPULAR.map((id) => byId[id]).filter(Boolean);
+    const total = visibleCats().reduce((n, c) => n + c.repairs.length, 0);
+    const pop = POPULAR.map((id) => byId[id]).filter((x) => x && !x.cat.hidden);
     let html = `<section class="hero">
       <div class="hero-copy">
         <span class="eyebrow">${I.wrench} Home · Yard · Garage · Backyard</span>
@@ -125,6 +157,16 @@
       </div>
     </section>
 
+    <section class="doors">${['repair', 'build']
+      .map((k) => {
+        const all = visibleCats().flatMap((c) => c.repairs.filter((r) => kindOf(r, c) === k).map((r) => ({ r, c })));
+        return `<a class="door kind-${k}" href="#mode.${k}"><span class="door-ico">${k === 'build' ? I.cube : I.wrench}</span><div><h2>${k === 'build' ? 'Build something' : 'Fix something'}</h2><p>${KINDS[k].blurb}</p><span class="door-n">${all.length} guides →</span></div><ul>${all
+          .slice(0, 4)
+          .map(({ r }) => `<li>${esc(r.title)}</li>`)
+          .join('')}</ul></a>`;
+      })
+      .join('')}</section>
+
     <section class="how">
       <div><span class="num">1</span><b>Pick what’s broken</b><p>Choose the exact version you have, from faucet type to car vs. diesel truck.</p></div>
       <div><span class="num">2</span><b>Follow it in 3D</b><p>The camera moves to each part, the right tool shows up, and the part you work on glows.</p></div>
@@ -136,12 +178,12 @@
     </section>`;
 
     for (const d of TB.DOMAINS) {
-      const cats = TB.categories.filter((c) => c.domain === d.id);
+      const cats = visibleCats().filter((c) => c.domain === d.id);
       if (!cats.length) continue;
       html += `<section class="block domain d-${d.id}" id="d-${d.id}"><div class="block-head"><h2>${esc(d.name)}</h2><p>${esc(d.blurb)}</p></div><div class="cat-grid">`;
       for (const c of cats) {
         html += `<a class="cat-card d-${c.domain}" href="#${c.id}">
-          <div class="cat-top">${catIcon(c)}<span class="count">${c.repairs.length} ${KIND(c)}s</span></div>
+          <div class="cat-top">${catIcon(c)}<span class="count">${countLine(c)}</span></div>
           <h3>${esc(c.name)}</h3>
           <ul>${c.repairs.map((r) => `<li>${esc(r.title)}</li>`).join('')}</ul>
         </a>`;
@@ -175,19 +217,44 @@
   }
 
   /* ---------- Domain + category ---------- */
+  // Two labeled groups, Repairs then Builds, skipping an empty one.
+  function kindGroups(c, list) {
+    const s = list || splitByKind(c);
+    return ['repair', 'build']
+      .filter((k) => s[k].length)
+      .map((k) => `<div class="kind-group kind-${k}"><h3 class="kind-h">${k === 'build' ? I.cube : I.wrench}${KINDS[k].name}<small>${KINDS[k].blurb}</small></h3><div class="rep-list">${s[k].map((r) => repCard(r, c)).join('')}</div></div>`)
+      .join('');
+  }
+
   function renderDomain(d) {
-    const cats = TB.categories.filter((c) => c.domain === d.id);
+    const cats = visibleCats().filter((c) => c.domain === d.id);
     main.innerHTML = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span><span>${esc(d.name)}</span></nav>
-      <header class="page-head d-${d.id}"><h1>${esc(d.name)}</h1><p>${esc(d.blurb)}</p></header>
-      ${cats.map((c) => `<section class="block"><div class="block-head">${catIcon(c)}<h2><a href="#${c.id}">${esc(c.name)}</a></h2><p>${esc(c.blurb)}</p></div><div class="rep-list">${c.repairs.map((r) => repCard(r, c)).join('')}</div></section>`).join('')}`;
+      <header class="page-head d-${d.id}"><div><h1>${esc(d.name)}</h1><p>${esc(d.blurb)}</p></div></header>
+      ${cats.map((c) => `<section class="block"><div class="block-head">${catIcon(c)}<h2><a href="#${c.id}">${esc(c.name)}</a></h2><p>${esc(c.blurb)}</p></div>${kindGroups(c)}</section>`).join('')}`;
     document.title = d.name + ' · Toolbox';
+  }
+
+  // All repairs, or all builds, across every section.
+  function renderMode(k) {
+    let html = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span><span>${KINDS[k].name}</span></nav>
+      <header class="page-head kind-${k}"><span class="cat-ico big kind-${k}">${k === 'build' ? I.cube : I.wrench}</span><div><h1>${KINDS[k].name}</h1><p>${KINDS[k].blurb}</p></div></header>`;
+    for (const d of TB.DOMAINS) {
+      const cats = visibleCats().filter((c) => c.domain === d.id && splitByKind(c)[k].length);
+      if (!cats.length) continue;
+      html += `<section class="block domain d-${d.id}"><div class="block-head"><h2>${esc(d.name)}</h2></div><div class="rep-list">${cats
+        .flatMap((c) => splitByKind(c)[k].map((r) => repCard(r, c)))
+        .join('')}</div></section>`;
+    }
+    main.innerHTML = html;
+    document.title = KINDS[k].name + ' · Toolbox';
   }
 
   function renderCategory(c) {
     const d = domainOf(c);
-    main.innerHTML = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span><a href="#d.${d.id}">${esc(d.name)}</a><span class="sep">/</span><span>${esc(c.name)}</span></nav>
+    const dl = TB.DOMAINS.includes(d) ? `<a href="#d.${d.id}">${esc(d.name)}</a><span class="sep">/</span>` : '';
+    main.innerHTML = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span>${dl}<span>${esc(c.name)}</span></nav>${c.hidden ? '<p class="private-note">Only visible on this device. Tap the yellow wrench logo 5 times to hide it again.</p>' : ''}
       <header class="page-head d-${c.domain}">${catIcon(c)}<div><h1>${esc(c.name)}</h1><p>${esc(c.blurb)}</p></div></header>
-      <div class="rep-list">${c.repairs.map((r) => repCard(r, c)).join('')}</div>`;
+      ${kindGroups(c)}`;
     document.title = c.name + ' · Toolbox';
   }
 
@@ -206,7 +273,7 @@
     main.innerHTML = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span><a href="#${c.id}">${esc(c.name)}</a><span class="sep">/</span><span>${esc(r.title)}</span></nav>
     <header class="rep-head d-${c.domain}">
       <div class="rep-head-main">
-        <div class="rep-top">${catIcon(c)}<span class="rep-cat">${esc(c.name)}</span></div>
+        <div class="rep-top">${catIcon(c)}<span class="rep-cat">${esc(c.name)}</span>${kindPill(kindOf(base, c))}</div>
         <h1>${esc(r.title)}</h1>
         <p class="summary">${esc(r.summary)}</p>
       </div>
@@ -256,13 +323,13 @@
 
         <section class="section box safety"><h2>${I.shield} Safety first</h2><ul>${r.safety.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></section>
 
-        <section class="section"><h2>${KIND(c) === 'project' ? 'Plan it' : 'Likely causes'}</h2><div class="causes">${r.causes
+        <section class="section"><h2>${kindOf(base, c) === 'build' ? 'Plan it' : 'Likely causes'}</h2><div class="causes">${r.causes
           .map(([t, dd], i) => `<div class="cause"><span class="n">${i + 1}</span><b>${esc(t)}</b>${dd ? `<p>${esc(dd)}</p>` : ''}</div>`)
           .join('')}</div></section>
 
         <section class="section"><h2>Tools & parts <small>tap to check off</small></h2><ul class="tools">${r.tools
           .map((t, i) => `<li><button data-tool="${i}" aria-pressed="${toolSet.has(i)}"><span class="tick">${I.check}</span>${esc(t)}</button></li>`)
-          .join('')}</ul></section>
+          .join('')}</ul>${TB.shopBlock ? TB.shopBlock(r.tools, r.id) : ''}</section>
 
         <section class="section"><h2>Steps <small>tap the number when done</small></h2><ol class="steps" id="steps">${steps
           .map(
@@ -322,7 +389,7 @@
         b.closest('.step').classList.toggle('done', doneSet.has(i));
         store.set('done:' + key, [...doneSet]);
         paintProg();
-        if (doneSet.size === n && was < n) celebrate(KIND(c) === 'project' ? 'Project complete!' : 'Fixed it!');
+        if (doneSet.size === n && was < n) celebrate(kindOf(base, c) === 'build' ? 'Built it!' : 'Fixed it!');
       })
     );
     $('#clear').addEventListener('click', () => {
@@ -478,7 +545,7 @@
   function renderSearch(term) {
     const words = term.toLowerCase().trim().split(/\s+/);
     const hits = [];
-    for (const c of TB.categories)
+    for (const c of visibleCats())
       for (const r of c.repairs) {
         const vtext = (r.variants || []).map((v) => v.name + ' ' + (v.blurb || '')).join(' ');
         const hay = [r.title, r.summary, c.name, vtext, ...r.causes.map((x) => x[0]), ...r.tools].join(' ').toLowerCase();
@@ -516,6 +583,11 @@
     const h = decodeURIComponent(location.hash.slice(1));
     $$('#domnav a').forEach((a) => a.classList.remove('on'));
     if (h === 'credits') return renderCredits();
+    if (h === 'mode.repair' || h === 'mode.build') {
+      const a = $(`#domnav a[data-d="${h}"]`);
+      if (a) a.classList.add('on');
+      return renderMode(h.slice(5));
+    }
     if (h.startsWith('d.')) {
       const d = TB.DOMAINS.find((x) => x.id === h.slice(2));
       if (d) {
@@ -525,7 +597,7 @@
       }
     }
     const [cid, rid] = h.split('.');
-    const c = TB.categories.find((x) => x.id === cid);
+    const c = visibleCats().find((x) => x.id === cid);
     if (c) {
       const a = $(`#domnav a[data-d="${c.domain}"]`);
       if (a) a.classList.add('on');
