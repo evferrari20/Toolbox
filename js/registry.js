@@ -45,6 +45,7 @@
     { id: 'interior', name: 'Inside the house', blurb: 'Walls, doors, floors and furniture' },
     { id: 'exterior', name: 'Outside & yard', blurb: 'Roof, deck, fence, concrete and lawn' },
     { id: 'projects', name: 'Backyard builds', blurb: 'Weekend projects that upgrade your outdoor space' },
+    { id: 'garden', name: 'Garden', blurb: 'Build growing spaces, then grow food, flowers and trees' },
     { id: 'vehicles', name: 'Vehicles', blurb: 'Car and bike basics' },
     { id: 'recreation', name: 'Recreation', blurb: 'Campfires, courts and cookouts' },
     { id: 'tech', name: 'Tech', blurb: 'Computers and home network' },

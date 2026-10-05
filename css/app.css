@@ -32,6 +32,7 @@
   --d-interior: #d99a00;  --d-interior-bg: #fff1c2;
   --d-exterior: #2e9a5b;  --d-exterior-bg: #ddf3e4;
   --d-projects: #e5782a;  --d-projects-bg: #ffe8d2;
+  --d-garden: #3f9a2f;    --d-garden-bg: #e2f5d9;
   --d-vehicles: #d9483f;  --d-vehicles-bg: #fde4e1;
   --d-recreation: #11928f; --d-recreation-bg: #d8f3f2;
   --d-tech: #6c55e8;      --d-tech-bg: #ebe7ff;
@@ -69,6 +70,7 @@ a { color: var(--blue-600); }
 .d-interior { --dc: var(--d-interior); --dbg: var(--d-interior-bg); }
 .d-exterior { --dc: var(--d-exterior); --dbg: var(--d-exterior-bg); }
 .d-projects { --dc: var(--d-projects); --dbg: var(--d-projects-bg); }
+.d-garden { --dc: var(--d-garden); --dbg: var(--d-garden-bg); }
 .d-vehicles { --dc: var(--d-vehicles); --dbg: var(--d-vehicles-bg); }
 .d-recreation { --dc: var(--d-recreation); --dbg: var(--d-recreation-bg); }
 .d-tech { --dc: var(--d-tech); --dbg: var(--d-tech-bg); }
