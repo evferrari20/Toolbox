@@ -24,6 +24,17 @@ TB.ITEMS = {
 ],
 "tip": "Choose a very fine grade (often gray or white) for delicate parts."
 },
+"access-door": {
+"name": "Stainless access door",
+"kind": "part",
+"what": "A stainless door and frame set into an island opening for storage and gas access.",
+"uses": [
+"Under-grill access",
+"Storage",
+"Propane tank bays"
+],
+"tip": "Leave rough openings to the manufacturer's cutout size, not the door face size."
+},
 "adjustable-wrench": {
 "name": "Adjustable wrench",
 "kind": "tool",
@@ -85,6 +96,28 @@ TB.ITEMS = {
 ],
 "tip": "The red lead is the interconnect wire; join it to the house red wire, or cap it if there is none."
 },
+"anchor-bolt": {
+"name": "Anchor bolt",
+"kind": "fastener",
+"what": "A threaded bolt (J-bolt or L-bolt) set in wet concrete to anchor brackets or poles.",
+"uses": [
+"Post bases",
+"Hoop poles",
+"Light poles"
+],
+"tip": "Use a template so spacing exactly matches the base plate."
+},
+"angle-grinder": {
+"name": "Angle grinder",
+"kind": "power-tool",
+"what": "A handheld grinder that cuts stone, metal and rebar with abrasive or diamond wheels.",
+"uses": [
+"Cutting rebar",
+"Trimming stone and pavers",
+"Scoring concrete"
+],
+"tip": "Keep the guard on and wear a face shield; use wet cutting or a shroud with a vacuum for masonry."
+},
 "anti-sag-kit": {
 "name": "Anti-sag gate kit",
 "kind": "part",
@@ -125,6 +158,17 @@ TB.ITEMS = {
 "Confirming a repair worked"
 ],
 "tip": "Place it in a glass of water for the fridge reading; air temperature swings every time the door opens."
+},
+"arbor-kit": {
+"name": "Cedar arbor kit",
+"kind": "part",
+"what": "A pre-cut cedar arch with posts and top, assembled with included hardware.",
+"uses": [
+"Garden entries",
+"Over paths",
+"Supporting climbers"
+],
+"tip": "Anchor it well; arbors with vines catch a lot of wind."
 },
 "asphalt-crack-filler": {
 "name": "Asphalt crack filler",
@@ -190,6 +234,28 @@ TB.ITEMS = {
 ],
 "tip": "Choose a diameter about ⅛″ larger than the crack so it stays put."
 },
+"backflow-preventer": {
+"name": "Backflow preventer",
+"kind": "part",
+"what": "A spigot fitting with a check valve that stops garden water from siphoning back into house plumbing.",
+"uses": [
+"Drip systems",
+"Hose-end fertilizers",
+"Spigots"
+],
+"tip": "Many codes require one on any irrigation tied to a hose bib."
+},
+"bag-tote": {
+"name": "Bag tote / drink caddy",
+"kind": "part",
+"what": "A carrier that holds cornhole bags and drinks.",
+"uses": [
+"Storing bags",
+"Transport",
+"Game day"
+],
+"tip": "Hook-on totes keep bags off wet grass."
+},
 "baking-soda": {
 "name": "Baking soda",
 "kind": "consumable",
@@ -220,6 +286,28 @@ TB.ITEMS = {
 ],
 "tip": "Buy the kit made for your faucet brand."
 },
+"ball-return-net": {
+"name": "Ball-return net",
+"kind": "part",
+"what": "A net that attaches around the rim and backboard to catch made shots and send the ball back.",
+"uses": [
+"Shooting practice",
+"Solo drills",
+"Keeping balls out of gardens"
+],
+"tip": "Confirm it fits your backboard width and rim style before buying."
+},
+"ball-stop-netting": {
+"name": "Ball-stop netting",
+"kind": "material",
+"what": "Heavy, UV-treated netting hung between posts to keep balls from leaving the court.",
+"uses": [
+"Behind hoops",
+"Court perimeters",
+"Batting cages"
+],
+"tip": "Knotted, UV-stabilized polyethylene netting outlasts thin knotless net in full sun."
+},
 "bar-clamp": {
 "name": "Bar clamp",
 "kind": "tool",
@@ -230,6 +318,17 @@ TB.ITEMS = {
 "Holding parts while fastening"
 ],
 "tip": "Use pads or scrap wood under the jaws to avoid dents."
+},
+"bar-sink": {
+"name": "Bar sink and faucet",
+"kind": "part",
+"what": "A small stainless sink and faucet for an outdoor kitchen.",
+"uses": [
+"Outdoor kitchens",
+"Bars",
+"Food prep"
+],
+"tip": "Plan a winter drain-down so pipes don't freeze."
 },
 "barbed-drain-strip": {
 "name": "Barbed drain-cleaning strip",
@@ -251,6 +350,17 @@ TB.ITEMS = {
 "Marking work zones"
 ],
 "tip": "Block both ends and the walkway."
+},
+"basketball-hoop": {
+"name": "In-ground basketball hoop",
+"kind": "part",
+"what": "A steel pole, backboard and rim system that bolts to a concrete anchor.",
+"uses": [
+"Backyard courts",
+"Driveways",
+"Game areas"
+],
+"tip": "Choose an offset (overhang) of at least 2–4 ft so players don't run into the pole."
 },
 "basketball-net": {
 "name": "Basketball net",
@@ -313,6 +423,17 @@ TB.ITEMS = {
 "Spinning wheels to test"
 ],
 "tip": "Clamp the seatpost, not the frame tubes, especially on carbon bikes."
+},
+"birdbath": {
+"name": "Birdbath",
+"kind": "part",
+"what": "A shallow water basin on a pedestal for birds.",
+"uses": [
+"Gardens",
+"Path focal points",
+"Patios"
+],
+"tip": "Keep water 1–2″ deep and change it every few days to prevent mosquitoes."
 },
 "blade-balancer": {
 "name": "Blade balancer",
@@ -431,15 +552,37 @@ TB.ITEMS = {
 "tip": "A stiff outdoor broom works dirt out of rough surfaces."
 },
 "bucket": {
-"name": "Bucket",
+"name": "5-gallon bucket",
 "kind": "tool",
-"what": "A sturdy plastic pail for catching, carrying or mixing water and cleaning solutions.",
+"what": "A heavy-duty plastic pail for carrying water, mixing small batches and hauling material.",
 "uses": [
-"Catching water from drain valves",
-"Holding descaling solution for a pump",
-"Carrying rinse water"
+"Measuring and carrying water",
+"Mixing mortar with a paddle",
+"Hauling small loads of gravel"
 ],
-"tip": "A 5-gallon bucket with volume marks inside makes it easy to measure solution."
+"tip": "Mark gallon lines inside so you can measure water for mixes consistently."
+},
+"bull-float": {
+"name": "Bull float",
+"kind": "tool",
+"what": "A wide float on a long handle that smooths and levels fresh concrete.",
+"uses": [
+"Flattening the slab after screeding",
+"Pushing down aggregate",
+"Bringing up cream"
+],
+"tip": "Float once and then wait; overworking brings water up and weakens the surface."
+},
+"burner-kit": {
+"name": "Gas burner kit",
+"kind": "part",
+"what": "A fire table burner set: pan, burner, air mixer and flex line matched to natural gas or propane.",
+"uses": [
+"Gas fire tables",
+"Fire pits",
+"Fire bowls"
+],
+"tip": "Size the BTU to your table and buy a CSA- or UL-certified kit for the correct fuel."
 },
 "c-wire-adapter": {
 "name": "C-wire power adapter",
@@ -504,6 +647,17 @@ TB.ITEMS = {
 ],
 "tip": "Match the seal to your toilet brand and model; canister seals from different brands are not interchangeable."
 },
+"cantilever-umbrella": {
+"name": "Cantilever umbrella",
+"kind": "part",
+"what": "An offset patio umbrella hung from a side pole so the shade has no center pole.",
+"uses": [
+"Patio shade",
+"Dining areas",
+"Pools"
+],
+"tip": "Use the full recommended base weight; cantilevers tip easily in wind."
+},
 "car-jack": {
 "name": "Car jack",
 "kind": "tool",
@@ -536,14 +690,15 @@ TB.ITEMS = {
 "tip": "Spray into the air intake while cranking, only if the manual allows."
 },
 "cardboard": {
-"name": "Cardboard",
-"kind": "consumable",
-"what": "Flattened boxes to protect floors.",
+"name": "Plain cardboard",
+"kind": "material",
+"what": "Brown, unprinted cardboard used as a biodegradable weed and grass barrier.",
 "uses": [
-"Setting a toilet on",
-"Floor protection"
+"Smothering grass under beds",
+"Weed barrier",
+"Sheet mulching"
 ],
-"tip": "Keep extra handy."
+"tip": "Remove tape and labels and overlap edges 6″ so grass can't push through."
 },
 "carriage-bolt": {
 "name": "Carriage bolt",
@@ -587,6 +742,17 @@ TB.ITEMS = {
 "Removing trim nails"
 ],
 "tip": "Drive it in at an angle under the head, then rock back; a flat bar finishes the pull."
+},
+"cattle-panel": {
+"name": "Cattle panel",
+"kind": "material",
+"what": "A rigid welded-wire livestock panel, often 16 ft long, that makes a strong trellis.",
+"uses": [
+"Vegetable trellises",
+"Arches",
+"Fencing"
+],
+"tip": "Cut with bolt cutters and file the sharp ends."
 },
 "caulk": {
 "name": "Caulk",
@@ -639,6 +805,28 @@ TB.ITEMS = {
 ],
 "tip": "Mist the bead with soapy water first so the tool glides instead of dragging."
 },
+"cedar-board": {
+"name": "Cedar board",
+"kind": "material",
+"what": "Western red cedar dimensional lumber in 1× and 2× sizes; naturally rot-resistant and light.",
+"uses": [
+"Garden beds",
+"Slats and trim",
+"Planters and rafters"
+],
+"tip": "Choose straight, tight-knot boards; pre-drill near ends to stop splitting."
+},
+"cedar-post": {
+"name": "Cedar post",
+"kind": "material",
+"what": "Solid cedar timber (4×4 or 6×6) that resists rot and looks good left natural.",
+"uses": [
+"Pergola posts",
+"Planter legs",
+"String light poles"
+],
+"tip": "For in-ground use choose pressure-treated or set cedar on a post base; cedar rots in soil."
+},
 "ceiling-fan": {
 "name": "Ceiling fan kit",
 "kind": "part",
@@ -648,6 +836,17 @@ TB.ITEMS = {
 "Upgrading an old fan"
 ],
 "tip": "Choose blade span by room size (about 44″ to 52″ for a 12 x 12 ft room) and keep blades at least 7 ft above the floor."
+},
+"cement-board": {
+"name": "Cement board",
+"kind": "material",
+"what": "Cement-based panels that don't rot or burn, used as a backer for stone and stucco.",
+"uses": [
+"Skinning grill islands",
+"Fire table surrounds",
+"Tile backer"
+],
+"tip": "Score and snap with a carbide scoring knife; power cutting creates silica dust."
 },
 "chain-checker": {
 "name": "Chain wear checker",
@@ -724,24 +923,24 @@ TB.ITEMS = {
 "circular-saw": {
 "name": "Circular saw",
 "kind": "power-tool",
-"what": "A handheld power saw with a round blade for straight cuts in lumber and sheet goods.",
+"what": "A handheld saw with a spinning toothed blade for straight cuts in lumber and sheet goods.",
 "uses": [
-"Cutting deck boards to length",
-"Cutting lumber",
-"Trimming posts"
+"Cutting framing and decking",
+"Ripping plywood",
+"Trimming board ends flush"
 ],
-"tip": "Use a 24-tooth framing blade for lumber, and set the depth just ¼″ below the board."
+"tip": "Use a sharp framing blade for lumber and a fine-tooth blade for plywood to limit tear-out."
 },
 "clamp": {
-"name": "Bar clamp",
+"name": "Bar clamps",
 "kind": "tool",
-"what": "A clamp that holds parts tightly together while you fasten them.",
+"what": "Adjustable clamps that hold parts tightly together while you fasten them.",
 "uses": [
-"Holding a post plumb",
-"Gluing",
-"Holding braces"
+"Holding beams to posts",
+"Clamping glued frames",
+"Holding boards while screwing"
 ],
-"tip": "Quick-grip one-handed clamps let you hold the part with the other hand."
+"tip": "Two clamps per beam let one person position and drill a pergola beam safely."
 },
 "cleanout-cap": {
 "name": "Condensate cleanout cap / plug",
@@ -764,6 +963,17 @@ TB.ITEMS = {
 "Bridging a cut-out section"
 ],
 "tip": "Use ground-contact treated lumber and pull it tight up against the underside of the decking before screwing."
+},
+"climbing-plant": {
+"name": "Climbing plants",
+"kind": "material",
+"what": "Vines such as clematis, jasmine or grapes that climb supports to add shade and color.",
+"uses": [
+"Pergola shade",
+"Screens",
+"Arbors"
+],
+"tip": "Pick vines suited to your zone and sun; heavy vines like wisteria need very strong structures."
 },
 "clip-fan": {
 "name": "Clip fan",
@@ -892,6 +1102,28 @@ TB.ITEMS = {
 ],
 "tip": "Use a nail slimmer than the pin hole so it fits into the bottom of the hinge."
 },
+"compass": {
+"name": "Compass or trammel",
+"kind": "measure",
+"what": "A drawing tool that marks perfect circles; a nail, string and pencil works as a large trammel.",
+"uses": [
+"Marking 6″ holes",
+"Laying out round cutouts",
+"Marking curved cuts"
+],
+"tip": "For a 6″ hole set the radius to 3″ exactly and check the circle with a tape both ways."
+},
+"compost": {
+"name": "Compost",
+"kind": "material",
+"what": "Decomposed organic matter that feeds soil life and improves structure.",
+"uses": [
+"Raised bed mixes",
+"Top-dressing",
+"Planting holes"
+],
+"tip": "Look for finished compost that smells earthy, not sour."
+},
 "compressed-air": {
 "name": "Compressed air duster",
 "kind": "consumable",
@@ -902,6 +1134,28 @@ TB.ITEMS = {
 "Dusting tight spaces"
 ],
 "tip": "Hold cans upright and use short bursts; tilting them sprays freezing liquid propellant."
+},
+"concrete-block": {
+"name": "Concrete block (CMU)",
+"kind": "material",
+"what": "Hollow 8×8×16″ concrete masonry units used to build structural walls and bases.",
+"uses": [
+"Grill islands",
+"Fire table frames",
+"Foundations"
+],
+"tip": "Buy a few half blocks and corner blocks to avoid cutting."
+},
+"concrete-buggy": {
+"name": "Concrete buggy or pump",
+"kind": "tool",
+"what": "A powered wheelbarrow or line pump that moves concrete where a truck chute can't reach.",
+"uses": [
+"Backyard pours",
+"Long carries",
+"Tight access"
+],
+"tip": "Book it with the concrete order; a hot day gives you little time to wheel by hand."
 },
 "concrete-crack-sealant": {
 "name": "Concrete crack sealant",
@@ -914,6 +1168,72 @@ TB.ITEMS = {
 ],
 "tip": "Self-leveling flows into place on flat slabs; use non-sag on slopes or vertical faces."
 },
+"concrete-edger": {
+"name": "Concrete edger",
+"kind": "tool",
+"what": "A hand tool that rounds the edge of a slab so it resists chipping.",
+"uses": [
+"Edging slab perimeter",
+"Edging around anchors",
+"Edging footings"
+],
+"tip": "Run the edger after bleed water evaporates, then again before the broom finish."
+},
+"concrete-etch": {
+"name": "Concrete etch",
+"kind": "consumable",
+"what": "A mild acid cleaner that opens the pores of smooth concrete so paint and sealers grip.",
+"uses": [
+"Prepping slabs for court paint",
+"Before sealers",
+"Removing light efflorescence"
+],
+"tip": "Rinse thoroughly and let the slab dry fully before painting; wear gloves and eye protection."
+},
+"concrete-groover": {
+"name": "Concrete groover",
+"kind": "tool",
+"what": "A hand tool that cuts control joints into fresh concrete.",
+"uses": [
+"Hand-tooled control joints",
+"Sidewalk joints",
+"Decorative grooves"
+],
+"tip": "Joint depth should be at least ¼ of the slab thickness (1″ on a 4″ slab)."
+},
+"concrete-mix": {
+"name": "Bagged concrete mix",
+"kind": "material",
+"what": "Pre-blended cement, sand and gravel you mix with water for small pours.",
+"uses": [
+"Footings and post holes",
+"Small pads",
+"Anchors"
+],
+"tip": "An 80-lb bag makes about 0.6 cu ft; count bags from the hole volume."
+},
+"concrete-sand": {
+"name": "Concrete (bedding) sand",
+"kind": "material",
+"what": "Coarse, washed sand (ASTM C33) used as the 1″ bed under pavers and flagstone.",
+"uses": [
+"Bedding pavers",
+"Bedding flagstone",
+"Concrete mixes"
+],
+"tip": "Don't use masonry sand or stone dust for paver bedding; they hold water and shift."
+},
+"concrete-saw": {
+"name": "Concrete saw",
+"kind": "power-tool",
+"what": "A rentable gas or electric saw with a diamond blade for cutting control joints in a cured slab.",
+"uses": [
+"Cutting control joints",
+"Cutting old slabs",
+"Trimming pavers"
+],
+"tip": "Cut joints within 6–18 hours of the pour, as soon as the surface doesn't ravel."
+},
 "condensate-pan-tablet": {
 "name": "Condensate pan tablet",
 "kind": "consumable",
@@ -924,6 +1244,17 @@ TB.ITEMS = {
 "Seasonal AC maintenance"
 ],
 "tip": "Use only products labeled for HVAC drain pans; never mix them with bleach or other chemicals."
+},
+"connector-nail": {
+"name": "Joist hanger nails",
+"kind": "fastener",
+"what": "Short, thick galvanized nails specified by connector makers.",
+"uses": [
+"Joist hangers",
+"Hurricane ties",
+"Strapping"
+],
+"tip": "Never use drywall or deck screws in hangers; they shear."
 },
 "construction-adhesive": {
 "name": "Construction adhesive",
@@ -968,6 +1299,39 @@ TB.ITEMS = {
 ],
 "tip": "Use the side handle; a large bit can twist the drill hard if it binds."
 },
+"cornhole-bag": {
+"name": "Cornhole bags",
+"kind": "part",
+"what": "Regulation 6×6″ fabric bags filled with resin or corn.",
+"uses": [
+"Regulation play",
+"Practice",
+"Tournaments"
+],
+"tip": "ACA-regulation bags weigh 15–16 oz; resin-filled bags hold up outdoors."
+},
+"cornhole-led-kit": {
+"name": "Cornhole LED kit",
+"kind": "part",
+"what": "Battery LED ring for the hole and edge strips for night play.",
+"uses": [
+"Night games",
+"Parties",
+"Tailgates"
+],
+"tip": "Choose waterproof strips and mount the ring flush so bags don't catch."
+},
+"cornhole-scoreboard": {
+"name": "Cornhole scoreboard",
+"kind": "part",
+"what": "A freestanding or clip-on score keeper for games.",
+"uses": [
+"Games",
+"Tournaments",
+"Parties"
+],
+"tip": "Freestanding models with a cup holder are handy between the boards."
+},
 "cotton-swab": {
 "name": "Cotton swab",
 "kind": "consumable",
@@ -978,6 +1342,28 @@ TB.ITEMS = {
 "Detail cleaning in tight spots"
 ],
 "tip": "Foam-tipped swabs shed fewer fibers inside electronics."
+},
+"counter-stool": {
+"name": "Counter-height stools",
+"kind": "part",
+"what": "Stools with about a 24″ seat height, sized for 36″ counters.",
+"uses": [
+"Grill islands",
+"Outdoor bars",
+"Kitchen counters"
+],
+"tip": "Allow about 24″ of counter length per stool."
+},
+"countersink-bit": {
+"name": "Countersink bit",
+"kind": "consumable",
+"what": "A bit that drills a pilot hole and a cone so screw heads sit flush or below the surface.",
+"uses": [
+"Flush screws in tops",
+"Clean screw heads in cedar",
+"Pre-drilling trim"
+],
+"tip": "Set the stop collar so heads sit just below the surface for filling."
 },
 "court-paint": {
 "name": "Court paint",
@@ -1001,6 +1387,17 @@ TB.ITEMS = {
 ],
 "tip": "Use a sport-surface acrylic filler if you'll coat over it; most cover cracks up to about ½″ wide."
 },
+"creeping-thyme": {
+"name": "Creeping thyme plugs",
+"kind": "material",
+"what": "Small plants of a low, fragrant groundcover that tolerates light foot traffic.",
+"uses": [
+"Between stepping stones",
+"Rock gardens",
+"Borders"
+],
+"tip": "Plant plugs 6–12″ apart in full sun with good drainage."
+},
 "crevice-tool": {
 "name": "Vacuum crevice tool",
 "kind": "tool",
@@ -1012,6 +1409,17 @@ TB.ITEMS = {
 ],
 "tip": "A flexible extension version reaches deeper under appliances."
 },
+"crushed-gravel": {
+"name": "Clean crushed gravel",
+"kind": "material",
+"what": "Washed, angular crushed stone without fines that drains freely.",
+"uses": [
+"Bottom of post holes",
+"Drainage under fire pit rings",
+"Under deck blocks"
+],
+"tip": "Angular stone locks together; rounded pea gravel rolls and won't hold a post or block."
+},
 "cup": {
 "name": "Plastic cup or pitcher",
 "kind": "tool",
@@ -1020,6 +1428,17 @@ TB.ITEMS = {
 "Bailing water out of a top-load tub"
 ],
 "tip": "A large measuring cup with a handle bails fastest."
+},
+"cup-hook": {
+"name": "Cup hooks",
+"kind": "fastener",
+"what": "Small screw-in hooks with an open curl for hanging light strands and decor.",
+"uses": [
+"Hanging string lights",
+"Plants and decor",
+"Wind chimes"
+],
+"tip": "Use stainless or coated hooks outdoors and pre-drill so they don't split the wood."
 },
 "cup-plunger": {
 "name": "Cup plunger",
@@ -1031,6 +1450,28 @@ TB.ITEMS = {
 ],
 "tip": "Add enough water to cover the cup so it pushes water, not air."
 },
+"curing-compound": {
+"name": "Concrete curing compound",
+"kind": "consumable",
+"what": "A sprayed or rolled liquid that seals moisture in fresh concrete so it cures stronger.",
+"uses": [
+"Curing slabs",
+"Curing in hot weather",
+"Instead of wet curing"
+],
+"tip": "Check it's compatible with paint if you'll paint lines later; otherwise wet-cure."
+},
+"curtain-rod": {
+"name": "Outdoor curtain rods and brackets",
+"kind": "part",
+"what": "Powder-coated steel or stainless rods and brackets that resist rust outdoors.",
+"uses": [
+"Outdoor curtains",
+"Pergolas",
+"Porches"
+],
+"tip": "Add a center bracket on spans over about 6 ft so the rod doesn't sag."
+},
 "cut-resistant-gloves": {
 "name": "Cut-resistant gloves",
 "kind": "safety",
@@ -1041,6 +1482,17 @@ TB.ITEMS = {
 "Glass"
 ],
 "tip": "Look for ANSI cut level A4 or higher."
+},
+"deck-block": {
+"name": "Precast deck block",
+"kind": "part",
+"what": "Pyramid-shaped concrete piers with slots that hold posts or beams for floating decks.",
+"uses": [
+"Floating decks",
+"Sheds",
+"Platforms"
+],
+"tip": "Set on compacted gravel, not loose soil, and keep everything under 30″."
 },
 "deck-board": {
 "name": "Deck board",
@@ -1085,6 +1537,17 @@ TB.ITEMS = {
 "Cleaning fences"
 ],
 "tip": "Mix it with warm water and use it the same day; it loses strength after a few hours."
+},
+"deck-light": {
+"name": "Low-voltage deck lights",
+"kind": "part",
+"what": "Small 12 V fixtures that mount in or on deck fascia, stairs and posts.",
+"uses": [
+"Deck edges",
+"Stair risers",
+"Railings"
+],
+"tip": "Drill holes and run wire before installing fascia boards."
 },
 "deck-screw": {
 "name": "Deck screw",
@@ -1149,6 +1612,17 @@ TB.ITEMS = {
 "Cutting zip ties"
 ],
 "tip": "Hold the scrap end so it does not fly off."
+},
+"diamond-blade": {
+"name": "Diamond blade",
+"kind": "consumable",
+"what": "A saw blade with diamond-grit edges for cutting concrete, stone and pavers.",
+"uses": [
+"Cutting pavers",
+"Cutting control joints",
+"Trimming stone"
+],
+"tip": "Match the blade to the saw's arbor and the material; segmented rims cut fastest dry."
 },
 "digging-bar": {
 "name": "Digging bar",
@@ -1337,6 +1811,28 @@ TB.ITEMS = {
 ],
 "tip": "Set the clutch low when driving into drywall anchors so you don't strip them."
 },
+"drip-filter": {
+"name": "Drip filter",
+"kind": "part",
+"what": "An inline screen filter that catches sand and grit before they clog the tiny openings in drip emitters.",
+"uses": [
+"Drip systems",
+"Micro-sprayers",
+"Well or rain-barrel water"
+],
+"tip": "Install it before the pressure regulator and rinse the screen each spring."
+},
+"drip-irrigation-kit": {
+"name": "Drip irrigation kit",
+"kind": "part",
+"what": "A packaged drip system with tubing, emitters, connectors and stakes.",
+"uses": [
+"Planters",
+"Raised beds",
+"Container groups"
+],
+"tip": "Kits make a first system easy; add a backflow preventer and filter if not included."
+},
 "drip-pan-liner": {
 "name": "Drip pan liner",
 "kind": "part",
@@ -1347,6 +1843,17 @@ TB.ITEMS = {
 "Preventing grease fires"
 ],
 "tip": "Replace it whenever it's half full to prevent grease fires."
+},
+"drip-tubing": {
+"name": "½″ drip tubing",
+"kind": "material",
+"what": "Flexible poly mainline tubing that carries water to drip lines.",
+"uses": [
+"Drip mainlines",
+"Raised bed headers",
+"Container irrigation"
+],
+"tip": "Measure the tubing's outside diameter; ½″ tubing varies by brand."
 },
 "driveway-sealer": {
 "name": "Asphalt driveway sealer",
@@ -1370,6 +1877,17 @@ TB.ITEMS = {
 ],
 "tip": "Canvas won't slip and absorbs drips; plastic sheeting is better for wet messes but is slippery underfoot."
 },
+"drop-in-grill": {
+"name": "Drop-in gas grill",
+"kind": "part",
+"what": "A built-in grill head that sets into a countertop cutout.",
+"uses": [
+"Outdoor kitchens",
+"Grill islands",
+"Built-in cooking"
+],
+"tip": "Get the cutout dimensions and any insulating jacket requirement before the counter is fabricated."
+},
 "dry-erase-marker": {
 "name": "Lipstick or dry-erase marker",
 "kind": "tool",
@@ -1379,6 +1897,17 @@ TB.ITEMS = {
 "Marking rub points"
 ],
 "tip": "A dab of toothpaste or chalk works too; you just need something that transfers on contact."
+},
+"dry-well": {
+"name": "Drain or dry well",
+"kind": "part",
+"what": "A gravel-filled pit or perforated tank that lets sink water soak into the ground.",
+"uses": [
+"Outdoor sinks",
+"Downspouts",
+"Yard drainage"
+],
+"tip": "Check local rules; some places require gray water to go to the sewer."
 },
 "dryer-vent-brush": {
 "name": "Dryer vent brush kit",
@@ -1475,6 +2004,17 @@ TB.ITEMS = {
 ],
 "tip": "Keep runs short and straight; every sharp bend cuts airflow noticeably."
 },
+"duplex-nail": {
+"name": "Duplex nails",
+"kind": "fastener",
+"what": "Double-headed nails that are easy to pull when stripping forms.",
+"uses": [
+"Nailing forms to stakes",
+"Temporary bracing",
+"Scaffold work"
+],
+"tip": "Drive through the stake into the form so pulling doesn't disturb the edge."
+},
 "dust-mask": {
 "name": "Dust mask / N95 respirator",
 "kind": "safety",
@@ -1496,6 +2036,17 @@ TB.ITEMS = {
 ],
 "tip": "Wait 15 minutes without flushing."
 },
+"edge-restraint": {
+"name": "Paver edge restraint",
+"kind": "part",
+"what": "Plastic or aluminum edging spiked along a paver patio to keep the pavers from spreading.",
+"uses": [
+"Paver patio edges",
+"Walkways",
+"Curved borders"
+],
+"tip": "Use flexible (notched) edging for curves and spike it every 12″ on top of the base."
+},
 "edger": {
 "name": "Lawn edger or string trimmer",
 "kind": "power-tool",
@@ -1505,6 +2056,17 @@ TB.ITEMS = {
 "Clean edges for sealing"
 ],
 "tip": "Edge before sealing so you can coat the full width."
+},
+"edging-spike": {
+"name": "Edging spikes",
+"kind": "fastener",
+"what": "Long steel spikes that pin edge restraint or steel edging into the base.",
+"uses": [
+"Anchoring paver edging",
+"Steel edging",
+"Timber borders"
+],
+"tip": "10″ spikes are standard; go longer in loose or sandy soils."
 },
 "edging-tape": {
 "name": "Edging tape",
@@ -1570,6 +2132,28 @@ TB.ITEMS = {
 ],
 "tip": "Use a fine grit (around 320 or finer) and light pressure; you only want to remove the dull film, not metal."
 },
+"emitter-line": {
+"name": "¼″ emitter line",
+"kind": "material",
+"what": "Small tubing with built-in drippers at set spacing.",
+"uses": [
+"Raised bed rows",
+"Containers",
+"Hedges"
+],
+"tip": "Run lines 12″ apart in beds for even soaking."
+},
+"end-cut-preservative": {
+"name": "End-cut preservative",
+"kind": "consumable",
+"what": "A brush-on wood preservative for fresh cuts in pressure-treated lumber.",
+"uses": [
+"Cut ends of treated lumber",
+"Notches",
+"Drill holes"
+],
+"tip": "Required by many treated lumber warranties."
+},
 "end-grain-sealer": {
 "name": "End-grain sealer",
 "kind": "material",
@@ -1612,6 +2196,17 @@ TB.ITEMS = {
 ],
 "tip": "Plug a laptop directly into the router to test; if wired speed is fine, the problem is the Wi-Fi."
 },
+"expansion-joint-filler": {
+"name": "Expansion joint filler",
+"kind": "material",
+"what": "A compressible strip placed between a slab and walls or other concrete to allow movement.",
+"uses": [
+"Slab next to house",
+"Around hoop footing",
+"Where slabs meet"
+],
+"tip": "Set the top ¼″ below the finished surface so it doesn't get troweled over."
+},
 "extension-cord": {
 "name": "Extension cord",
 "kind": "power-tool",
@@ -1644,6 +2239,17 @@ TB.ITEMS = {
 ],
 "tip": "A 2–4 ft adjustable pole is plenty for decks."
 },
+"exterior-paint": {
+"name": "Exterior acrylic paint",
+"kind": "consumable",
+"what": "Water-based acrylic paint made for outdoor wood.",
+"uses": [
+"Cornhole boards",
+"Trim",
+"Outdoor furniture"
+],
+"tip": "Two thin coats dry harder and smoother than one thick coat."
+},
 "exterior-screw": {
 "name": "Exterior wood screw",
 "kind": "fastener",
@@ -1654,6 +2260,17 @@ TB.ITEMS = {
 "General outdoor wood projects"
 ],
 "tip": "Use the coated kind rated for treated lumber."
+},
+"eye-screw": {
+"name": "Eye screws",
+"kind": "fastener",
+"what": "Screws with a closed loop head for anchoring wire, cable and hooks.",
+"uses": [
+"Vine wire",
+"Light guide wire",
+"Hanging planters"
+],
+"tip": "Pre-drill and choose stainless or galvanized outdoors."
 },
 "fabric-pot": {
 "name": "Fabric pot",
@@ -1698,6 +2315,17 @@ TB.ITEMS = {
 ],
 "tip": "Look for \"Acceptable for fan support\" and a weight rating (often up to 35 to 70 lb) stamped on the box."
 },
+"fan-rated-box": {
+"name": "Fan-rated box",
+"kind": "part",
+"what": "An electrical box built and labeled to carry the weight and wobble of a ceiling fan.",
+"uses": [
+"Ceiling fans",
+"Heavy fixtures",
+"Outdoor fans"
+],
+"tip": "Mount it to solid framing and use the outdoor (weatherproof) version on a pergola."
+},
 "fast-setting-concrete": {
 "name": "Fast-setting concrete mix",
 "kind": "material",
@@ -1729,6 +2357,17 @@ TB.ITEMS = {
 "Stopping drips that return after washer changes"
 ],
 "tip": "Bring the old seat to match its thread and height."
+},
+"faucet-timer": {
+"name": "Faucet timer",
+"kind": "part",
+"what": "A battery or Wi-Fi timer that screws onto a spigot and turns water on and off on a schedule.",
+"uses": [
+"Drip irrigation",
+"Soaker hoses",
+"Raised beds"
+],
+"tip": "Install the backflow preventer and filter right after it."
 },
 "faucet-washer-assortment": {
 "name": "Faucet washer and O-ring assortment",
@@ -1772,6 +2411,61 @@ TB.ITEMS = {
 "Fastening light trim"
 ],
 "tip": "Probe only where the bracket or trim will hide the hole."
+},
+"finishing-broom": {
+"name": "Concrete finishing broom",
+"kind": "tool",
+"what": "A soft broom on a long handle dragged across fresh concrete for a non-slip texture.",
+"uses": [
+"Broom finish on courts",
+"Walkways and patios",
+"Slip-resistant surfaces"
+],
+"tip": "Pull in one direction in straight passes; a light broom gives a finer playing surface."
+},
+"fire-extinguisher": {
+"name": "Fire extinguisher",
+"kind": "safety",
+"what": "A portable extinguisher kept near fire features for emergencies.",
+"uses": [
+"Fire pit safety",
+"Grill station",
+"Gas appliance testing"
+],
+"tip": "An ABC-rated extinguisher covers wood, liquid and electrical fires; check the gauge yearly."
+},
+"fire-glass": {
+"name": "Fire glass",
+"kind": "material",
+"what": "Tempered glass pieces made to sit over gas burners without melting or popping.",
+"uses": [
+"Covering gas burners",
+"Decor",
+"Fire tables"
+],
+"tip": "Cover the burner about 1″; packing it deeper chokes the flame and causes soot."
+},
+"fire-poker": {
+"name": "Fire poker / screen lift",
+"kind": "tool",
+"what": "A long steel rod with a hook for moving logs and lifting the spark screen.",
+"uses": [
+"Moving logs",
+"Lifting spark screens",
+"Spreading coals"
+],
+"tip": "A longer poker keeps hands farther from heat."
+},
+"fire-ring-insert": {
+"name": "Steel fire ring insert",
+"kind": "part",
+"what": "A heavy steel ring that lines a fire pit to protect blocks from direct flame.",
+"uses": [
+"Lining block fire pits",
+"Standalone campfire ring",
+"Containing embers"
+],
+"tip": "Choose a ring 2–4″ smaller than the block interior so it drops in with an air gap."
 },
 "fire-starter": {
 "name": "Fire starter",
@@ -1825,6 +2519,17 @@ TB.ITEMS = {
 "Marking lines"
 ],
 "tip": "Call 811 before digging deeper than a few inches."
+},
+"flagstone": {
+"name": "Flagstone",
+"kind": "material",
+"what": "Flat slabs of natural stone (bluestone, sandstone, limestone) for patios and steppers.",
+"uses": [
+"Patios",
+"Stepping stones",
+"Wall caps"
+],
+"tip": "About 1 ton covers 80–120 sq ft at 1½–2″ thick; pick pieces by hand when you can."
 },
 "flame-sensor": {
 "name": "Furnace flame sensor",
@@ -1890,6 +2595,17 @@ TB.ITEMS = {
 ],
 "tip": "Keep a small one for caps and a medium one for screws."
 },
+"flat-spade": {
+"name": "Flat spade",
+"kind": "tool",
+"what": "A short, straight-bladed spade for cutting clean vertical edges in sod and soil.",
+"uses": [
+"Cutting sod and lawn edges",
+"Slicing narrow cable trenches",
+"Lifting stones and sod in neat pieces"
+],
+"tip": "Keep the edge sharp with a mill file; a sharp spade cuts roots instead of tearing them."
+},
 "flathead-screwdriver": {
 "name": "Flathead screwdriver",
 "kind": "tool",
@@ -1900,6 +2616,17 @@ TB.ITEMS = {
 "Prying open access panels"
 ],
 "tip": "Match the blade width to the screw slot so it doesn't slip and gouge the plate."
+},
+"flex-gas-line": {
+"name": "Flexible gas connector",
+"kind": "part",
+"what": "A certified flexible line that connects rigid gas pipe to an appliance.",
+"uses": [
+"Burner hookup",
+"Grill hookup",
+"Outdoor appliances"
+],
+"tip": "Never reuse an old connector or kink it; use the one supplied or listed for the appliance."
 },
 "floating-media-shelf": {
 "name": "Floating media shelf",
@@ -1962,6 +2689,83 @@ TB.ITEMS = {
 ],
 "tip": "Pick one with an adjustable thermostat so you can stay under 160 °F."
 },
+"form-lumber": {
+"name": "Form boards",
+"kind": "material",
+"what": "Straight lumber staked on edge to hold concrete to shape and height.",
+"uses": [
+"Slab edges",
+"Footing pads",
+"Steps"
+],
+"tip": "Use 2×6 for a full 4″ slab edge; 2×4 is only 3½″."
+},
+"form-release-oil": {
+"name": "Form release agent",
+"kind": "consumable",
+"what": "An oil or spray coated on forms so concrete doesn't stick.",
+"uses": [
+"Slab forms",
+"Countertop molds",
+"Footing forms"
+],
+"tip": "A light coat is enough; puddles stain the concrete."
+},
+"form-stake": {
+"name": "Form stakes",
+"kind": "material",
+"what": "Wood or steel stakes driven outside forms to hold them in place.",
+"uses": [
+"Holding slab forms",
+"Bracing curves",
+"Bracing posts"
+],
+"tip": "Set stakes every 3–4 ft and at joints; cut them flush below the form top."
+},
+"form-tube": {
+"name": "Concrete form tube",
+"kind": "part",
+"what": "A cardboard tube set in a footing hole to shape a round concrete pier.",
+"uses": [
+"Pergola footings",
+"Deck piers",
+"Light poles"
+],
+"tip": "Cut it so it stands 2″ above grade to shed water."
+},
+"framing-lumber": {
+"name": "2×4 lumber",
+"kind": "material",
+"what": "Standard kiln-dried softwood framing boards (actual size 1½×3½″) sold in 8 ft and longer lengths.",
+"uses": [
+"Cornhole frames and legs",
+"Braces and cleats",
+"Jigs and forms"
+],
+"tip": "Sight down each board at the store and pick the straightest ones; twisted 2×4s make frames that rock."
+},
+"framing-square": {
+"name": "Framing square",
+"kind": "measure",
+"what": "A large L-shaped steel square for checking and laying out right angles.",
+"uses": [
+"Checking corners for square",
+"Laying out block corners",
+"Marking wide boards"
+],
+"tip": "Confirm big layouts with the 3-4-5 method or equal diagonals; a square is only 2 ft long."
+},
+"frost-cloth": {
+"name": "Frost cloth",
+"kind": "material",
+"what": "A lightweight fabric row cover that traps ground heat to protect plants.",
+"uses": [
+"Frost protection",
+"Pest barrier",
+"Season extension"
+],
+"tip": "Let it reach the ground on all sides; heat comes from the soil."
+},
 "fuel-stabilizer": {
 "name": "Fuel stabilizer",
 "kind": "material",
@@ -2015,16 +2819,49 @@ TB.ITEMS = {
 ],
 "tip": "Wet treated boards shrink; butt them tight or near-tight if they're soaking wet."
 },
-"garden-hose": {
-"name": "Garden hose",
-"kind": "tool",
-"what": "A flexible water hose with standard garden-hose threads on each end.",
+"garden-bench": {
+"name": "Garden bench",
+"kind": "part",
+"what": "A bench made for outdoor garden settings.",
 "uses": [
-"Rinsing outdoor AC coils",
-"Draining a water heater to a floor drain or outside",
-"Flushing appliances and yards"
+"Path rest stops",
+"Gardens",
+"Patios"
 ],
-"tip": "Rubber hoses tolerate hot water far better than thin vinyl ones, which can soften and kink when draining a water heater."
+"tip": "Set the feet on pavers so they don't sink or rot."
+},
+"garden-hoop": {
+"name": "Garden hoops",
+"kind": "part",
+"what": "Bent PVC or steel hoops that arch over a bed to hold row cover, netting or shade cloth.",
+"uses": [
+"Frost protection",
+"Bird and insect netting",
+"Shade cloth"
+],
+"tip": "Space hoops every 3–4 ft so the cover doesn't sag onto plants under snow or rain."
+},
+"garden-hose": {
+"name": "Garden hose with spray nozzle",
+"kind": "tool",
+"what": "A hose with an adjustable nozzle for wetting base material, misting joint sand and cleanup.",
+"uses": [
+"Dampening gravel before compacting",
+"Misting polymeric sand",
+"Watering in plants and soil"
+],
+"tip": "A nozzle with a mist or shower setting is essential for activating polymeric sand without washing it out."
+},
+"garden-trowel": {
+"name": "Garden trowel",
+"kind": "tool",
+"what": "A small handheld scoop for fine digging.",
+"uses": [
+"Trimming holes for stones",
+"Planting",
+"Adjusting sand under stones"
+],
+"tip": "A forged one-piece trowel won't bend in hard soil."
 },
 "gas-can": {
 "name": "Gas can",
@@ -2035,6 +2872,17 @@ TB.ITEMS = {
 "Refilling mowers"
 ],
 "tip": "Keep it away from the house and below 5 gallons."
+},
+"gas-pipe": {
+"name": "Gas supply line",
+"kind": "material",
+"what": "Approved buried or above-ground pipe (polyethylene with risers or coated steel) carrying gas to an appliance.",
+"uses": [
+"Fire tables",
+"Grills",
+"Patio heaters"
+],
+"tip": "This is licensed-fitter work under a permit; buried plastic gas pipe needs a tracer wire."
 },
 "gasoline": {
 "name": "Fresh gasoline",
@@ -2055,6 +2903,39 @@ TB.ITEMS = {
 "Fixing sagging gates"
 ],
 "tip": "Use three hinges on tall or heavy gates."
+},
+"geotextile-fabric": {
+"name": "Woven geotextile",
+"kind": "material",
+"what": "A strong woven fabric laid under base gravel to keep it from mixing into soft or clay soil.",
+"uses": [
+"Under paver bases on clay",
+"Under slab gravel",
+"Under flagstone patios"
+],
+"tip": "Overlap seams 12″; ICPI recommends it over clay and wet soils."
+},
+"gfci-circuit": {
+"name": "GFCI-protected circuit",
+"kind": "part",
+"what": "An electrical circuit protected by a GFCI breaker or outlet that shuts off power if current leaks to ground.",
+"uses": [
+"Court lights",
+"Outdoor fans",
+"Outdoor appliances"
+],
+"tip": "Code requires GFCI protection outdoors; new circuits are a job for a licensed electrician with a permit."
+},
+"gfci-outlet": {
+"name": "GFCI outlet",
+"kind": "part",
+"what": "An outlet that cuts power instantly if current leaks to ground, required outdoors.",
+"uses": [
+"Outdoor kitchens",
+"Transformers",
+"Fridges"
+],
+"tip": "Pair it with an in-use cover so it stays weatherproof with something plugged in."
 },
 "gfci-receptacle": {
 "name": "GFCI receptacle",
@@ -2130,6 +3011,17 @@ TB.ITEMS = {
 ],
 "tip": "Buy bags with a self-healing injection port and use them within a few weeks."
 },
+"granite-countertop": {
+"name": "Granite countertop",
+"kind": "material",
+"what": "A fabricated natural stone slab with polished edges and cutouts.",
+"uses": [
+"Outdoor kitchen tops",
+"Bar tops",
+"Bench tops"
+],
+"tip": "Have the fabricator template after the block shell is built, and cut the grill opening to the grill's spec sheet."
+},
 "gravel": {
 "name": "Gravel (crushed stone)",
 "kind": "material",
@@ -2185,6 +3077,17 @@ TB.ITEMS = {
 ],
 "tip": "Bristle-free tools avoid the risk of wire bristles ending up in food."
 },
+"ground-anchor": {
+"name": "Ground anchors",
+"kind": "fastener",
+"what": "Steel stakes or auger anchors that tie structures to the soil.",
+"uses": [
+"Arbors",
+"Sheds",
+"Play sets"
+],
+"tip": "Auger-style anchors hold far better than straight spikes."
+},
 "ground-screw": {
 "name": "Green grounding screw",
 "kind": "fastener",
@@ -2204,6 +3107,17 @@ TB.ITEMS = {
 "Filling joints after tiling"
 ],
 "tip": "Use sanded grout for joints ⅛″ and wider, unsanded for narrower joints; bring a chip of old grout to match color."
+},
+"grout-bag": {
+"name": "Grout bag",
+"kind": "tool",
+"what": "A cone-shaped bag that squeezes mortar into joints between stones neatly.",
+"uses": [
+"Filling veneer joints",
+"Pointing stone and brick",
+"Grouting flagstone"
+],
+"tip": "Fill it half full and twist the top; overfilled bags burst."
 },
 "grout-float": {
 "name": "Rubber grout float",
@@ -2266,6 +3180,17 @@ TB.ITEMS = {
 "Seed starting and drying"
 ],
 "tip": "Buy a size that fits your room with a foot to spare on top; a 2x2 or 3x3 ft by 5–6 ft tall tent suits one or two plants."
+},
+"guide-wire": {
+"name": "Steel guide wire",
+"kind": "material",
+"what": "Galvanized or stainless steel cable strung between posts to carry string lights.",
+"uses": [
+"Supporting string lights",
+"Shade sails",
+"Vines"
+],
+"tip": "Clip lights to the wire every 2 ft with zip ties or hooks."
 },
 "gutter-scoop": {
 "name": "Gutter scoop",
@@ -2343,6 +3268,17 @@ TB.ITEMS = {
 ],
 "tip": "Keep it away from standing water."
 },
+"half-moon-edger": {
+"name": "Half-moon edger",
+"kind": "tool",
+"what": "A step-on tool with a curved, sharp blade for cutting through turf along a line or around a shape.",
+"uses": [
+"Tracing around stepping stones",
+"Cutting lawn edges",
+"Starting a sod-removal area"
+],
+"tip": "Rock the blade side to side as you step down to cut tough roots cleanly."
+},
 "hammer": {
 "name": "Hammer",
 "kind": "tool",
@@ -2354,6 +3290,17 @@ TB.ITEMS = {
 ],
 "tip": "A 16 oz curved-claw hammer handles most home repairs; a roofing hatchet is handy on shingles."
 },
+"hammer-drill": {
+"name": "Hammer drill",
+"kind": "power-tool",
+"what": "A drill with a hammering mode for boring into concrete, block and brick.",
+"uses": [
+"Masonry anchor holes",
+"Cement board to block",
+"Mounting on brick walls"
+],
+"tip": "Use carbide masonry bits and blow dust out of holes before setting anchors."
+},
 "hand-drain-snake": {
 "name": "Hand drain snake",
 "kind": "tool",
@@ -2364,6 +3311,17 @@ TB.ITEMS = {
 ],
 "tip": "Pull the cable back slowly and wipe it as it comes out."
 },
+"hand-tamper": {
+"name": "Hand tamper",
+"kind": "tool",
+"what": "A heavy flat steel plate on a handle that you lift and drop to compact soil and gravel.",
+"uses": [
+"Compacting gravel in small areas",
+"Firming soil around posts",
+"Tamping edges a compactor can't reach"
+],
+"tip": "Work in thin 2″ lifts and dampen the gravel; tamping a thick dry layer won't compact the bottom."
+},
 "handle-puller": {
 "name": "Faucet handle puller",
 "kind": "tool",
@@ -2373,6 +3331,28 @@ TB.ITEMS = {
 "Avoiding broken handles and stems"
 ],
 "tip": "Apply penetrating oil first and give it time."
+},
+"hardscape-light": {
+"name": "Hardscape cap lights",
+"kind": "part",
+"what": "Low-profile 12 V fixtures that mount under wall caps to wash light down the wall face.",
+"uses": [
+"Seat walls",
+"Steps",
+"Retaining walls"
+],
+"tip": "Mount and wire them before gluing the caps, and leave a service loop of cable."
+},
+"hardware-cloth": {
+"name": "Hardware cloth",
+"kind": "material",
+"what": "Galvanized welded wire mesh with small openings that stops burrowing animals.",
+"uses": [
+"Gopher barrier under beds",
+"Critter screens",
+"Vent screens"
+],
+"tip": "½″ mesh stops gophers and voles; ¼″ also stops mice."
 },
 "hardwired-smoke-alarm": {
 "name": "Hardwired smoke alarm (120 V)",
@@ -2419,13 +3399,13 @@ TB.ITEMS = {
 "hearing-protection": {
 "name": "Hearing protection",
 "kind": "safety",
-"what": "Earplugs or earmuffs that cut the noise of loud power tools.",
+"what": "Earmuffs or plugs that cut noise from saws, compactors and grinders.",
 "uses": [
-"Running miter saws",
-"Using oscillating tools",
-"Firing nailers and compressors"
+"Saw cutting",
+"Compactor work",
+"Long drilling sessions"
 ],
-"tip": "Foam plugs are cheap; muffs are faster to put on and take off between cuts."
+"tip": "Muffs are easier to take on and off between cuts than plugs."
 },
 "heat-gloves": {
 "name": "Heat-resistant gloves",
@@ -2553,6 +3533,17 @@ TB.ITEMS = {
 ],
 "tip": "Cut shingles from the back side on a scrap board."
 },
+"hoop-anchor-kit": {
+"name": "Hoop anchor kit",
+"kind": "part",
+"what": "A J-bolt cage and template that set into a concrete footing so the hoop pole can bolt on later.",
+"uses": [
+"Mounting in-ground hoops",
+"Removable poles",
+"Leveling with nuts"
+],
+"tip": "Keep the template level and threads above the concrete exactly to the kit's spec; tape the threads to keep concrete off."
+},
 "hose-cap": {
 "name": "Garden-hose thread cap",
 "kind": "part",
@@ -2618,6 +3609,17 @@ TB.ITEMS = {
 ],
 "tip": "Replace it when it turns stiff and crunchy; one pack per quart jar is typical."
 },
+"hurricane-tie": {
+"name": "Hurricane tie",
+"kind": "part",
+"what": "A galvanized steel strap connector that ties a rafter or joist to a beam.",
+"uses": [
+"Rafters to beams",
+"Joists to beams",
+"Wind uplift"
+],
+"tip": "Fill every hole with the specified connector nails or screws."
+},
 "impact-driver": {
 "name": "Impact driver",
 "kind": "power-tool",
@@ -2629,6 +3631,17 @@ TB.ITEMS = {
 ],
 "tip": "Finish lag screws by hand or with a ratchet so you don't over-tighten and strip the stud."
 },
+"in-use-outlet-cover": {
+"name": "In-use outlet cover",
+"kind": "part",
+"what": "A weatherproof bubble cover that keeps an outdoor outlet sealed even with a cord plugged in.",
+"uses": [
+"Transformers",
+"Smart plugs",
+"Outdoor appliances"
+],
+"tip": "Code requires in-use covers on outdoor outlets used with cords plugged in; pick a deep, extra-duty one."
+},
 "in-wall-power-kit": {
 "name": "In-wall TV power kit",
 "kind": "part",
@@ -2638,6 +3651,17 @@ TB.ITEMS = {
 "Routing HDMI and low-voltage cables"
 ],
 "tip": "Never run a regular extension or power cord inside a wall; it's a code violation and fire risk."
+},
+"infrared-thermometer": {
+"name": "Infrared thermometer",
+"kind": "measure",
+"what": "A point-and-shoot thermometer that reads surface temperature from a distance.",
+"uses": [
+"Pizza stone temperature",
+"Grill grates",
+"Checking surfaces"
+],
+"tip": "It reads surface temperature only, not the air or inside of food."
 },
 "inlet-filter-screen": {
 "name": "Inlet water filter screen",
@@ -2726,6 +3750,28 @@ TB.ITEMS = {
 ],
 "tip": "Lightweight premixed compound sands easily; setting-type (powder) compound hardens faster and shrinks less for deep fills."
 },
+"jointing-tool": {
+"name": "Jointing tool",
+"kind": "tool",
+"what": "A small steel tool that compresses and shapes mortar joints.",
+"uses": [
+"Striking veneer joints",
+"Finishing brick joints",
+"Smoothing mortar"
+],
+"tip": "Tool joints when mortar is thumbprint-hard, then brush off crumbs once firm."
+},
+"joist-hanger": {
+"name": "Joist hanger",
+"kind": "part",
+"what": "A galvanized steel bracket that supports a joist end against a rim or beam.",
+"uses": [
+"Deck joists",
+"Floor framing",
+"Rafter ends"
+],
+"tip": "Use hot-dip galvanized (G185) or stainless hangers with treated lumber."
+},
 "joist-tape": {
 "name": "Joist flashing tape",
 "kind": "material",
@@ -2759,6 +3805,17 @@ TB.ITEMS = {
 ],
 "tip": "Buy 4 to 6 gauge (lower number is thicker) and at least 12 to 16 ft long; thin 10-gauge sets struggle in the cold."
 },
+"key-valve": {
+"name": "Gas key valve",
+"kind": "part",
+"what": "A shutoff valve operated with a removable key, installed in reach of the fire feature.",
+"uses": [
+"Controlling gas to the burner",
+"Safety shutoff",
+"Fire pit ignition"
+],
+"tip": "Mount it within a few feet of the table but outside the fire area, per the burner manual."
+},
 "kindling": {
 "name": "Kindling",
 "kind": "material",
@@ -2781,6 +3838,17 @@ TB.ITEMS = {
 ],
 "tip": "Use the tare button to zero out the container first."
 },
+"knee-boards": {
+"name": "Knee boards",
+"kind": "tool",
+"what": "Flat boards you kneel on to reach into fresh concrete without sinking.",
+"uses": [
+"Hand-finishing slab centers",
+"Edging",
+"Touch-ups"
+],
+"tip": "Use two and leapfrog them as you work backward."
+},
 "knee-pads": {
 "name": "Knee pads",
 "kind": "safety",
@@ -2801,6 +3869,17 @@ TB.ITEMS = {
 "Working on low parts"
 ],
 "tip": "A folded floor mat from the car works in a pinch."
+},
+"ladder": {
+"name": "Ladder",
+"kind": "tool",
+"what": "A step or extension ladder to work safely at height.",
+"uses": [
+"Setting beams and rafters",
+"Mounting backboards",
+"Hanging lights"
+],
+"tip": "Use two ladders and a helper when lifting long beams; never stand on the top cap."
 },
 "ladder-hook": {
 "name": "Ladder bucket hook",
@@ -2846,16 +3925,71 @@ TB.ITEMS = {
 ],
 "tip": "Drill a pilot hole and get at least 1½″ to 2″ of thread into solid stud."
 },
+"landscape-fabric": {
+"name": "Landscape fabric",
+"kind": "material",
+"what": "A permeable fabric that blocks weeds while letting water drain.",
+"uses": [
+"Under gravel areas",
+"Under decks",
+"Lining planters"
+],
+"tip": "Use a commercial-grade spun fabric; thin woven fabric tears and lets weeds through."
+},
+"landscape-fabric-staple": {
+"name": "Landscape fabric staples",
+"kind": "fastener",
+"what": "U-shaped steel pins that hold fabric and edging to the ground.",
+"uses": [
+"Pinning fabric",
+"Holding seams",
+"Securing cable"
+],
+"tip": "Place every 1–2 ft along seams and edges."
+},
+"landscape-lighting-cable": {
+"name": "Landscape lighting cable",
+"kind": "material",
+"what": "Direct-burial 2-conductor cable (12/2 or 10/2) for low-voltage lights; not the same as indoor 12/2 house wire.",
+"uses": [
+"Path light runs",
+"Paver lights",
+"Deck and wall lights"
+],
+"tip": "12 AWG handles about 100–125 ft with a modest load; step up to 10 AWG for longer runs."
+},
+"landscape-spotlight": {
+"name": "Low-voltage spotlight",
+"kind": "part",
+"what": "A 12 V directional fixture with an adjustable head that aims light up into trees, shrubs or walls.",
+"uses": [
+"Uplighting trees and shrubs",
+"Washing walls",
+"Highlighting focal points"
+],
+"tip": "3–5 W LED is plenty for shrubs; add the fixture wattage to your transformer load."
+},
 "laser-level": {
 "name": "Laser level",
 "kind": "measure",
-"what": "A tool that projects perfectly level and plumb lines of light across a wall.",
+"what": "A tool that projects a level beam or plane so you can check heights across a site; rotary models are rentable.",
 "uses": [
-"Laying out battens and rails",
-"Lining up multiple shelves",
-"Hanging groups of frames"
+"Setting slab and patio grades",
+"Checking form heights",
+"Leveling deck blocks"
 ],
-"tip": "A self-leveling cross-line laser is the most useful type for interior work; green beams are easier to see in daylight."
+"tip": "A rotary laser with a grade rod makes checking excavation depth a one-person job."
+},
+"lava-rock": {
+"name": "Lava rock",
+"kind": "material",
+"what": "Porous volcanic rock that tolerates high heat.",
+"uses": [
+"Filling a fire ring bottom",
+"Filler under fire glass",
+"Drainage in fire features"
+],
+"tip": "Use lava rock rather than river rock in a fire; dense wet stones can crack or pop."
 },
 "leaf-blower": {
 "name": "Leaf blower",
@@ -2867,6 +4001,17 @@ TB.ITEMS = {
 "Cleaning gutters with attachments"
 ],
 "tip": "Blow away from yourself and wear eye protection."
+},
+"leak-detection-solution": {
+"name": "Leak-detection solution",
+"kind": "consumable",
+"what": "Soapy water or commercial bubble solution brushed on gas joints to find leaks.",
+"uses": [
+"Testing new fittings",
+"Annual checks",
+"After moving appliances"
+],
+"tip": "Test with gas on and appliance off; never use a flame to look for leaks."
 },
 "led-channel": {
 "name": "Aluminum LED channel",
@@ -2888,6 +4033,17 @@ TB.ITEMS = {
 ],
 "tip": "Match the driver voltage to the strip (12 V or 24 V) and size it about 20 percent above the strip's total watts."
 },
+"led-flood-light": {
+"name": "LED flood light",
+"kind": "part",
+"what": "A high-output outdoor LED fixture that lights a wide area.",
+"uses": [
+"Court lighting",
+"Large yards",
+"Driveways"
+],
+"tip": "Choose fixtures with shields or a tilt range so you can aim light onto the court and away from neighbors."
+},
 "led-grow-light": {
 "name": "LED grow light",
 "kind": "power-tool",
@@ -2898,6 +4054,17 @@ TB.ITEMS = {
 "Flowering plants indoors"
 ],
 "tip": "Compare true wall-draw watts, not the 'equivalent' number; roughly 25–35 W per square foot of canopy works well for flowering, and a dimmer helps with seedlings."
+},
+"led-strip": {
+"name": "Waterproof LED strip",
+"kind": "part",
+"what": "Flexible LED tape sealed to IP65 or IP67 for wet locations.",
+"uses": [
+"Under-counter lighting",
+"Planter lips",
+"Step lights"
+],
+"tip": "Warm white (2700–3000 K) looks best outdoors; IP67 is fully waterproof."
 },
 "led-strip-light": {
 "name": "LED strip light",
@@ -2920,6 +4087,17 @@ TB.ITEMS = {
 ],
 "tip": "Check a level's accuracy by reading it, flipping it end for end, and reading again; the bubble should sit in the same place."
 },
+"leveling-sand": {
+"name": "All-purpose sand",
+"kind": "material",
+"what": "Bagged sand for small leveling jobs.",
+"uses": [
+"Bedding stepping stones",
+"Leveling blocks",
+"Filling gaps"
+],
+"tip": "A 50-lb bag covers about 6 sq ft at 1″ deep."
+},
 "light-bulb": {
 "name": "Light bulbs",
 "kind": "part",
@@ -2939,6 +4117,28 @@ TB.ITEMS = {
 ],
 "tip": "Check the fixture's weight; anything over 50 lb needs independent support, not just the box."
 },
+"light-pole": {
+"name": "Light pole",
+"kind": "part",
+"what": "A steel or aluminum pole with a base plate that bolts to anchor bolts cast in a concrete footing.",
+"uses": [
+"Court lighting",
+"Yard and parking lights",
+"Sports areas"
+],
+"tip": "Size the footing and anchor bolts to the pole maker's chart for height and wind."
+},
+"lighted-address-plaque": {
+"name": "Lighted address plaque",
+"kind": "part",
+"what": "A house-number sign with built-in LED or solar backlighting so numbers show at night.",
+"uses": [
+"House numbers",
+"Entryways",
+"Mailbox posts"
+],
+"tip": "Pick large, high-contrast numbers visible from the street; it helps emergency crews find you."
+},
 "lighter": {
 "name": "Lighter or matches",
 "kind": "tool",
@@ -2949,6 +4149,28 @@ TB.ITEMS = {
 "Candles"
 ],
 "tip": "Carry a backup: waterproof matches in a sealed case."
+},
+"line-level": {
+"name": "Line level",
+"kind": "measure",
+"what": "A small bubble level that hooks onto a string line to show when it is level.",
+"uses": [
+"Leveling string lines",
+"Setting slope for drainage",
+"Checking grade over distance"
+],
+"tip": "Hang it at the middle of the line and flip it end for end to check accuracy."
+},
+"line-stencil": {
+"name": "Court line stencil",
+"kind": "tool",
+"what": "A template for marking court arcs, keys and logos.",
+"uses": [
+"Free-throw lane and arc",
+"Three-point arc",
+"Logos"
+],
+"tip": "Snap straight lines with a chalk line and use the stencil only for curves."
 },
 "lineman-pliers": {
 "name": "Lineman's pliers",
@@ -3002,6 +4224,17 @@ TB.ITEMS = {
 ],
 "tip": "Always reuse or replace them on a fan; vibration loosens bare screws."
 },
+"locking-caster": {
+"name": "Locking casters",
+"kind": "part",
+"what": "Heavy-duty swivel wheels with brakes.",
+"uses": [
+"Mobile planters",
+"Carts",
+"Workbenches"
+],
+"tip": "Rate each caster for at least a third of the total loaded weight; wet soil is heavy."
+},
 "locking-pliers": {
 "name": "Locking pliers",
 "kind": "tool",
@@ -3013,6 +4246,28 @@ TB.ITEMS = {
 ],
 "tip": "Clamp a headless nail and roll the pliers over a block to lever it out."
 },
+"log-rack": {
+"name": "Steel log rack",
+"kind": "part",
+"what": "A steel frame that holds firewood off the ground so it dries and stays clean.",
+"uses": [
+"Firewood storage",
+"Near fire pits",
+"Patios"
+],
+"tip": "Keep it at least 10 ft from the fire and off the house to avoid insects."
+},
+"log-rack-cover": {
+"name": "Log rack cover",
+"kind": "part",
+"what": "A weatherproof cover that keeps rain off the top of a firewood stack.",
+"uses": [
+"Firewood rack",
+"Winter storage",
+"Rainy climates"
+],
+"tip": "Cover the top only; sides need airflow so wood dries."
+},
 "long-lighter": {
 "name": "Long grill lighter",
 "kind": "tool",
@@ -3023,6 +4278,17 @@ TB.ITEMS = {
 "Pilot lights"
 ],
 "tip": "Many grills have a match-light hole on the side; check the manual."
+},
+"low-voltage-transformer": {
+"name": "Low-voltage transformer",
+"kind": "part",
+"what": "A plug-in unit that steps 120 V house power down to about 12 V for landscape lights, often with a timer or photocell.",
+"uses": [
+"Path lights",
+"Paver and deck lights",
+"Wall and cap lights"
+],
+"tip": "Size it so the total fixture load is no more than about 80% of the rating; a 60 W load wants a 100 W transformer."
 },
 "lug-wrench": {
 "name": "Lug wrench",
@@ -3044,6 +4310,17 @@ TB.ITEMS = {
 ],
 "tip": "Pick straight, dry boards; sight down the edge before buying."
 },
+"magnesium-float": {
+"name": "Magnesium hand float",
+"kind": "tool",
+"what": "A handheld flat float for smoothing concrete edges and small areas.",
+"uses": [
+"Touching up edges",
+"Small pads",
+"Finishing around anchors"
+],
+"tip": "Hold the leading edge slightly up so it glides without digging in."
+},
 "margin-trowel": {
 "name": "Margin trowel",
 "kind": "tool",
@@ -3056,14 +4333,15 @@ TB.ITEMS = {
 "tip": "A 5″ to 6″ margin trowel is enough for mixing a quart or two of grout."
 },
 "marking-paint": {
-"name": "Paint marker",
+"name": "Marking paint",
 "kind": "consumable",
-"what": "Spray paint or a paint marker for marking parts.",
+"what": "Spray paint made to spray upside down so you can mark lines on the ground.",
 "uses": [
-"Marking blade bottom",
-"Marking locations"
+"Marking circles and outlines",
+"Marking utility and dig areas",
+"Marking cut lines on stone"
 ],
-"tip": "Mark the bottom face so you put the blade back the right way."
+"tip": "Buy the inverted-tip landscape marking paint; regular spray paint won't spray pointing down."
 },
 "masking-tape": {
 "name": "Masking or painter’s tape",
@@ -3075,6 +4353,83 @@ TB.ITEMS = {
 "Labeling parts"
 ],
 "tip": "Painter’s tape peels off cleaner from finished metal."
+},
+"mason-line": {
+"name": "Mason line",
+"kind": "measure",
+"what": "Strong, stretch-resistant nylon string used to set straight lines and finished heights.",
+"uses": [
+"Outlining patios and decks",
+"Setting grade and slope",
+"Lining up posts and blocks"
+],
+"tip": "Use bright braided nylon; it stays tight and visible and won't sag like cotton string."
+},
+"masonry-adhesive": {
+"name": "Masonry adhesive",
+"kind": "adhesive",
+"what": "A high-strength construction adhesive for bonding concrete block, stone and caps.",
+"uses": [
+"Gluing wall courses",
+"Attaching caps",
+"Veneer touch-ups"
+],
+"tip": "Clean dust off blocks first; glue won't bond well to dusty surfaces."
+},
+"masonry-anchor": {
+"name": "Wall anchors",
+"kind": "fastener",
+"what": "Plastic or metal anchors that let screws hold in brick, stucco or block.",
+"uses": [
+"Mounting a transformer",
+"Mounting boxes",
+"Brackets"
+],
+"tip": "Match the anchor to the wall material and drill with the bit size on the package."
+},
+"masonry-bit": {
+"name": "Masonry drill bit",
+"kind": "consumable",
+"what": "A carbide-tipped bit for drilling into concrete, block and brick.",
+"uses": [
+"Anchor holes",
+"Fastening to block",
+"Mounting boxes on brick"
+],
+"tip": "Use the bit size printed on the anchor package."
+},
+"masonry-chisel": {
+"name": "Masonry chisel (brick set)",
+"kind": "tool",
+"what": "A wide steel chisel struck with a hammer to score and split pavers, block and stone.",
+"uses": [
+"Splitting pavers and caps",
+"Trimming flagstone",
+"Knocking off mortar"
+],
+"tip": "Score all the way around first, then strike; wear safety glasses for flying chips."
+},
+"masonry-screw": {
+"name": "Masonry screws",
+"kind": "fastener",
+"what": "Hardened screws that thread into pre-drilled holes in concrete and block.",
+"uses": [
+"Fastening to block",
+"Mounting boxes",
+"Attaching vents"
+],
+"tip": "Drill with the matching bit and go ¼″ deeper than the screw length."
+},
+"masonry-trowel": {
+"name": "Masonry trowel",
+"kind": "tool",
+"what": "A pointed steel trowel for spreading and shaping mortar.",
+"uses": [
+"Applying scratch coat",
+"Spreading mortar on block",
+"Filling cores"
+],
+"tip": "A 10″–11″ brick trowel balances well for most DIY mortar work."
 },
 "measuring-cup": {
 "name": "Measuring cup",
@@ -3096,6 +4451,17 @@ TB.ITEMS = {
 "Covering holes up to about 6″"
 ],
 "tip": "Pick a patch at least 2″ larger than the hole so it overlaps solid wall on every side."
+},
+"mesh-tape": {
+"name": "Alkali-resistant mesh tape",
+"kind": "consumable",
+"what": "Fiberglass tape that reinforces joints between cement board panels.",
+"uses": [
+"Cement board seams",
+"Stucco corners",
+"Crack bridging"
+],
+"tip": "Embed it in mortar or thinset, not in drywall compound."
 },
 "mesh-wifi-system": {
 "name": "Mesh Wi-Fi system / extender",
@@ -3182,6 +4548,17 @@ TB.ITEMS = {
 ],
 "tip": "Calibrate it with a salt test or a 75% calibration pack before trusting it."
 },
+"mini-skid-steer": {
+"name": "Mini skid steer",
+"kind": "power-tool",
+"what": "A compact rental loader with a bucket for digging and moving soil and gravel on bigger jobs.",
+"uses": [
+"Excavating patios and courts",
+"Moving tons of base gravel",
+"Grading the site"
+],
+"tip": "Call 811 for utility locates before any machine digging, and rent a trailer-friendly stand-on model for tight gates."
+},
 "miter-saw": {
 "name": "Miter saw",
 "kind": "power-tool",
@@ -3192,6 +4569,28 @@ TB.ITEMS = {
 "Repeat cuts"
 ],
 "tip": "Clamp a stop block to the fence for identical batten lengths."
+},
+"mixing-hoe": {
+"name": "Mortar/mixing hoe",
+"kind": "tool",
+"what": "A hoe with holes in the blade designed to mix concrete and mortar in a tub or wheelbarrow.",
+"uses": [
+"Mixing bagged concrete",
+"Mixing mortar",
+"Blending soil amendments"
+],
+"tip": "Add water gradually; the mix should hold its shape like thick oatmeal, not run."
+},
+"mixing-paddle": {
+"name": "Mixing paddle",
+"kind": "tool",
+"what": "A spiral paddle that chucks in a heavy drill to mix mortar and thinset.",
+"uses": [
+"Mixing mortar in a bucket",
+"Mixing finish coats",
+"Mixing grout"
+],
+"tip": "Use a low-speed, high-torque drill; high speed whips air into mortar."
 },
 "moisture-meter": {
 "name": "Moisture meter",
@@ -3215,6 +4614,28 @@ TB.ITEMS = {
 ],
 "tip": "A 54–66 qt clear tote is a good beginner size; clear sides let you watch colonization and let in light."
 },
+"mortar-mix": {
+"name": "Mortar mix (Type S)",
+"kind": "material",
+"what": "Bagged cement-lime-sand mortar for setting block and stone and for scratch coats.",
+"uses": [
+"Filling block cores",
+"Scratch coats",
+"Setting veneer"
+],
+"tip": "Type S is the outdoor workhorse; mix only what you'll use in about 90 minutes."
+},
+"mortar-tub": {
+"name": "Mortar tub",
+"kind": "tool",
+"what": "A shallow, sturdy plastic tub for mixing mortar or concrete.",
+"uses": [
+"Mixing mortar and concrete",
+"Holding mixed mortar while working",
+"Soaking stone or cleaning tools"
+],
+"tip": "Rinse it before mortar hardens; dried mortar ruins the next batch."
+},
 "motherboard-manual": {
 "name": "Motherboard manual",
 "kind": "material",
@@ -3225,6 +4646,17 @@ TB.ITEMS = {
 "Reading debug LEDs and beep codes"
 ],
 "tip": "Download the PDF from the board maker's support page using the model printed on the board."
+},
+"motion-floodlight": {
+"name": "LED motion floodlight",
+"kind": "part",
+"what": "A bright LED wall or eave fixture that turns on when its sensor detects movement.",
+"uses": [
+"Security lighting",
+"Driveways and side yards",
+"Trash and garage areas"
+],
+"tip": "Aim the sensor so people walk across its view, not straight toward it; side-to-side motion triggers it more reliably."
 },
 "motor-oil": {
 "name": "Motor oil",
@@ -3332,6 +4764,17 @@ TB.ITEMS = {
 ],
 "tip": "Always check it on a known live outlet right before and right after you use it, so a dead battery can't fool you."
 },
+"notched-trowel": {
+"name": "Notched trowel",
+"kind": "tool",
+"what": "A flat trowel with notched edges that combs ridges into mortar or adhesive.",
+"uses": [
+"Scratch coat scoring",
+"Spreading thinset",
+"Spreading adhesive"
+],
+"tip": "Rake the scratch coat horizontally so the veneer mortar can grip."
+},
 "nozzle-adjustment-tool": {
 "name": "Sprinkler adjustment tool",
 "kind": "tool",
@@ -3405,6 +4848,17 @@ TB.ITEMS = {
 ],
 "tip": "A 10 mm wrench fits most rim-brake pad nuts."
 },
+"ornamental-grass": {
+"name": "Ornamental grasses",
+"kind": "material",
+"what": "Clumping decorative grasses that add height and movement.",
+"uses": [
+"Planters",
+"Borders",
+"Soft screens"
+],
+"tip": "Choose varieties sized for the container so they don't outgrow it in a season."
+},
 "oscillating-tool": {
 "name": "Oscillating multi-tool",
 "kind": "power-tool",
@@ -3415,6 +4869,138 @@ TB.ITEMS = {
 "Cutting openings"
 ],
 "tip": "Use a carbide or diamond grout blade and let the tool do the work; pressing hard chips tile edges."
+},
+"outdoor-bench": {
+"name": "Outdoor bench",
+"kind": "part",
+"what": "A weather-resistant bench of metal, treated wood or recycled plastic.",
+"uses": [
+"Courtside seating",
+"Garden seating",
+"Patios"
+],
+"tip": "Recycled-plastic lumber benches need no finishing and won't splinter."
+},
+"outdoor-chair": {
+"name": "Outdoor chairs",
+"kind": "part",
+"what": "Weather-resistant seating such as Adirondack chairs.",
+"uses": [
+"Fire pit areas",
+"Patios",
+"Decks"
+],
+"tip": "Place seats about 7 ft from the fire's center: warm without being too hot."
+},
+"outdoor-coffee-table": {
+"name": "Outdoor coffee table",
+"kind": "part",
+"what": "A low table built from weatherproof materials such as teak, aluminum or concrete.",
+"uses": [
+"Seating areas",
+"Pergolas",
+"Patios"
+],
+"tip": "Teak, powder-coated aluminum and concrete tops last longest outdoors."
+},
+"outdoor-curtain": {
+"name": "Outdoor curtain panels",
+"kind": "part",
+"what": "Fade- and mildew-resistant fabric panels for shade, privacy and wind.",
+"uses": [
+"Pergola sides",
+"Porches",
+"Cabanas"
+],
+"tip": "Grommet-top panels slide easily on rods; tie them back in storms."
+},
+"outdoor-cushion": {
+"name": "Outdoor cushions",
+"kind": "part",
+"what": "Weather-resistant seat and back cushions for walls and benches.",
+"uses": [
+"Seat walls",
+"Benches",
+"Lounge seating"
+],
+"tip": "Solution-dyed acrylic fabric resists fading; store cushions when not in use."
+},
+"outdoor-refrigerator": {
+"name": "Outdoor-rated refrigerator",
+"kind": "part",
+"what": "An under-counter fridge built and listed for outdoor heat and moisture.",
+"uses": [
+"Grill islands",
+"Outdoor bars",
+"Patios"
+],
+"tip": "Indoor fridges fail quickly outdoors; check for an outdoor listing and front venting for built-ins."
+},
+"outdoor-rug": {
+"name": "Outdoor rug",
+"kind": "part",
+"what": "A rug woven from polypropylene or similar fibers that resists water, mildew and fading.",
+"uses": [
+"Patios",
+"Decks",
+"Under seating"
+],
+"tip": "Lift and dry it after storms so the surface underneath doesn't stain."
+},
+"outdoor-sconce": {
+"name": "Outdoor sconce",
+"kind": "part",
+"what": "A wall-mounted light fixture rated for wet or damp outdoor locations.",
+"uses": [
+"Privacy screens",
+"Entries",
+"Patios"
+],
+"tip": "Low-voltage sconces can run off a landscape transformer with no new house wiring."
+},
+"outdoor-sectional": {
+"name": "Outdoor sectional",
+"kind": "part",
+"what": "A modular weatherproof sofa that arranges into L or U shapes.",
+"uses": [
+"Pergolas",
+"Patios",
+"Decks"
+],
+"tip": "Measure gates and paths before ordering large pieces."
+},
+"outdoor-smart-plug": {
+"name": "Outdoor smart plug",
+"kind": "part",
+"what": "A weatherproof Wi-Fi or app-controlled plug that schedules lights and devices.",
+"uses": [
+"Timing string lights",
+"Fountains",
+"Seasonal decor"
+],
+"tip": "Make sure it's rated for outdoor use and plugs into a GFCI outlet."
+},
+"outdoor-speaker": {
+"name": "Outdoor speaker",
+"kind": "part",
+"what": "A weather-resistant speaker (often IPX5 or better) for patios and yards.",
+"uses": [
+"Background music",
+"Patio entertainment",
+"Rock-style speakers in beds"
+],
+"tip": "IPX5 resists rain and spray; bring battery models in for winter."
+},
+"outdoor-storage-bench": {
+"name": "Outdoor storage bench",
+"kind": "part",
+"what": "A weather-resistant bench with a lidded box for cushions or supplies.",
+"uses": [
+"Fire pit seating",
+"Cushion storage",
+"Patio storage"
+],
+"tip": "Choose one with vents or drainage so stored items don't mildew."
 },
 "outlet-timer": {
 "name": "Outlet timer",
@@ -3456,6 +5042,17 @@ TB.ITEMS = {
 "Touching up repairs"
 ],
 "tip": "Satin or semi-gloss is wipeable for trim and wainscot; keep leftover paint labeled with room and sheen for touch-ups."
+},
+"paint-brush": {
+"name": "Stain brush",
+"kind": "tool",
+"what": "A wide synthetic or natural brush for working stain and sealer into wood.",
+"uses": [
+"Staining boards",
+"Sealing end grain",
+"Touch-ups"
+],
+"tip": "Back-brush after rolling or spraying to work finish into the grain."
 },
 "paint-roller": {
 "name": "Paint roller and covers",
@@ -3576,6 +5173,61 @@ TB.ITEMS = {
 ],
 "tip": "Glue-type patches last longer than self-adhesive ones; let the glue dry until dull before applying."
 },
+"path-light": {
+"name": "Low-voltage path lights",
+"kind": "part",
+"what": "Stake-mounted 12 V fixtures that cast light down onto a walkway.",
+"uses": [
+"Lighting paths",
+"Garden borders",
+"Driveway edges"
+],
+"tip": "Space them 8–10 ft apart and aim for pools of light that just touch, not a runway."
+},
+"patio-heater": {
+"name": "Propane patio heater",
+"kind": "part",
+"what": "A freestanding propane heater that radiates warmth around a patio.",
+"uses": [
+"Extending outdoor season",
+"Patio seating",
+"Events"
+],
+"tip": "Keep clearances to overhead structures listed on the label."
+},
+"paver": {
+"name": "Concrete pavers",
+"kind": "material",
+"what": "Interlocking concrete units laid on sand to make a flexible, durable surface.",
+"uses": [
+"Patios and walks",
+"Fire pit pads",
+"Driveways"
+],
+"tip": "Order 5–10% extra for cuts and future repairs, more for herringbone or curves."
+},
+"paver-base": {
+"name": "Paver base (crushed gravel)",
+"kind": "material",
+"what": "Crushed, dense-graded stone with fines (¾″ minus or road base) that compacts into a firm, draining base.",
+"uses": [
+"Base under pavers and patios",
+"Base under fire pits and walls",
+"Base under slabs"
+],
+"tip": "Order bulk by the ton; roughly 1.4 tons per cubic yard. Compact in lifts no thicker than 2–4″."
+},
+"paver-light": {
+"name": "Low-voltage paver lights",
+"kind": "part",
+"what": "12 V lights built into paver-shaped housings that set flush in a patio.",
+"uses": [
+"Patio borders",
+"Steps",
+"Walkways"
+],
+"tip": "Run cable before laying pavers and keep a sleeve so you can replace a fixture."
+},
 "pc-memory-module": {
 "name": "RAM module",
 "kind": "part",
@@ -3598,6 +5250,17 @@ TB.ITEMS = {
 ],
 "tip": "Monitor cords are usually identical, making them a quick swap for testing."
 },
+"pea-gravel": {
+"name": "Pea gravel",
+"kind": "material",
+"what": "Small, rounded smooth stones that make a comfortable loose surface.",
+"uses": [
+"Fire pit seating areas",
+"Paths",
+"Play areas"
+],
+"tip": "Order a little extra; 2–3″ deep looks best and settles slightly."
+},
 "pencil": {
 "name": "Pencil",
 "kind": "measure",
@@ -3618,6 +5281,17 @@ TB.ITEMS = {
 "Freeing corroded handles"
 ],
 "tip": "Let it soak 10–15 minutes and wipe it off fixtures afterward."
+},
+"penetrating-sealer": {
+"name": "Penetrating stone sealer",
+"kind": "consumable",
+"what": "A clear sealer that soaks into stone and grout to resist stains and water.",
+"uses": [
+"Granite and stone",
+"Veneer and flagstone",
+"Grout"
+],
+"tip": "Do a water drop test: if it darkens the stone in a minute, it's time to reseal."
 },
 "perlite": {
 "name": "Perlite",
@@ -3768,6 +5442,61 @@ TB.ITEMS = {
 ],
 "tip": "Size it to the pipe."
 },
+"pipe-strap": {
+"name": "Pipe straps",
+"kind": "fastener",
+"what": "Metal or plastic U-straps that clamp hoops or pipe to wood.",
+"uses": [
+"Mounting hoops",
+"Securing conduit",
+"Pipe runs"
+],
+"tip": "Size the strap to the pipe's outside diameter."
+},
+"pipe-thread-sealant": {
+"name": "Gas-rated thread sealant",
+"kind": "consumable",
+"what": "Yellow PTFE tape or pipe dope rated for gas to seal threaded joints.",
+"uses": [
+"Gas fittings",
+"Key valves",
+"Regulators"
+],
+"tip": "Never use on flare fittings, only on tapered pipe threads."
+},
+"pipe-wrench": {
+"name": "Pipe wrenches",
+"kind": "tool",
+"what": "Adjustable toothed wrenches that grip and turn threaded pipe and fittings.",
+"uses": [
+"Tightening gas fittings",
+"Holding fittings while turning",
+"Plumbing connections"
+],
+"tip": "Always back up with a second wrench so you don't twist the line upstream."
+},
+"pizza-oven": {
+"name": "Countertop pizza oven",
+"kind": "part",
+"what": "A portable gas- or wood-fired oven that reaches very high heat for fast pizzas.",
+"uses": [
+"Outdoor kitchens",
+"Patios",
+"Parties"
+],
+"tip": "Set it on a non-combustible surface like stone or granite with clearance behind."
+},
+"pizza-peel": {
+"name": "Pizza peel",
+"kind": "tool",
+"what": "A thin, flat paddle on a handle for sliding pizzas in and out of an oven.",
+"uses": [
+"Launching pizzas",
+"Turning pizzas",
+"Removing pizzas"
+],
+"tip": "Dust with semolina or flour so the dough slides off cleanly."
+},
 "plant-nutrient": {
 "name": "Plant nutrient",
 "kind": "consumable",
@@ -3801,6 +5530,28 @@ TB.ITEMS = {
 ],
 "tip": "Anchor ties to the pot's handles or holes and loosen them as stems thicken."
 },
+"planter-box": {
+"name": "Planter box",
+"kind": "part",
+"what": "A wood, metal or composite box for growing plants on a deck, patio or screen base.",
+"uses": [
+"Deck corners",
+"Screen bases",
+"Patios"
+],
+"tip": "Set it on feet or spacers so the deck or patio underneath can dry out."
+},
+"planter-pot": {
+"name": "Large planter",
+"kind": "part",
+"what": "A large, heavy planter that holds plants or doubles as a weighted base for a post.",
+"uses": [
+"String light posts",
+"Climbing vines",
+"Decor"
+],
+"tip": "For a light post, set the post in concrete inside a bucket in the planter, then top with soil."
+},
 "plastic-scraper": {
 "name": "Plastic scraper",
 "kind": "tool",
@@ -3821,6 +5572,17 @@ TB.ITEMS = {
 "Covering surfaces from drips"
 ],
 "tip": "Weight it down; it blows away easily."
+},
+"plate-compactor": {
+"name": "Plate compactor",
+"kind": "power-tool",
+"what": "A gas-powered machine with a vibrating steel plate that packs gravel and soil firmly; usually rented.",
+"uses": [
+"Compacting paver and slab bases",
+"Setting pavers into the sand bed",
+"Compacting subgrade soil"
+],
+"tip": "Rent one with a urethane pad (or add one) so you can run it over pavers without chipping them."
 },
 "pliers": {
 "name": "Pliers",
@@ -3865,6 +5627,17 @@ TB.ITEMS = {
 ],
 "tip": "A 25-ft hand auger is enough for most downspouts; feed it from the bottom so the clog drops out."
 },
+"plywood": {
+"name": "Plywood",
+"kind": "material",
+"what": "Sheets of cross-laminated wood veneers, strong and stable.",
+"uses": [
+"Cornhole tops",
+"Sheathing",
+"Jigs and forms"
+],
+"tip": "Birch or sanded plywood paints smoothest; one 4×8 sheet makes two 24×48″ tops."
+},
 "pole-repair-sleeve": {
 "name": "Pole repair sleeve",
 "kind": "part",
@@ -3875,6 +5648,50 @@ TB.ITEMS = {
 "Gear repair kits"
 ],
 "tip": "Tape it in place on both sides of the break; keep one in the tent bag."
+},
+"poly-sheeting": {
+"name": "Plastic sheeting",
+"kind": "consumable",
+"what": "Thick polyethylene sheet to cover curing concrete or protect surfaces.",
+"uses": [
+"Covering slabs while curing",
+"Rain cover for pours",
+"Protecting surfaces"
+],
+"tip": "Weigh edges down; uncovered spots dry fast and can discolor."
+},
+"polymeric-sand": {
+"name": "Polymeric sand",
+"kind": "material",
+"what": "Joint sand with binders that harden when misted, locking pavers and resisting weeds and ants.",
+"uses": [
+"Paver joints",
+"Flagstone joints",
+"Re-sanding old patios"
+],
+"tip": "Pavers must be bone dry and the surface blown clean before misting, or it leaves a haze."
+},
+"polyurethane": {
+"name": "Water-based polyurethane",
+"kind": "consumable",
+"what": "A clear protective topcoat that dries hard and doesn't yellow.",
+"uses": [
+"Sealing cornhole tops",
+"Painted wood",
+"Furniture"
+],
+"tip": "Use a satin sheen for a consistent bag slide; sand lightly with 220 or 320 between coats."
+},
+"post-base": {
+"name": "Post base",
+"kind": "part",
+"what": "A galvanized steel bracket anchored in concrete that holds a post off the footing.",
+"uses": [
+"Pergola posts",
+"Deck posts",
+"Porch posts"
+],
+"tip": "Choose a standoff base sized for the actual post so end grain stays dry."
 },
 "post-hole-digger": {
 "name": "Post-hole digger",
@@ -3898,6 +5715,17 @@ TB.ITEMS = {
 ],
 "tip": "Strap it on so you can adjust and brace hands-free."
 },
+"potting-mix": {
+"name": "Potting mix",
+"kind": "material",
+"what": "A lightweight, fast-draining soilless mix for containers.",
+"uses": [
+"Elevated planters",
+"Pots",
+"Window boxes"
+],
+"tip": "Never use garden soil in containers; it compacts and drowns roots."
+},
 "potting-soil": {
 "name": "Potting soil",
 "kind": "material",
@@ -3909,6 +5737,17 @@ TB.ITEMS = {
 ],
 "tip": "Choose a quality mix with good drainage and no slow-release synthetic fertilizer pellets if you plan to feed separately."
 },
+"power-auger": {
+"name": "Power auger",
+"kind": "power-tool",
+"what": "A gas or battery earth drill with a spiral bit that bores round holes quickly; often rented.",
+"uses": [
+"Footing holes for pergolas and decks",
+"Fence post holes",
+"Planting holes"
+],
+"tip": "A two-person or towable auger is much safer in rocky or root-filled soil; one-person augers can kick hard."
+},
 "power-strip": {
 "name": "Surge-protected power strip",
 "kind": "part",
@@ -3919,6 +5758,39 @@ TB.ITEMS = {
 "Electronics"
 ],
 "tip": "Mount it up off the floor, away from water, and plug it into a GFCI outlet."
+},
+"pressure-regulator": {
+"name": "Pressure regulator",
+"kind": "part",
+"what": "A fitting that lowers water pressure to the 25–30 psi most drip systems need.",
+"uses": [
+"Drip irrigation",
+"Micro-sprinklers",
+"Soaker hoses"
+],
+"tip": "Install it after the filter so debris doesn't clog it."
+},
+"pressure-treated-lumber": {
+"name": "Pressure-treated lumber",
+"kind": "material",
+"what": "Framing lumber treated with preservatives to resist rot and insects.",
+"uses": [
+"Deck beams and joists",
+"Rim and fascia",
+"Forms and braces"
+],
+"tip": "Use hot-dip galvanized or stainless fasteners and connectors; treated wood corrodes plain steel."
+},
+"pressure-treated-post": {
+"name": "Pressure-treated post",
+"kind": "material",
+"what": "A 4×4 or 6×6 post treated with preservatives for ground contact.",
+"uses": [
+"Fence and screen posts",
+"Deck posts",
+"Light poles"
+],
+"tip": "Check the tag says Ground Contact (UC4A or higher)."
 },
 "pressure-washer": {
 "name": "Pressure washer",
@@ -4007,6 +5879,17 @@ TB.ITEMS = {
 ],
 "tip": "Keep separate sprayers for chemicals and stains, and rinse right after use."
 },
+"push-broom": {
+"name": "Push broom",
+"kind": "tool",
+"what": "A wide stiff-bristled broom for sweeping sand into joints and cleaning surfaces.",
+"uses": [
+"Sweeping polymeric sand",
+"Cleaning slab surfaces",
+"Clearing debris"
+],
+"tip": "Sweep diagonally to the joints so sand fills rather than drags out."
+},
 "putty-knife": {
 "name": "Putty knife",
 "kind": "tool",
@@ -4017,6 +5900,17 @@ TB.ITEMS = {
 "Prying trim gently"
 ],
 "tip": "A stiff blade is better for scraping; a flexible blade is better for smoothing filler."
+},
+"pvc-conduit": {
+"name": "PVC conduit",
+"kind": "material",
+"what": "Rigid gray plastic electrical pipe that protects wire from damage.",
+"uses": [
+"Protecting cable along walls",
+"Sleeves under paths",
+"Buried power runs"
+],
+"tip": "Use Schedule 40 for burial and Schedule 80 where it may get hit; sleeve cable under hardscape for future pulls."
 },
 "rag": {
 "name": "Rags",
@@ -4030,15 +5924,26 @@ TB.ITEMS = {
 "tip": "Lay oil- or solvent-soaked rags flat to dry outdoors before throwing them out; some can self-heat."
 },
 "rake": {
-"name": "Rake",
+"name": "Landscape rake",
 "kind": "tool",
-"what": "A long-handled tool with tines for gathering leaves and debris.",
+"what": "A wide rake with straight steel or aluminum teeth for spreading and leveling soil, gravel and sand.",
 "uses": [
-"Clearing ground around fire rings",
-"Yard cleanup",
-"Spreading mulch"
+"Leveling gravel and base",
+"Smoothing soil before planting",
+"Spreading pea gravel evenly"
 ],
-"tip": "Clear down to bare dirt in a 10 ft circle around the fire ring."
+"tip": "Flip it over and use the flat back to drag material smooth before compacting."
+},
+"random-orbit-sander": {
+"name": "Random orbit sander",
+"kind": "power-tool",
+"what": "A palm sander with a spinning, orbiting disc that smooths wood without swirl marks.",
+"uses": [
+"Sanding plywood tops",
+"Smoothing edges",
+"Scuffing between finish coats"
+],
+"tip": "Let the sander's weight do the work; pressing hard leaves swirls."
 },
 "range-hood-filter": {
 "name": "Replacement range hood filter",
@@ -4070,6 +5975,50 @@ TB.ITEMS = {
 ],
 "tip": "Use plastic blades on acrylic, fiberglass or enameled surfaces to avoid scratches."
 },
+"ready-mix-concrete": {
+"name": "Ready-mix concrete",
+"kind": "material",
+"what": "Truck-delivered concrete ordered by the cubic yard to a specified strength.",
+"uses": [
+"Slabs and courts",
+"Large footings",
+"Driveways"
+],
+"tip": "For outdoor slabs in freeze areas order 4,000 psi air-entrained concrete."
+},
+"rebar": {
+"name": "Rebar",
+"kind": "material",
+"what": "Ribbed steel reinforcing bar that strengthens concrete against cracking and pulling.",
+"uses": [
+"Slab reinforcement",
+"Block core fill",
+"Footings"
+],
+"tip": "#3 is ⅜″, #4 is ½″; keep it 2″ off the ground and from edges."
+},
+"rebar-chair": {
+"name": "Rebar chairs",
+"kind": "part",
+"what": "Plastic or wire stands that hold rebar or mesh at mid-slab height during the pour.",
+"uses": [
+"Supporting slab rebar",
+"Holding mesh up",
+"Spacing steel"
+],
+"tip": "Space chairs every 3–4 ft; rebar lying on the gravel adds no strength."
+},
+"rebar-tie-tool": {
+"name": "Rebar tie tool",
+"kind": "tool",
+"what": "A twisting hook tool that quickly ties rebar intersections with tie wire.",
+"uses": [
+"Tying rebar grids",
+"Securing rebar to chairs",
+"Tying dowels"
+],
+"tip": "Tie every second or third intersection; that's enough to hold the grid during the pour."
+},
 "receptacle": {
 "name": "Receptacle (outlet)",
 "kind": "part",
@@ -4080,6 +6029,17 @@ TB.ITEMS = {
 "Changing color or style"
 ],
 "tip": "Match the amp rating to the circuit (15 A on 14 AWG; 20 A circuits on 12 AWG can use either); spec-grade outlets hold plugs tighter and last longer."
+},
+"recessed-handle": {
+"name": "Recessed handles",
+"kind": "part",
+"what": "Flush-mount handles set into the frame so boards carry easily.",
+"uses": [
+"Cornhole boards",
+"Cases",
+"Furniture"
+],
+"tip": "Mount on the side frame near the balance point."
 },
 "reciprocating-saw": {
 "name": "Reciprocating saw",
@@ -4153,6 +6113,17 @@ TB.ITEMS = {
 "Fixing hot and cold mixing problems"
 ],
 "tip": "Take the old cartridge to the store to match length and spline count exactly."
+},
+"retaining-wall-block": {
+"name": "Retaining-wall block",
+"kind": "material",
+"what": "Solid concrete blocks with angled faces that stack into curves and walls without mortar.",
+"uses": [
+"Fire pit walls",
+"Seat walls",
+"Garden walls"
+],
+"tip": "Buy all block from one pallet or lot so color matches."
 },
 "riser": {
 "name": "Sprinkler riser",
@@ -4242,23 +6213,24 @@ TB.ITEMS = {
 "rubber-boots": {
 "name": "Rubber boots",
 "kind": "safety",
-"what": "Waterproof boots for wet, chemical-laden work.",
+"what": "Tall waterproof boots worn when working in wet concrete.",
 "uses": [
-"Deck cleaning",
-"Driveway sealing",
-"Concrete pours"
+"Placing concrete",
+"Screeding",
+"Washing out tools"
 ],
-"tip": "Rinse sealer and cleaner off right away."
+"tip": "Tuck pants inside so concrete can't run into the boots."
 },
 "rubber-gloves": {
-"name": "Rubber gloves",
+"name": "Waterproof gloves",
 "kind": "safety",
-"what": "Waterproof gloves that protect hands from dirty water and cleaners.",
+"what": "Nitrile or rubber gloves that protect skin from caustic wet concrete and mortar.",
 "uses": [
-"Toilet work",
-"Drain cleaning"
+"Mixing and placing concrete",
+"Mortar work",
+"Sealers and stains"
 ],
-"tip": "Pick long-cuff gloves for toilet clogs."
+"tip": "Wet cement causes chemical burns; wash off any splashes immediately."
 },
 "rubber-jar-opener": {
 "name": "Rubber jar opener",
@@ -4273,13 +6245,13 @@ TB.ITEMS = {
 "rubber-mallet": {
 "name": "Rubber mallet",
 "kind": "tool",
-"what": "A mallet with a soft rubber head that strikes without denting wood.",
+"what": "A hammer with a rubber head that taps materials into place without chipping them.",
 "uses": [
-"Knocking furniture joints apart and together",
-"Seating parts",
-"Tapping tile or trim"
+"Setting pavers and stones",
+"Leveling blocks",
+"Seating boards"
 ],
-"tip": "A white rubber head won't leave black marks on light wood."
+"tip": "A white or non-marking head won't leave black scuffs on light pavers."
 },
 "rubbing-alcohol": {
 "name": "Rubbing alcohol",
@@ -4336,6 +6308,17 @@ TB.ITEMS = {
 ],
 "tip": "Work up through grits, for example 120 then 180 or 220; skipping grits leaves scratches."
 },
+"sawhorse": {
+"name": "Sawhorses",
+"kind": "tool",
+"what": "A pair of stands that support boards at working height for cutting and assembly.",
+"uses": [
+"Supporting lumber for cuts",
+"Painting and finishing",
+"Assembly table with plywood"
+],
+"tip": "Folding plastic sawhorses with 2×4 tops are light and sturdy."
+},
 "scissors": {
 "name": "Scissors",
 "kind": "tool",
@@ -4346,6 +6329,28 @@ TB.ITEMS = {
 "Trimming"
 ],
 "tip": "Keep a pair of sturdy utility scissors with the job kit."
+},
+"screed-board": {
+"name": "Screed board",
+"kind": "tool",
+"what": "A long straight board or aluminum straightedge dragged across rails or forms to level sand or concrete.",
+"uses": [
+"Leveling bedding sand",
+"Striking off concrete",
+"Checking flatness"
+],
+"tip": "Sight down the board before use; a crowned 2×4 makes a wavy bed."
+},
+"screed-rail": {
+"name": "Screed rails (1″ pipe)",
+"kind": "tool",
+"what": "Straight 1″ OD pipes laid on the base to set an exact depth of bedding sand.",
+"uses": [
+"Screeding paver sand",
+"Leveling flagstone sand",
+"Setting even sand beds"
+],
+"tip": "Pull the pipes once screeded and fill the grooves with sand using a trowel."
 },
 "screen-mesh": {
 "name": "Screen mesh",
@@ -4498,6 +6503,28 @@ TB.ITEMS = {
 ],
 "tip": "Order or drill rod holes perfectly straight and square; a crooked hole makes the shelf droop."
 },
+"shelf-bracket": {
+"name": "Steel shelf brackets",
+"kind": "part",
+"what": "Heavy metal brackets that support shelves on a wall or screen.",
+"uses": [
+"Plant shelves",
+"Garden walls",
+"Sheds"
+],
+"tip": "Screw into posts or cleats, not thin slats, and use exterior-rated screws."
+},
+"shim": {
+"name": "Composite shims",
+"kind": "part",
+"what": "Thin tapered wedges for leveling heavy parts.",
+"uses": [
+"Leveling countertops",
+"Leveling appliances",
+"Packing gaps"
+],
+"tip": "Composite shims don't rot or compress outdoors."
+},
 "shingle-ripper": {
 "name": "Shingle ripper",
 "kind": "tool",
@@ -4531,16 +6558,27 @@ TB.ITEMS = {
 ],
 "tip": "Use a narrow crevice tool to reach into cracks."
 },
-"shovel": {
-"name": "Shovel",
-"kind": "tool",
-"what": "A long-handled digging tool with a broad blade.",
+"shot-tracker": {
+"name": "Smart shot tracker",
+"kind": "part",
+"what": "A camera or sensor system that counts makes and misses and logs them in an app.",
 "uses": [
-"Stirring and smothering campfires",
-"Moving dirt and gravel",
-"Digging"
+"Practice tracking",
+"Skill training",
+"Games and challenges"
 ],
-"tip": "A short folding camp shovel is fine for campfires."
+"tip": "Most need steady Wi-Fi at the court; test signal there before buying."
+},
+"shovel": {
+"name": "Round-point shovel",
+"kind": "tool",
+"what": "A long-handled shovel with a pointed blade for digging into soil, sod and gravel.",
+"uses": [
+"Digging holes and trenches",
+"Moving gravel and soil",
+"Breaking up compacted ground"
+],
+"tip": "A fiberglass handle with a forward-turned step on the blade saves your boots and your back."
 },
 "shower-head-washer": {
 "name": "Shower head washer",
@@ -4585,6 +6623,17 @@ TB.ITEMS = {
 ],
 "tip": "Use only 100% silicone grease; petroleum products make rubber swell."
 },
+"silicone-sealant": {
+"name": "Silicone sealant",
+"kind": "adhesive",
+"what": "A flexible, waterproof sealant for joints between stone and appliances.",
+"uses": [
+"Sealing countertop seams",
+"Around sinks",
+"Gaps at the house"
+],
+"tip": "Use 100% silicone rated for stone to avoid staining."
+},
 "silicone-spray": {
 "name": "Silicone spray lubricant",
 "kind": "consumable",
@@ -4626,6 +6675,28 @@ TB.ITEMS = {
 "Moving liquids"
 ],
 "tip": "Use a separate pump for fuel only."
+},
+"sledgehammer": {
+"name": "Small sledgehammer",
+"kind": "tool",
+"what": "A short-handled heavy hammer (2–4 lb) for driving stakes and spikes.",
+"uses": [
+"Driving edging spikes",
+"Driving form stakes",
+"Splitting stone with a chisel"
+],
+"tip": "Use a block of wood between the hammer and steel edging to avoid denting it."
+},
+"slide-wire-canopy": {
+"name": "Slide-wire canopy kit",
+"kind": "part",
+"what": "Fabric shade panels that hang from rings and slide open and closed along tensioned cables.",
+"uses": [
+"Pergola shade",
+"Patios",
+"Retractable cover"
+],
+"tip": "Anchor cable ends into solid framing, never into thin slats."
 },
 "slip-joint-pliers": {
 "name": "Slip-joint pliers",
@@ -4721,6 +6792,17 @@ TB.ITEMS = {
 ],
 "tip": "A 3/8″-drive set with SAE and metric sockets covers most home jobs."
 },
+"sod-cutter": {
+"name": "Sod cutter",
+"kind": "power-tool",
+"what": "A rental machine that slices sod off at an even depth in long strips.",
+"uses": [
+"Removing lawn for patios and decks",
+"Clearing large areas quickly",
+"Lifting sod to reuse elsewhere"
+],
+"tip": "Water the lawn lightly a day before; slightly moist soil cuts cleanly."
+},
 "sod-cutter-spade": {
 "name": "Flat spade",
 "kind": "tool",
@@ -4754,6 +6836,39 @@ TB.ITEMS = {
 ],
 "tip": "Keep soles clean of dirt and sawdust; a little grit makes shingles slippery."
 },
+"soil-moisture-sensor": {
+"name": "Soil moisture sensor",
+"kind": "part",
+"what": "A probe that reads soil moisture, often reporting to an app or controller.",
+"uses": [
+"Watering by need",
+"Skipping rain days",
+"Monitoring beds"
+],
+"tip": "Bury the probe in the root zone, not at the surface."
+},
+"solar-path-light": {
+"name": "Solar stake lights",
+"kind": "part",
+"what": "Self-contained stake lights with a solar panel, battery and LED; no wiring required.",
+"uses": [
+"Path edges",
+"Garden accents",
+"Fire pit borders"
+],
+"tip": "Put them where the panel gets 6+ hours of direct sun or they'll fade early."
+},
+"solar-post-cap": {
+"name": "Solar post caps",
+"kind": "part",
+"what": "Lights that slip over the top of a post and charge from a small built-in solar panel; no wiring needed.",
+"uses": [
+"Raised bed corner posts",
+"Fence and deck posts",
+"Path markers"
+],
+"tip": "Measure the post's actual size (a 4×4 is 3½″ square) and buy caps to match."
+},
 "soundbar": {
 "name": "Soundbar",
 "kind": "part",
@@ -4784,6 +6899,17 @@ TB.ITEMS = {
 ],
 "tip": "Choose one with tip-over and overheat shutoff, and never leave it running unattended."
 },
+"spacer": {
+"name": "Board spacers",
+"kind": "tool",
+"what": "Small blocks or purpose-made spacers that keep gaps between boards consistent.",
+"uses": [
+"Deck board gaps",
+"Screen slat gaps",
+"Planter bottom slats"
+],
+"tip": "Rip a few spacers from scrap to the exact gap; a 16d nail works for ⅛″ deck gaps."
+},
 "spackle": {
 "name": "Spackling compound",
 "kind": "material",
@@ -4793,6 +6919,17 @@ TB.ITEMS = {
 "Patching small dings"
 ],
 "tip": "Lightweight spackle dries fast and barely shrinks; dab it on, scrape flush and sand lightly."
+},
+"spade-bit": {
+"name": "Spade bit",
+"kind": "consumable",
+"what": "A flat paddle-shaped bit that bores larger holes in wood quickly.",
+"uses": [
+"Jigsaw starter holes",
+"Bolt access holes",
+"Wire holes"
+],
+"tip": "Drill until the tip pokes through, then finish from the other side to avoid blowout."
 },
 "spade-connector": {
 "name": "High-temperature spade terminal",
@@ -4832,6 +6969,17 @@ TB.ITEMS = {
 ],
 "tip": "Most mowers use 13/16″ or ⅝″; check before buying."
 },
+"spark-screen": {
+"name": "Spark screen",
+"kind": "part",
+"what": "A domed mesh cover that sits over a fire to contain sparks and embers.",
+"uses": [
+"Wood-burning fire pits",
+"Windy days",
+"Kids around"
+],
+"tip": "Measure the ring's inside diameter and buy a screen that sits inside the lip."
+},
 "spark-tester": {
 "name": "Inline spark tester",
 "kind": "measure",
@@ -4842,16 +6990,38 @@ TB.ITEMS = {
 ],
 "tip": "Watch for a bright blue flash when pulling the cord."
 },
+"speaker-bracket": {
+"name": "Speaker bracket",
+"kind": "part",
+"what": "A wall or post mount that holds a speaker at an aimed angle.",
+"uses": [
+"Outdoor speakers",
+"Patios",
+"Screens"
+],
+"tip": "Check the bracket's weight rating and mount into solid framing."
+},
+"speaker-wire": {
+"name": "Direct-burial speaker wire",
+"kind": "material",
+"what": "Speaker cable with a jacket rated for burial and outdoor exposure.",
+"uses": [
+"Outdoor speakers",
+"Landscape audio",
+"Patio sound"
+],
+"tip": "Use 14 AWG for runs over about 50 ft."
+},
 "speed-square": {
 "name": "Speed square",
 "kind": "measure",
-"what": "A triangular aluminum square for marking square and angled cuts.",
+"what": "A triangular metal square for marking square and angled cuts on lumber.",
 "uses": [
-"Marking square cuts",
+"Marking 90° and 45° cuts",
 "Guiding a circular saw",
-"Checking angles"
+"Laying out rafter tails and braces"
 ],
-"tip": "Hold it against the board edge as a saw fence for dead-square cuts."
+"tip": "Hold it against the board edge as a saw fence for dead-square crosscuts."
 },
 "speed-test-app": {
 "name": "Speed test app",
@@ -4885,14 +7055,15 @@ TB.ITEMS = {
 "tip": "Use the convex wheel to crease the mesh in, then the concave wheel to push the spline down."
 },
 "sponge": {
-"name": "Sponge",
+"name": "Grout sponge",
 "kind": "consumable",
-"what": "An absorbent pad for soaking up water.",
+"what": "A dense sponge for wiping mortar haze and cleaning stone faces.",
 "uses": [
-"Draining tanks",
-"Cleaning"
+"Cleaning mortar smears",
+"Wiping stone",
+"Final cleanup"
 ],
-"tip": "Keep one just for toilet work."
+"tip": "Wring it nearly dry; a wet sponge pulls mortar out of joints."
 },
 "spore-syringe": {
 "name": "Spore syringe or liquid culture",
@@ -4937,6 +7108,17 @@ TB.ITEMS = {
 ],
 "tip": "A few 2″ clamps cover most light-duty jobs."
 },
+"spring-clip": {
+"name": "Spring clips",
+"kind": "part",
+"what": "Snap-on clips that grip row cover fabric to garden hoops.",
+"uses": [
+"Securing frost cloth",
+"Netting",
+"Shade cloth"
+],
+"tip": "Buy clips sized to your hoop's outside diameter or they'll pop off in wind."
+},
 "sprinkler-head": {
 "name": "Replacement sprinkler head",
 "kind": "part",
@@ -4956,6 +7138,17 @@ TB.ITEMS = {
 "Replacing clogged nozzles"
 ],
 "tip": "Match nozzle precipitation rates on each zone."
+},
+"square-shovel": {
+"name": "Square shovel",
+"kind": "tool",
+"what": "A flat, square-edged shovel for scooping loose material and shaping flat bottoms in an excavation.",
+"uses": [
+"Moving gravel, sand and mulch",
+"Flattening the bottom of a dig",
+"Spreading base material"
+],
+"tip": "Use it to shave the floor of an excavation flat after the round-point shovel does the rough digging."
 },
 "squeak-repair-kit": {
 "name": "Floor squeak repair kit",
@@ -4978,6 +7171,17 @@ TB.ITEMS = {
 ],
 "tip": "Pull it at a low angle with steady pressure."
 },
+"stain": {
+"name": "Penetrating oil stain",
+"kind": "consumable",
+"what": "An exterior oil-based or water-based stain that soaks into wood to protect it from sun and moisture.",
+"uses": [
+"Pergolas and decks",
+"Fences and screens",
+"Planters"
+],
+"tip": "Sprinkle water on the wood first; if it beads up, wait longer before staining."
+},
 "stain-pad": {
 "name": "Stain applicator pad",
 "kind": "tool",
@@ -4989,6 +7193,28 @@ TB.ITEMS = {
 ],
 "tip": "Work two or three full boards at a time to avoid lap marks."
 },
+"stainless-cable": {
+"name": "Stainless cable",
+"kind": "material",
+"what": "Corrosion-resistant stainless steel wire rope.",
+"uses": [
+"Canopy wires",
+"Vine trellises",
+"Cable rails"
+],
+"tip": "Choose 316 stainless near salt water; 304 is fine inland."
+},
+"stake": {
+"name": "Wood stakes",
+"kind": "material",
+"what": "Pointed wooden stakes driven into the ground to anchor layout lines and mark corners.",
+"uses": [
+"Holding mason line",
+"Marking corners and post centers",
+"Bracing posts temporarily"
+],
+"tip": "Set stakes a couple of feet outside the work area so they don't get knocked out while digging."
+},
 "stake-mallet": {
 "name": "Stake mallet",
 "kind": "tool",
@@ -4999,6 +7225,50 @@ TB.ITEMS = {
 "Light camp hammering"
 ],
 "tip": "A flat rock works in a pinch; a mallet with a hook saves your fingers when pulling."
+},
+"staple-gun": {
+"name": "Heavy-duty staple gun",
+"kind": "tool",
+"what": "A hand stapler that drives steel staples into wood.",
+"uses": [
+"Fastening hardware cloth",
+"Lining planters with fabric",
+"Attaching mesh and screens"
+],
+"tip": "Use galvanized or stainless staples outdoors so they don't rust out."
+},
+"staples": {
+"name": "Galvanized staples",
+"kind": "fastener",
+"what": "Rust-resistant staples for a staple gun.",
+"uses": [
+"Attaching fabric and mesh",
+"Securing hardware cloth",
+"Light outdoor fastening"
+],
+"tip": "Use the longest staple your gun accepts for mesh into cedar."
+},
+"steel-edging": {
+"name": "Steel landscape edging",
+"kind": "part",
+"what": "Rolled-edge steel strips staked in the ground for crisp borders around gravel and beds.",
+"uses": [
+"Gravel areas",
+"Bed borders",
+"Curved edges"
+],
+"tip": "Pre-bend long strips into the curve before staking so they don't kink."
+},
+"steel-post": {
+"name": "Steel posts",
+"kind": "material",
+"what": "Galvanized steel pipe posts set in concrete to support netting or fencing.",
+"uses": [
+"Ball-stop netting",
+"Fences",
+"Shade sails"
+],
+"tip": "Netting catches wind like a sail; set posts deeper and in larger footings than a normal fence."
 },
 "steel-wool": {
 "name": "Steel wool",
@@ -5053,6 +7323,28 @@ TB.ITEMS = {
 ],
 "tip": "An electric kettle makes several batches of boiling water quickly and safely."
 },
+"stone-veneer": {
+"name": "Stone veneer",
+"kind": "material",
+"what": "Thin natural or manufactured stone pieces that adhere to walls with mortar.",
+"uses": [
+"Grill islands",
+"Fire features",
+"Wall facing"
+],
+"tip": "Order flats by the square foot and corners by the linear foot; lay out pieces before mixing mortar."
+},
+"storage-drawer": {
+"name": "Stainless drawer unit",
+"kind": "part",
+"what": "A stainless drawer set for built-in storage.",
+"uses": [
+"Tool storage",
+"Utensils",
+"Trash pull-out"
+],
+"tip": "Check the depth fits inside the block shell."
+},
 "strap-clamp": {
 "name": "Strap clamp",
 "kind": "tool",
@@ -5063,6 +7355,17 @@ TB.ITEMS = {
 ],
 "tip": "Put cardboard or rags at the corners so the strap doesn't dent the wood."
 },
+"streaming-amplifier": {
+"name": "Streaming amplifier",
+"kind": "part",
+"what": "A compact amplifier with built-in Wi-Fi or Bluetooth streaming that powers passive speakers.",
+"uses": [
+"Outdoor speakers",
+"Audio zones",
+"Patios"
+],
+"tip": "Keep it indoors or in a ventilated weatherproof enclosure."
+},
 "streaming-device": {
 "name": "Streaming device",
 "kind": "part",
@@ -5072,6 +7375,17 @@ TB.ITEMS = {
 "Smart features for older TVs"
 ],
 "tip": "A stick can hide behind the TV; use a short HDMI extender if the port is tight."
+},
+"string-lights": {
+"name": "Commercial-grade LED string lights",
+"kind": "part",
+"what": "Heavy-duty outdoor string lights with molded sockets and shatterproof LED bulbs.",
+"uses": [
+"Patios and fire pits",
+"Pergolas",
+"Decks"
+],
+"tip": "Support long spans on a steel guide wire so the light cord isn't carrying its own weight."
 },
 "structural-screw": {
 "name": "Structural screw",
@@ -5095,6 +7409,17 @@ TB.ITEMS = {
 ],
 "tip": "Scan from both directions and mark each edge; the stud center is halfway between. Confirm with a small nail where it will be hidden."
 },
+"surface-bonding-cement": {
+"name": "Concrete finish coat",
+"kind": "material",
+"what": "A fiber-reinforced cement coating troweled over block or cement board for a smooth concrete look.",
+"uses": [
+"Fire table surrounds",
+"Block walls",
+"Planters"
+],
+"tip": "Mist the surface before troweling so it doesn't dry too fast."
+},
 "table-lamp": {
 "name": "Lamp (outlet tester)",
 "kind": "tool",
@@ -5104,6 +7429,17 @@ TB.ITEMS = {
 "Confirming a breaker is on"
 ],
 "tip": "A plug-in outlet tester also shows wiring faults like open ground."
+},
+"tack-cloth": {
+"name": "Tack cloth",
+"kind": "consumable",
+"what": "A slightly sticky cloth that lifts fine dust off wood right before finishing.",
+"uses": [
+"Before priming",
+"Between finish coats",
+"Final wipe"
+],
+"tip": "Wipe lightly; pressing hard can leave residue that water-based finishes dislike."
 },
 "tamper": {
 "name": "Tamper",
@@ -5151,14 +7487,14 @@ TB.ITEMS = {
 },
 "tarp": {
 "name": "Tarp",
-"kind": "consumable",
-"what": "A waterproof sheet for covering or collecting debris.",
+"kind": "tool",
+"what": "A heavy plastic sheet to pile excavated soil on and protect lawns and surfaces.",
 "uses": [
-"Catching gutter debris",
-"Protecting plants",
-"Holding dug soil and sod"
+"Holding dug soil to keep grass clean",
+"Covering materials from rain",
+"Hauling sod"
 ],
-"tip": "Lay one under your work so cleanup is just folding it up."
+"tip": "Piling spoil on a tarp makes backfilling and cleanup much faster."
 },
 "teflon-hose-washer": {
 "name": "Hose washer",
@@ -5181,6 +7517,28 @@ TB.ITEMS = {
 "Watching load temperatures"
 ],
 "tip": "Note idle and full-load readings under the same conditions so your comparison is fair."
+},
+"temporary-brace": {
+"name": "Temporary braces",
+"kind": "material",
+"what": "2×4s and stakes used to hold posts plumb until concrete sets or framing ties them in.",
+"uses": [
+"Plumbing posts",
+"Holding forms",
+"Supporting beams"
+],
+"tip": "Brace each post on two adjacent sides."
+},
+"tension-cable": {
+"name": "Top tension cable",
+"kind": "material",
+"what": "Galvanized or stainless steel cable strung along the top of netting to hold it up.",
+"uses": [
+"Supporting netting",
+"Fences",
+"Shade structures"
+],
+"tip": "Tension it with turnbuckles and use cable clamps with the saddle on the live end."
 },
 "tent": {
 "name": "Dome tent",
@@ -5291,6 +7649,39 @@ TB.ITEMS = {
 ],
 "tip": "A 3-way has no ON/OFF printed on the toggle; if you see that, you bought a single-pole."
 },
+"through-bolt": {
+"name": "Through-bolt",
+"kind": "fastener",
+"what": "A hex bolt with washers and a nut that passes completely through the parts it joins, clamping them together.",
+"uses": [
+"Screen posts to deck framing",
+"Railing posts",
+"Heavy brackets"
+],
+"tip": "Drill the hole the same diameter as the bolt so it fits snugly; oversize holes let the joint wobble."
+},
+"tie-wire": {
+"name": "Rebar tie wire",
+"kind": "consumable",
+"what": "Soft steel wire for tying rebar intersections.",
+"uses": [
+"Tying rebar grids",
+"Securing to chairs",
+"Tying anchors"
+],
+"tip": "Buy a reel that fits your tie tool or hook."
+},
+"tin-snips": {
+"name": "Tin snips",
+"kind": "tool",
+"what": "Heavy scissors for cutting sheet metal and wire mesh.",
+"uses": [
+"Cutting hardware cloth",
+"Trimming metal flashing",
+"Cutting steel edging tabs"
+],
+"tip": "Wear gloves; cut hardware cloth leaves sharp wire ends."
+},
 "tinder": {
 "name": "Tinder",
 "kind": "material",
@@ -5384,6 +7775,17 @@ TB.ITEMS = {
 ],
 "tip": "Glue several in, let dry, snap off flush, then redrive the screw."
 },
+"topsoil": {
+"name": "Screened topsoil",
+"kind": "material",
+"what": "Screened native soil used as the bulk of a raised bed mix.",
+"uses": [
+"Filling raised beds",
+"Backfill",
+"Lawn repair"
+],
+"tip": "Buy screened bulk topsoil by the yard for beds over 1 yd³; it's far cheaper than bags."
+},
 "torch-lighter": {
 "name": "Butane torch lighter",
 "kind": "tool",
@@ -5437,6 +7839,17 @@ TB.ITEMS = {
 "Adding greenery"
 ],
 "tip": "Use pots with a liner or saucer so water never sits on the wood shelf."
+},
+"transformer-smart-module": {
+"name": "Transformer smart module",
+"kind": "part",
+"what": "An add-on module or Wi-Fi outlet that lets you switch and schedule landscape lights from a phone app.",
+"uses": [
+"App control of lights",
+"Sunset/sunrise schedules",
+"Lighting zones"
+],
+"tip": "Check it's made for your transformer brand; otherwise a weatherproof smart plug does the same job."
 },
 "trash-bag": {
 "name": "Trash bag",
@@ -5514,6 +7927,28 @@ TB.ITEMS = {
 ],
 "tip": "Check the TV's VESA pattern and weight against the mount's rating, and confirm the plate spans two studs."
 },
+"uf-cable": {
+"name": "UF cable",
+"kind": "material",
+"what": "Underground feeder cable rated for direct burial and wet locations.",
+"uses": [
+"Pergola power",
+"Outdoor outlets",
+"Lamp posts"
+],
+"tip": "Burial depth depends on GFCI protection and conduit; check local code or hire an electrician."
+},
+"umbrella-base-weight": {
+"name": "Umbrella base weights",
+"kind": "part",
+"what": "Heavy plates or fillable bases that anchor an umbrella.",
+"uses": [
+"Cantilever umbrellas",
+"Market umbrellas",
+"Shade sails"
+],
+"tip": "Check the umbrella maker's required total weight, often 200+ lb for cantilevers."
+},
 "universal-remote": {
 "name": "Universal remote",
 "kind": "part",
@@ -5526,14 +7961,13 @@ TB.ITEMS = {
 "utility-knife": {
 "name": "Utility knife",
 "kind": "tool",
-"what": "A handheld knife with replaceable, snap-off or swap-out razor blades.",
+"what": "A retractable razor knife for cutting fabric, cardboard, vinyl and cable jackets.",
 "uses": [
-"Cutting drywall paper and caulk",
-"Trimming screen mesh",
-"Scoring paint lines",
-"Opening packaging"
+"Cutting landscape fabric",
+"Trimming vinyl wraps",
+"Opening bags and scoring"
 ],
-"tip": "Change blades often; a dull blade tears drywall paper and screen instead of cutting cleanly."
+"tip": "Snap or swap blades often; a dull blade tears fabric and slips."
 },
 "vacuum": {
 "name": "Vacuum with hose attachment",
@@ -5566,6 +8000,17 @@ TB.ITEMS = {
 ],
 "tip": "Avoid hoods with screens; screens trap lint and clog. Use a flap or louvered style."
 },
+"vent-panel": {
+"name": "Vent panels",
+"kind": "part",
+"what": "Louvered stainless or masonry vents that let gas escape and air flow through an enclosure.",
+"uses": [
+"Fire table bases",
+"Grill islands",
+"Propane tank bays"
+],
+"tip": "Install at least two on opposite sides, low for propane, which sinks."
+},
 "venturi-brush": {
 "name": "Venturi brush",
 "kind": "tool",
@@ -5588,6 +8033,17 @@ TB.ITEMS = {
 ],
 "tip": "Use medium or fine horticultural grade and wear a mask when pouring the dry dust."
 },
+"vine-wire": {
+"name": "Vine wire",
+"kind": "material",
+"what": "Coated or stainless wire stretched between eye screws to guide climbing plants.",
+"uses": [
+"Training vines",
+"Trellises",
+"Espalier"
+],
+"tip": "Hold wire 2″ off the wood so air flows and vines can wrap."
+},
 "vinegar": {
 "name": "White vinegar",
 "kind": "consumable",
@@ -5597,6 +8053,28 @@ TB.ITEMS = {
 "Running a dishwasher cleaning cycle"
 ],
 "tip": "Don't mix vinegar and bleach."
+},
+"vinyl-wrap": {
+"name": "Printed vinyl wrap",
+"kind": "material",
+"what": "Adhesive printed vinyl sheets sized for board tops.",
+"uses": [
+"Custom cornhole graphics",
+"Signs",
+"Decals"
+],
+"tip": "Apply to a clean, fully cured surface and squeegee from the center out."
+},
+"wall-cap": {
+"name": "Wall cap",
+"kind": "material",
+"what": "Flat concrete or stone caps that finish the top of a block wall or fire pit.",
+"uses": [
+"Fire pit tops",
+"Seat wall tops",
+"Planter walls"
+],
+"tip": "Glue caps with a slight overhang and cut wedge joints for a clean circle."
 },
 "wall-plate": {
 "name": "Thermostat wall plate",
@@ -5673,6 +8151,17 @@ TB.ITEMS = {
 ],
 "tip": "If the reset trips again shortly after pressing it, test the thermostats and elements before replacing anything."
 },
+"water-supply-line": {
+"name": "Water supply line",
+"kind": "material",
+"what": "Pipe or tubing that brings water to an outdoor sink.",
+"uses": [
+"Outdoor sinks",
+"Hose bibs",
+"Irrigation"
+],
+"tip": "Include a shutoff and a drain valve at the low point for winterizing."
+},
 "watering-can": {
 "name": "Watering can",
 "kind": "tool",
@@ -5684,6 +8173,17 @@ TB.ITEMS = {
 ],
 "tip": "A long thin spout lets you water around the stem without splashing leaves."
 },
+"waterproof-wire-connector": {
+"name": "Waterproof wire connectors",
+"kind": "part",
+"what": "Gel-filled or direct-burial-rated connectors that keep low-voltage splices dry.",
+"uses": [
+"Splicing cable",
+"Connecting fixture leads",
+"Repairs"
+],
+"tip": "Pinch-style connectors can loosen over time; gel-filled splices last much longer underground."
+},
 "wax-ring": {
 "name": "Wax ring",
 "kind": "part",
@@ -5693,6 +8193,17 @@ TB.ITEMS = {
 "Stopping leaks at the toilet base"
 ],
 "tip": "Use extra-thick for recessed flanges."
+},
+"weatherproof-box": {
+"name": "Weatherproof box and cover",
+"kind": "part",
+"what": "An outdoor-rated electrical box with a gasketed cover that keeps water out of wiring connections.",
+"uses": [
+"Mounting outdoor fixtures",
+"Outdoor outlets",
+"Junction splices"
+],
+"tip": "Mount with any unused openings plugged and drain holes facing down."
 },
 "weed-puller": {
 "name": "Crack weeder",
@@ -5715,6 +8226,28 @@ TB.ITEMS = {
 "Shop and garage cleanup"
 ],
 "tip": "Remove or swap the paper filter for a foam sleeve before vacuuming water."
+},
+"wet-rated-ceiling-fan": {
+"name": "Wet-rated ceiling fan",
+"kind": "part",
+"what": "A ceiling fan listed for direct exposure to rain, required under open pergolas.",
+"uses": [
+"Pergolas",
+"Open porches",
+"Gazebos"
+],
+"tip": "Damp-rated fans are only for covered porches; an open pergola needs a wet rating."
+},
+"wet-saw": {
+"name": "Masonry wet saw",
+"kind": "power-tool",
+"what": "A water-cooled diamond-blade saw for cutting stone, pavers and block; usually rented.",
+"uses": [
+"Cutting pavers and caps",
+"Trimming flagstone",
+"Cutting block and veneer"
+],
+"tip": "Water keeps the toxic silica dust down; never dry-cut masonry indoors or without a respirator."
 },
 "wheel-chock": {
 "name": "Wheel chock",
@@ -5739,13 +8272,13 @@ TB.ITEMS = {
 "wheelbarrow": {
 "name": "Wheelbarrow",
 "kind": "tool",
-"what": "A one-wheeled cart for moving soil, gravel and concrete.",
+"what": "A one- or two-wheeled cart for moving heavy loads of soil, gravel, concrete or blocks.",
 "uses": [
-"Hauling soil",
-"Carrying bags",
-"Mixing concrete"
+"Hauling gravel, sand and soil",
+"Mixing small batches of concrete",
+"Moving blocks and stone"
 ],
-"tip": "Keep tires inflated; a flat-free tire is worth it."
+"tip": "A two-wheel model is far more stable with wet concrete or heavy stone on uneven ground."
 },
 "whisk-broom": {
 "name": "Whisk broom",
@@ -5768,6 +8301,17 @@ TB.ITEMS = {
 "Checking signal by room"
 ],
 "tip": "On 2.4 GHz stick to channels 1, 6 or 11 to avoid overlapping interference."
+},
+"wifi-extender": {
+"name": "Outdoor Wi-Fi extender",
+"kind": "part",
+"what": "A weather-rated access point or mesh node that carries home Wi-Fi out into the yard.",
+"uses": [
+"Courts and patios",
+"Outdoor cameras",
+"Smart lighting"
+],
+"tip": "Place it with a clear line of sight to the area; walls and trees cut range sharply."
 },
 "wiper-blade": {
 "name": "Wiper blade",
@@ -5810,6 +8354,17 @@ TB.ITEMS = {
 "Labeling network cables"
 ],
 "tip": "Many new thermostats include a sheet of labels; masking tape and a marker work too."
+},
+"wire-mesh": {
+"name": "Welded wire mesh",
+"kind": "material",
+"what": "Sheets of welded steel wire that reinforce slabs.",
+"uses": [
+"Slab reinforcement",
+"Patios",
+"Walkways"
+],
+"tip": "Buy flat sheets rather than rolls; rolls fight you trying to lie flat."
 },
 "wire-nut": {
 "name": "Twist-on wire connector (wire nut)",
@@ -5920,6 +8475,17 @@ TB.ITEMS = {
 "Holding forms"
 ],
 "tip": "Drive stakes a foot or more into firm soil."
+},
+"work-boots": {
+"name": "Work boots",
+"kind": "safety",
+"what": "Sturdy boots, ideally steel- or composite-toe, protecting feet from dropped block and tools.",
+"uses": [
+"Hauling block and stone",
+"Running a compactor",
+"Concrete pours"
+],
+"tip": "Rubber boots are better for wading in wet concrete; cement soaks through leather."
 },
 "work-gloves": {
 "name": "Work gloves",
@@ -12699,6 +15265,3579 @@ TB.KITS = {
 "https://school.sprinklerwarehouse.com/sprinkler_rotors/how-to-replace-a-pop-up-irrigation-spray-head/",
 "https://www.rainbird.com/homeowners/blog/3-Simple-Repairs-and-Upgrades-for-Your-Pop-Up-Sprinklers",
 "https://irrigationrepair.com/how_to_replace_pop_up_spray_head.html"
+]
+},
+"fire-pit": {
+"items": [
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "25 ft",
+"kind": "measure"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "1 can, inverted-tip",
+"kind": "consumable"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "1 center stake + 4 for pad layout",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "String tied at 22″ radius (pit) and 6 ft radius (pad)",
+"kind": "measure"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "Round-point",
+"kind": "tool"
+},
+{
+"key": "square-shovel",
+"name": "Square shovel",
+"spec": "For flat-bottomed excavation",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tarp",
+"name": "Tarp",
+"spec": "For dug soil",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Landscape rake",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hand-tamper",
+"name": "Hand tamper",
+"spec": "8×8″ or 10×10″ head",
+"kind": "tool"
+},
+{
+"key": "plate-compactor",
+"name": "Plate compactor",
+"spec": "Rental; recommended for the 12 ft pad",
+"kind": "power-tool"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose with spray nozzle",
+"spec": "For dampening base and misting joint sand",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "rubber-mallet",
+"name": "Rubber mallet",
+"spec": "Or dead-blow hammer",
+"kind": "tool"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "masonry-chisel",
+"name": "Masonry chisel (brick set)",
+"spec": "For cutting pavers at the pit edge",
+"kind": "tool"
+},
+{
+"key": "wet-saw",
+"name": "Masonry wet saw",
+"spec": "Rental, or angle grinder with diamond blade, for paver cuts",
+"kind": "power-tool"
+},
+{
+"key": "crushed-gravel",
+"name": "¾″ gravel / paver base for pit footing",
+"spec": "≈0.5 yd³ (about ¾ ton), 4–6″ deep",
+"kind": "material"
+},
+{
+"key": "retaining-wall-block",
+"name": "Retaining-wall block",
+"spec": "36 for 3 courses, plus 2–3 spares",
+"kind": "material"
+},
+{
+"key": "wall-cap",
+"name": "Wall cap",
+"spec": "12",
+"kind": "material"
+},
+{
+"key": "masonry-adhesive",
+"name": "Masonry adhesive",
+"spec": "3–4 tubes (10 oz), outdoor/high-heat rated",
+"kind": "adhesive"
+},
+{
+"key": "fire-ring-insert",
+"name": "Steel fire ring insert",
+"spec": "36–40″ steel, 2–4″ smaller than block interior",
+"kind": "part"
+},
+{
+"key": "lava-rock",
+"name": "Lava rock or gravel (pit floor)",
+"spec": "3–4″ layer, about 1–2 cu ft",
+"kind": "material"
+},
+{
+"key": "paver-base",
+"name": "Paver base for seating pad",
+"spec": "4″ over the 12 ft circle: ≈1.5 yd³ (about 2 tons)",
+"kind": "material"
+},
+{
+"key": "concrete-sand",
+"name": "Concrete (bedding) sand",
+"spec": "1″ bed: ≈0.4 yd³ (about ½ ton)",
+"kind": "material"
+},
+{
+"key": "screed-rail",
+"name": "Screed rails (1″ pipe)",
+"spec": "Two 1″ OD pipes",
+"kind": "tool"
+},
+{
+"key": "screed-board",
+"name": "Screed board",
+"spec": "Straight 2×4, 8 ft",
+"kind": "tool"
+},
+{
+"key": "paver",
+"name": "Concrete pavers",
+"spec": "≈115 sq ft (105 sq ft pad + 10%)",
+"kind": "material"
+},
+{
+"key": "edge-restraint",
+"name": "Flexible paver edging",
+"spec": "≈40 ft for 12 ft circle",
+"kind": "part"
+},
+{
+"key": "edging-spike",
+"name": "Edging spikes",
+"spec": "10″, about 40 (every 12″)",
+"kind": "fastener"
+},
+{
+"key": "polymeric-sand",
+"name": "Polymeric sand",
+"spec": "2–3 bags (50 lb)",
+"kind": "material"
+},
+{
+"key": "push-broom",
+"name": "Push broom",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "leaf-blower",
+"name": "Leaf blower",
+"spec": "Optional, for clearing sand off paver faces",
+"kind": "power-tool"
+},
+{
+"key": "outdoor-chair",
+"name": "Seating",
+"spec": "4–6 chairs set about 7 ft from center",
+"kind": "part"
+},
+{
+"key": "fire-extinguisher",
+"name": "Fire extinguisher",
+"spec": "Or charged garden hose on hand",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "For compactor and saw",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "N95 when cutting pavers or block",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Clean dust off each block with a broom before gluing; masonry adhesive bonds poorly to dusty surfaces. Apply four quarter-size dabs per block rather than one bead, and give it about 2 days before the first fire.",
+"Make the inside of the block ring 2–4″ wider than the steel insert. The air gap keeps direct heat off the concrete blocks, which can crack or spall when flames touch them.",
+"Use lava rock or gravel in the bottom, never river rock: smooth, dense stones that hold moisture can crack or pop when heated."
+],
+"sources": [
+"https://westerninterlock.com/wp-content/uploads/2018/05/Fire-Pit-Installation-6-Step_WEB.pdf",
+"https://www.bobvila.com/articles/build-a-fire-pit/",
+"https://www.remodelaholic.com/diy-retaining-wall-block-fire-pit/",
+"https://www.uni-groupusa.org/PDF/Tech_Spec_9_Guide_Spec_for_ICP.pdf"
+]
+},
+"fire-pit@starter": {
+"items": [
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "25 ft",
+"kind": "measure"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "1 center stake",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "Tied at a 6 ft radius",
+"kind": "measure"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "1 can",
+"kind": "consumable"
+},
+{
+"key": "flat-spade",
+"name": "Flat spade",
+"spec": "For slicing sod",
+"kind": "tool"
+},
+{
+"key": "square-shovel",
+"name": "Square shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tarp",
+"name": "Tarp",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Landscape rake",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hand-tamper",
+"name": "Hand tamper",
+"spec": "Firm the soil before fabric",
+"kind": "tool"
+},
+{
+"key": "landscape-fabric",
+"name": "Landscape fabric",
+"spec": "Commercial-grade, ≈150 sq ft (e.g., 4×50 ft roll) with 6″ overlaps",
+"kind": "material"
+},
+{
+"key": "landscape-fabric-staple",
+"name": "Landscape fabric staples",
+"spec": "About 40, every 1–2 ft",
+"kind": "fastener"
+},
+{
+"key": "steel-edging",
+"name": "Steel landscape edging",
+"spec": "≈38 ft plus stakes supplied",
+"kind": "part"
+},
+{
+"key": "rubber-mallet",
+"name": "Rubber mallet",
+"spec": "Plus a wood block to protect edging",
+"kind": "tool"
+},
+{
+"key": "sledgehammer",
+"name": "Small sledgehammer",
+"spec": "2–3 lb, for driving edging stakes",
+"kind": "tool"
+},
+{
+"key": "pea-gravel",
+"name": "Pea gravel",
+"spec": "≈1.5 yd³ for 2–3″ deep",
+"kind": "material"
+},
+{
+"key": "fire-ring-insert",
+"name": "Steel fire ring",
+"spec": "36″",
+"kind": "part"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "To settle the ring level",
+"kind": "measure"
+},
+{
+"key": "outdoor-chair",
+"name": "Seating",
+"spec": "4–6 chairs about 7 ft from center",
+"kind": "part"
+},
+{
+"key": "fire-extinguisher",
+"name": "Fire extinguisher",
+"spec": "Or charged garden hose",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Gently pre-bend steel edging into the curve before staking, and strike the stakes through a scrap block so the steel doesn't kink or get gouged.",
+"Pull the fabric tight and pin it every 1–2 ft; pea gravel sliding under loose fabric is what makes these areas look messy after a season.",
+"Set the ring on a few inches of compacted gravel or paver base instead of directly on pea gravel so it doesn't rock or sink."
+],
+"sources": [
+"https://www.homedepot.com/c/ap/how-to-build-a-diy-fire-pit-with-a-seating-area/9ba683603be9fa5395fab90191f5e713",
+"https://julieblanner.com/diy-fire-pit-patio/",
+"https://hellogravel.com/guides/pea-gravel-fire-pit-area-safety-best-gravel-types-step-by-step-diy-guide/"
+]
+},
+"fire-pit@showpiece": {
+"items": [
+{
+"key": "tape-measure",
+"name": "100 ft open-reel tape",
+"spec": "Plus a 25 ft tape",
+"kind": "measure"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "2–3 cans",
+"kind": "consumable"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "About 12",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "line-level",
+"name": "Line level",
+"spec": "To set the ⅛″/ft slope",
+"kind": "measure"
+},
+{
+"key": "laser-level",
+"name": "Laser level",
+"spec": "Rental, optional for grading 300+ sq ft",
+"kind": "measure"
+},
+{
+"key": "mini-skid-steer",
+"name": "Mini skid steer",
+"spec": "Rental, or shovels and helpers",
+"kind": "power-tool"
+},
+{
+"key": "sod-cutter",
+"name": "Sod cutter",
+"spec": "Rental",
+"kind": "power-tool"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "square-shovel",
+"name": "Square shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "Two-wheel",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Landscape rake",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "plate-compactor",
+"name": "Plate compactor",
+"spec": "Rental, reversible or 5,000+ lbf",
+"kind": "power-tool"
+},
+{
+"key": "hand-tamper",
+"name": "Hand tamper",
+"spec": "For edges and wall trench",
+"kind": "tool"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose with spray nozzle",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "geotextile-fabric",
+"name": "Woven geotextile",
+"spec": "≈350 sq ft if soil is clay or wet",
+"kind": "material"
+},
+{
+"key": "paver-base",
+"name": "Paver base (crushed gravel)",
+"spec": "4″ over a 20 ft circle: ≈4 yd³ (about 5.5 tons)",
+"kind": "material"
+},
+{
+"key": "concrete-sand",
+"name": "Concrete (bedding) sand",
+"spec": "1″ under flagstone: ≈1 yd³ (about 1.4 tons)",
+"kind": "material"
+},
+{
+"key": "screed-rail",
+"name": "Screed rails (1″ pipe)",
+"spec": "Two 1″ pipes",
+"kind": "tool"
+},
+{
+"key": "screed-board",
+"name": "Screed board",
+"spec": "Straight 2×4, 8–10 ft",
+"kind": "tool"
+},
+{
+"key": "retaining-wall-block",
+"name": "Retaining-wall block (seat wall + pit)",
+"spec": "About 48 for a 24 ft, 2-course seat wall + 36 for the pit",
+"kind": "material"
+},
+{
+"key": "wall-cap",
+"name": "Wall cap",
+"spec": "About 24 for the wall + 12 for the pit",
+"kind": "material"
+},
+{
+"key": "masonry-adhesive",
+"name": "Masonry adhesive",
+"spec": "8–10 tubes",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "rubber-mallet",
+"name": "Rubber mallet",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "fire-ring-insert",
+"name": "Steel fire ring insert",
+"spec": "36–40″",
+"kind": "part"
+},
+{
+"key": "lava-rock",
+"name": "Lava rock",
+"spec": "3–4″ layer in pit",
+"kind": "material"
+},
+{
+"key": "flagstone",
+"name": "Flagstone",
+"spec": "≈300 sq ft (roughly 3 tons at 1½–2″ thick)",
+"kind": "material"
+},
+{
+"key": "polymeric-sand",
+"name": "Polymeric sand (wide-joint)",
+"spec": "About 10–15 bags for ½–1″ joints",
+"kind": "material"
+},
+{
+"key": "push-broom",
+"name": "Push broom",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wet-saw",
+"name": "Masonry wet saw",
+"spec": "Rental, or masonry chisel",
+"kind": "power-tool"
+},
+{
+"key": "masonry-chisel",
+"name": "Masonry chisel (brick set)",
+"spec": "For splitting flagstone and caps",
+"kind": "tool"
+},
+{
+"key": "sledgehammer",
+"name": "Small sledgehammer",
+"spec": "Small, with chisel",
+"kind": "tool"
+},
+{
+"key": "low-voltage-transformer",
+"name": "Low-voltage transformer",
+"spec": "100–150 W with photocell/timer",
+"kind": "part"
+},
+{
+"key": "landscape-lighting-cable",
+"name": "Landscape lighting cable",
+"spec": "12/2, about 100 ft",
+"kind": "material"
+},
+{
+"key": "hardscape-light",
+"name": "Hardscape cap lights",
+"spec": "6–8 under-cap lights",
+"kind": "part"
+},
+{
+"key": "waterproof-wire-connector",
+"name": "Waterproof wire connectors",
+"spec": "1 per fixture",
+"kind": "part"
+},
+{
+"key": "cedar-post",
+"name": "Cedar post",
+"spec": "4×4, 10 ft — qty 4",
+"kind": "material"
+},
+{
+"key": "planter-pot",
+"name": "Large planter",
+"spec": "4 large planters, posts set in concrete inside",
+"kind": "part"
+},
+{
+"key": "concrete-mix",
+"name": "Bagged concrete mix",
+"spec": "About 4 bags (80 lb), one per post",
+"kind": "material"
+},
+{
+"key": "string-lights",
+"name": "Commercial-grade LED string lights",
+"spec": "About 60–80 ft",
+"kind": "part"
+},
+{
+"key": "guide-wire",
+"name": "Steel guide wire",
+"spec": "About 80 ft with clips",
+"kind": "material"
+},
+{
+"key": "turnbuckle",
+"name": "Turnbuckle",
+"spec": "4",
+"kind": "part"
+},
+{
+"key": "cup-hook",
+"name": "Eye screws or hooks",
+"spec": "For guide wire at posts",
+"kind": "fastener"
+},
+{
+"key": "outdoor-cushion",
+"name": "Outdoor cushions",
+"spec": "Seat-wall cushions",
+"kind": "part"
+},
+{
+"key": "fire-extinguisher",
+"name": "Fire extinguisher",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "N95 for cutting stone",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Wire the cap lights and leave a service loop before gluing the caps; once caps are glued you can't reach the cable without breaking them.",
+"Seat walls are most comfortable at about 18–20″ tall including the cap; confirm two courses plus cap of your block gets you there before ordering.",
+"With wide flagstone joints, choose a polymeric sand labeled for wide joints (up to 1″ or more); standard paver poly sand cracks in joints that wide."
+],
+"sources": [
+"https://www.thisoldhouse.com/sidewalks/how-to-lay-a-flagstone-walkway",
+"https://www.uni-groupusa.org/PDF/Tech_Spec_9_Guide_Spec_for_ICP.pdf",
+"https://dauermanufacturing.com/blog/low-voltage-landscape-lighting-voltage-drop",
+"https://westerninterlock.com/installation-guide/modular-retaining-wall-installation/"
+]
+},
+"fire-pit@luxury": {
+"items": [
+{
+"key": "burner-kit",
+"name": "Gas burner kit",
+"spec": "Pan, H-burner, air mixer and flex line, matched to NG or LP and BTU",
+"kind": "part"
+},
+{
+"key": "key-valve",
+"name": "Gas key valve",
+"spec": "With chrome cover plate and key",
+"kind": "part"
+},
+{
+"key": "flex-gas-line",
+"name": "Flexible gas connector",
+"spec": "Supplied/listed with burner",
+"kind": "part"
+},
+{
+"key": "gas-pipe",
+"name": "Gas supply line",
+"spec": "Run by a licensed fitter under permit, 18″ deep, pressure-tested",
+"kind": "material"
+},
+{
+"key": "pipe-thread-sealant",
+"name": "Gas-rated thread sealant",
+"spec": "Gas-rated yellow PTFE tape or pipe dope",
+"kind": "consumable"
+},
+{
+"key": "pipe-wrench",
+"name": "Pipe wrenches",
+"spec": "Two (fitter)",
+"kind": "tool"
+},
+{
+"key": "leak-detection-solution",
+"name": "Leak-detection solution",
+"spec": "Soapy water",
+"kind": "consumable"
+},
+{
+"key": "spray-bottle",
+"name": "Spray bottle",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "square-shovel",
+"name": "Square shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hand-tamper",
+"name": "Hand tamper",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "crushed-gravel",
+"name": "Gravel base under pad",
+"spec": "2–4″ compacted",
+"kind": "material"
+},
+{
+"key": "form-lumber",
+"name": "Form boards",
+"spec": "2×4 or 2×6 for a 4″ pad",
+"kind": "material"
+},
+{
+"key": "form-stake",
+"name": "Form stakes",
+"spec": "About 8",
+"kind": "material"
+},
+{
+"key": "duplex-nail",
+"name": "Duplex nails",
+"spec": "",
+"kind": "fastener"
+},
+{
+"key": "rebar",
+"name": "Rebar",
+"spec": "#3 or wire mesh for pad",
+"kind": "material"
+},
+{
+"key": "concrete-mix",
+"name": "Bagged concrete mix",
+"spec": "About 20 bags (80 lb) for a 5×7 ft × 4″ pad",
+"kind": "material"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "mixing-hoe",
+"name": "Mortar/mixing hoe",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "screed-board",
+"name": "Screed board",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "magnesium-float",
+"name": "Magnesium hand float",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "concrete-edger",
+"name": "Concrete edger",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "concrete-block",
+"name": "Concrete block (CMU)",
+"spec": "8×8×16, about 30–45 depending on table size (3 courses for a 24″ table)",
+"kind": "material"
+},
+{
+"key": "construction-adhesive",
+"name": "Masonry/construction adhesive",
+"spec": "4–6 tubes",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "vent-panel",
+"name": "Vent panels",
+"spec": "2 minimum, opposite sides near the bottom",
+"kind": "part"
+},
+{
+"key": "cement-board",
+"name": "Cement board",
+"spec": "½″, 3–4 sheets",
+"kind": "material"
+},
+{
+"key": "masonry-screw",
+"name": "Masonry screws",
+"spec": "For cement board to block",
+"kind": "fastener"
+},
+{
+"key": "hammer-drill",
+"name": "Hammer drill",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "masonry-bit",
+"name": "Masonry drill bit",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "mesh-tape",
+"name": "Alkali-resistant mesh tape",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "surface-bonding-cement",
+"name": "Concrete finish coat",
+"spec": "2–3 bags, or a precast surround",
+"kind": "material"
+},
+{
+"key": "mortar-tub",
+"name": "Mortar tub",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "masonry-trowel",
+"name": "Masonry trowel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "lava-rock",
+"name": "Lava rock filler",
+"spec": "Under the fire glass to save cost",
+"kind": "material"
+},
+{
+"key": "fire-glass",
+"name": "Fire glass",
+"spec": "≈40–60 lb, ½–¾″ pieces",
+"kind": "material"
+},
+{
+"key": "paver",
+"name": "Concrete pavers",
+"spec": "For surrounding patio",
+"kind": "material"
+},
+{
+"key": "fire-extinguisher",
+"name": "Fire extinguisher",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "rubber-gloves",
+"name": "Waterproof gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Propane is heavier than air and pools at the bottom of the enclosure; put the two vents on opposite sides, low, as the burner manuals require.",
+"Set the burner pan in its opening without adhesive, caulk or silicone; its weight holds it, and it must stay removable for service.",
+"Cover the burner with no more than about 1″ of fire glass; deeper media chokes the flame and makes soot and uneven fire."
+],
+"sources": [
+"https://www.c-m-p.com/wp-content/uploads/2020/10/4-2821-01-BOBE-Fire-Pot-Fire-Table-Installation-Manual-Valve-REVB.pdf",
+"https://cms.firegearoutdoors.com/documents/All-instructions/90119C-FG-H-Outdoor-Fire-Pit-H-Burners-Kit-Installation-and-Operating-Instructions.pdf",
+"https://www.woodlanddirect.com/how-to-build-a-gas-fire-pit.html"
+]
+},
+"paver-patio": {
+"items": [
+{
+"key": "tape-measure",
+"name": "100 ft and 25 ft tapes",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "About 8–12",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "line-level",
+"name": "Line level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "framing-square",
+"name": "Framing square",
+"spec": "Plus 3-4-5 method",
+"kind": "measure"
+},
+{
+"key": "sod-cutter",
+"name": "Sod cutter",
+"spec": "Rental",
+"kind": "power-tool"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "square-shovel",
+"name": "Square shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Landscape rake",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tarp",
+"name": "Tarp",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "geotextile-fabric",
+"name": "Woven geotextile",
+"spec": "Over clay or wet soils, ≈170 sq ft",
+"kind": "material"
+},
+{
+"key": "paver-base",
+"name": "Paver base (crushed gravel)",
+"spec": "4″ compacted for a 12×12 ft patio (+6″ each side): ≈2.1 yd³ (about 3 tons)",
+"kind": "material"
+},
+{
+"key": "plate-compactor",
+"name": "Plate compactor",
+"spec": "Rental, with urethane pad",
+"kind": "power-tool"
+},
+{
+"key": "hand-tamper",
+"name": "Hand tamper",
+"spec": "For edges",
+"kind": "tool"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose with spray nozzle",
+"spec": "Mist nozzle",
+"kind": "tool"
+},
+{
+"key": "concrete-sand",
+"name": "Concrete (bedding) sand",
+"spec": "1″ bed: ≈0.5 yd³ (about ¾ ton)",
+"kind": "material"
+},
+{
+"key": "screed-rail",
+"name": "Screed rails (1″ pipe)",
+"spec": "Two 1″ OD pipes",
+"kind": "tool"
+},
+{
+"key": "screed-board",
+"name": "Screed board",
+"spec": "Straight 2×4, 8 ft",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "paver",
+"name": "Concrete pavers",
+"spec": "144 sq ft + 10% ≈ 160 sq ft",
+"kind": "material"
+},
+{
+"key": "rubber-mallet",
+"name": "Rubber mallet",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wet-saw",
+"name": "Masonry wet saw",
+"spec": "Rental, or masonry chisel/splitter",
+"kind": "power-tool"
+},
+{
+"key": "masonry-chisel",
+"name": "Masonry chisel (brick set)",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "chalk-line",
+"name": "Chalk line",
+"spec": "For cut lines",
+"kind": "measure"
+},
+{
+"key": "edge-restraint",
+"name": "Paver edge restraint",
+"spec": "About 48 ft (plastic or aluminum)",
+"kind": "part"
+},
+{
+"key": "edging-spike",
+"name": "Edging spikes",
+"spec": "10″, about 50 (every 12″)",
+"kind": "fastener"
+},
+{
+"key": "sledgehammer",
+"name": "Small sledgehammer",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "polymeric-sand",
+"name": "Polymeric sand",
+"spec": "2–4 bags (50 lb)",
+"kind": "material"
+},
+{
+"key": "push-broom",
+"name": "Push broom",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "leaf-blower",
+"name": "Leaf blower",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "N95 or wet cutting",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Bedding layer should be coarse concrete sand (ASTM C33) screeded to 1″ uncompacted; never use masonry sand or stone dust, which hold water and let pavers shift.",
+"Run the compactor over the pavers before sweeping in joint sand, then again after sweeping; that vibrates sand up into the joints so they fill completely.",
+"Before misting polymeric sand, blow every bit of dust off the faces and make sure pavers are bone dry; residue on wet faces cures into a haze that's hard to remove."
+],
+"sources": [
+"https://www.uni-groupusa.org/PDF/Tech_Spec_9_Guide_Spec_for_ICP.pdf",
+"https://www.orco.com/wp-content/uploads/2022/08/ICPI-TechSpec2-ORCO.pdf",
+"https://alliancegator.com/wp-content/uploads/documentation/alliance-gator-995-tech-spec-2.pdf"
+]
+},
+"garden-bed": {
+"items": [
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "4 corners",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "flat-spade",
+"name": "Flat spade",
+"spec": "For sod removal",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Landscape rake",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "speed-square",
+"name": "Speed square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Carpenter pencil",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "circular-saw",
+"name": "Circular saw",
+"spec": "Or miter saw",
+"kind": "power-tool"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit-set",
+"name": "Drill bit set",
+"spec": "⅛″ bit for pilot holes",
+"kind": "consumable"
+},
+{
+"key": "clamp",
+"name": "Bar clamps",
+"spec": "2",
+"kind": "tool"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 2×6 board",
+"spec": "8 ft — qty 9 (6 for long sides, 3 cut into six 45″ ends)",
+"kind": "material"
+},
+{
+"key": "cedar-post",
+"name": "Cedar 4×4 post",
+"spec": "8 ft — qty 1 (four 16″ corners)",
+"kind": "material"
+},
+{
+"key": "exterior-screw",
+"name": "Exterior wood screws",
+"spec": "3″ coated or stainless, about 60",
+"kind": "fastener"
+},
+{
+"key": "hardware-cloth",
+"name": "Hardware cloth",
+"spec": "½″ mesh, 4 ft wide × 10 ft",
+"kind": "material"
+},
+{
+"key": "tin-snips",
+"name": "Tin snips",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "staple-gun",
+"name": "Heavy-duty staple gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "staples",
+"name": "Galvanized staples",
+"spec": "Galvanized",
+"kind": "fastener"
+},
+{
+"key": "cardboard",
+"name": "Plain cardboard",
+"spec": "Enough to cover 32 sq ft, or landscape fabric",
+"kind": "material"
+},
+{
+"key": "landscape-fabric",
+"name": "Landscape fabric",
+"spec": "Optional, instead of cardboard",
+"kind": "material"
+},
+{
+"key": "topsoil",
+"name": "Screened topsoil",
+"spec": "≈0.7 yd³ (60%)",
+"kind": "material"
+},
+{
+"key": "compost",
+"name": "Compost",
+"spec": "≈0.5 yd³ (40%)",
+"kind": "material"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose with spray nozzle",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "For sawing cedar",
+"kind": "safety"
+}
+],
+"proTips": [
+"Pre-drill screw holes near board ends; cedar splits easily and stainless or coated exterior screws avoid the black streaking plain steel causes.",
+"Run the hardware cloth up the inside walls a few inches and staple it there, so gophers can't slip in at the corners.",
+"Buy soil and compost in bulk by the yard; filling a 4×8 bed with bags costs several times more."
+],
+"sources": [
+"https://www.familyhandyman.com/project/how-to-build-raised-garden-beds/",
+"https://www.lowes.com/n/how-to/how-to-build-a-raised-garden-bed",
+"https://homesteadandchill.com/how-to-build-raised-garden-bed/"
+]
+},
+"path-lights": {
+"items": [
+{
+"key": "low-voltage-transformer",
+"name": "Low-voltage transformer",
+"spec": "100–150 W with timer/photocell (load ≤80%)",
+"kind": "part"
+},
+{
+"key": "landscape-lighting-cable",
+"name": "Landscape lighting cable",
+"spec": "12/2 direct-burial, 100 ft",
+"kind": "material"
+},
+{
+"key": "path-light",
+"name": "Low-voltage path lights",
+"spec": "About 8 for a 60–70 ft path",
+"kind": "part"
+},
+{
+"key": "waterproof-wire-connector",
+"name": "Waterproof wire connectors",
+"spec": "Gel-filled, a few spares",
+"kind": "part"
+},
+{
+"key": "masonry-anchor",
+"name": "Wall anchors",
+"spec": "For mounting the transformer",
+"kind": "fastener"
+},
+{
+"key": "pvc-conduit",
+"name": "PVC conduit",
+"spec": "Short length down the wall and under walks",
+"kind": "material"
+},
+{
+"key": "in-use-outlet-cover",
+"name": "In-use outlet cover",
+"spec": "If not already present",
+"kind": "part"
+},
+{
+"key": "gfci-outlet",
+"name": "GFCI outlet (existing)",
+"spec": "Outdoor, within cord reach",
+"kind": "part"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "screwdriver",
+"name": "Screwdriver",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "flat-spade",
+"name": "Flat spade",
+"spec": "Or edger",
+"kind": "tool"
+},
+{
+"key": "half-moon-edger",
+"name": "Half-moon edger",
+"spec": "Optional",
+"kind": "tool"
+},
+{
+"key": "wire-stripper",
+"name": "Wire stripper",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "multimeter",
+"name": "Multimeter",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose with spray nozzle",
+"spec": "To soften soil",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Call 811 for utility locates before slicing trenches, even shallow ones.",
+"Keep every fixture within about 10% of the transformer's output (above roughly 10.8 V on a 12 V tap); if the far end is low, use the higher voltage tap or feed the run from the middle.",
+"Leave a few feet of slack cable coiled at each fixture so you can move lights later as plants grow."
+],
+"sources": [
+"https://dauermanufacturing.com/blog/low-voltage-landscape-lighting-voltage-drop",
+"https://tru-scapes.com/landscape-lighting-transformer-guide-sizing/",
+"https://www.bigfrogsupply.com/blogs/big-frog-blog/how-to-install-low-voltage-landscape-lighting-12v-step-by-step-parts-list"
+]
+},
+"court-build": {
+"items": [
+{
+"key": "tape-measure",
+"name": "100 ft tape",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "line-level",
+"name": "Line level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "laser-level",
+"name": "Laser level",
+"spec": "Rental, for 1% slope",
+"kind": "measure"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "mini-skid-steer",
+"name": "Mini skid steer",
+"spec": "Rental",
+"kind": "power-tool"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "square-shovel",
+"name": "Square shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Landscape rake",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "plate-compactor",
+"name": "Plate compactor",
+"spec": "Rental",
+"kind": "power-tool"
+},
+{
+"key": "paver-base",
+"name": "Crushed gravel base",
+"spec": "4″ compacted: ≈5 yd³ (about 7 tons)",
+"kind": "material"
+},
+{
+"key": "post-hole-digger",
+"name": "Post-hole digger",
+"spec": "Or auger for anchor hole",
+"kind": "tool"
+},
+{
+"key": "digging-bar",
+"name": "Digging bar",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hoop-anchor-kit",
+"name": "Hoop anchor kit",
+"spec": "J-bolts and template",
+"kind": "part"
+},
+{
+"key": "concrete-mix",
+"name": "Concrete for hoop footing",
+"spec": "≈0.5 yd³ (about 21 bags of 80 lb) for 2×4 ft hole",
+"kind": "material"
+},
+{
+"key": "form-lumber",
+"name": "Form boards",
+"spec": "2×4 (or 2×6 for full 4″), ≈80 ft",
+"kind": "material"
+},
+{
+"key": "form-stake",
+"name": "Form stakes",
+"spec": "About 30",
+"kind": "material"
+},
+{
+"key": "duplex-nail",
+"name": "Duplex nails",
+"spec": "",
+"kind": "fastener"
+},
+{
+"key": "form-release-oil",
+"name": "Form release agent",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "rebar",
+"name": "Rebar",
+"spec": "#3 at 18″ each way (about 28 bars × 20 ft)",
+"kind": "material"
+},
+{
+"key": "wire-mesh",
+"name": "Welded wire mesh",
+"spec": "Alternative to rebar: 6×6 welded wire sheets",
+"kind": "material"
+},
+{
+"key": "rebar-chair",
+"name": "Rebar chairs",
+"spec": "About 100",
+"kind": "part"
+},
+{
+"key": "tie-wire",
+"name": "Rebar tie wire",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "rebar-tie-tool",
+"name": "Rebar tie tool",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "angle-grinder",
+"name": "Angle grinder",
+"spec": "For cutting rebar",
+"kind": "power-tool"
+},
+{
+"key": "expansion-joint-filler",
+"name": "Expansion joint filler",
+"spec": "At house and around hoop",
+"kind": "material"
+},
+{
+"key": "ready-mix-concrete",
+"name": "Ready-mix concrete",
+"spec": "≈5.5 yd³ (5 yd³ + 10%), 4,000 psi air-entrained",
+"kind": "material"
+},
+{
+"key": "concrete-buggy",
+"name": "Concrete buggy or pump",
+"spec": "If the truck can't reach",
+"kind": "tool"
+},
+{
+"key": "screed-board",
+"name": "Screed board",
+"spec": "Straight 16 ft",
+"kind": "tool"
+},
+{
+"key": "bull-float",
+"name": "Bull float",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "magnesium-float",
+"name": "Magnesium hand float",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "concrete-edger",
+"name": "Concrete edger",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "concrete-groover",
+"name": "Concrete groover",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "concrete-saw",
+"name": "Concrete saw",
+"spec": "Rental, for control joints",
+"kind": "power-tool"
+},
+{
+"key": "finishing-broom",
+"name": "Concrete finishing broom",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "knee-boards",
+"name": "Knee boards",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "curing-compound",
+"name": "Concrete curing compound",
+"spec": "Or wet curing",
+"kind": "consumable"
+},
+{
+"key": "poly-sheeting",
+"name": "Plastic sheeting",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose with spray nozzle",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "basketball-hoop",
+"name": "In-ground basketball hoop",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "socket-wrench",
+"name": "Socket wrench set",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "ladder",
+"name": "Ladder",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "chalk-line",
+"name": "Chalk line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "line-stencil",
+"name": "Court line stencil",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "court-paint",
+"name": "Acrylic court paint",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "paint-roller",
+"name": "Paint roller and tray",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "rubber-gloves",
+"name": "Waterproof gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "rubber-boots",
+"name": "Rubber boots",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Order 4,000 psi air-entrained concrete for an outdoor slab in freezing climates; it resists freeze-thaw scaling far better than standard mixes.",
+"Saw-cut control joints in a grid no more than 10–12 ft apart (a 20×20 court gets one cross joint each way) at about ¼ the slab depth, within the first day.",
+"Keep the hoop footing separate from the slab with expansion joint material so pole vibration doesn't crack the court."
+],
+"sources": [
+"https://www.familyhandyman.com/article/backyard-basketball-court/",
+"https://engineerfix.com/how-to-build-a-diy-basketball-court/",
+"https://recreationsoutlet.com/blogs/a-backyard-dream-come-true/backyard-basketball-court-setup-guide"
+]
+},
+"pergola": {
+"items": [
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "line-level",
+"name": "Line level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "power-auger",
+"name": "Power auger",
+"spec": "Rental, or post-hole digger",
+"kind": "power-tool"
+},
+{
+"key": "post-hole-digger",
+"name": "Post-hole digger",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "digging-bar",
+"name": "Digging bar",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "crushed-gravel",
+"name": "Clean crushed gravel",
+"spec": "4″ in each hole",
+"kind": "material"
+},
+{
+"key": "form-tube",
+"name": "Concrete form tube",
+"spec": "12″ diameter, 4 ft — qty 4",
+"kind": "part"
+},
+{
+"key": "concrete-mix",
+"name": "Bagged concrete mix",
+"spec": "About 5 bags (80 lb) per hole, ~20 total",
+"kind": "material"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "mixing-hoe",
+"name": "Mortar/mixing hoe",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "post-base",
+"name": "Post base",
+"spec": "Galvanized 6×6 standoff — qty 4",
+"kind": "part"
+},
+{
+"key": "anchor-bolt",
+"name": "Anchor bolt",
+"spec": "If base needs it",
+"kind": "fastener"
+},
+{
+"key": "cedar-post",
+"name": "Cedar 6×6 post",
+"spec": "10 ft — qty 4",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 2×10 (beams)",
+"spec": "14 ft — qty 4",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 2×8 (rafters)",
+"spec": "14 ft — qty 10–11",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 2×2 (purlins)",
+"spec": "14 ft — qty about 16",
+"kind": "material"
+},
+{
+"key": "cedar-post",
+"name": "Cedar 4×4 (knee braces)",
+"spec": "8 ft — qty 4",
+"kind": "material"
+},
+{
+"key": "carriage-bolt",
+"name": "Carriage bolt",
+"spec": "½″ × 10″ galvanized, with washers and nuts — qty 8",
+"kind": "fastener"
+},
+{
+"key": "hurricane-tie",
+"name": "Hurricane tie",
+"spec": "About 22",
+"kind": "part"
+},
+{
+"key": "connector-nail",
+"name": "Joist hanger nails",
+"spec": "",
+"kind": "fastener"
+},
+{
+"key": "structural-screw",
+"name": "Structural wood screws",
+"spec": "6″, about 32",
+"kind": "fastener"
+},
+{
+"key": "exterior-screw",
+"name": "Exterior wood screws",
+"spec": "3″, about 200",
+"kind": "fastener"
+},
+{
+"key": "temporary-brace",
+"name": "Temporary braces",
+"spec": "2×4 braces",
+"kind": "material"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "post-level",
+"name": "Post level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "chalk-line",
+"name": "Chalk line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "speed-square",
+"name": "Speed square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "circular-saw",
+"name": "Circular saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "jigsaw",
+"name": "Jigsaw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "miter-saw",
+"name": "Miter saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "impact-driver",
+"name": "Impact driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "auger-bit",
+"name": "Long auger bit",
+"spec": "½″ × 12″",
+"kind": "consumable"
+},
+{
+"key": "socket-wrench",
+"name": "Socket wrench set",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "clamp",
+"name": "Bar clamps",
+"spec": "4",
+"kind": "tool"
+},
+{
+"key": "ladder",
+"name": "Ladder",
+"spec": "2",
+"kind": "tool"
+},
+{
+"key": "sawhorse",
+"name": "Sawhorses",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "stain",
+"name": "Penetrating oil stain",
+"spec": "≈2 gallons",
+"kind": "consumable"
+},
+{
+"key": "paint-brush",
+"name": "Stain brush",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Use a standoff post base so the cedar end grain sits off the concrete; wicking end grain on wet concrete is where posts rot first.",
+"Use 10″ carriage bolts through a doubled 2×10 and 6×6 sandwich (1½ + 5½ + 1½ = 8½″) so the nut and washer have full thread engagement.",
+"Fill every hole in hurricane ties with the connector maker's specified nails or screws."
+],
+"sources": [
+"https://www.thisoldhouse.com/patios/23150414/pergola-installation",
+"https://backyardlivingstructures.com/wp-content/uploads/2020/04/Pergola-Kit-Installation-Freestanding-and-Attached.pdf",
+"https://www.finehomebuilding.com/forum/does-a-pergola-need-footings-piers"
+]
+},
+"grill-island": {
+"items": [
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "25 ft",
+"kind": "measure"
+},
+{
+"key": "chalk-line",
+"name": "Chalk line",
+"spec": "For the 8×2½ ft footprint",
+"kind": "measure"
+},
+{
+"key": "framing-square",
+"name": "Framing square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "Plus a 2 ft level",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Carpenter pencil",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "concrete-block",
+"name": "Concrete block (CMU)",
+"spec": "8×8×16, about 64 (16 per course × 4) plus a few half blocks",
+"kind": "material"
+},
+{
+"key": "construction-adhesive",
+"name": "Masonry construction adhesive",
+"spec": "About 8 tubes (10 oz)",
+"kind": "adhesive"
+},
+{
+"key": "caulk-gun",
+"name": "Caulk gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rebar",
+"name": "Rebar",
+"spec": "#4 (½″), 4 ft — qty 4 for corner cores",
+"kind": "material"
+},
+{
+"key": "mortar-mix",
+"name": "Mortar mix (Type S)",
+"spec": "Type S, about 10 bags (80 lb) for core fill, scratch coat and veneer",
+"kind": "material"
+},
+{
+"key": "mortar-tub",
+"name": "Mortar tub",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "mixing-hoe",
+"name": "Mortar/mixing hoe",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "mixing-paddle",
+"name": "Mixing paddle",
+"spec": "In a ½″ heavy drill",
+"kind": "tool"
+},
+{
+"key": "bucket",
+"name": "5-gallon bucket",
+"spec": "2",
+"kind": "tool"
+},
+{
+"key": "masonry-trowel",
+"name": "Masonry trowel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "notched-trowel",
+"name": "Notched trowel",
+"spec": "Or scratch tool for scoring the scratch coat",
+"kind": "tool"
+},
+{
+"key": "margin-trowel",
+"name": "Margin trowel",
+"spec": "For buttering stones",
+"kind": "tool"
+},
+{
+"key": "cement-board",
+"name": "Cement board",
+"spec": "½″, 3×5 ft — about 4 sheets",
+"kind": "material"
+},
+{
+"key": "masonry-screw",
+"name": "Masonry screws",
+"spec": "1¾″, about 100",
+"kind": "fastener"
+},
+{
+"key": "hammer-drill",
+"name": "Hammer drill",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "masonry-bit",
+"name": "Masonry drill bit",
+"spec": "Size listed on the masonry screws",
+"kind": "consumable"
+},
+{
+"key": "mesh-tape",
+"name": "Alkali-resistant mesh tape",
+"spec": "Alkali-resistant, 1 roll",
+"kind": "consumable"
+},
+{
+"key": "stone-veneer",
+"name": "Stone veneer",
+"spec": "About 50 sq ft flats + 20 linear ft L-corners",
+"kind": "material"
+},
+{
+"key": "wet-saw",
+"name": "Masonry wet saw",
+"spec": "Rental, for block and stone",
+"kind": "power-tool"
+},
+{
+"key": "angle-grinder",
+"name": "Angle grinder",
+"spec": "With diamond blade, for trimming",
+"kind": "power-tool"
+},
+{
+"key": "diamond-blade",
+"name": "Diamond blade",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "grout-bag",
+"name": "Grout bag",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "jointing-tool",
+"name": "Jointing tool",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "sponge",
+"name": "Grout sponge",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "granite-countertop",
+"name": "Granite countertop",
+"spec": "Fabricated, about 8 ft × 32½″ with grill cutout (1¼″ overhang)",
+"kind": "material"
+},
+{
+"key": "shim",
+"name": "Composite shims",
+"spec": "Composite",
+"kind": "part"
+},
+{
+"key": "silicone-sealant",
+"name": "Silicone sealant",
+"spec": "Stone-safe, for seams and grill edge",
+"kind": "adhesive"
+},
+{
+"key": "drop-in-grill",
+"name": "Drop-in gas grill",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "access-door",
+"name": "Stainless access door",
+"spec": "Sized to the grill maker's cutout",
+"kind": "part"
+},
+{
+"key": "storage-drawer",
+"name": "Stainless drawer unit",
+"spec": "Optional",
+"kind": "part"
+},
+{
+"key": "vent-panel",
+"name": "Vent panels",
+"spec": "2, on opposite sides near the bottom",
+"kind": "part"
+},
+{
+"key": "gas-pipe",
+"name": "Gas stub-out with shutoff",
+"spec": "Run by a licensed fitter before block goes up",
+"kind": "material"
+},
+{
+"key": "flex-gas-line",
+"name": "Flexible gas connector",
+"spec": "Supplied with the grill",
+"kind": "part"
+},
+{
+"key": "pipe-thread-sealant",
+"name": "Gas-rated thread sealant",
+"spec": "Gas-rated",
+"kind": "consumable"
+},
+{
+"key": "leak-detection-solution",
+"name": "Leak-detection solution",
+"spec": "Soapy water",
+"kind": "consumable"
+},
+{
+"key": "spray-bottle",
+"name": "Spray bottle",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "gfci-outlet",
+"name": "GFCI outlet",
+"spec": "Dedicated circuit, by an electrician",
+"kind": "part"
+},
+{
+"key": "in-use-outlet-cover",
+"name": "In-use outlet cover",
+"spec": "",
+"kind": "part"
+},
+{
+"key": "penetrating-sealer",
+"name": "Penetrating stone sealer",
+"spec": "For granite and stone",
+"kind": "consumable"
+},
+{
+"key": "paint-brush",
+"name": "Stain brush",
+"spec": "For applying sealer",
+"kind": "tool"
+},
+{
+"key": "fire-extinguisher",
+"name": "Fire extinguisher",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "rubber-gloves",
+"name": "Waterproof gloves",
+"spec": "For mortar work",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "N95 for cutting block and stone",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Get the grill's exact cutout size and spec sheet before you build the block shell or order granite; drop-in grills vary, and the countertop opening must match within about ⅛″.",
+"Gas islands need ventilation: put at least two vent panels low on opposite sides so any leaked gas, especially propane, can escape instead of pooling.",
+"A finished island with stone and granite can weigh well over a ton; build only on a sound, reinforced slab or a footing below frost, not on pavers."
+],
+"sources": [
+"https://rtaoutdoorliving.com/cinder-block-outdoor-kitchen-diy/",
+"https://rtaoutdoorliving.com/stone-outdoor-kitchen-island-how-to-build/",
+"https://www.atbbq.com/pages/how-to-build-an-outdoor-kitchen",
+"https://blazingembers.com/blog/how-to-build-an-outdoor-kitchen/"
+]
+},
+"deck-platform": {
+"items": [
+{
+"key": "tape-measure",
+"name": "100 ft and 25 ft tapes",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "About 8",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "line-level",
+"name": "Line level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "framing-square",
+"name": "Framing square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "chalk-line",
+"name": "Chalk line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "speed-square",
+"name": "Speed square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Carpenter pencil",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "sod-cutter",
+"name": "Sod cutter",
+"spec": "Rental, optional",
+"kind": "power-tool"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "square-shovel",
+"name": "Square shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "rake",
+"name": "Landscape rake",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hand-tamper",
+"name": "Hand tamper",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "plate-compactor",
+"name": "Plate compactor",
+"spec": "Rental, optional",
+"kind": "power-tool"
+},
+{
+"key": "landscape-fabric",
+"name": "Landscape fabric",
+"spec": "About 170 sq ft",
+"kind": "material"
+},
+{
+"key": "landscape-fabric-staple",
+"name": "Landscape fabric staples",
+"spec": "About 30",
+"kind": "fastener"
+},
+{
+"key": "crushed-gravel",
+"name": "Clean crushed gravel",
+"spec": "3″ compacted: about 1.5 yd³ (2 tons)",
+"kind": "material"
+},
+{
+"key": "deck-block",
+"name": "Precast deck block",
+"spec": "Precast — qty 9",
+"kind": "part"
+},
+{
+"key": "pressure-treated-lumber",
+"name": "Pressure-treated 2×8 (beams)",
+"spec": "12 ft, ground-contact — qty 6 (3 doubled beams)",
+"kind": "material"
+},
+{
+"key": "pressure-treated-lumber",
+"name": "Pressure-treated 2×6 (joists and rims)",
+"spec": "12 ft — qty 12 (10 joists + 2 rims)",
+"kind": "material"
+},
+{
+"key": "joist-hanger",
+"name": "Joist hanger",
+"spec": "2×6 galvanized (G185) — about 20",
+"kind": "part"
+},
+{
+"key": "connector-nail",
+"name": "Joist hanger nails",
+"spec": "10d × 1½″ galvanized, 1 lb box",
+"kind": "fastener"
+},
+{
+"key": "hurricane-tie",
+"name": "Hurricane tie",
+"spec": "About 30 (joist to beam)",
+"kind": "part"
+},
+{
+"key": "structural-screw",
+"name": "Structural wood screws",
+"spec": "For rim corners and doubled beams, about 30",
+"kind": "fastener"
+},
+{
+"key": "deck-board",
+"name": "Deck boards",
+"spec": "5/4×6, 12 ft — qty 28",
+"kind": "material"
+},
+{
+"key": "deck-screw",
+"name": "Deck screws",
+"spec": "2½″ coated or stainless, about 600 (5 lb box)",
+"kind": "fastener"
+},
+{
+"key": "spacer",
+"name": "Board spacers",
+"spec": "⅛″",
+"kind": "tool"
+},
+{
+"key": "pressure-treated-lumber",
+"name": "Fascia board (1×8)",
+"spec": "12 ft — qty 4",
+"kind": "material"
+},
+{
+"key": "circular-saw",
+"name": "Circular saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "impact-driver",
+"name": "Impact driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "hammer",
+"name": "Claw hammer",
+"spec": "For hanger nails",
+"kind": "tool"
+},
+{
+"key": "clamp",
+"name": "Bar clamps",
+"spec": "2",
+"kind": "tool"
+},
+{
+"key": "sawhorse",
+"name": "Sawhorses",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "end-cut-preservative",
+"name": "End-cut preservative",
+"spec": "1 quart",
+"kind": "consumable"
+},
+{
+"key": "paint-brush",
+"name": "Stain brush",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "stain",
+"name": "Deck stain or sealer",
+"spec": "About 2 gallons for 144 sq ft, 2 coats",
+"kind": "consumable"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "For sawing treated lumber",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Tie every joist to each beam with a hurricane tie; a floating deck has no ledger, so these connectors are what keep it from racking or lifting in wind.",
+"Use hot-dip galvanized (G185) or stainless connectors and the maker's specified nails; modern treated lumber corrodes standard zinc and deck screws in hangers can shear.",
+"Brush end-cut preservative on every fresh cut of treated lumber, especially ends sitting on blocks; factory treatment often doesn't reach the core."
+],
+"sources": [
+"https://blog.strongtie.com/you-can-have-a-cool-diy-floating-deck-part-1/",
+"https://jenwoodhouse.com/how-to-build-a-floating-deck/",
+"https://www.pocobuildingsupplies.com/wp-content/uploads/2016/06/simpson-strong-tie-deck-connection-and-fastening-guide.pdf"
+]
+},
+"privacy-screen": {
+"items": [
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "stake",
+"name": "Wood stakes",
+"spec": "2 end stakes",
+"kind": "material"
+},
+{
+"key": "mason-line",
+"name": "Mason line",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "line-level",
+"name": "Line level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "post-hole-digger",
+"name": "Post-hole digger",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "digging-bar",
+"name": "Digging bar",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "shovel",
+"name": "Round-point shovel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "crushed-gravel",
+"name": "Clean crushed gravel",
+"spec": "About 4″ in each hole (1 bag)",
+"kind": "material"
+},
+{
+"key": "pressure-treated-post",
+"name": "Pressure-treated 4×4 post",
+"spec": "10 ft, ground-contact — qty 3",
+"kind": "material"
+},
+{
+"key": "fast-setting-concrete",
+"name": "Fast-setting concrete",
+"spec": "About 3 bags (50 lb) per hole, 9 total",
+"kind": "material"
+},
+{
+"key": "bucket",
+"name": "5-gallon bucket",
+"spec": "For water",
+"kind": "tool"
+},
+{
+"key": "post-level",
+"name": "Post level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "temporary-brace",
+"name": "Temporary braces",
+"spec": "2×4s and stakes, 2 per post",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 1×6 slat",
+"spec": "8 ft — qty 24 (12 courses × 2)",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 2×6 cap",
+"spec": "8 ft — qty 2",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 1×4 post trim",
+"spec": "8 ft — qty 3",
+"kind": "material"
+},
+{
+"key": "exterior-screw",
+"name": "Exterior wood screws",
+"spec": "2″ stainless for slats (about 150); 3″ for cap",
+"kind": "fastener"
+},
+{
+"key": "spacer",
+"name": "Board spacers",
+"spec": "½″ spacer blocks — 2",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "4 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "speed-square",
+"name": "Speed square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Carpenter pencil",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "circular-saw",
+"name": "Circular saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "countersink-bit",
+"name": "Countersink bit",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "clamp",
+"name": "Bar clamps",
+"spec": "2",
+"kind": "tool"
+},
+{
+"key": "ladder",
+"name": "Ladder",
+"spec": "Step ladder",
+"kind": "tool"
+},
+{
+"key": "sawhorse",
+"name": "Sawhorses",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"A 1×6 cedar slat spanning a full 8 ft between posts can bow over time; many builders add a vertical 2×4 nailer at midspan or set posts 6 ft apart.",
+"Use stainless steel screws in cedar; galvanized and plain steel react with cedar's tannins and leave black streaks.",
+"Put 4″ of gravel under each post and crown the concrete above grade so water runs away from the post instead of pooling against it."
+],
+"sources": [
+"https://www.lowes.com/n/how-to/cedar-slat-privacy-screens",
+"https://www.hgtv.com/gardening/landscaping-and-hardscaping/building-a-horizontal-plank-fence",
+"https://www.rainandpine.com/diy-horizontal-privacy-fence-6-foot-cedar-fence-extension/"
+]
+},
+"stepping-path": {
+"items": [
+{
+"key": "flagstone",
+"name": "Flagstone steppers",
+"spec": "About 12 for a 20 ft path, 18–24″ across and 1½–2″ thick",
+"kind": "material"
+},
+{
+"key": "garden-hose",
+"name": "Garden hose (layout and watering)",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "marking-paint",
+"name": "Marking paint",
+"spec": "Optional, to mark stone positions",
+"kind": "consumable"
+},
+{
+"key": "flat-spade",
+"name": "Flat spade",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "half-moon-edger",
+"name": "Half-moon edger",
+"spec": "Optional, for clean outlines",
+"kind": "tool"
+},
+{
+"key": "garden-trowel",
+"name": "Garden trowel",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "hand-tamper",
+"name": "Hand tamper",
+"spec": "Small, to firm the hole bottom",
+"kind": "tool"
+},
+{
+"key": "leveling-sand",
+"name": "All-purpose sand",
+"spec": "About 6 bags (50 lb), 1″ per hole",
+"kind": "material"
+},
+{
+"key": "level",
+"name": "2 ft level",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "rubber-mallet",
+"name": "Rubber mallet",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "wheelbarrow",
+"name": "Wheelbarrow",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "tarp",
+"name": "Tarp",
+"spec": "For sod and soil",
+"kind": "tool"
+},
+{
+"key": "topsoil",
+"name": "Screened topsoil",
+"spec": "1–2 bags for backfill",
+"kind": "material"
+},
+{
+"key": "push-broom",
+"name": "Push broom",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "masonry-chisel",
+"name": "Masonry chisel (brick set)",
+"spec": "Optional, to trim an edge",
+"kind": "tool"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "knee-pads",
+"name": "Knee pads",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-boots",
+"name": "Work boots",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Start with about 3–6″ of turf between stones and adjust to your stride; a typical adult step is roughly 24″ center to center.",
+"Set stones just at or slightly below soil level so the mower blade glides over; stones that sit high get chipped and become trip hazards.",
+"The sand bed conforms to the stone's uneven underside, which is what stops rocking; add or remove sand until the stone doesn't wobble when you stand on its edges."
+],
+"sources": [
+"https://www.thisoldhouse.com/sidewalks/21016584/how-to-lay-a-stepping-stone-path",
+"https://www.thisoldhouse.com/sidewalks/21019334/setting-stepping-stones",
+"https://www.irwinstone.com/how-tos/flagstone-stone-dust-sand/"
+]
+},
+"planter-box": {
+"items": [
+{
+"key": "cedar-post",
+"name": "Cedar 4×4 (legs)",
+"spec": "8 ft — qty 2 (four 30″ legs)",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 1×6 (sides)",
+"spec": "8 ft — qty 4",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 1×4 (bottom slats and shelf)",
+"spec": "8 ft — qty 4",
+"kind": "material"
+},
+{
+"key": "cedar-board",
+"name": "Cedar 2×2 (cleats)",
+"spec": "8 ft — qty 1",
+"kind": "material"
+},
+{
+"key": "exterior-screw",
+"name": "Exterior wood screws",
+"spec": "1¼″ (about 100) and 2½″ (about 50), stainless or coated",
+"kind": "fastener"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-bit-set",
+"name": "Drill bit set",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "countersink-bit",
+"name": "Countersink bit",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "miter-saw",
+"name": "Miter saw",
+"spec": "Or circular saw",
+"kind": "power-tool"
+},
+{
+"key": "circular-saw",
+"name": "Circular saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "speed-square",
+"name": "Speed square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Carpenter pencil",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "clamp",
+"name": "Bar clamps",
+"spec": "2",
+"kind": "tool"
+},
+{
+"key": "level",
+"name": "Level",
+"spec": "2 ft",
+"kind": "measure"
+},
+{
+"key": "sawhorse",
+"name": "Sawhorses",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "staple-gun",
+"name": "Heavy-duty staple gun",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "staples",
+"name": "Galvanized staples",
+"spec": "Galvanized ⅜″",
+"kind": "fastener"
+},
+{
+"key": "landscape-fabric",
+"name": "Landscape fabric",
+"spec": "About 20 sq ft",
+"kind": "material"
+},
+{
+"key": "utility-knife",
+"name": "Utility knife",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "random-orbit-sander",
+"name": "Random orbit sander",
+"spec": "Optional",
+"kind": "power-tool"
+},
+{
+"key": "sandpaper",
+"name": "Sandpaper discs",
+"spec": "120 grit",
+"kind": "consumable"
+},
+{
+"key": "potting-mix",
+"name": "Potting mix",
+"spec": "About 7 cu ft",
+"kind": "material"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "work-gloves",
+"name": "Work gloves",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"Pre-drill and countersink every screw near board ends; 1× cedar splits easily, especially with 2½″ screws into the leg ends.",
+"Leave the ¼″ gaps between bottom slats and don't wrap fabric so tight it blocks them; standing water is what rots elevated planters fastest.",
+"Fill with a container potting mix, not garden soil; garden soil compacts in a box and gets much heavier when wet."
+],
+"sources": [
+"https://fixthisbuildthat.com/diy-raised-planter-box-plans/",
+"https://myoutdoorplans.com/planter/easy-elevated-planter-box-plans/",
+"https://mylove2create.com/elevated-planter-box-plans/"
+]
+},
+"cornhole": {
+"items": [
+{
+"key": "plywood",
+"name": "½″ plywood (tops)",
+"spec": "One 4×8 sheet, birch or sanded, cut into two 24×48″ tops",
+"kind": "material"
+},
+{
+"key": "framing-lumber",
+"name": "2×4 lumber",
+"spec": "8 ft — qty 4 (sides, ends, legs)",
+"kind": "material"
+},
+{
+"key": "wood-glue",
+"name": "Exterior wood glue",
+"spec": "Exterior (Type II/III)",
+"kind": "adhesive"
+},
+{
+"key": "exterior-screw",
+"name": "Wood screws",
+"spec": "1¼″ (about 50) for tops, 2½″ (about 32) for frames",
+"kind": "fastener"
+},
+{
+"key": "carriage-bolt",
+"name": "Carriage bolt",
+"spec": "⅜″ × 3½″ with washers and nuts — qty 4",
+"kind": "fastener"
+},
+{
+"key": "tape-measure",
+"name": "Tape measure",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "speed-square",
+"name": "Speed square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "framing-square",
+"name": "Framing square",
+"spec": "",
+"kind": "measure"
+},
+{
+"key": "pencil",
+"name": "Carpenter pencil",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "compass",
+"name": "Compass or trammel",
+"spec": "3″ radius for the 6″ hole",
+"kind": "measure"
+},
+{
+"key": "circular-saw",
+"name": "Circular saw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "miter-saw",
+"name": "Miter saw",
+"spec": "Optional",
+"kind": "power-tool"
+},
+{
+"key": "jigsaw",
+"name": "Jigsaw",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "drill-driver",
+"name": "Cordless drill/driver",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "spade-bit",
+"name": "Spade bit",
+"spec": "1″ for starter hole",
+"kind": "consumable"
+},
+{
+"key": "drill-bit-set",
+"name": "Drill bit set",
+"spec": "⅜″ for bolt holes",
+"kind": "consumable"
+},
+{
+"key": "countersink-bit",
+"name": "Countersink bit",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "clamp",
+"name": "Bar clamps",
+"spec": "4",
+"kind": "tool"
+},
+{
+"key": "sawhorse",
+"name": "Sawhorses",
+"spec": "",
+"kind": "tool"
+},
+{
+"key": "random-orbit-sander",
+"name": "Random orbit sander",
+"spec": "",
+"kind": "power-tool"
+},
+{
+"key": "sandpaper",
+"name": "Sandpaper discs",
+"spec": "120 and 220 grit",
+"kind": "consumable"
+},
+{
+"key": "wood-filler",
+"name": "Exterior wood filler",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "tack-cloth",
+"name": "Tack cloth",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "primer",
+"name": "Exterior primer",
+"spec": "1 quart",
+"kind": "consumable"
+},
+{
+"key": "exterior-paint",
+"name": "Exterior acrylic paint",
+"spec": "1 quart per color",
+"kind": "consumable"
+},
+{
+"key": "painters-tape",
+"name": "Painter's tape",
+"spec": "",
+"kind": "consumable"
+},
+{
+"key": "paint-roller",
+"name": "Paint roller and tray",
+"spec": "Foam",
+"kind": "tool"
+},
+{
+"key": "polyurethane",
+"name": "Water-based polyurethane",
+"spec": "1 quart, satin",
+"kind": "consumable"
+},
+{
+"key": "cornhole-bag",
+"name": "Cornhole bags",
+"spec": "8 (4 per color)",
+"kind": "part"
+},
+{
+"key": "safety-glasses",
+"name": "Safety glasses",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "hearing-protection",
+"name": "Hearing protection",
+"spec": "",
+"kind": "safety"
+},
+{
+"key": "dust-mask",
+"name": "N95 respirator",
+"spec": "",
+"kind": "safety"
+}
+],
+"proTips": [
+"ACA specs: tops 47½–48″ by 23½–24″ of at least ½″ plywood; hole 6″ across, centered 9″ from the top and 12″ from each side; front 3–4″ high, back about 12″.",
+"Fill the countersunk screw holes and sand flush before priming; screw heads show through paint and catch bags.",
+"Round the leg tops where they pivot against the frame so the legs fold flat without binding."
+],
+"sources": [
+"https://www.playcornhole.org/pages/regulation-cornhole-boards",
+"https://www.playcornhole.org/pages/rules",
+"https://competitioncornhole.com/blogs/ultimate-guide-to-cornhole/official-cornhole-board-measurements-a-simple-guide-for-regulation-pl"
 ]
 },
 "jump-start": {

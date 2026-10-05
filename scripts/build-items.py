@@ -30,9 +30,10 @@ for g in kits.values():
     seen, out = set(), []
     for it in g['items']:
         it['key'] = ALIAS.get(it['key'], it['key'])
-        if it['key'] in seen:
+        sig = (it['key'], it.get('name', '').lower())
+        if sig in seen:
             continue
-        seen.add(it['key'])
+        seen.add(sig)
         out.append(it)
     g['items'] = out
 missing = sorted({it['key'] for g in kits.values() for it in g['items'] if it['key'] not in items})
