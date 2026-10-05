@@ -18,6 +18,28 @@
   TB.useTool = function (r, n, tool) {
     r.steps[n - 1].v = Object.assign({}, r.steps[n - 1].v, { tool });
   };
+  // Add parts (e.g. build add-ons) to a model registered elsewhere. New parts start hidden.
+  TB.extendModel = function (name, extra, opts) {
+    const d = TB.MODELS && TB.MODELS[name];
+    if (!d) return;
+    opts = opts || {};
+    const old = d.build;
+    d.build = (K) => {
+      const api = old(K);
+      const more = extra(K);
+      if (!api) return more;
+      if (more && more.tick) {
+        const t0 = api.tick;
+        api.tick = (t, fx) => (t0 && t0(t, fx), more.tick(t, fx));
+      }
+      return api;
+    };
+    d.view = Object.assign({}, d.view, {
+      hidden: (d.view.hidden || []).concat(opts.hidden || []),
+      assets: (d.view.assets || []).concat(opts.assets || []),
+      tex: (d.view.tex || []).concat(opts.tex || []),
+    });
+  };
   TB.DOMAINS = [
     { id: 'systems', name: 'Home systems', blurb: 'Water, power, air and the machines that use them' },
     { id: 'interior', name: 'Inside the house', blurb: 'Walls, doors, floors and furniture' },

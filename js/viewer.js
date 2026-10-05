@@ -421,6 +421,8 @@
 
   class Viewer {
     constructor(host, opts) {
+      this.addonAll = new Set();
+      this.addonOn = new Set();
       this.host = host;
       this.opts = opts || {};
       this.labelsOn = true;
@@ -722,6 +724,11 @@
       };
     }
 
+    setAddons(all, on) {
+      this.addonAll = new Set(all || []);
+      this.addonOn = new Set(on || []);
+    }
+
     /* pose: {cam, at, hi, fx, xray, tool}; state: cumulative {mv, rt, hide} */
     go(pose, state, animate) {
       if (this.failed || !this.K) return;
@@ -732,7 +739,9 @@
       this.partTween = { t0: performance.now(), dur: animate ? 950 : 0, items: [] };
       for (const n of Object.keys(this.cur)) {
         const c = this.cur[n];
-        const to = { off: state.mv[n] || [0, 0, 0], rot: state.rt[n] || [0, 0, 0], vis: hide.has(n) ? 0 : 1 };
+        // Build add-ons: shown only on finished-build states, and only when picked.
+        const vis = this.addonAll.has(n) ? (state.addons && this.addonOn.has(n) ? 1 : 0) : hide.has(n) ? 0 : 1;
+        const to = { off: state.mv[n] || [0, 0, 0], rot: state.rt[n] || [0, 0, 0], vis };
         this.partTween.items.push({ n, from: { off: c.off.slice(), rot: c.rot.slice(), vis: c.vis }, to });
       }
       this.hi = new Set(pose.hi || []);

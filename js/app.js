@@ -258,6 +258,21 @@
     document.title = c.name + ' · Toolbox';
   }
 
+  /* ---------- Build add-ons ---------- */
+  const money = (lo, hi) => '$' + lo.toLocaleString() + (hi > lo ? '–$' + hi.toLocaleString() : '');
+  function addonSection(r) {
+    return `<section class="addons" aria-label="Add-ons">
+      <div class="ao-head"><div><h2>Make it yours</h2><p>Extras that pair well with this build. Pick any and they show up on the finished model.</p></div><div class="ao-total" id="ao-total"></div></div>
+      <div class="ao-grid">${r.addons
+        .map(
+          (a) => `<button class="ao" data-ao="${esc(a.id)}" aria-pressed="false"><span class="ao-tog" aria-hidden="true">${I.check}</span><span class="ao-cat c-${esc(a.cat.toLowerCase())}">${esc(a.cat)}</span><b>${esc(a.name)}</b><span class="ao-blurb">${esc(a.blurb)}</span><span class="ao-cost">+${money(a.cost[0], a.cost[1])}</span></button>`
+        )
+        .join('')}</div>
+      <div class="ao-plan" id="ao-plan"></div>
+    </section>`;
+  }
+
+
   /* ---------- Repair ---------- */
   function renderRepair(c, base) {
     const vid = variantId(base);
@@ -280,7 +295,7 @@
       <div class="facts">
         <div><span>Difficulty</span>${level(r.level)}</div>
         <div><span>Time</span><b>${esc(r.time)}</b></div>
-        <div><span>Cost</span><b>${esc(r.cost)}</b></div>
+        <div><span>Cost</span><b id="f-cost">${esc(r.cost)}</b></div>
         <div><span>Steps</span><b>${n}</b></div>
       </div>
     </header>
@@ -295,6 +310,7 @@
         )
         .join('')}</div>
     </section>` : ''}
+    ${r.addons && r.addons.length ? addonSection(r) : ''}
 
     <div class="repair">
       <div class="stage-col">
@@ -413,6 +429,46 @@
     let cur = 0;
     const poseAt = (i) => (i === 0 ? r.intro || {} : steps[i - 1].v || {});
     const states = TB.buildStates(steps, r.model, r.intro);
+    const AO = r.addons || [];
+    const aoKey = 'addons:' + key;
+    const aoOn = new Set(store.get(aoKey, []).filter((id) => AO.some((a) => a.id === id)));
+    if (AO.length) {
+      states[0].addons = !!(r.intro && r.intro.preview);
+      states[n].addons = true;
+    }
+    const aoParts = () => AO.filter((a) => aoOn.has(a.id)).map((a) => a.part);
+    function paintAddons() {
+      if (!AO.length) return;
+      const picked = AO.filter((a) => aoOn.has(a.id));
+      $$('[data-ao]').forEach((b) => b.setAttribute('aria-pressed', aoOn.has(b.dataset.ao)));
+      const lo = picked.reduce((t, a) => t + a.cost[0], 0);
+      const hi = picked.reduce((t, a) => t + a.cost[1], 0);
+      $('#ao-total').innerHTML = picked.length ? `<b>${picked.length}</b> add-on${picked.length > 1 ? 's' : ''} · <b>+${money(lo, hi)}</b>` : 'Tap to add. They appear on the finished build in 3D.';
+      $('#f-cost').innerHTML = esc(r.cost) + (picked.length ? `<small>+ ${money(lo, hi)} add-ons</small>` : '');
+      $('#ao-plan').innerHTML = picked.length
+        ? `<h3>Your add-on plan</h3><ol class="ao-steps">${picked
+            .map((a) => `<li><b>${esc(a.name)}</b><span>${esc(a.how)}</span>${a.needs ? `<em>Need: ${a.needs.map(esc).join(' · ')}</em>` : ''}</li>`)
+            .join('')}</ol>${TB.shopBlock ? TB.shopBlock(picked.map((a) => a.shop || a.name), r.id + '-addons') : ''}`
+        : '';
+    }
+    $$('[data-ao]').forEach((b) =>
+      b.addEventListener('click', () => {
+        const a = AO.find((x) => x.id === b.dataset.ao);
+        const on = !aoOn.has(a.id);
+        on ? aoOn.add(a.id) : aoOn.delete(a.id);
+        store.set(aoKey, [...aoOn]);
+        paintAddons();
+        if (!viewer) return;
+        viewer.setAddons(AO.map((x) => x.part), aoParts());
+        stopPlay();
+        go(states[0].addons && cur === 0 ? 0 : n);
+        if (on) {
+          viewer.hi = new Set([a.part]);
+          viewer.kick();
+        }
+        if (innerWidth <= 980) stage.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      })
+    );
 
     function go(i, opts) {
       opts = opts || {};
@@ -479,6 +535,7 @@
       if (e.key === 'ArrowLeft') (stopPlay(), go(cur - 1, { scroll: true }));
     };
     paintProg();
+    paintAddons();
     go(0, { animate: false });
 
     const tok = renderToken;
@@ -493,6 +550,7 @@
         },
       });
       viewer.load(r.model);
+      viewer.setAddons(AO.map((x) => x.part), aoParts());
       window.TB_VIEWER = viewer;
       stage.classList.add('ready');
       viewer.setXray($('#t-xray').getAttribute('aria-pressed') === 'true');
