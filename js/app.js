@@ -100,7 +100,7 @@
   /* ---------- Nav ---------- */
   const nav = $('#domnav');
   nav.innerHTML =
-    `<a href="#mode.repair" class="mode kind-repair" data-d="mode.repair">${I.wrench}Repairs</a><a href="#mode.build" class="mode kind-build" data-d="mode.build">${I.cube}Builds</a><span class="nav-sep"></span>` +
+    `<a href="#mode.repair" class="mode kind-repair" data-d="mode.repair">${I.wrench}Repairs</a><a href="#mode.build" class="mode kind-build" data-d="mode.build">${I.cube}Builds</a><a href="#items" class="mode kind-items" data-d="items">${I.wrench}Tools A–Z</a><span class="nav-sep"></span>` +
     TB.DOMAINS.filter((d) => TB.categories.some((c) => c.domain === d.id && !c.hidden))
       .map((d) => `<a href="#d.${d.id}" class="d-${d.id}" data-d="${d.id}">${esc(d.name)}</a>`)
       .join('');
@@ -258,14 +258,140 @@
     document.title = c.name + ' · Toolbox';
   }
 
+  /* ---------- Items: complete kit lists + explanations ---------- */
+  TB.ITEMS = TB.ITEMS || {};
+  TB.KITS = TB.KITS || {};
+  const hostOf = (u) => {
+    try {
+      return new URL(u).hostname.replace(/^www\./, '');
+    } catch (e) {
+      return u;
+    }
+  };
+  const KGROUPS = [
+    ['Tools', ['tool', 'power-tool', 'measure']],
+    ['Materials & parts', ['material', 'part']],
+    ['Fasteners & hardware', ['fastener']],
+    ['Adhesives, sealants & supplies', ['adhesive', 'consumable']],
+    ['Safety gear', ['safety']],
+  ];
+  const KIND_LABEL = { tool: 'Tool', 'power-tool': 'Power tool', measure: 'Measuring & layout', material: 'Material', part: 'Part', fastener: 'Fastener & hardware', adhesive: 'Adhesive & sealant', consumable: 'Supply', safety: 'Safety gear' };
+  const groupOf = (kind) => (KGROUPS.find(([, ks]) => ks.includes(kind)) || KGROUPS[1])[0];
+  // item key -> [{rep, cat}] where it's used
+  const usedIn = {};
+  Object.entries(TB.KITS).forEach(([gk, kit]) => {
+    const gid = gk.split('@')[0];
+    const hit = byId[gid];
+    if (!hit) return;
+    (kit.items || []).forEach((it) => {
+      const arr = (usedIn[it.key] = usedIn[it.key] || []);
+      if (!arr.some((x) => x.rep.id === gid)) arr.push(hit);
+    });
+  });
+  const itemByName = {};
+  Object.entries(TB.ITEMS).forEach(([k, v]) => (itemByName[v.name.toLowerCase()] = k));
+  const norm = (t) => String(t).toLowerCase().replace(/\(.*?\)/g, '').replace(/[^a-z0-9 ]/g, ' ').replace(/\s+/g, ' ').trim();
+  const normIdx = {};
+  Object.entries(TB.ITEMS).forEach(([k, v]) => (normIdx[norm(v.name)] = k));
+  const keyForName = (t) => itemByName[String(t).toLowerCase()] || normIdx[norm(t)] || (TB.ITEMS[norm(t).replace(/ /g, '-')] ? norm(t).replace(/ /g, '-') : null);
+  const infoBtn = (key) => (TB.ITEMS[key] ? `<button class="info" data-info="${esc(key)}" aria-label="What is this?" title="What is this?">i</button>` : '');
+
+  function kitSection(kit, toolSet, rid) {
+    const items = kit.items.map((it, i) => Object.assign({ i }, it));
+    const groups = KGROUPS.map(([g]) => [g, items.filter((it) => groupOf(it.kind) === g)]).filter(([, l]) => l.length);
+    return `<section class="section kit"><h2>Everything you need <small>${items.length} items · tap to check off · ⓘ explains each one</small></h2>
+      ${groups
+        .map(
+          ([g, list]) => `<h3 class="kit-h">${esc(g)} <span>${list.length}</span></h3><ul class="kit-list">${list
+            .map(
+              (it) => `<li><button class="kit-chk" data-tool="${it.i}" aria-pressed="${toolSet.has(it.i)}"><span class="tick">${I.check}</span><span class="kit-name"><b>${esc(it.name)}</b>${it.spec ? `<em>${esc(it.spec)}</em>` : ''}</span></button>${infoBtn(it.key)}</li>`
+            )
+            .join('')}</ul>`
+        )
+        .join('')}
+      ${TB.shopBlock ? TB.shopBlock(items.filter((it) => it.kind !== 'safety').map((it) => it.name), rid) : ''}
+    </section>`;
+  }
+
+  // Item explanation dialog (delegated from any [data-info] button).
+  let dlg;
+  function showItem(key) {
+    const it = TB.ITEMS[key];
+    if (!it) return;
+    if (!dlg) {
+      dlg = document.createElement('dialog');
+      dlg.className = 'item-dlg';
+      document.body.appendChild(dlg);
+      dlg.addEventListener('click', (e) => {
+        if (e.target === dlg || e.target.closest('.dlg-x')) dlg.close();
+        if (e.target.closest('a[href^="#"]')) dlg.close();
+      });
+    }
+    const uses = usedIn[key] || [];
+    const shop = TB.AFFILIATE && TB.AFFILIATE.enabled && TB.shopBlock ? TB.shopBlock([it.name], key) : '';
+    dlg.innerHTML = `<div class="dlg-in">
+      <button class="dlg-x" aria-label="Close">×</button>
+      <span class="kind-tag k-${esc(it.kind)}">${esc(KIND_LABEL[it.kind] || it.kind)}</span>
+      <h2>${esc(it.name)}</h2>
+      <p class="what">${esc(it.what)}</p>
+      ${it.uses && it.uses.length ? `<h3>Common uses</h3><ul>${it.uses.map((u) => `<li>${esc(u)}</li>`).join('')}</ul>` : ''}
+      ${it.tip ? `<p class="dlg-tip">${I.bulb}<span>${esc(it.tip)}</span></p>` : ''}
+      ${uses.length ? `<h3>Used in ${uses.length} guide${uses.length > 1 ? 's' : ''}</h3><div class="dlg-uses">${uses
+        .slice(0, 12)
+        .map(({ rep, cat }) => `<a href="#${cat.id}.${rep.id}">${esc(rep.title)}</a>`)
+        .join('')}</div>` : ''}
+      ${shop}
+    </div>`;
+    dlg.showModal ? dlg.showModal() : dlg.setAttribute('open', '');
+  }
+  document.addEventListener('click', (e) => {
+    const b = e.target.closest('[data-info]');
+    if (b) {
+      e.preventDefault();
+      e.stopPropagation();
+      showItem(b.dataset.info);
+    }
+  });
+
+  /* ---------- Tools & materials A–Z ---------- */
+  function renderItems() {
+    const all = Object.entries(TB.ITEMS).sort((a, b) => a[1].name.localeCompare(b[1].name));
+    main.innerHTML = `<header class="page-head"><div><h1>Tools & materials A–Z</h1><p>Every tool, part, fastener and supply used across Toolbox (${all.length} items). Tap any item to see what it does, common uses, and which guides need it.</p></div></header>
+      <div class="az-bar"><label class="search az-search">${I.search}<input id="azq" type="search" placeholder="Filter: wrench, caulk, screw…" autocomplete="off"></label>
+      <div class="az-kinds">${['all'].concat(KGROUPS.map(([g]) => g)).map((g, i) => `<button class="chip ${i ? '' : 'on'}" data-g="${esc(g)}">${esc(g === 'all' ? 'All' : g)}</button>`).join('')}</div></div>
+      <div class="az-grid" id="azg"></div>`;
+    let gsel = 'all';
+    const paint = () => {
+      const qv = $('#azq').value.trim().toLowerCase();
+      const list = all.filter(([k, v]) => (gsel === 'all' || groupOf(v.kind) === gsel) && (!qv || (v.name + ' ' + v.what + ' ' + (v.uses || []).join(' ')).toLowerCase().includes(qv)));
+      $('#azg').innerHTML = list.length
+        ? list
+            .map(
+              ([k, v]) => `<button class="az-card" data-info="${esc(k)}"><span class="kind-tag k-${esc(v.kind)}">${esc(KIND_LABEL[v.kind] || v.kind)}</span><b>${esc(v.name)}</b><span>${esc(v.what)}</span><em>${(usedIn[k] || []).length ? `Used in ${(usedIn[k] || []).length} guide${(usedIn[k] || []).length > 1 ? 's' : ''}` : 'Add-on item'}</em></button>`
+            )
+            .join('')
+        : '<p class="empty">Nothing matches that filter.</p>';
+    };
+    $('#azq').addEventListener('input', paint);
+    $$('.az-kinds .chip').forEach((b) =>
+      b.addEventListener('click', () => {
+        gsel = b.dataset.g;
+        $$('.az-kinds .chip').forEach((x) => x.classList.toggle('on', x === b));
+        paint();
+      })
+    );
+    paint();
+    document.title = 'Tools & materials A–Z · Toolbox';
+  }
+
   /* ---------- Build add-ons ---------- */
   const money = (lo, hi) => '$' + lo.toLocaleString() + (hi > lo ? '–$' + hi.toLocaleString() : '');
   function addonSection(r) {
     return `<section class="addons" aria-label="Add-ons">
-      <div class="ao-head"><div><h2>Make it yours</h2><p>Extras that pair well with this build. Pick any and they show up on the finished model.</p></div><div class="ao-total" id="ao-total"></div></div>
+      <div class="ao-head"><div><h2>Make it yours</h2><p>Extras that pair well with this build. Pick any and they show up on the finished model.</p></div><div class="ao-side"><div class="ao-total" id="ao-total"></div><div class="ao-bulk"><button class="linkbtn" id="ao-all">Select all</button><button class="linkbtn" id="ao-none">Clear</button></div></div></div>
       <div class="ao-grid">${r.addons
         .map(
-          (a) => `<button class="ao" data-ao="${esc(a.id)}" aria-pressed="false"><span class="ao-tog" aria-hidden="true">${I.check}</span><span class="ao-cat c-${esc(a.cat.toLowerCase())}">${esc(a.cat)}</span><b>${esc(a.name)}</b><span class="ao-blurb">${esc(a.blurb)}</span><span class="ao-cost">+${money(a.cost[0], a.cost[1])}</span></button>`
+          (a) => `<button class="ao" data-ao="${esc(a.id)}" aria-pressed="false"><span class="ao-tog" aria-hidden="true">${I.check}</span><span class="ao-cat c-${esc(a.cat.toLowerCase())}">${esc(a.cat)}</span><b>${esc(a.name)}</b><span class="ao-blurb">${esc(a.blurb)}</span><span class="ao-foot"><span class="ao-cost">+${money(a.cost[0], a.cost[1])}</span><span class="ao-state"></span></span></button>`
         )
         .join('')}</div>
       <div class="ao-plan" id="ao-plan"></div>
@@ -279,7 +405,8 @@
     const r = effective(base, vid);
     const key = progKey(base, vid);
     const doneSet = new Set(store.get('done:' + key, []));
-    const toolSet = new Set(store.get('tools:' + key, []));
+    const kit = TB.KITS && (TB.KITS[base.id + '@' + vid] || TB.KITS[base.id]);
+    const toolSet = new Set(store.get((kit ? 'kit:' : 'tools:') + key, []));
     const L = r.learn || {};
     const steps = r.steps;
     const n = steps.length;
@@ -347,9 +474,9 @@
           .map(([t, dd], i) => `<div class="cause"><span class="n">${i + 1}</span><b>${esc(t)}</b>${dd ? `<p>${esc(dd)}</p>` : ''}</div>`)
           .join('')}</div></section>
 
-        <section class="section"><h2>Tools & parts <small>tap to check off</small></h2><ul class="tools">${r.tools
+        ${kit ? kitSection(kit, toolSet, r.id) : `<section class="section"><h2>Tools & parts <small>tap to check off</small></h2><ul class="tools">${r.tools
           .map((t, i) => `<li><button data-tool="${i}" aria-pressed="${toolSet.has(i)}"><span class="tick">${I.check}</span>${esc(t)}</button></li>`)
-          .join('')}</ul>${TB.shopBlock ? TB.shopBlock(r.tools, r.id) : ''}</section>
+          .join('')}</ul>${TB.shopBlock ? TB.shopBlock(r.tools, r.id) : ''}</section>`}
 
         <section class="section"><h2>Steps <small>tap the number when done</small></h2><ol class="steps" id="steps">${steps
           .map(
@@ -363,6 +490,10 @@
           .join('')}</ol>
           <div class="progress"><div class="bar"><i id="prog-bar"></i></div><span id="prog-text"></span><button class="linkbtn" id="clear">Reset</button></div>
         </section>
+
+        ${kit && kit.proTips && kit.proTips.length ? `<section class="section box pros"><h2>${I.bulb} From the pros</h2><ul>${kit.proTips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>${
+          kit.sources && kit.sources.length ? `<p class="srcs">Sources: ${kit.sources.map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(hostOf(u))}</a>`).join(' · ')}</p>` : ''
+        }</section>` : ''}
 
         ${L.terms && L.terms.length ? `<section class="section learn-only"><h2>Know the terms</h2><dl class="terms">${L.terms.map(([t, dd]) => `<div><dt>${esc(t)}</dt><dd>${esc(dd)}</dd></div>`).join('')}</dl></section>` : ''}
 
@@ -391,7 +522,7 @@
         const i = +b.dataset.tool;
         toolSet.has(i) ? toolSet.delete(i) : toolSet.add(i);
         b.setAttribute('aria-pressed', toolSet.has(i));
-        store.set('tools:' + key, [...toolSet]);
+        store.set((kit ? 'kit:' : 'tools:') + key, [...toolSet]);
       })
     );
 
@@ -416,7 +547,7 @@
       doneSet.clear();
       toolSet.clear();
       store.set('done:' + key, []);
-      store.set('tools:' + key, []);
+      store.set((kit ? 'kit:' : 'tools:') + key, []);
       $$('.step').forEach((s) => s.classList.remove('done'));
       $$('[data-done],[data-tool]').forEach((b) => b.setAttribute('aria-pressed', 'false'));
       paintProg();
@@ -447,9 +578,22 @@
       $('#f-cost').innerHTML = esc(r.cost) + (picked.length ? `<small>+ ${money(lo, hi)} add-ons</small>` : '');
       $('#ao-plan').innerHTML = picked.length
         ? `<h3>Your add-on plan</h3><ol class="ao-steps">${picked
-            .map((a) => `<li><b>${esc(a.name)}</b><span>${esc(a.how)}</span>${a.needs ? `<em>Need: ${a.needs.map(esc).join(' · ')}</em>` : ''}</li>`)
+            .map((a) => `<li><b>${esc(a.name)}</b><span>${esc(a.how)}</span>${a.needs ? `<em>Need: ${a.needs.map((nd) => esc(nd) + (keyForName(nd) ? infoBtn(keyForName(nd)) : '')).join(' · ')}</em>` : ''}</li>`)
             .join('')}</ol>${TB.shopBlock ? TB.shopBlock(picked.map((a) => a.shop || a.name), r.id + '-addons') : ''}`
         : '';
+    }
+    const bulk = (on) => {
+      AO.forEach((a) => (on ? aoOn.add(a.id) : aoOn.delete(a.id)));
+      store.set(aoKey, [...aoOn]);
+      paintAddons();
+      if (!viewer) return;
+      viewer.setAddons(AO.map((x) => x.part), aoParts());
+      stopPlay();
+      go(states[0].addons && cur === 0 ? 0 : n);
+    };
+    if (AO.length) {
+      $('#ao-all').addEventListener('click', () => bulk(true));
+      $('#ao-none').addEventListener('click', () => bulk(false));
     }
     $$('[data-ao]').forEach((b) =>
       b.addEventListener('click', () => {
@@ -543,7 +687,8 @@
       if (tok !== renderToken) return;
       viewer = new TB.Viewer(stage, {
         onPick(_, label) {
-          pickEl.textContent = label;
+          const ik = itemByName[String(label).toLowerCase()];
+          pickEl.innerHTML = esc(label) + (ik ? ' ' + infoBtn(ik) : '');
           pickEl.classList.add('show');
           clearTimeout(pickT);
           pickT = setTimeout(() => pickEl.classList.remove('show'), 1800);
@@ -645,6 +790,11 @@
     const h = decodeURIComponent(location.hash.slice(1));
     $$('#domnav a').forEach((a) => a.classList.remove('on'));
     if (h === 'credits') return renderCredits();
+    if (h === 'items') {
+      const a = $('#domnav a[data-d="items"]');
+      if (a) a.classList.add('on');
+      return renderItems();
+    }
     if (h === 'mode.repair' || h === 'mode.build') {
       const a = $(`#domnav a[data-d="${h}"]`);
       if (a) a.classList.add('on');
