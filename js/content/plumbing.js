@@ -417,4 +417,487 @@
       },
     ],
   });
+
+  /* ================= More plumbing: faucet types, kitchen sink, shower, tub, toilet seal, frozen pipe ================= */
+  function shutoffs(K, xs) {
+    const valves = K.part('valves', [0, 0, 0], null, 'Shutoff valves');
+    [['H', xs[0], 'red'], ['C', xs[1], 'blue']].forEach(([s, x, col]) => {
+      K.cyl(valves, [0.05, 0.05, 0.22], 'chrome', [x, 0.6, -0.76], [90, 0, 0]);
+      K.cyl(valves, [0.045, 0.045, 0.2], 'chrome', [x, 0.72, -0.68]);
+      const knob = K.part('knob' + s, [x, 0.6, -0.62], null, s === 'H' ? 'Hot shutoff' : 'Cold shutoff');
+      K.box(knob, [0.16, 0.06, 0.04], col);
+      K.tube(null, [[x, 0.82, -0.68], [x, 1.05, -0.62], [x * 0.9, 1.32, -0.5], [x * 0.9, 1.5, -0.45]], 0.022, 'steel');
+    });
+  }
+
+  /* ---- Model: two-handle compression faucet (washer & seat) ---- */
+  TB.model('faucetComp', Object.assign({ cam: [2.4, 2.6, 2.6], at: [0, 1.75, -0.3] }, BATH), (K) => {
+    vanity(K);
+    shutoffs(K, [-0.42, 0.42]);
+    const spout = K.part('spout', [0, 1.5, -0.45], null, 'Spout');
+    K.cyl(spout, [0.1, 0.12, 0.12], 'chrome', [0, 0.06, 0]);
+    K.tube(spout, [[0, 0.1, 0], [0, 0.32, 0.08], [0, 0.34, 0.3], [0, 0.24, 0.42]], 0.045, 'chrome');
+    const drip = K.drip(spout, [0, 0.2, 0.42], 0.6);
+    ['H', 'C'].forEach((s, i) => {
+      const x = i ? 0.42 : -0.42;
+      const esc = K.part('body' + s, [x, 1.5, -0.45], null, s === 'H' ? 'Hot valve body' : 'Cold valve body');
+      K.cyl(esc, [0.12, 0.14, 0.06], 'chrome', [0, 0.03, 0]);
+      K.cyl(esc, [0.07, 0.07, 0.3], 'brass', [0, -0.15, 0]);
+      const seat = K.part('seat' + s, [0, -0.22, 0], esc, 'Valve seat');
+      K.tor(seat, [0.035, 0.012, 360], 'brass', [0, 0, 0], [90, 0, 0]);
+      const stem = K.part('stem' + s, [x, 1.58, -0.45], null, 'Stem');
+      K.cyl(stem, [0.03, 0.03, 0.34], 'brass', [0, -0.08, 0]);
+      K.rep(8, (k) => K.tor(stem, [0.031, 0.006], 'brass', [0, -0.05 - k * 0.02, 0], [90, 0, 0]));
+      K.nut(stem, 0.13, 0.06, 'brass', [0, 0.02, 0]);
+      const washer = K.part('washer' + s, [0, -0.26, 0], stem, 'Rubber washer + brass screw');
+      K.cyl(washer, [0.036, 0.036, 0.025, 20], 'rubber');
+      K.cyl(washer, [0.01, 0.01, 0.01, 12], 'brass', [0, -0.016, 0]);
+      const oring = K.part('oring' + s, [0, -0.02, 0], stem, 'Stem O-ring');
+      K.tor(oring, [0.032, 0.006], 'rubber', [0, 0, 0], [90, 0, 0]);
+      const handle = K.part('handle' + s, [x, 1.7, -0.45], null, s === 'H' ? 'Hot handle' : 'Cold handle');
+      K.cyl(handle, [0.05, 0.06, 0.1], 'chrome', [0, 0, 0]);
+      K.rep(4, (k) => K.box(handle, [0.22, 0.035, 0.04], 'chrome', [Math.cos((k * Math.PI) / 2) * 0.09, 0.02, Math.sin((k * Math.PI) / 2) * 0.09], [0, (-k * 90), 0], 0.012));
+      const cap = K.part('cap' + s, [0, 0.06, 0], handle, 'Index cap');
+      K.cyl(cap, [0.045, 0.045, 0.02], s === 'H' ? 'red' : 'blue');
+      const scr = K.part('screw' + s, [0, 0.045, 0], handle, 'Handle screw');
+      K.cyl(scr, [0.015, 0.015, 0.01, 12], 'chrome');
+    });
+    return { tick: (t, fx) => drip.tick(t, fx === 'drip') };
+  });
+
+  /* ---- Model: single-handle ball faucet ---- */
+  TB.model('faucetBall', Object.assign({ cam: [2.4, 2.6, 2.6], at: [0, 1.85, -0.35] }, BATH), (K) => {
+    vanity(K);
+    shutoffs(K, [-0.32, 0.32]);
+    const body = K.part('body', [0, 1.5, -0.45], null, 'Faucet body');
+    K.cyl(body, [0.14, 0.18, 0.4], 'chrome', [0, 0.2, 0]);
+    K.cyl(body, [0.26, 0.28, 0.03], 'chrome', [0, 0.015, 0]);
+    const spoutG = K.part('spoutSleeve', [0, 0.28, 0], body, 'Swivel spout');
+    K.cyl(spoutG, [0.16, 0.16, 0.12], 'chrome');
+    K.tube(spoutG, [[0, 0, 0.15], [0, 0.02, 0.4], [0, -0.06, 0.62]], 0.045, 'chrome');
+    const orings = K.part('bodyOrings', [0, 0.18, 0], body, 'Body O-rings');
+    K.tor(orings, [0.145, 0.012], 'rubber', [0, 0.06, 0], [90, 0, 0]);
+    K.tor(orings, [0.145, 0.012], 'rubber', [0, -0.04, 0], [90, 0, 0]);
+    const seats = K.part('seats', [0, 0.36, 0], body, 'Seats & springs (×2)');
+    [-0.05, 0.05].forEach((x) => {
+      K.cyl(seats, [0.018, 0.018, 0.015, 16], 'rubber', [x, 0.015, 0]);
+      K.tor(seats, [0.01, 0.003, 360], 'steel', [x, 0.0, 0], [90, 0, 0]);
+    });
+    const ball = K.part('ball', [0, 0.47, 0], body, 'Rotating ball');
+    K.sph(ball, 0.085, K.phys(0xd8dde2, { metalness: 1, roughness: 0.15 }));
+    K.cyl(ball, [0.015, 0.015, 0.14, 12], 'chrome', [0, 0.1, 0]);
+    K.cyl(ball, [0.015, 0.015, 0.002, 12], 'black', [0.07, 0.02, 0.04]);
+    const cam = K.part('cam', [0, 0.55, 0], body, 'Cam & packing');
+    K.cyl(cam, [0.09, 0.09, 0.04, 24], 'white');
+    K.cyl(cam, [0.08, 0.08, 0.02, 24], 'rubber', [0, -0.03, 0]);
+    const cap = K.part('cap', [0, 0.6, 0], body, 'Cap with adjusting ring');
+    K.lathe(cap, [[0.15, 0], [0.15, 0.06], [0.12, 0.1], [0.05, 0.12], [0.05, 0.13]], 'chrome');
+    const ring = K.part('ring', [0, 0.12, 0], cap, 'Adjusting ring');
+    K.tor(ring, [0.05, 0.012], 'brass', [0, 0, 0], [90, 0, 0]);
+    const handle = K.part('handle', [0, 0.76, 0], body, 'Lever handle');
+    K.cyl(handle, [0.07, 0.08, 0.08], 'chrome');
+    K.box(handle, [0.06, 0.04, 0.42], 'chrome', [0, 0.05, 0.22], [-10, 0, 0], 0.015);
+    const ss = K.part('setScrew', [0, -0.01, 0.08], handle, 'Handle set screw');
+    K.cyl(ss, [0.012, 0.012, 0.02, 6], 'dark', [0, 0, 0], [90, 0, 0]);
+    const drip = K.drip(spoutG, [0, -0.1, 0.62], 0.75);
+    return { tick: (t, fx) => drip.tick(t, fx === 'drip') };
+  });
+
+  /* ---- Model: double kitchen sink with garbage disposal ---- */
+  TB.model('kitchenSink', { cam: [2.4, 1.8, 2.6], at: [0, 0.9, 0], env: 'studio', tex: ['white_plaster_02', 'granite_tile', 'plank_flooring', 'oak_wood_planks'], ground: { tex: 'plank_flooring', repeat: 5, radius: 6 }, hidden: ['bucket', 'cupPlunger', 'snake'] }, (K) => {
+    K.box(null, [3.6, 2.6, 0.06], K.pbr('white_plaster_02', [2, 2], {}, 'drywall'), [0, 1.3, -0.8]);
+    const top = K.part('counter', [0, 0, 0], null, 'Countertop');
+    K.box(top, [3.2, 0.08, 1.4], K.pbr('granite_tile', [1.5, 0.8], { roughness: 0.35 }, 'offwhite'), [0, 1.62, -0.1], null, 0.02);
+    const sinkMat = K.std(0xc9ced3, { metalness: 0.9, roughness: 0.3 });
+    const basins = K.part('basins', [0, 0, 0], null, 'Double stainless sink');
+    [-0.42, 0.42].forEach((x) => {
+      K.box(basins, [0.76, 0.02, 0.6], sinkMat, [x, 1.3, 0], null, 0.005);
+      K.box(basins, [0.76, 0.32, 0.02], sinkMat, [x, 1.46, 0.3]);
+      K.box(basins, [0.76, 0.32, 0.02], sinkMat, [x, 1.46, -0.3]);
+      K.box(basins, [0.02, 0.32, 0.6], sinkMat, [x - 0.38, 1.46, 0]);
+      K.box(basins, [0.02, 0.32, 0.6], sinkMat, [x + 0.38, 1.46, 0]);
+    });
+    const water = K.part('standingWater', [0.42, 1.38, 0], null, 'Standing water');
+    K.box(water, [0.72, 0.12, 0.56], 'water');
+    const stopper = K.part('stopperR', [-0.42, 1.315, 0], null, 'Basket strainer (plugged)');
+    K.cyl(stopper, [0.06, 0.06, 0.02, 24], 'chrome');
+    const disp = K.part('disposal', [0.42, 1.05, 0], null, 'Garbage disposal');
+    K.cyl(disp, [0.13, 0.12, 0.42, 32], K.std(0x2c3036, { roughness: 0.4 }), [0, 0, 0]);
+    K.cyl(disp, [0.08, 0.08, 0.06, 24], 'chrome', [0, 0.24, 0]);
+    const hex = K.part('hexSocket', [0, -0.215, 0], disp, 'Hex socket (bottom)');
+    K.cyl(hex, [0.012, 0.012, 0.01, 6], 'black');
+    const reset = K.part('reset', [0.12, -0.15, 0.04], disp, 'Red reset button');
+    K.cyl(reset, [0.015, 0.015, 0.02, 12], 'red', [0, 0, 0], [0, 0, 90]);
+    const dw = K.part('dwHose', [0, 0, 0], null, 'Dishwasher drain hose');
+    K.tube(dw, [[0.55, 1.12, 0], [0.8, 1.3, -0.4], [1.2, 0.9, -0.5], [1.4, 0.3, -0.3]], 0.015, 'black');
+    const trap = K.part('trap', [0, 0, 0], null, '1½″ P-trap');
+    K.tube(trap, [[0.42, 0.84, 0.0], [0.42, 0.72, 0.06], [0.0, 0.66, 0.06], [-0.42, 0.66, 0.06], [-0.42, 0.66, 0.06]], 0.04, 'pvc');
+    K.cyl(trap, [0.04, 0.04, 0.34], 'pvc', [-0.42, 1.12, 0]);
+    K.tor(trap, [0.12, 0.045, 180], 'pvc', [-0.3, 0.6, 0.06], [0, 0, 180]);
+    K.tube(trap, [[-0.18, 0.66, 0.06], [-0.18, 0.72, -0.2], [-0.15, 0.74, -0.78]], 0.045, 'pvc');
+    const nuts = K.part('slipNuts', [0, 0, 0], null, 'Slip nuts');
+    K.cyl(nuts, [0.06, 0.06, 0.05, 12], 'pvc', [-0.42, 0.68, 0.06]);
+    K.cyl(nuts, [0.06, 0.06, 0.05, 12], 'pvc', [-0.18, 0.68, 0.06]);
+    const cab = K.group(null);
+    const wood = K.pbr('oak_wood_planks', [1, 1], { color: 0xe9e2d6 }, 'offwhite');
+    K.box(cab, [0.05, 1.55, 1.3], wood, [-1.55, 0.78, -0.15]);
+    K.box(cab, [0.05, 1.55, 1.3], wood, [1.55, 0.78, -0.15]);
+    K.box(cab, [3.1, 0.05, 1.3], wood, [0, 0.12, -0.15]);
+    const cup = K.part('cupPlunger', [0.42, 1.4, 0], null, 'Cup (sink) plunger');
+    K.lathe(cup, [[0.0, 0.0], [0.13, 0.0], [0.12, 0.08], [0.04, 0.12], [0, 0.12]], 'red');
+    K.cyl(cup, [0.02, 0.02, 0.7], 'hickory', [0, 0.45, 0]);
+    const bucket = K.part('bucket', [-0.2, 0, 0.1], null, 'Bucket');
+    K.lathe(bucket, [[0, 0], [0.3, 0], [0.34, 0.38], [0.35, 0.38]], 'sky');
+    const snake = K.part('snake', [-0.15, 0.74, 0.3], null, 'Drain snake');
+    K.cyl(snake, [0.11, 0.11, 0.11], 'yellow', [0, 0, 0.05], [90, 0, 0]);
+    K.tube(snake, [[0, 0, 0], [0, 0.0, -0.5], [0, 0, -1.0]], 0.01, 'steel');
+    return {
+      tick(t, fx) {
+        if (fx === 'plunge') K.parts.cupPlunger.position.y = 1.36 + 0.04 * Math.sin(t * 7);
+      },
+    };
+  });
+
+  /* ---- Model: shower head on an arm ---- */
+  TB.model('shower', Object.assign({ cam: [1.6, 2.2, 1.8], at: [0, 2.0, -0.5] }, BATH, { hidden: ['newHead', 'tape'] }), (K) => {
+    const tiles = K.pbr('floor_tiles_06', [2, 2], {}, 'offwhite');
+    K.box(null, [2.4, 3, 0.06], tiles, [0, 1.5, -0.9]);
+    K.box(null, [0.06, 3, 1.8], tiles, [-1.2, 1.5, 0]);
+    const arm = K.part('arm', [0, 2.3, -0.87], null, 'Shower arm');
+    K.cyl(arm, [0.12, 0.12, 0.02, 32], 'chrome', [0, 0, 0.01], [90, 0, 0]);
+    K.tube(arm, [[0, 0, 0.02], [0, 0.02, 0.2], [0, -0.06, 0.32]], 0.025, 'chrome');
+    const threads = K.part('threads', [0, -0.08, 0.34], arm, 'Arm threads');
+    K.rep(5, (i) => K.tor(threads, [0.026, 0.004], 'brass', [0, -i * 0.008, 0], [90, 0, 0]));
+    const tape = K.part('tape', [0, -0.08, 0.34], arm, 'Thread-seal tape (clockwise)');
+    K.cyl(tape, [0.029, 0.029, 0.04, 16], K.std(0xffffff, { roughness: 0.9 }), [0, -0.015, 0]);
+    const head = K.part('head', [0, 2.15, -0.53], null, 'Old shower head');
+    K.nut(head, 0.08, 0.04, 'chrome', [0, 0.04, 0]);
+    K.lathe(head, [[0.03, 0.03], [0.1, -0.02], [0.13, -0.08], [0.0, -0.09]], 'chrome');
+    const scale = K.part('scale', [0, -0.088, 0], head, 'Clogged nozzles (mineral scale)');
+    K.cyl(scale, [0.12, 0.12, 0.004, 24], K.std(0xe8e2cf, { roughness: 1 }));
+    const nh = K.part('newHead', [0, 2.15, -0.53], null, 'New shower head');
+    K.nut(nh, 0.08, 0.04, 'chrome', [0, 0.04, 0]);
+    K.lathe(nh, [[0.03, 0.03], [0.11, -0.02], [0.14, -0.07], [0.0, -0.08]], 'black');
+    const spray = K.part('spray', [0, 2.06, -0.53], null, 'Spray');
+    K.cone(spray, [0.25, 0.9, 24, true], 'water', [0, -0.45, 0], [0, 0, 0]);
+    return { tick: (t, fx) => (K.parts.spray.visible = fx === 'spray') };
+  });
+
+  /* ---- Model: bathtub drain ---- */
+  TB.model('tubDrain', Object.assign({ cam: [1.4, 1.6, 1.8], at: [0, 0.35, 0] }, BATH, { hidden: ['zip'] }), (K) => {
+    K.box(null, [2.6, 2.6, 0.06], K.pbr('floor_tiles_06', [2, 2], {}, 'offwhite'), [0, 1.3, -0.62]);
+    const tub = K.part('tub', [0, 0, 0], null, 'Tub');
+    K.box(tub, [2.4, 0.08, 1.1], 'white', [0, 0.04, 0]);
+    K.box(tub, [2.4, 0.55, 0.08], 'white', [0, 0.3, 0.55]);
+    K.box(tub, [2.4, 0.55, 0.08], 'white', [0, 0.3, -0.55]);
+    K.box(tub, [0.08, 0.55, 1.1], 'white', [-1.2, 0.3, 0]);
+    K.box(tub, [0.08, 0.55, 1.1], 'white', [1.2, 0.3, 0]);
+    const stop = K.part('stopper', [-0.95, 0.09, 0], null, 'Drain stopper (toe-touch)');
+    K.cyl(stop, [0.06, 0.06, 0.03, 24], 'chrome', [0, 0.015, 0]);
+    K.cyl(stop, [0.012, 0.012, 0.06, 12], 'brass', [0, -0.02, 0]);
+    const plate = K.part('overflow', [-1.15, 0.38, 0], null, 'Overflow plate');
+    K.cyl(plate, [0.07, 0.07, 0.015, 24], 'chrome', [0, 0, 0], [0, 0, 90]);
+    const hair = K.part('hair', [-0.95, 0.04, 0], null, 'Hair clog in the drain');
+    K.sph(hair, 0.05, K.std(0x5a4a3a, { roughness: 1 }), [0, 0, 0], [1, 1.6, 1]);
+    const water = K.part('water', [0, 0.14, 0], null, 'Slow-draining water');
+    K.box(water, [2.2, 0.08, 0.98], 'water');
+    const zip = K.part('zip', [-0.95, 0.25, 0.05], null, 'Barbed drain-cleaning strip');
+    K.box(zip, [0.015, 0.45, 0.004], 'orange', [0, 0, 0], null, 0);
+    K.rep(14, (i) => K.box(zip, [0.03, 0.006, 0.004], 'orange', [0.012, -0.2 + i * 0.03, 0], [0, 0, 30], 0));
+  });
+
+  /* ---- Model: toilet off its flange (wax ring) ---- */
+  TB.model('toiletSeal', Object.assign({ cam: [2.2, 1.8, 2.4], at: [0, 0.4, 0] }, BATH, { hidden: ['newWax', 'rag'] }), (K) => {
+    K.box(null, [3, 2.4, 0.06], K.pbr('white_plaster_02', [2, 1.5], {}, 'drywall'), [0, 1.2, -0.9]);
+    const flange = K.part('flange', [0, 0.005, 0], null, 'Closet flange');
+    K.cyl(flange, [0.2, 0.2, 0.012, 32], 'grey');
+    K.cyl(flange, [0.12, 0.12, 0.02, 32, true], 'black', [0, -0.005, 0]);
+    const bolts = K.part('bolts', [0, 0, 0], null, 'Closet bolts');
+    [-0.16, 0.16].forEach((x) => K.cyl(bolts, [0.01, 0.01, 0.18, 8], 'brass', [x, 0.09, 0]));
+    const oldWax = K.part('oldWax', [0, 0.03, 0], null, 'Old, squashed wax ring');
+    K.tor(oldWax, [0.12, 0.035, 360], K.std(0xc9a46a, { roughness: 0.6 }), [0, 0, 0], [90, 0, 0]);
+    const newWax = K.part('newWax', [0, 0.04, 0], null, 'New wax ring');
+    K.tor(newWax, [0.12, 0.045, 360], K.std(0xe4c27d, { roughness: 0.5 }), [0, 0, 0], [90, 0, 0]);
+    const rag = K.part('rag', [0, 0.02, 0], null, 'Rag stuffed in the drain');
+    K.sph(rag, 0.09, 'sky', [0, 0, 0], [1, 0.4, 1]);
+    const toilet = K.part('toilet', [0, 0, 0], null, 'Toilet');
+    const b = K.lathe(toilet, [[0.14, 0], [0.26, 0], [0.3, 0.32], [0.48, 0.72], [0.56, 0.92], [0.55, 0.98]], 'white', [0, 0, 0.3]);
+    b.scale.z = 1.3;
+    K.box(toilet, [1.2, 0.8, 0.4], 'white', [0, 1.4, -0.45], null, 0.03);
+    K.box(toilet, [0.45, 0.3, 0.45], 'white', [0, 0.82, -0.3]);
+    const nuts = K.part('nuts', [0, 0, 0], null, 'Bolt caps & nuts');
+    [-0.16, 0.16].forEach((x) => K.cyl(nuts, [0.025, 0.03, 0.05, 16], 'white', [x, 0.06, 0.02]));
+    const shim = K.part('shims', [0, 0, 0], null, 'Plastic shims');
+    K.box(shim, [0.08, 0.01, 0.04], 'black', [0.3, 0.005, 0.5], null, 0);
+  });
+
+  /* ---- Model: frozen copper pipe in a crawlspace ---- */
+  TB.model('frozenPipe', { cam: [1.8, 1.0, 1.8], at: [0, 0.6, 0], env: 'garage', tex: ['concrete_floor_01', 'wood_planks'], ground: { tex: 'concrete_floor_01', repeat: 4, radius: 6 }, hidden: ['heat', 'sleeve', 'drip'] }, (K) => {
+    K.box(null, [3, 1.6, 0.1], K.pbr('concrete_floor_01', [2, 1], {}, 'concrete'), [0, 0.8, -0.7]);
+    const joists = K.part('joists', [0, 0, 0], null, 'Floor joists');
+    K.rep(4, (i) => K.box(joists, [0.06, 0.24, 1.6], K.pbr('wood_planks', [0.3, 2], {}, 'wood'), [-1.2 + i * 0.8, 1.48, 0]));
+    const pipe = K.part('pipe', [0, 0, 0], null, 'Copper supply pipe');
+    K.cyl(pipe, [0.025, 0.025, 2.8, 16], 'copper', [0, 1.2, -0.4], [0, 0, 90]);
+    const ice = K.part('ice', [0.3, 1.2, -0.4], null, 'Frozen section (frost on pipe)');
+    K.cyl(ice, [0.032, 0.032, 0.4, 16], K.std(0xe8f4ff, { roughness: 0.6, transparent: true, opacity: 0.85 }), [0, 0, 0], [0, 0, 90]);
+    const valve = K.part('main', [-1.2, 1.2, -0.4], null, 'Main shutoff');
+    K.cyl(valve, [0.04, 0.04, 0.12], 'brass', [0, 0, 0], [0, 0, 90]);
+    const wheel = K.part('wheel', [0, 0.09, 0], valve, 'Valve handle');
+    K.tor(wheel, [0.05, 0.01], 'red', [0, 0, 0], [90, 0, 0]);
+    const faucet = K.part('faucet', [1.3, 1.2, -0.4], null, 'Open faucet (lets water flow)');
+    K.cyl(faucet, [0.03, 0.03, 0.15], 'chrome', [0, -0.07, 0]);
+    const drip = K.part('drip', [1.3, 1.1, -0.4], null, 'Trickle');
+    K.cyl(drip, [0.008, 0.008, 0.6, 8], 'water', [0, -0.3, 0]);
+    const heat = K.part('heat', [0.3, 1.0, -0.15], null, 'Hair dryer (never an open flame)');
+    K.box(heat, [0.08, 0.2, 0.06], 'black', [0, -0.12, 0], null, 0.02);
+    K.cyl(heat, [0.05, 0.04, 0.18, 20], 'black', [0, 0.02, -0.06], [90, 0, 0]);
+    const sleeve = K.part('sleeve', [0, 1.2, -0.4], null, 'Foam pipe insulation');
+    K.cyl(sleeve, [0.05, 0.05, 2.6, 16, true], K.std(0x55606b, { roughness: 1, side: THREE.DoubleSide }), [0, 0, 0], [0, 0, 90]);
+  });
+
+  /* ---------- Variants for existing repairs ---------- */
+  const PLB = (id) => TB.repair('plumbing', id);
+  const drip = PLB('faucet-drip');
+  drip.variants = [
+    { id: 'cartridge', name: 'Single-handle cartridge', blurb: 'One lever, smooth on/off. Most common today (Moen, Pfister, American Standard).' },
+    {
+      id: 'compression',
+      name: 'Two-handle compression',
+      blurb: 'Separate hot and cold handles that tighten down to stop. Common in older homes.',
+      model: 'faucetComp',
+      summary: 'Compression faucets close by squeezing a rubber washer against a brass seat. A drip means a worn washer or a pitted seat, both cheap parts.',
+      intro: { hi: ['washerH', 'seatH'], xray: true, fx: 'drip' },
+      causes: [['Worn washer', 'The rubber hardens and cracks from being squeezed thousands of times.'], ['Pitted valve seat', 'A rough seat chews up even a new washer.'], ['Worn stem O-ring', 'Leaks around the handle instead of the spout.']],
+      tools: ['Phillips & flat screwdrivers', 'Adjustable wrench', 'Seat wrench (if replacing seats)', 'Washer & O-ring assortment (bring the old one)', 'Silicone plumber’s grease', 'Rag & towel'],
+      steps: [
+        { t: 'Find which side drips', d: 'Feel the drip: warm means the hot side, cold means the cold side. Shut off that supply valve under the sink.', why: 'Each handle is a separate valve, so you only need to rebuild the side that leaks.', v: { cam: [1.4, 1.0, 1.4], at: [-0.42, 0.65, -0.65], hi: ['knobH'], rt: { knobH: [0, 0, 90] } } },
+        { t: 'Pop off the index cap', d: 'Pry the red or blue cap off the top of the handle with a thin flat screwdriver.', why: 'The cap hides the handle screw.', v: { cam: [0.6, 2.4, 0.8], at: [-0.42, 1.78, -0.45], hi: ['capH'], mv: { capH: [0.2, 0.15, 0.2] }, tool: { id: 'flatScrewdriver', at: [-0.38, 1.8, -0.42], rot: [0, 0, 25] } } },
+        { t: 'Remove the handle', d: 'Back out the handle screw and lift the handle straight off. Rock it gently if it’s stuck.', why: 'Handles fit on splined stems; corrosion can glue them on. Don’t pry against the sink.', v: { cam: [0.7, 2.5, 1.0], at: [-0.42, 1.9, -0.45], hi: ['screwH', 'handleH'], mv: { handleH: [0, 0.55, 0] }, tool: { id: 'screwdriver', at: [-0.42, 2.3, -0.45], anim: 'turn' } } },
+        { t: 'Unscrew the stem', d: 'Fit the wrench on the packing nut and turn counterclockwise until the stem comes out.', why: 'The whole valve (stem, washer and O-ring) comes out as one piece.', v: { cam: [0.7, 2.2, 1.0], at: [-0.42, 1.75, -0.45], hi: ['stemH'], mv: { stemH: [0, 0.45, 0] }, tool: { id: 'adjWrench', at: [-0.36, 2.05, -0.45], anim: 'turn' } } },
+        { t: 'Replace the washer', d: 'Remove the brass screw at the bottom of the stem, swap in an identical washer (flat or beveled), and reinstall the screw.', why: 'The washer must match exactly. Too small leaks; too big won’t seat.', v: { cam: [0.5, 1.9, 0.9], at: [-0.42, 1.8, -0.45], hi: ['washerH'], tool: { id: 'screwdriver', at: [-0.42, 1.74, -0.45], rot: [180, 0, 0], anim: 'turn' } } },
+        { t: 'Check the seat', d: 'Feel the brass seat inside the valve body with a fingertip. If it’s rough or pitted, unscrew it with a seat wrench and replace it.', why: 'A damaged seat cuts a new washer in days, so you’d be back to a drip.', v: { cam: [0.8, 1.9, 1.0], at: [-0.42, 1.3, -0.45], hi: ['seatH'], xray: true, tool: { id: 'hexKey', at: [-0.42, 1.28, -0.45], scale: 2.5 } } },
+        { t: 'Grease and reassemble', d: 'Replace the stem O-ring, coat it with silicone grease, thread the stem back in until snug, and reinstall the handle.', why: 'Overtightening compression stems crushes the new washer.', v: { cam: [1.6, 2.2, 1.8], at: [0, 1.7, -0.4], hi: ['oringH', 'stemH'], mv: { stemH: [0, 0, 0], handleH: [0, 0, 0], capH: [0, 0, 0] } } },
+        { t: 'Restore water and test', d: 'Open the shutoff slowly and run the faucet hot and cold.', why: 'A slow open lets air out without a bang.', v: { cam: [2.4, 2.6, 2.6], at: [0, 1.75, -0.3], hi: ['spout'], rt: { knobH: [0, 0, 0] } } },
+      ],
+      learn: {
+        how: 'A compression valve is the simplest faucet design: turning the handle screws a stem down until a rubber washer presses against a brass seat and seals. Because it seals by squeezing, the washer wears every time it closes. Overtightening speeds that up.',
+        specs: [['Typical washer sizes', '00, 0, ¼″, ⅜″'], ['Stem turns to open', '2–4 full turns'], ['Seat wrench sizes', '⅛″–⅜″ hex']],
+        terms: [['Compression valve', 'Shuts off by pressing a washer onto a seat.'], ['Seat', 'Brass ring the washer seals against.'], ['Packing nut', 'Nut that holds the stem and its seal.']],
+        mistakes: ['Cranking the handles closed to stop a drip.', 'Using a washer that’s close but not the same size.'],
+        tips: ['Replace both sides’ washers while you’re in there; they wore at the same rate.'],
+      },
+    },
+    {
+      id: 'ball',
+      name: 'Single-handle ball',
+      blurb: 'Round domed cap under the lever (classic Delta). Lever moves in all directions.',
+      model: 'faucetBall',
+      summary: 'Ball faucets use a slotted ball pressing on two spring-loaded rubber seats. Drips come from worn seats and springs; a $10 kit fixes it.',
+      intro: { hi: ['seats', 'ball'], xray: true, fx: 'drip' },
+      causes: [['Worn seats and springs', 'The rubber seats harden and the springs weaken.'], ['Loose adjusting ring', 'Causes leaks around the handle.'], ['Worn body O-rings', 'Water seeps out under the spout.']],
+      tools: ['Ball faucet repair kit (seats, springs, cam, spanner)', 'Hex key', 'Tongue-and-groove pliers + tape', 'Needle-nose pliers', 'Silicone grease', 'Rag'],
+      steps: [
+        { t: 'Shut off and drain', d: 'Close both shutoffs, open the faucet, and close the drain.', why: 'The seats and springs are tiny and easy to drop.', v: { cam: [1.6, 1.0, 1.4], at: [0, 0.65, -0.65], hi: ['knobH', 'knobC'], rt: { knobH: [0, 0, 90], knobC: [0, 0, 90] } } },
+        { t: 'Remove the handle', d: 'Loosen the set screw under the lever and lift the handle off.', why: 'It’s a small hex screw on the front underside of the lever.', v: { cam: [0.8, 2.3, 1.2], at: [0, 2.3, -0.4], hi: ['setScrew', 'handle'], mv: { handle: [0, 0.4, 0] }, tool: { id: 'hexKey', at: [0, 2.65, -0.32], rot: [90, 0, 0], anim: 'turn', scale: 0.8 } } },
+        { t: 'Unscrew the cap', d: 'Wrap tape around the cap and turn it counterclockwise with tongue-and-groove pliers.', why: 'Tape keeps the pliers from marring the chrome.', v: { cam: [0.9, 2.3, 1.2], at: [0, 2.25, -0.45], hi: ['cap'], mv: { cap: [0, 0.35, 0] }, tool: { id: 'pliers', at: [0.16, 2.48, -0.45], rot: [0, 0, -90], anim: 'squeeze' } } },
+        { t: 'Lift out the cam and ball', d: 'Pull the plastic cam and its packing straight up, then lift out the ball by its stem.', why: 'Note how the ball’s slot lines up with the pin in the body for reassembly.', v: { cam: [1.0, 2.3, 1.3], at: [0, 2.1, -0.45], hi: ['cam', 'ball'], mv: { cam: [0.3, 0.3, 0], ball: [-0.3, 0.3, 0] } } },
+        { t: 'Replace seats and springs', d: 'Pick out the two rubber seats and springs with needle-nose pliers. Press new springs into new seats and set them in the holes.', why: 'The springs push the seats against the ball. Weak springs are why the drip started.', v: { cam: [0.7, 2.2, 0.9], at: [0, 1.88, -0.45], hi: ['seats'], xray: true, tool: { id: 'linemans', at: [0.05, 1.9, -0.45], anim: 'squeeze', scale: 0.8 } } },
+        { t: 'Check the body O-rings', d: 'If water leaked under the spout, pull the spout up, cut off the old O-rings, grease and roll on new ones.', why: 'These rings seal the swivel spout to the body.', v: { cam: [1.2, 2.0, 1.4], at: [0, 1.7, -0.45], hi: ['bodyOrings'], mv: { spoutSleeve: [0, 0.3, 0] }, xray: true } },
+        { t: 'Reassemble and adjust', d: 'Put the ball back with its slot over the pin, the cam key in its notch, and screw on the cap. Tighten the adjusting ring with the kit’s spanner until there’s no leak at the stem.', why: 'Too loose leaks at the handle; too tight makes the lever stiff.', v: { cam: [1.6, 2.4, 1.8], at: [0, 2.0, -0.4], hi: ['ring', 'cap'], mv: { cam: [0, 0, 0], ball: [0, 0, 0], cap: [0, 0, 0], spoutSleeve: [0, 0, 0] } } },
+        { t: 'Handle on and test', d: 'Reinstall the handle, open the shutoffs slowly and run hot and cold.', why: 'Check under the spout and at the cap for leaks.', v: { cam: [2.4, 2.6, 2.6], at: [0, 1.85, -0.35], hi: ['handle'], mv: { handle: [0, 0, 0] }, rt: { knobH: [0, 0, 0], knobC: [0, 0, 0] } } },
+      ],
+      learn: {
+        how: 'Inside a ball faucet is a stainless or plastic ball with three holes, two inlets and one outlet. Moving the lever rotates the ball so its holes line up with the hot and cold inlets by different amounts. Two rubber seats, pushed up by springs, seal against the ball. When they wear, water leaks past to the spout.',
+        specs: [['Kit cost', '$10–25'], ['Seats & springs', '2 each']],
+        terms: [['Cam', 'Plastic piece that guides the ball’s movement.'], ['Adjusting ring', 'Ring in the cap that sets pressure on the ball.']],
+        mistakes: ['Losing the tiny springs down the drain.', 'Forgetting to align the ball slot with the pin.'],
+        tips: ['Buy the kit that matches your faucet brand; Delta and Peerless use different parts.'],
+      },
+    },
+  ];
+  // Tools on the cartridge version
+  TB.useTool(drip, 3, { id: 'hexKey', at: [0, 3.2, -0.6], rot: [-90, 0, 0], anim: 'turn' });
+  TB.useTool(drip, 4, { id: 'adjWrench', at: [0.15, 2.84, -0.45], anim: 'turn' });
+  TB.useTool(drip, 5, { id: 'adjWrench', at: [0.15, 2.54, -0.45], anim: 'turn' });
+  TB.useTool(drip, 6, { id: 'linemans', at: [0.75, 2.62, -0.45] });
+  TB.useTool(PLB('faucet-pressure'), 2, { id: 'pliers', at: [0.08, 1.72, 0.2], rot: [0, 0, -90], anim: 'squeeze' });
+
+  const running = PLB('toilet-running');
+  running.variants = [
+    { id: 'flapper', name: 'Flapper valve', blurb: 'A rubber flap on a hinge at the bottom of the tank, lifted by a chain.' },
+    {
+      id: 'canister',
+      name: 'Canister (tower) valve',
+      blurb: 'A tall plastic tower in the middle of the tank that lifts straight up.',
+      model: 'toiletCanister',
+      summary: 'Canister flush valves seal with a wide rubber gasket on their base. When the toilet runs, the gasket is worn or dirty, and it twists off without draining the bowl or removing the tank.',
+      intro: { hi: ['canister', 'canSeal'], xray: true, fx: 'fill' },
+      causes: [['Worn or dirty canister seal', 'The most common cause with this design.'], ['Chain caught or too tight', 'Holds the canister slightly up.'], ['Water level too high', 'Spills into the overflow.']],
+      tools: ['Replacement canister seal (match brand: Glacier Bay, American Standard, Kohler)', 'Rubber gloves', 'Sponge & towel'],
+      steps: [
+        { t: 'Lift off the tank lid', d: 'Set the lid flat on a towel.', why: 'Porcelain lids chip easily.', v: { cam: [2.0, 3.0, 2.2], at: [0, 1.6, -0.4], hi: ['lid'], mv: { lid: [1.6, -1.9, 0.6] } } },
+        { t: 'Shut off and flush', d: 'Close the toilet shutoff and flush to empty the tank. Sponge out what’s left.', why: 'You need the base of the canister dry to see the seal.', v: { cam: [-1.5, 1.0, 0.9], at: [-0.42, 0.4, -0.6], hi: ['knob'], rt: { knob: [0, 0, 90] }, hide: ['water'] } },
+        { t: 'Unhook the chain', d: 'Unclip the chain from the canister top.', why: 'It needs slack to twist the canister out.', v: { cam: [1.0, 2.4, 1.0], at: [0.18, 1.7, -0.35], hi: ['chain', 'canister'] } },
+        { t: 'Twist out the canister', d: 'Turn the canister a quarter-turn counterclockwise and lift it straight out.', why: 'Canisters lock in with a bayonet mount, no tools needed.', v: { cam: [1.2, 2.4, 1.3], at: [0.18, 1.6, -0.4], hi: ['canister'], rt: { canister: [0, -90, 0] }, mv: { canister: [0, 0.35, 0] }, xray: true } },
+        { t: 'Replace the seal', d: 'Peel the old gasket off the bottom and stretch the new one into the groove. Wipe the seat in the tank clean.', why: 'Mineral grit on the seat or a flattened gasket lets water seep into the bowl.', v: { cam: [1.0, 2.0, 1.1], at: [0.18, 1.5, -0.4], hi: ['canSeal'], xray: true } },
+        { t: 'Reinstall and refill', d: 'Drop the canister in, twist clockwise to lock, reattach the chain with a little slack, and open the shutoff.', why: 'Too much chain slack can tangle under the canister; too little holds it open.', v: { cam: [2.4, 2.4, 2.6], at: [0, 1.3, -0.2], hi: ['canister', 'chain'], mv: { canister: [0, 0, 0] }, rt: { canister: [0, 0, 0], knob: [0, 0, 0] }, show: ['water'], fx: 'fill' } },
+      ],
+      learn: {
+        how: 'Instead of a hinged flapper, a canister valve is a hollow tower that the flush handle lifts straight up. Water rushes in all around its base, a full 360°, which gives a strong flush from a small tank. The seal at its base is a large flat gasket; when it hardens, water leaks around the whole circle.',
+        specs: [['Seal replacement', '≈ 5 min'], ['Lift', '1–2″']],
+        terms: [['Canister valve', 'Tower-style flush valve that lifts vertically.'], ['Bayonet mount', 'Twist-lock fitting.']],
+        mistakes: ['Buying a flapper for a canister toilet.', 'Forcing the canister without twisting first.'],
+        tips: ['Clean the seat with a scrub pad if there’s scale; a new seal on a crusty seat still leaks.'],
+      },
+    },
+  ];
+  TB.useTool(running, 5, { id: 'gloves', at: [1.0, 0, 0.8], rot: [0, 30, 0], scale: 1 });
+
+  const sink = PLB('sink-clog');
+  sink.variants = [
+    { id: 'bath', name: 'Bathroom sink', blurb: 'Pop-up stopper, 1¼″ drain. Usually hair and soap.' },
+    {
+      id: 'kitchen',
+      name: 'Kitchen sink + disposal',
+      blurb: 'Double sink, garbage disposal, 1½″ drain. Usually grease and food.',
+      model: 'kitchenSink',
+      summary: 'Kitchen clogs are grease and food. Check the disposal first, plunge with the other side plugged, then open the trap if needed.',
+      intro: { hi: ['standingWater', 'disposal'], xray: false },
+      safety: ['Unplug or switch off the disposal before reaching anywhere near it. Never put your hand in the grinding chamber.', 'Don’t plunge after using chemical drain cleaner; it can splash onto skin and eyes.'],
+      causes: [['Jammed or clogged disposal', 'Fibrous food (peels, celery) or grease.'], ['Grease in the trap', 'Fat cools and solidifies in the pipe.'], ['Clog in the wall pipe', 'Beyond the trap; needs a snake.']],
+      tools: ['¼″ hex key (disposal wrench)', 'Cup plunger', 'Bucket & towels', 'Tongue-and-groove pliers', 'Drain snake', 'Flashlight'],
+      steps: [
+        { t: 'Power off and free the disposal', d: 'Switch off the disposal. Insert the ¼″ hex key into the socket on the bottom and work it back and forth until it turns freely.', why: 'This turns the grinding plate by hand and breaks a jam without reaching inside.', v: { cam: [1.6, 0.6, 1.4], at: [0.42, 0.85, 0], hi: ['disposal', 'hexSocket'], tool: { id: 'hexKey', at: [0.42, 0.83, 0], rot: [180, 0, 0], anim: 'turn', scale: 1.4 } } },
+        { t: 'Press the reset button', d: 'Push the red reset button on the bottom of the disposal, restore power, and run cold water with the disposal on.', why: 'A jam trips the motor’s thermal overload; reset re-arms it.', v: { cam: [1.6, 0.8, 1.2], at: [0.5, 0.92, 0.05], hi: ['reset'] } },
+        { t: 'Plunge with the other side plugged', d: 'Plug the other basin with its strainer, add 2–3″ of water, seal a cup plunger over the drain and pump sharply.', why: 'With two basins connected, plunging one just blows air out the other unless it’s plugged.', v: { cam: [1.4, 2.4, 1.6], at: [0.2, 1.4, 0], hi: ['cupPlunger', 'stopperR'], show: ['cupPlunger'], fx: 'plunge' } },
+        { t: 'Open the trap', d: 'Set a bucket under the trap, loosen the slip nuts, and clean out grease and food.', why: 'The bend at the bottom collects heavy debris and cold grease.', v: { cam: [1.6, 0.9, 1.6], at: [-0.3, 0.62, 0.05], hi: ['trap', 'slipNuts'], show: ['bucket'], hide: ['cupPlunger'], tool: { id: 'pliers', at: [-0.3, 0.68, 0.06], rot: [0, 0, -90], anim: 'squeeze' } } },
+        { t: 'Snake the wall pipe', d: 'If the trap was clear, feed a snake into the trap arm toward the wall and crank through the clog.', why: 'Kitchen lines often clog in the horizontal run inside the wall where grease cools.', v: { cam: [1.6, 1.0, 1.6], at: [-0.15, 0.74, -0.3], hi: ['snake'], show: ['snake'] } },
+        { t: 'Reassemble and flush hot', d: 'Reconnect the trap hand-tight, then run hot water for 2 minutes and check for drips.', why: 'Hot water carries loosened grease out of the line.', v: { cam: [2.4, 1.8, 2.6], at: [0, 0.9, 0], hi: ['trap'], hide: ['snake', 'bucket', 'standingWater'] } },
+      ],
+      learn: {
+        how: 'Both basins of a double sink feed one trap. A garbage disposal grinds food into small particles that ride the water flow to the trap and the house drain. Grease is the real enemy: liquid when hot, it cools and coats the pipe walls, and food particles stick to it until the pipe closes up.',
+        specs: [['Kitchen drain size', '1½″'], ['Disposal hex', '¼″'], ['Flush time', '15–30 s cold water after grinding']],
+        terms: [['Continuous waste', 'Pipe connecting both basins to one trap.'], ['Thermal overload', 'Switch that cuts motor power when it overheats.'], ['Air gap / high loop', 'Prevents dishwasher backflow.']],
+        mistakes: ['Pouring grease down the drain.', 'Putting your hand in the disposal.', 'Plunging without plugging the other basin.'],
+        tips: ['Run cold, not hot, water while grinding so grease stays solid and gets chopped and carried away.'],
+      },
+    },
+  ];
+  TB.useTool(sink, 3, { id: 'pliers', at: [0.45, 0.68, 0], rot: [0, 0, -90], anim: 'squeeze' });
+
+  /* ---------- New plumbing repairs ---------- */
+  TB.more('plumbing', [
+    {
+      id: 'shower-head',
+      title: 'Leaky or weak shower head',
+      model: 'shower',
+      level: 1,
+      time: '20–30 min',
+      cost: '$0–40',
+      summary: 'A shower head that drips at the arm, sprays sideways, or trickles is either clogged with scale or needs fresh thread-seal tape. Both fix in minutes.',
+      intro: { hi: ['head', 'scale'], fx: 'spray' },
+      safety: ['Protect the tub or shower floor with a towel; dropped tools crack acrylic.', 'Hold the shower arm steady while turning the head so you don’t twist the pipe inside the wall.'],
+      causes: [['Mineral scale', 'Clogs the nozzles and causes weak, uneven spray.'], ['Old thread tape', 'Leaks at the connection to the arm.'], ['Worn washer in the head', 'Leaks at the swivel.']],
+      tools: ['Adjustable wrench or tongue-and-groove pliers', 'Rag or tape (protect the finish)', 'Thread-seal (PTFE) tape', 'White vinegar & a zip-top bag', 'Old toothbrush'],
+      steps: [
+        { t: 'Unscrew the head', d: 'Wrap the nut with a rag and turn it counterclockwise while holding the arm steady.', why: 'The rag protects the chrome; holding the arm prevents twisting the fitting behind the wall.', v: { cam: [0.9, 2.3, 0.9], at: [0, 2.17, -0.53], hi: ['head'], tool: { id: 'adjWrench', at: [0.06, 2.19, -0.53], anim: 'turn', scale: 1.3 } } },
+        { t: 'Descale it', d: 'Soak the head in vinegar for 1–2 hours (or overnight), then scrub the nozzles with a toothbrush.', why: 'Vinegar dissolves calcium deposits without harming chrome or plastic.', v: { cam: [0.9, 2.2, 0.9], at: [0.5, 1.9, -0.3], hi: ['head', 'scale'], mv: { head: [0.5, -0.25, 0.25] } } },
+        { t: 'Clean and re-tape the threads', d: 'Wipe the arm threads clean, then wrap 3–4 turns of PTFE tape clockwise as you face the threads.', why: 'Clockwise wrapping tightens as the head screws on; counterclockwise unravels.', v: { cam: [0.7, 2.4, 0.8], at: [0, 2.22, -0.53], hi: ['threads', 'tape'], show: ['tape'] } },
+        { t: 'Reinstall hand-tight + ¼ turn', d: 'Screw the head on by hand, then snug it a quarter turn with the wrench.', why: 'Tape seals the threads; overtightening cracks plastic heads.', v: { cam: [0.9, 2.3, 0.9], at: [0, 2.17, -0.53], hi: ['head'], mv: { head: [0, 0, 0] }, tool: { id: 'adjWrench', at: [0.06, 2.19, -0.53], anim: 'turn', scale: 1.3 } } },
+        { t: 'Test the spray', d: 'Run the shower and check the connection for drips.', why: 'A drip at the nut means one more small snug.', v: { cam: [1.6, 2.2, 1.8], at: [0, 1.7, -0.5], hi: ['head'], fx: 'spray' } },
+      ],
+      learn: {
+        how: 'A shower head screws onto a ½″ threaded arm. The threads don’t seal on their own; PTFE tape fills the gaps. Inside the head, small nozzles shape the spray, and hard water leaves calcium in them over time, which narrows each jet.',
+        specs: [['Arm thread', '½″ NPT'], ['Max flow (US)', '2.5 gpm (many states 1.8–2.0)'], ['Tape wraps', '3–4']],
+        terms: [['PTFE tape', 'Thread-seal tape (Teflon).'], ['Flow restrictor', 'Insert that limits gallons per minute.']],
+        mistakes: ['Wrapping tape counterclockwise.', 'Removing the flow restrictor (may violate local codes).'],
+        tips: ['Can’t remove it? Tie a bag of vinegar around the head with a rubber band overnight.'],
+      },
+      pro: 'Water leaks inside the wall, the arm is loose or cracked, or the valve drips when off (needs a cartridge).',
+    },
+    {
+      id: 'tub-drain',
+      title: 'Slow bathtub drain',
+      model: 'tubDrain',
+      level: 1,
+      time: '20–40 min',
+      cost: '$0–15',
+      summary: 'Tub drains clog with hair just below the stopper. Pull the stopper, fish out the hair with a barbed strip, and flush.',
+      intro: { hi: ['hair', 'water'] },
+      safety: ['Skip chemical drain cleaners if you plan to work on the drain; they splash.', 'Wear gloves.'],
+      causes: [['Hair caught below the stopper', 'Nearly always the cause.'], ['Soap scum buildup', 'Narrows the pipe over time.'], ['Clog in the trap below the tub', 'Needs a snake through the overflow.']],
+      tools: ['Flat screwdriver or pliers (stopper removal)', 'Barbed drain-cleaning strip', 'Rubber gloves', 'Old towel'],
+      steps: [
+        { t: 'Remove the stopper', d: 'Most toe-touch stoppers unscrew counterclockwise. Lift-and-turn types have a small set screw on the knob.', why: 'Hair wraps the stopper’s post and the crossbars just below it.', v: { cam: [0.6, 0.8, 0.8], at: [-0.95, 0.1, 0], hi: ['stopper'], mv: { stopper: [0.25, 0.2, 0.2] }, tool: { id: 'screwdriver', at: [-0.95, 0.12, 0], anim: 'turn' } } },
+        { t: 'Fish out the hair', d: 'Push the barbed strip into the drain, twist, and pull straight out. Repeat until it comes out clean.', why: 'The backward-facing barbs hook hair as you pull.', v: { cam: [0.6, 0.8, 0.8], at: [-0.95, 0.15, 0], hi: ['zip', 'hair'], show: ['zip'], mv: { hair: [0, 0.3, 0.05] } } },
+        { t: 'Flush and reinstall', d: 'Run hot water for a minute, then reinstall the stopper.', why: 'Hot water carries away loosened soap scum.', v: { cam: [1.4, 1.6, 1.8], at: [0, 0.3, 0], hi: ['stopper'], hide: ['zip', 'hair', 'water'], mv: { stopper: [0, 0, 0] } } },
+      ],
+      learn: {
+        how: 'A tub drains through a short pipe under the drain to a trap below the floor. The overflow plate connects to the same pipe. Hair caught on the stopper’s post builds into a mat that soap scum glues together.',
+        specs: [['Tub drain size', '1½″'], ['Clean every', '2–3 months']],
+        terms: [['Toe-touch stopper', 'Push-to-open, push-to-close stopper.'], ['Overflow', 'Opening near the top that prevents overfilling.']],
+        mistakes: ['Pouring drain cleaner on a full clog (it sits there).'],
+        tips: ['A $5 hair catcher prevents most tub clogs entirely.'],
+      },
+      pro: 'Water backs up in the tub when you flush the toilet; the main line is clogged.',
+    },
+    {
+      id: 'toilet-wax',
+      title: 'Toilet rocks or leaks at the base',
+      model: 'toiletSeal',
+      level: 3,
+      time: '1–2 hrs',
+      cost: '$10–25',
+      summary: 'Water around the base or a toilet that rocks means the wax ring has failed. Pull the toilet, scrape the old wax, set a new ring, and bolt it down evenly.',
+      intro: { hi: ['oldWax', 'flange'], hide: ['toilet', 'nuts'] },
+      safety: ['A toilet weighs 60–120 lb. Lift with your legs or get help.', 'Stuff a rag in the drain while the toilet is off so sewer gas doesn’t escape and nothing falls in.', 'Wear gloves; the old wax and drain are unsanitary.'],
+      causes: [['Failed wax ring', 'The seal between toilet and drain flattened or broke.'], ['Loose closet bolts', 'Let the toilet rock and break the seal.'], ['Broken flange', 'Needs a repair ring or plumber.']],
+      tools: ['New wax ring (or foam/wax-free ring)', 'New closet bolts', 'Adjustable wrench', 'Putty knife', 'Sponge & bucket', 'Rag', 'Shims (if the floor is uneven)'],
+      steps: [
+        { t: 'Shut off and drain', d: 'Close the shutoff, flush and hold the handle, then sponge the bowl and tank dry. Disconnect the supply line.', why: 'Every cup of water left in it spills when you lift.', v: { cam: [2.2, 1.8, 2.4], at: [0, 0.6, 0], hi: ['toilet'], show: ['toilet', 'nuts'] } },
+        { t: 'Remove the nuts and lift', d: 'Pop the bolt caps, unscrew the nuts, rock the toilet gently to break the seal, and lift it straight up onto cardboard.', why: 'Lifting straight up keeps the horn from scraping the flange.', v: { cam: [2.2, 1.8, 2.4], at: [0, 0.5, 0], hi: ['nuts', 'toilet'], mv: { toilet: [0.9, 0.3, 0.6], nuts: [0, 0.15, 0] }, tool: { id: 'adjWrench', at: [0.18, 0.08, 0.02], anim: 'turn', scale: 1.2 } } },
+        { t: 'Scrape the old wax', d: 'Stuff a rag in the drain, then scrape all the wax off the flange and the toilet’s outlet horn.', why: 'Old wax leaves gaps the new ring can’t seal.', v: { cam: [1.0, 1.2, 1.2], at: [0, 0.03, 0], hi: ['oldWax', 'flange'], show: ['rag'], hide: ['nuts'], tool: { id: 'puttyKnife', at: [0.15, 0.05, 0.1], rot: [70, 0, 0], anim: 'slide', scale: 0.6 } } },
+        { t: 'Set new bolts and wax', d: 'Slide new bolts into the flange slots. Remove the rag, then press the new wax ring onto the flange (or the toilet horn).', why: 'New bolts won’t be corroded or bent. Remove the rag last.', v: { cam: [1.0, 1.2, 1.2], at: [0, 0.05, 0], hi: ['newWax', 'bolts'], show: ['newWax'], hide: ['oldWax', 'rag'] } },
+        { t: 'Lower and bolt down evenly', d: 'Lower the toilet straight onto the bolts, press down firmly with your weight, and tighten the nuts alternately until snug. Shim if it rocks.', why: 'Alternating keeps pressure even. Overtightening cracks porcelain.', v: { cam: [2.2, 1.8, 2.4], at: [0, 0.5, 0], hi: ['toilet', 'nuts'], mv: { toilet: [0, 0, 0], nuts: [0, 0, 0] }, show: ['nuts'], tool: { id: 'adjWrench', at: [-0.18, 0.08, 0.02], anim: 'turn', scale: 1.2 } } },
+        { t: 'Reconnect and test', d: 'Reconnect the supply, open the shutoff, flush several times, and check the base.', why: 'Run a few flushes to load the seal before caulking around the front and sides (leave the back open to reveal future leaks).', v: { cam: [2.2, 1.8, 2.4], at: [0, 0.6, 0], hi: ['toilet'] } },
+      ],
+      learn: {
+        how: 'A toilet bolts to a closet flange set into the floor over the drain pipe. A ring of soft wax between the toilet’s outlet horn and the flange forms a watertight, gas-tight seal. Wax doesn’t spring back: once the toilet rocks, the gap stays and leaks.',
+        specs: [['Rough-in', '12″ typical (10″, 14″ exist)'], ['Bolt torque', 'snug, not cranked'], ['Toilet weight', '60–120 lb']],
+        terms: [['Closet flange', 'Ring fitting that anchors the toilet over the drain.'], ['Horn', 'Outlet on the bottom of the toilet.'], ['Rough-in', 'Distance from wall to drain center.']],
+        mistakes: ['Re-using an old wax ring.', 'Rocking the toilet after setting it.', 'Caulking all the way around.'],
+        tips: ['Use a ring with a plastic horn if the flange sits below the finished floor.'],
+      },
+      pro: 'The flange is cracked or below floor level, the subfloor around it is soft, or the drain pipe is damaged.',
+    },
+    {
+      id: 'frozen-pipe',
+      title: 'Thaw a frozen pipe',
+      model: 'frozenPipe',
+      level: 2,
+      time: '30–60 min',
+      cost: '$0–20',
+      summary: 'No water from one faucet on a freezing day usually means a frozen pipe in an outside wall, garage or crawlspace. Thaw it gently before it splits.',
+      intro: { hi: ['ice', 'pipe'] },
+      safety: ['Never use an open flame, propane torch or charcoal heater. They start fires and can make a pipe burst.', 'Know where your main shutoff is before you start in case the pipe is already split.', 'Keep space heaters away from anything flammable and never leave them unattended.'],
+      causes: [['Pipe in an unheated space', 'Crawlspaces, garages, exterior walls and attics.'], ['Cold air leaks', 'Gaps near sill plates and vents blow cold onto pipes.'], ['Cabinet doors closed on an exterior wall', 'Blocks the house heat.']],
+      tools: ['Hair dryer or heat gun on low', 'Towels', 'Flashlight', 'Foam pipe insulation', 'Space heater (for enclosed spaces)'],
+      steps: [
+        { t: 'Find the main shutoff', d: 'Locate the main shutoff so you can close it fast if the pipe has cracked.', why: 'Frozen pipes often split while frozen and only leak when they thaw.', v: { cam: [-0.6, 1.4, 1.2], at: [-1.2, 1.2, -0.4], hi: ['main', 'wheel'] } },
+        { t: 'Open the faucet', d: 'Open the faucet the pipe feeds, both hot and cold.', why: 'Flowing water helps melt the ice and relieves pressure as it thaws.', v: { cam: [1.9, 1.2, 1.0], at: [1.3, 1.1, -0.4], hi: ['faucet'], show: ['drip'] } },
+        { t: 'Warm from the faucet end', d: 'Work the hair dryer along the pipe starting near the faucet and moving toward the frozen section.', why: 'Starting near the faucet gives melting water a way out, so steam pressure can’t build behind the ice.', v: { cam: [1.2, 1.0, 1.0], at: [0.3, 1.1, -0.35], hi: ['heat', 'ice'], show: ['heat'] } },
+        { t: 'Check for leaks as it flows', d: 'When full flow returns, shut the faucet and inspect the pipe for drips or bulges.', why: 'A split usually shows as a seam or bulge on the pipe.', v: { cam: [1.8, 1.0, 1.8], at: [0, 1.2, -0.4], hi: ['pipe'], hide: ['ice', 'heat', 'drip'] } },
+        { t: 'Insulate it', d: 'Slip foam insulation over the exposed pipe and seal nearby drafts.', why: 'Insulation slows heat loss so the pipe rides out the next cold snap.', v: { cam: [1.8, 1.0, 1.8], at: [0, 1.2, -0.4], hi: ['sleeve'], show: ['sleeve'] } },
+      ],
+      learn: {
+        how: 'Water expands about 9% when it freezes. Ice itself rarely splits a pipe at the frozen spot; the trapped water between the ice and a closed faucet gets squeezed until the pipe bursts. That’s why opening the faucet first matters.',
+        specs: [['Freeze risk', 'below 20 °F outside'], ['Water expansion', '≈ 9%'], ['Trickle to prevent', 'pencil-lead thin']],
+        terms: [['Main shutoff', 'Valve that stops water to the whole house.'], ['Heat tape', 'Electric cable that warms pipes; use UL-listed only.']],
+        mistakes: ['Using a torch.', 'Thawing from the middle of the frozen section.', 'Leaving space heaters unattended.'],
+        tips: ['On very cold nights, open cabinet doors on exterior walls and let a faucet trickle.'],
+      },
+      pro: 'You can’t reach the frozen section, the pipe is already split, or pipes freeze repeatedly (needs rerouting or insulation).',
+    },
+  ]);
+
 })();

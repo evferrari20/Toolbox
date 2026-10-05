@@ -54,7 +54,7 @@
   function variantId(r) {
     if (!r.variants || !r.variants.length) return null;
     const saved = store.get('variant:' + r.id, null);
-    return r.variants.some((v) => v.id === saved) ? saved : r.variants[0].id;
+    return r.variants.some((v) => v.id === saved) ? saved : r.defaultVariant || r.variants[0].id;
   }
   function effective(r, vid) {
     if (!vid || !r.variants) return r;
@@ -286,9 +286,13 @@
     </header>
 
     ${base.variants ? `<section class="variants" aria-label="Choose your version">
-      <h2>Which one do you have?</h2>
+      <h2>${kindOf(base, c) === 'build' ? 'Pick your design' : 'Which one do you have?'}</h2>
       <div class="var-row" role="radiogroup">${base.variants
-        .map((v) => `<button class="var ${v.id === vid ? 'on' : ''}" role="radio" aria-checked="${v.id === vid}" data-v="${v.id}"><b>${esc(v.name)}</b><span>${esc(v.blurb || '')}</span></button>`)
+        .map(
+          (v) => `<button class="var ${v.id === vid ? 'on' : ''}" role="radio" aria-checked="${v.id === vid}" data-v="${v.id}"><b>${esc(v.name)}</b><span>${esc(v.blurb || '')}</span>${
+            v.level ? `<span class="var-meta">${level(v.level)}<span class="pill">${I.clock}${esc(v.time || '')}</span><span class="pill">${I.coin}${esc(v.cost || '')}</span></span>` : ''
+          }</button>`
+        )
         .join('')}</div>
     </section>` : ''}
 

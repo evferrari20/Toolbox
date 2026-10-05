@@ -571,3 +571,5 @@ body.learn .learn-only { display: grid !important; }
 .shop-links a { font-weight: 700; font-size: 0.85rem; }
 .shop-note { font-size: 0.8rem; color: var(--ink-faint); margin-top: 8px; }
 @media (max-width: 680px) { .doors { grid-template-columns: 1fr; } }
+.var-meta { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 6px; }
+.var-meta .pill { font-size: 0.74rem; padding: 3px 8px; }

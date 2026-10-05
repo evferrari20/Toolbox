@@ -124,12 +124,6 @@
   }
 
   TB.model(
-    'hero',
-    { cam: [3.3, 2.4, 4.0], at: [0, 0.35, 0], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 10, radius: 9 }, assets: SCAN, tex: TEX, hidden: ['dig', 'paint', 'stake'] },
-    (K) => firePitScene(K, true)
-  );
-
-  TB.model(
     'firepit',
     {
       cam: [3.2, 2.6, 3.9], at: [0, 0.3, 0], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 10, radius: 9 },
@@ -137,6 +131,272 @@
       hidden: ['patio', 'dig', 'base', 'course1', 'course2', 'course3', 'cap', 'ring', 'innerGravel', 'seating', 'deco', 'woodpile', 'paint', 'stake'],
     },
     (K) => firePitScene(K, false)
+  );
+
+
+  /* ================= Fire pit tiers: Starter · Classic (above) · Showpiece · Luxury gas ================= */
+  const chairsAround = (K, parent, pts) =>
+    pts.forEach(([x, z, ry]) => K.glb(parent, 'outdoor_table_chair_set_01', { node: 'outdoor_table_chair_set_01_chair_01', height: 0.86 }, [x, 0, z], [0, ry, 0]) || K.box(parent, [0.5, 0.45, 0.5], 'wood', [x, 0.22, z]));
+
+  // Starter: steel ring on a pea-gravel circle with steel edging.
+  TB.model(
+    'firepitStarter',
+    { cam: [3.4, 2.6, 3.8], at: [0, 0.2, 0], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 10, radius: 9 }, assets: SCAN, tex: TEX,
+      hidden: ['paint', 'stake', 'dig', 'fabric', 'edging', 'gravel', 'ringKit', 'seating', 'deco'] },
+    (K) => {
+      const R = 1.8;
+      const paint = K.part('paint', [0, 0.02, 0], null, 'Marked 12 ft circle');
+      K.tor(paint, [R, 0.015, 360], K.std(0xff7a1a, { emissive: 0xff5a00, emissiveIntensity: 0.3 }), [0, 0, 0], [90, 0, 0]);
+      const stake = K.part('stake', [0, 0, 0], null, 'Center stake & string');
+      K.box(stake, [0.03, 0.4, 0.03], 'woodLight', [0, 0.2, 0]);
+      K.bar(stake, [0, 0.05, 0], [R, 0.03, 0], 0.003, 'yellow');
+      const dig = K.part('dig', [0, 0.006, 0], null, 'Sod removed, 3″ deep');
+      K.cyl(dig, [R, R, 0.012, 64], K.pbr('forrest_ground_01', [3, 3], {}, 'dirt'));
+      const fab = K.part('fabric', [0, 0.014, 0], null, 'Landscape fabric (weed barrier)');
+      K.cyl(fab, [R - 0.02, R - 0.02, 0.004, 64], K.bumpy(0x2b2b2b, TB.tex.weave(), 0.01, { roughness: 1 }));
+      const edge = K.part('edging', [0, 0.04, 0], null, 'Steel landscape edging');
+      K.cyl(edge, [R + 0.01, R + 0.01, 0.1, 96, true], K.std(0x3a3a3a, { metalness: 0.8, roughness: 0.5, side: THREE.DoubleSide }));
+      const gravel = K.part('gravel', [0, 0.03, 0], null, 'Pea gravel, 2–3″ deep');
+      K.cyl(gravel, [R, R, 0.04, 64], K.pbr('gravel_floor', [4, 4], { color: 0xd8cbb8 }, 'stone'));
+      const ring = K.part('ringKit', [0, 0.05, 0], null, 'Steel fire ring (36″)');
+      const steel = K.std(0x2b2b2b, { metalness: 0.85, roughness: 0.55, side: THREE.DoubleSide });
+      K.cyl(ring, [0.46, 0.46, 0.3, 48, true], steel, [0, 0.15, 0]);
+      K.tor(ring, [0.46, 0.015, 360], steel, [0, 0.3, 0], [90, 0, 0]);
+      K.rep(8, (i) => K.box(ring, [0.06, 0.08, 0.005], 'black', [Math.cos((i * Math.PI) / 4) * 0.462, 0.07, Math.sin((i * Math.PI) / 4) * 0.462], [0, (-i * 45) + 90, 0], 0));
+      const inner = K.part('innerGravel', [0, 0.02, 0], ring, 'Firewood');
+      logs(K, inner);
+      const fx = fire(K, inner, 1.25);
+      const seats = K.part('seating', [0, 0, 0], null, 'Seating 7 ft from center');
+      chairsAround(K, seats, [[1.6, 0.9, -120], [-1.6, 0.9, 120], [0, -1.8, 0]]);
+      const deco = K.part('deco', [0, 0, 0], null, 'Planters');
+      K.glb(deco, 'planter_box_01', { height: 0.42 }, [-2.5, 0, -1.4], [0, 35, 0]);
+      K.glb(deco, 'potted_plant_02', { height: 0.7 }, [2.4, 0, -1.4]);
+      return { tick: (t) => fx.tick(t) };
+    }
+  );
+
+  // Showpiece: block pit, curved built-in seat wall with cap lights, flagstone patio, string lights.
+  TB.model(
+    'firepitShowpiece',
+    { cam: [5.6, 4.2, 6.2], at: [0, 0.3, -0.4], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 14, radius: 12 }, assets: SCAN, tex: TEX.concat(['granite_tile']),
+      hidden: ['layout', 'dig', 'base', 'wall1', 'wall2', 'wallCap', 'capLights', 'wire', 'course1', 'course2', 'course3', 'cap', 'ring', 'innerGravel', 'flagstone', 'posts', 'strings', 'seating', 'deco'] },
+    (K) => {
+      const stone = K.pbr('stacked_stone_wall', [0.6, 0.35], { roughness: 1 }, 'stone');
+      const capMat = K.pbr('stacked_stone_wall', [0.6, 0.25], { roughness: 0.9, color: 0xd9d2c6 }, 'concrete');
+      const RA = 3.1;
+      // layout paint: pit circle + seat wall arc
+      const lay = K.part('layout', [0, 0.02, 0], null, 'Layout: patio, pit and seat-wall arc');
+      K.tor(lay, [RA, 0.015, 360], K.std(0xff7a1a, { emissive: 0xff5a00, emissiveIntensity: 0.3 }), [0, 0, 0], [90, 0, 0]);
+      K.tor(lay, [0.65, 0.015, 360], K.std(0xff7a1a, { emissive: 0xff5a00, emissiveIntensity: 0.3 }), [0, 0, 0], [90, 0, 0]);
+      K.tor(lay, [2.45, 0.015, 170], K.std(0x2f6fde, { emissive: 0x1f4fbe, emissiveIntensity: 0.3 }), [0, 0, 0], [-90, 0, 5]);
+      const dig = K.part('dig', [0, 0.006, 0], null, 'Excavated 7″ (whole patio)');
+      K.cyl(dig, [RA, RA, 0.012, 72], K.pbr('forrest_ground_01', [4, 4], {}, 'dirt'));
+      const base = K.part('base', [0, 0.02, 0], null, '4″ compacted base + 1″ sand');
+      K.cyl(base, [RA, RA, 0.03, 72], K.pbr('gravel_floor', [5, 5], {}, 'stone'));
+      // seat wall: 170° arc on the far side, 2 courses + cap
+      const RW0 = 2.3;
+      const RW1 = 2.62;
+      const arcN = 22;
+      const span = (170 * Math.PI) / 180;
+      const blk = span / arcN;
+      for (let c = 0; c < 2; c++) {
+        const w = K.part('wall' + (c + 1), [0, 0.035 + c * 0.2, 0], null, c ? 'Seat wall, second course' : 'Seat wall, first course (leveled)');
+        for (let i = 0; i < arcN; i++) {
+          const ang = Math.PI + (Math.PI - span) / 2 + (i + 0.5 + (c ? 0.5 : 0)) * blk;
+          if (c && i === arcN - 1) continue;
+          const g = K.group(w, [0, 0, 0], [0, (-ang * 180) / Math.PI, 0]);
+          wedge(K, g, RW0, RW1, blk * 0.98, 0.194, stone);
+        }
+      }
+      const wc = K.part('wallCap', [0, 0.435, 0], null, 'Seat-wall cap (bench top, 18″ high)');
+      for (let i = 0; i < arcN; i++) {
+        const ang = Math.PI + (Math.PI - span) / 2 + (i + 0.5) * blk;
+        const g = K.group(wc, [0, 0, 0], [0, (-ang * 180) / Math.PI, 0]);
+        wedge(K, g, RW0 - 0.04, RW1 + 0.06, blk * 0.985, 0.06, capMat);
+      }
+      const lights = K.part('capLights', [0, 0.425, 0], null, 'Under-cap LED lights');
+      const glows = [];
+      for (let i = 1; i < arcN; i += 3) {
+        const ang = Math.PI + (Math.PI - span) / 2 + (i + 0.5) * blk;
+        const x = Math.cos(ang) * (RW1 + 0.03);
+        const z = Math.sin(ang) * (RW1 + 0.03);
+        const m = K.box(lights, [0.12, 0.012, 0.02], K.std(0xfff2d0, { emissive: 0xffd28a, emissiveIntensity: 0.0 }), [x, 0, z], [0, (-ang * 180) / Math.PI + 90, 0], 0);
+        const pl = new THREE.PointLight(0xffd59a, 0, 1.4, 2);
+        pl.position.set(x * 1.02, -0.05, z * 1.02);
+        lights.add(pl);
+        glows.push([m, pl]);
+      }
+      const wire = K.part('wire', [0, 0, 0], null, 'Low-voltage wire run inside the wall');
+      K.tube(wire, [[2.45, 0.2, 0.1], [2.4, 0.2, -0.8], [1.7, 0.2, -1.75], [0, 0.2, -2.45], [-1.7, 0.2, -1.75], [-2.45, 0.2, -0.1]], 0.012, 'black');
+      // fire pit (same block build as Classic)
+      const R0 = 0.42;
+      const R1 = 0.62;
+      const H = 0.15;
+      const per = 12;
+      const a = (Math.PI * 2) / per;
+      for (let c = 0; c < 3; c++) {
+        const course = K.part('course' + (c + 1), [0, 0.035 + c * H, 0], null, ['Pit: first course', 'Pit: second course', 'Pit: third course'][c]);
+        for (let i = 0; i < per; i++) wedge(K, K.group(course, [0, 0, 0], [0, ((i + (c % 2) * 0.5) * 360) / per, 0]), R0, R1, a * 0.985, H - 0.006, stone);
+      }
+      const cap = K.part('cap', [0, 0.035 + 3 * H, 0], null, 'Pit cap stones');
+      for (let i = 0; i < per; i++) wedge(K, K.group(cap, [0, 0, 0], [0, ((i + 0.5) * 360) / per, 0]), R0 - 0.02, R1 + 0.03, a * 0.985, 0.05, capMat);
+      const ring = K.part('ring', [0, 0.04, 0], null, 'Steel fire ring insert');
+      K.cyl(ring, [0.415, 0.415, 0.5, 48, true], K.std(0x2a2a2a, { metalness: 0.85, roughness: 0.55, side: THREE.DoubleSide }), [0, 0.25, 0]);
+      const inner = K.part('innerGravel', [0, 0.06, 0], null, 'Lava rock');
+      K.cyl(inner, [0.4, 0.4, 0.04, 40], K.pbr('gravel_floor', [0.8, 0.8], { color: 0x9a8f86 }, 'stone'));
+      logs(K, inner);
+      const fx = fire(K, inner, 1.35);
+      // flagstone: irregular stones on a jittered polar grid
+      const flag = K.part('flagstone', [0, 0.035, 0], null, 'Flagstone patio, polymeric-sand joints');
+      const fm = K.pbr('granite_tile', [0.6, 0.6], { color: 0xd2bf9e, roughness: 0.85 }, 'stone');
+      const rnd = (() => {
+        let x = 11;
+        return () => ((x = (x * 16807) % 2147483647) - 1) / 2147483646;
+      })();
+      for (let ring2 = 0; ring2 < 5; ring2++) {
+        const r0 = 0.72 + ring2 * 0.48;
+        const r1 = r0 + 0.46;
+        const cnt = Math.round((2 * Math.PI * (r0 + 0.24)) / 0.62);
+        for (let i = 0; i < cnt; i++) {
+          const a0 = (i / cnt) * Math.PI * 2 + ring2 * 0.3;
+          const a1 = ((i + 1) / cnt) * Math.PI * 2 + ring2 * 0.3;
+          const midA = (a0 + a1) / 2;
+          const midR = (r0 + r1) / 2;
+          if (midR > 2.2 && midR < 2.75 && Math.sin(midA) < -0.04) continue; // under the seat wall
+          if (midR > RA - 0.1) continue;
+          const pts = [];
+          const jit = () => (rnd() - 0.5) * 0.06;
+          const gap = 0.012;
+          [[r0 + gap, a0 + gap / r0], [r0 + gap, (a0 + a1) / 2], [r0 + gap, a1 - gap / r0], [r1 - gap, a1 - gap / r1], [r1 - gap, (a0 + a1) / 2], [r1 - gap, a0 + gap / r1]].forEach(([rr, aa]) => pts.push([Math.cos(aa) * (rr + jit()), Math.sin(aa) * (rr + jit())]));
+          K.ext(flag, pts, 0.035, fm, [0, 0.035, 0], [90, 0, 0], 0.006);
+        }
+      }
+      const posts = K.part('posts', [0, 0, 0], null, 'Cedar string-light posts in planters');
+      const pp = [[2.9, 1.6], [-2.9, 1.6], [2.9, -2.4], [-2.9, -2.4]];
+      pp.forEach(([x, z]) => {
+        K.box(posts, [0.09, 2.6, 0.09], 'woodDark', [x, 1.3, z]);
+        K.glb(posts, 'planter_box_02', { height: 0.45 }, [x, 0, z], [0, 0, 0]) || K.box(posts, [0.5, 0.4, 0.5], 'wood', [x, 0.2, z]);
+      });
+      const strings = K.part('strings', [0, 0, 0], null, 'Café string lights');
+      const bulbs = [];
+      const span2 = (A, B) => {
+        const n = 10;
+        for (let i = 0; i <= n; i++) {
+          const t = i / n;
+          const x = A[0] + (B[0] - A[0]) * t;
+          const z = A[1] + (B[1] - A[1]) * t;
+          const y = 2.55 - Math.sin(Math.PI * t) * 0.35;
+          if (i < n) {
+            const t2 = (i + 1) / n;
+            K.bar(strings, [x, y, z], [A[0] + (B[0] - A[0]) * t2, 2.55 - Math.sin(Math.PI * t2) * 0.35, A[1] + (B[1] - A[1]) * t2], 0.004, 'black');
+          }
+          if (i > 0 && i < n) bulbs.push(K.sph(strings, 0.035, K.std(0xfff1cc, { emissive: 0xffc870, emissiveIntensity: 0 }), [x, y - 0.06, z]));
+        }
+      };
+      span2(pp[0], pp[3]);
+      span2(pp[1], pp[2]);
+      span2(pp[0], pp[2]);
+      const seats = K.part('seating', [0, 0, 0], null, 'Cushions & chairs');
+      [-1.0, -0.3, 0.4, 1.1].forEach((x) => {
+        const z = -Math.sqrt(2.46 * 2.46 - x * x);
+        K.box(seats, [0.55, 0.08, 0.45], K.bumpy(0x2f6fde, TB.tex.weave(), 0.01, { roughness: 1 }), [x, 0.53, z], [0, (Math.atan2(x, -z) * 180) / Math.PI, 0], 0.03);
+      });
+      chairsAround(K, seats, [[1.6, 1.4, -130], [-1.6, 1.4, 130]]);
+      const deco = K.part('deco', [0, 0, 0], null, 'Planting & lanterns');
+      K.glb(deco, 'shrub_02', { node: 'shrub_02_b', height: 1.4 }, [-1.2, 0, -3.6]);
+      K.glb(deco, 'shrub_02', { node: 'shrub_02_c', height: 1.2 }, [1.4, 0, -3.5], [0, 40, 0]);
+      K.glb(deco, 'potted_plant_01', { height: 1.1 }, [3.3, 0, 0.2]);
+      K.glb(deco, 'wooden_lantern_01', { height: 0.4 }, [2.2, 0.495, -0.9], [0, 20, 0]);
+      return {
+        tick(t, fxName) {
+          fx.tick(t);
+          const on = fxName === 'night' || fxName == null;
+          glows.forEach(([m, l]) => {
+            m.material.emissiveIntensity = on ? 2 : 0;
+            l.intensity = on ? 0.9 : 0;
+          });
+          bulbs.forEach((b) => (b.material.emissiveIntensity = on ? 2.2 : 0));
+        },
+      };
+    }
+  );
+
+  // Luxury: linear gas fire table with fire glass, concrete surround, large-format pavers.
+  TB.model(
+    'firepitGas',
+    { cam: [3.8, 2.6, 4.2], at: [0, 0.35, 0], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 12, radius: 10 }, assets: SCAN, tex: ['brushed_concrete', 'concrete_floor_01', 'gravel_floor', 'forrest_ground_01'],
+      hidden: ['permit', 'trench', 'gasLine', 'pad', 'frame', 'skin', 'pan', 'glass', 'keyValve', 'soap', 'gasFlame', 'pavers', 'seating', 'deco'] },
+    (K) => {
+      const conc = K.pbr('brushed_concrete', [1, 0.5], { color: 0xb9b6ae }, 'concrete');
+      const permit = K.part('permit', [1.6, 0, 1.6], null, 'Permit & gas fitter (required)');
+      K.box(permit, [0.04, 0.6, 0.04], 'woodLight', [0, 0.3, 0]);
+      K.box(permit, [0.3, 0.22, 0.01], 'white', [0, 0.6, 0.03]);
+      const trench = K.part('trench', [0, 0.008, 0], null, '18″-deep trench to the house');
+      K.box(trench, [0.25, 0.01, 4.2], K.pbr('forrest_ground_01', [1, 6], {}, 'dirt'), [1.2, 0, -2.2]);
+      const gl = K.part('gasLine', [0, 0, 0], null, 'Gas line (installed by a licensed fitter)');
+      K.tube(gl, [[1.2, 0.02, -4.2], [1.2, 0.02, -0.6], [0.95, 0.15, -0.2]], 0.02, 'yellow');
+      const pad = K.part('pad', [0, 0.04, 0], null, 'Concrete footing pad');
+      K.box(pad, [2.0, 0.08, 1.1], K.pbr('concrete_floor_01', [1.5, 1], {}, 'concrete'));
+      const frame = K.part('frame', [0, 0.08, 0], null, 'Block frame with vents');
+      K.box(frame, [1.9, 0.42, 0.06], 'grey', [0, 0.21, 0.47]);
+      K.box(frame, [1.9, 0.42, 0.06], 'grey', [0, 0.21, -0.47]);
+      K.box(frame, [0.06, 0.42, 1.0], 'grey', [0.92, 0.21, 0]);
+      K.box(frame, [0.06, 0.42, 1.0], 'grey', [-0.92, 0.21, 0]);
+      const skin = K.part('skin', [0, 0.08, 0], null, 'Concrete surround & cap');
+      K.box(skin, [2.02, 0.44, 1.12], conc, [0, 0.22, 0], null, 0.02);
+      const vents = K.group(skin);
+      [[-0.6, 0.57], [0.6, 0.57], [-0.6, -0.57], [0.6, -0.57]].forEach(([x, z]) => K.box(vents, [0.2, 0.06, 0.01], 'black', [x, 0.12, z], null, 0));
+      const pan = K.part('pan', [0, 0.53, 0], null, 'Stainless burner pan + H-burner');
+      K.box(pan, [1.3, 0.04, 0.4], K.std(0xc9ced3, { metalness: 0.9, roughness: 0.25 }));
+      K.box(pan, [1.0, 0.02, 0.02], 'steel', [0, 0.03, 0.08]);
+      K.box(pan, [1.0, 0.02, 0.02], 'steel', [0, 0.03, -0.08]);
+      const glass = K.part('glass', [0, 0.55, 0], null, 'Reflective fire glass');
+      const gm = K.phys(0x2f8fd0, { roughness: 0.05, metalness: 0.2, clearcoat: 1, transparent: true, opacity: 0.9 });
+      const rr = (() => {
+        let x = 5;
+        return () => ((x = (x * 16807) % 2147483647) - 1) / 2147483646;
+      })();
+      for (let i = 0; i < 260; i++) K.sph(glass, 0.014 + rr() * 0.01, gm, [(rr() - 0.5) * 1.26, rr() * 0.02, (rr() - 0.5) * 0.36], [1, 0.7, 1]);
+      const key = K.part('keyValve', [0.7, 0.28, 0.57], null, 'Gas key valve');
+      K.cyl(key, [0.04, 0.04, 0.01, 20], 'chrome', [0, 0, 0], [90, 0, 0]);
+      K.box(key, [0.02, 0.1, 0.02], 'chrome', [0, 0, 0.03], null, 0);
+      const soap = K.part('soap', [0.95, 0.15, -0.25], null, 'Soapy-water leak test');
+      K.rep(5, (i) => K.sph(soap, 0.02, K.std(0xffffff, { transparent: true, opacity: 0.5 }), [i * 0.03 - 0.06, 0.02, 0]));
+      const gf = K.part('gasFlame', [0, 0.57, 0], null, 'Flames');
+      const flames = [];
+      for (let i = 0; i < 9; i++) {
+        const x = -0.48 + i * 0.12;
+        const c1 = K.cone(gf, [0.05, 0.12, 12], new THREE.MeshBasicMaterial({ color: 0x3a6dff, transparent: true, opacity: 0.6, blending: THREE.AdditiveBlending, depthWrite: false, toneMapped: false }), [x, 0.05, 0]);
+        const c2 = K.cone(gf, [0.06, 0.32, 12], 'fire', [x, 0.2, 0]);
+        c2.userData.h = 0.32;
+        flames.push(c2);
+      }
+      const fl = new THREE.PointLight(0xff9a3a, 1.4, 6, 2);
+      fl.position.set(0, 0.5, 0);
+      gf.add(fl);
+      const pavers = K.part('pavers', [0, 0.005, 0], null, 'Large-format concrete pavers');
+      for (let i = -3; i <= 3; i++)
+        for (let j = -3; j <= 3; j++) {
+          if (Math.abs(i * 0.62) < 1.1 && Math.abs(j * 0.62) < 0.7) continue;
+          K.box(pavers, [0.6, 0.03, 0.6], K.pbr('concrete_floor_01', [0.4, 0.4], { color: 0xd9d6cf }, 'concrete'), [i * 0.62, 0.015, j * 0.62], null, 0.006);
+        }
+      const seats = K.part('seating', [0, 0, 0], null, 'Lounge seating');
+      K.glb(seats, 'painted_wooden_bench', { height: 0.89 }, [0, 0, -1.7]);
+      chairsAround(K, seats, [[1.9, 0.6, -110], [-1.9, 0.6, 110], [0.6, 1.8, 170]]);
+      const deco = K.part('deco', [0, 0, 0], null, 'Planters');
+      K.glb(deco, 'planter_box_02', { height: 0.45 }, [-2.3, 0, -1.8], [0, 20, 0]);
+      K.glb(deco, 'potted_plant_01', { height: 1.1 }, [2.3, 0, -1.7]);
+      return {
+        tick(t) {
+          flames.forEach((c, i) => {
+            const k = 0.8 + 0.25 * Math.sin(t * (7 + i) + i * 1.7);
+            c.scale.set(1, k, 1);
+            c.position.y = 0.04 + (c.userData.h * k) / 2;
+          });
+          fl.intensity = gf.visible ? 1.2 + 0.3 * Math.sin(t * 11) : 0;
+        },
+      };
+    }
   );
 
   /* ---- Model: raised garden bed ---- */
@@ -479,4 +739,104 @@
       },
     ],
   });
+
+  /* ---------- Fire pit tiers ---------- */
+  // Homepage hero shows the Showpiece tier, finished, at golden hour.
+  TB.model(
+    'hero',
+    Object.assign({}, TB.MODELS.firepitShowpiece.view, { cam: [5.2, 3.0, 5.6], at: [0, 0.4, -0.5], hidden: ['layout', 'dig', 'wire'] }),
+    TB.MODELS.firepitShowpiece.build
+  );
+  const fp = TB.repair('backyard', 'fire-pit');
+  fp.title = 'Build a fire pit & seating area';
+  fp.variants = [
+    {
+      id: 'starter',
+      name: 'Starter: steel ring on gravel',
+      blurb: 'A 36″ steel ring on a pea-gravel circle with steel edging. Done in an afternoon.',
+      level: 1,
+      time: '3–5 hrs',
+      cost: '$150–350',
+      model: 'firepitStarter',
+      summary: 'The quickest good-looking fire pit: a 12 ft pea-gravel circle edged in steel, with a ready-made steel fire ring in the middle. No digging deeper than 3″, no blocks to level.',
+      intro: { show: ['dig', 'fabric', 'edging', 'gravel', 'ringKit', 'seating', 'deco'], spin: true, preview: true },
+      tools: ['Steel fire ring (36″)', 'Steel landscape edging (≈ 38 ft)', 'Landscape fabric', 'Pea gravel (≈ 1.5 yd³)', 'Flat spade & rake', 'Tape measure, stake & string', 'Rubber mallet'],
+      steps: [
+        { t: 'Mark a 12 ft circle', d: 'Drive a center stake, tie string at 6 ft, and spray-paint the circle.', why: 'A 12 ft circle fits a 3 ft ring plus chairs at a comfortable 6–7 ft.', v: { cam: [2.8, 2.8, 3.2], at: [0, 0, 0], hi: ['paint', 'stake'], show: ['paint', 'stake'], tool: { id: 'tape', at: [1.8, 0, 0.2], rot: [0, 90, 0], scale: 1.6 } } },
+        { t: 'Strip the sod', d: 'Slice under the sod and remove 3″ of soil inside the circle. Rake level.', why: 'Removing roots and sod keeps grass from growing up through the gravel.', v: { cam: [3.0, 2.6, 3.4], at: [0, 0, 0], hi: ['dig'], show: ['dig'], hide: ['paint'], tool: { id: 'shovel', at: [1.2, 0.02, 0.6], rot: [10, 40, -15], anim: 'push' } } },
+        { t: 'Lay landscape fabric', d: 'Cover the area with fabric, overlapping seams 6″.', why: 'Fabric keeps gravel from sinking into the soil and blocks weeds.', v: { cam: [3.0, 2.6, 3.4], at: [0, 0, 0], hi: ['fabric'], show: ['fabric'], hide: ['stake'] } },
+        { t: 'Install steel edging', d: 'Stake the steel edging around the circle, top edge ½″ above grade.', why: 'Steel holds a clean curve and keeps gravel out of the lawn.', v: { cam: [2.4, 1.6, 2.6], at: [1.4, 0.05, 1.0], hi: ['edging'], show: ['edging'], tool: { id: 'hammer', at: [1.55, 0.12, 0.95], rot: [0, -40, 0], anim: 'tap', scale: 1.5 } } },
+        { t: 'Spread pea gravel', d: 'Fill with 2–3″ of pea gravel and rake it smooth.', why: 'Pea gravel is noncombustible, drains instantly, and is comfortable underfoot.', v: { cam: [3.0, 2.6, 3.4], at: [0, 0, 0], hi: ['gravel'], show: ['gravel'] } },
+        { t: 'Set the ring and furnish', d: 'Center the steel ring, settle it level, and add chairs about 7 ft from the center.', why: 'A level ring burns evenly. Keep chairs out of the spark zone.', v: { cam: [3.4, 2.6, 3.8], at: [0, 0.2, 0], hi: ['ringKit', 'seating'], show: ['ringKit', 'seating', 'deco'] } },
+      ],
+    },
+    { id: 'classic', name: 'Classic: block pit + paver pad', blurb: 'Stacked retaining-wall blocks with a steel insert and a 12 ft paver circle.', level: 2, time: '1–2 days', cost: '$350–900' },
+    {
+      id: 'showpiece',
+      name: 'Showpiece: seat wall + flagstone + lights',
+      blurb: 'A curved built-in stone seat wall with under-cap LEDs, flagstone patio and string lights.',
+      level: 3,
+      time: '5–8 days',
+      cost: '$2,500–6,000',
+      model: 'firepitShowpiece',
+      summary: 'The backyard centerpiece: a 20 ft flagstone patio, a block fire pit, and a curved stone seat wall at bench height with LED lights tucked under the cap, framed by café string lights.',
+      intro: { show: ['base', 'wall1', 'wall2', 'wallCap', 'capLights', 'course1', 'course2', 'course3', 'cap', 'ring', 'innerGravel', 'flagstone', 'posts', 'strings', 'seating', 'deco'], spin: true, preview: true, fx: 'night' },
+      safety: ['Check setbacks, permits and fire rules first; a project this size may need a permit.', 'Call 811 before digging.', 'Low-voltage lighting only: plug the transformer into a GFCI outdoor outlet.', 'Lift blocks with your legs; cap stones can weigh 50+ lb.'],
+      tools: ['Excavation: shovels or a rented mini skid steer', 'Plate compactor', 'Paver base & concrete sand', 'Retaining-wall blocks + caps (pit & wall)', 'Steel fire ring insert', 'Masonry adhesive & caulk gun', '4 ft level & rubber mallet', 'Flagstone (≈ 300 sq ft) & polymeric sand', 'Low-voltage transformer, wire & cap lights', '4×4 cedar posts, planters & string lights', 'Wet saw or chisel'],
+      steps: [
+        { t: 'Lay out patio, pit and seat wall', d: 'Paint a 20 ft patio circle, the pit circle at the center, and a 170° seat-wall arc about 8 ft out on the side you want to face.', why: 'Seat-wall radius sets the comfort: about 7–8 ft from the fire center puts your knees warm, not hot.', v: { cam: [5.6, 4.6, 6.2], at: [0, 0, -0.4], hi: ['layout'], show: ['layout'], tool: { id: 'tape', at: [3.1, 0, 0.3], rot: [0, 90, 0], scale: 1.8 } } },
+        { t: 'Excavate the whole area', d: 'Remove 7″ of soil across the patio, slope it ⅛″ per foot to drain, and compact the subgrade.', why: 'Flagstone and walls need the same stable base, so you dig everything at once.', v: { cam: [5.6, 4.6, 6.2], at: [0, 0, -0.4], hi: ['dig'], show: ['dig'], hide: ['layout'], tool: { id: 'shovel', at: [1.8, 0.02, 1.2], rot: [10, 40, -15], anim: 'push', scale: 1.2 } } },
+        { t: 'Build the base', d: 'Lay 4″ of gravel in 2″ lifts, compacting each, then screed 1″ of sand where flagstone will go.', why: 'A compacted base is what keeps a stone patio flat for decades.', v: { cam: [5.6, 4.6, 6.2], at: [0, 0, -0.4], hi: ['base'], show: ['base'], hide: ['dig'] } },
+        { t: 'Set the seat wall’s first course', d: 'Lay the first course of wall blocks along the arc, leveling each in every direction.', why: 'Bench height depends on a dead-level first course; any error doubles by the cap.', v: { cam: [3.2, 2.0, 1.2], at: [0, 0.1, -2.4], hi: ['wall1'], show: ['wall1'], tool: [{ id: 'level', at: [0.2, 0.235, -2.46], rot: [0, 0, 0], scale: 2 }, { id: 'hammer', at: [-0.6, 0.27, -2.4], rot: [0, 20, 0], anim: 'tap', scale: 1.5 }] } },
+        { t: 'Run the lighting wire', d: 'Lay low-voltage wire along the back of the wall and up through a gap behind each cap-light location.', why: 'Running wire before the next course hides it completely inside the wall.', v: { cam: [3.6, 2.4, 1.0], at: [0, 0.2, -2.0], hi: ['wire'], show: ['wire'], xray: true } },
+        { t: 'Second course and cap', d: 'Stagger the second course, glue it, then glue the caps with lights mounted underneath the overhang.', why: 'At about 18″ tall with a 14″ deep cap, the wall becomes a comfortable bench.', v: { cam: [3.2, 2.0, 1.2], at: [0, 0.35, -2.4], hi: ['wall2', 'wallCap', 'capLights'], show: ['wall2', 'wallCap', 'capLights'], fx: 'night', tool: { id: 'caulkGun', at: [0.8, 0.55, -2.3], rot: [0, 0, -70], scale: 1.4 } } },
+        { t: 'Build the fire pit', d: 'Build three staggered courses of block on the base, cap them, and drop in the steel ring.', why: 'Same method as the Classic tier; the steel insert protects the blocks from direct flame.', v: { cam: [2.2, 1.8, 2.4], at: [0, 0.25, 0], hi: ['course1', 'course2', 'course3', 'cap', 'ring'], show: ['course1', 'course2', 'course3', 'cap', 'ring', 'innerGravel'] } },
+        { t: 'Lay the flagstone', d: 'Fit flagstones like a puzzle with ½–1″ joints, bed them in the sand, tap level, then sweep in polymeric sand and mist.', why: 'Tight, even joints look intentional; polymeric sand locks the stones and keeps weeds out.', v: { cam: [5.6, 4.6, 6.2], at: [0, 0, -0.4], hi: ['flagstone'], show: ['flagstone'], hide: ['base'], tool: { id: 'hammer', at: [1.2, 0.1, 1.0], rot: [0, -30, 0], anim: 'tap', scale: 1.5 } } },
+        { t: 'Posts and string lights', d: 'Set 4×4 cedar posts in weighted planters at the corners and hang café lights in a sag between them.', why: 'Planter-mounted posts need no footings, and a gentle sag in the lights looks best.', v: { cam: [6.4, 4.2, 7.0], at: [0, 1.2, -0.4], hi: ['posts', 'strings'], show: ['posts', 'strings'], fx: 'night' } },
+        { t: 'Cushions, plants and first fire', d: 'Add outdoor cushions to the wall, planting around the edge, and light a small first fire after the adhesive cures 24 hours.', why: 'A small first fire drives out moisture slowly so blocks don’t crack.', v: { cam: [5.2, 3.0, 5.6], at: [0, 0.4, -0.5], hi: ['seating', 'innerGravel'], show: ['seating', 'deco'], fx: 'night' } },
+      ],
+      learn: {
+        how: 'A seat wall is a short retaining-style wall built to bench height (17–19″) with a cap deep enough to sit on (12–16″). Built in an arc around a fire pit, it gives everyone the same distance from the flame. Because walls and flagstone sit on one compacted base, the whole patio settles (very little) as one unit.',
+        specs: [['Seat height', '17–19″'], ['Cap depth', '12–16″'], ['Wall radius', '7–8 ft from pit center'], ['Patio slope', '⅛″ per ft'], ['Flagstone joints', '½–1″']],
+        terms: [['Seat wall', 'A low freestanding wall at bench height.'], ['Cap', 'The finishing top layer.'], ['Polymeric sand', 'Joint sand with a binder that hardens.']],
+        mistakes: ['Making the seat wall too tall (it becomes a wall, not a bench).', 'Skipping the wire chase until after capping.', 'Packing flagstone joints with plain sand on a slope.'],
+        tips: ['Use warm (2700K) LEDs under the cap; cool white looks clinical at night.'],
+      },
+    },
+    {
+      id: 'luxury',
+      name: 'Luxury: gas fire table',
+      blurb: 'Modern concrete fire table with fire glass, key valve and a buried gas line.',
+      level: 3,
+      time: '1–2 weeks (incl. permit & gas fitter)',
+      cost: '$4,000–10,000',
+      model: 'firepitGas',
+      summary: 'A linear gas fire table with a concrete surround, sparkling fire glass and instant on/off. You can build the base and surround; the gas line and connection must be done by a licensed gas fitter.',
+      intro: { show: ['pad', 'skin', 'pan', 'glass', 'keyValve', 'gasFlame', 'pavers', 'seating', 'deco'], spin: true, preview: true },
+      safety: ['Gas lines, connections and pressure tests must be done by a licensed gas fitter with a permit. Do not DIY the gas.', 'The enclosure needs vents on two sides so leaked gas can escape. Never seal it.', 'Always leak-test with soapy water before lighting, and never light with your face over the burner.'],
+      causes: [['Natural gas or propane?', 'Natural gas needs a line from the house; propane hides a 20 lb tank inside a ventilated enclosure.'], ['Size the burner', '60,000–90,000 BTU suits a 4–6 ft table.'], ['Permits', 'Most cities require a gas permit and inspection.']],
+      tools: ['Burner kit: pan, H-burner, air mixer, key valve (match NG or LP)', 'Concrete blocks or steel frame', 'Cement board & concrete finish (or precast surround)', 'Fire glass (≈ 40–60 lb)', 'Spray bottle of soapy water', 'Licensed gas fitter + permit'],
+      steps: [
+        { t: 'Plan and pull permits', d: 'Choose natural gas or propane, size the burner, and pull the gas permit. Hire a licensed fitter for the line.', why: 'Gas work is code-controlled for good reason: leaks cause fires and explosions.', v: { cam: [3.8, 2.6, 4.2], at: [0.6, 0.3, 0.6], hi: ['permit'], show: ['permit'] } },
+        { t: 'Trench and run the gas line (fitter)', d: 'The fitter trenches 18″ deep from the house, runs approved pipe, pressure-tests it, and caps it at the table location.', why: 'Burial depth and pipe type are set by code and the gas company.', v: { cam: [4.6, 3.6, 2.0], at: [1.0, 0, -1.8], hi: ['trench', 'gasLine'], show: ['trench', 'gasLine'] } },
+        { t: 'Pour the footing pad', d: 'Form and pour a 4″ concrete pad slightly larger than the table.', why: 'A solid pad keeps the heavy concrete surround from cracking or settling.', v: { cam: [3.2, 2.2, 3.4], at: [0, 0.1, 0], hi: ['pad'], show: ['pad'], hide: ['trench'] } },
+        { t: 'Build the frame with vents', d: 'Build the block or steel frame, leaving vents on opposite sides near the bottom.', why: 'Natural gas rises and propane sinks; two-sided vents clear both.', v: { cam: [3.0, 2.0, 3.2], at: [0, 0.3, 0], hi: ['frame'], show: ['frame'] } },
+        { t: 'Finish the surround', d: 'Skin the frame in cement board and a concrete finish (or set a precast surround), leaving the burner opening.', why: 'All finishes near the flame must be noncombustible.', v: { cam: [3.4, 2.2, 3.6], at: [0, 0.3, 0], hi: ['skin'], show: ['skin'], hide: ['frame'] } },
+        { t: 'Install burner and key valve', d: 'Set the burner pan, and the fitter connects the flex line and key valve and leak-tests every joint with soapy water.', why: 'Growing bubbles mean a leak; any bubble is a stop.', v: { cam: [2.2, 1.4, 2.2], at: [0.7, 0.3, 0.4], hi: ['pan', 'keyValve', 'soap'], show: ['pan', 'keyValve', 'soap'] } },
+        { t: 'Add fire glass', d: 'Pour fire glass over the burner, 1–2″ deep, without packing it.', why: 'Too deep chokes the flame and makes soot; too shallow exposes the burner.', v: { cam: [1.8, 1.6, 1.8], at: [0, 0.55, 0], hi: ['glass'], show: ['glass'], hide: ['soap'] } },
+        { t: 'Light, finish the patio', d: 'Open the key valve slowly and light per the burner instructions. Lay pavers and set lounge seating.', why: 'Large-format pavers suit the modern look and are noncombustible near the flame.', v: { cam: [3.8, 2.6, 4.2], at: [0, 0.35, 0], hi: ['gasFlame', 'keyValve'], show: ['gasFlame', 'pavers', 'seating', 'deco'] } },
+      ],
+      learn: {
+        how: 'A gas fire table mixes fuel with air at the burner and burns it in a controlled ring under decorative media. A key valve meters the gas. No wood means no sparks or smoke, which is why gas tables are allowed in more places than wood fires, though they still need clearances and venting.',
+        specs: [['Burner size', '60–90k BTU'], ['Fire glass depth', '1–2″'], ['Gas line burial', '≈ 18″ (check code)'], ['Vents', '2 sides, opposite']],
+        terms: [['Key valve', 'Gas valve opened with a removable key.'], ['Air mixer', 'Pre-mixes air with gas for a cleaner flame.'], ['Fire glass', 'Tempered glass media over the burner.']],
+        mistakes: ['DIY gas connections.', 'Sealed enclosures with no vents.', 'Burying the burner too deep in glass.'],
+        tips: ['Add a wind guard; even a light breeze blows gas flames out.'],
+      },
+      pro: 'Always for the gas line and connection (licensed gas fitter). Also if your area requires an engineered or inspected installation.',
+    },
+  ];
+  // Classic is the default base guide; keep it second in the list but selected first time.
+  fp.defaultVariant = 'classic';
+
 })();
