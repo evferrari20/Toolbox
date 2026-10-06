@@ -66,9 +66,9 @@
   /* ================= Portable hoop (54″ board, 35-gal base) ================= */
   TB.model(
     'hoopPortable',
-    V(DRIVE, { cam: [4.4, 2.5, 4.4], at: [0, 1.7, -0.4], hidden: ['newNet', 'hose', 'funnel', 'sand', 'fill', 'weights', 'cap'] }),
+    V(DRIVE, { cam: [5.6, 2.6, 5.4], at: [0, 1.75, -0.4], hidden: ['newNet', 'hose', 'funnel', 'sand', 'fill', 'weights', 'cap'] }),
     (K) => {
-      const shell = K.std(0x26292d, { roughness: 0.75 });
+      const shell = K.std(0x15171a, { roughness: 0.8 });
       const base = K.part('base', [0, 0, -1.15], null, 'Base tank (HDPE, ≈35 gal)');
       // side profile (world z, y) extruded across x
       const prof = [[0.42, 0], [-0.42, 0], [-0.42, 0.13], [-0.08, 0.3], [0.42, 0.3]];
@@ -154,7 +154,7 @@
   TB.model(
     'hoopAnchor',
     V(DRIVE, {
-      cam: [5.0, 3.0, 5.2], at: [0, 1.6, -0.6], floor: false, ground: null, tex: ['forrest_ground_01', 'aerial_grass_rock', 'brushed_concrete'], assets: ['cement_bag'],
+      cam: [6.0, 3.0, 6.2], at: [0, 1.7, -0.5], floor: false, ground: null, tex: ['forrest_ground_01', 'aerial_grass_rock', 'brushed_concrete'], assets: ['cement_bag'],
       hidden: ['layout', 'spoil', 'cage', 'anchor', 'template', 'braces', 'concrete', 'bags', 'levelNuts', 'pole', 'topNuts', 'arms', 'crank', 'board', 'rim', 'netHooks', 'net', 'newNet', 'tear', 'rimBolts'].concat(HOOP_AO),
     }),
     (K) => {
@@ -1087,7 +1087,7 @@
         { t: 'Cut off the old net', d: 'Snip each old loop and pull the pieces off the hooks.', why: 'Sun-rotted nylon is brittle and tangled; cutting is faster and won’t bend the hooks.', v: { cam: [1.1, 2.3, 1.6], at: [0, 2.15, 0.37], hi: ['net', 'netHooks'], mv: { net: [0.8, -2.0, 0.8] }, tool: { id: 'pliers', at: [0.2, 2.27, 0.48], rot: [0, 0, -90], anim: 'squeeze' } } },
         { t: 'Open any pinched hooks', d: 'If a hook is squeezed shut, open it slightly with a flat screwdriver so a loop can pass.', why: 'Hooks get pinched when nets are yanked off. A loop forced through a closed hook frays fast.', v: { cam: [0.9, 2.35, 1.3], at: [0, 2.27, 0.37], hi: ['netHooks'], hide: ['net'], tool: { id: 'flatScrewdriver', at: [0.22, 2.27, 0.45], rot: [0, 0, -40] } } },
         { t: 'Hook the loops', d: 'Push each top loop up through a hook from inside and pull it back down over the hook. Go around in order, all 12.', why: 'Looping it back over the hook locks the net on; skipping one makes the net hang crooked.', v: { cam: [1.2, 2.2, 1.7], at: [0, 2.1, 0.37], hi: ['newNet', 'netHooks'], show: ['newNet'] } },
-        { t: 'Raise and shoot', d: 'Lift the board back to 10 ft (the handle clicks at each height) and take a few shots.', why: 'A few made shots settle the loops evenly on the hooks.', v: { cam: [4.4, 2.5, 4.4], at: [0, 1.7, -0.4], hi: ['newNet', 'lift'], mv: LOWER(0), fx: 'bounce' } },
+        { t: 'Raise and shoot', d: 'Lift the board back to 10 ft (the handle clicks at each height) and take a few shots.', why: 'A few made shots settle the loops evenly on the hooks.', v: { cam: [5.6, 2.6, 5.4], at: [0, 1.75, -0.4], hi: ['newNet', 'lift'], mv: LOWER(0), fx: 'bounce' } },
       ],
     },
   ];
@@ -1114,7 +1114,7 @@
         { t: 'Tighten the pole sections', d: 'Check the bolts at each pole joint and snug them. The sections should feel like one solid post.', why: 'Slip-fit sections are the most common source of wobble on portable hoops.', v: { cam: [1.5, 1.4, 0.4], at: [0, 1.2, -0.95], hi: ['poleBolts', 'pole'], tool: { id: 'comboWrench', at: [0.07, 0.98, -0.95], rot: [0, 0, 90], anim: 'turn' } } },
         { t: 'Check the base bracket', d: 'Tighten the bolts where the pole meets the base and the support strut.', why: 'This joint carries the whole leverage of the board.', v: { cam: [1.4, 0.9, -0.2], at: [0, 0.3, -1.1], hi: ['baseBolts', 'brace'], tool: { id: 'ratchet', at: [0.09, 0.3, -1.03], rot: [-90, 0, 0], anim: 'turn' } } },
         { t: 'Top off the base', d: 'Remove the fill cap and check the level. Top it up to 2″ below the opening and refit the cap.', why: 'A base that has lost a third of its water weighs a third less, and the hoop rocks on every rebound.', v: { cam: [1.3, 1.3, -2.6], at: [0, 0.2, -1.2], hi: ['fill', 'fillCap'], show: ['fill', 'hose'], xray: true, fx: 'fill' } },
-        { t: 'Raise and test', d: 'Raise to 10 ft and shoot. Only the breakaway rim should flex.', why: 'Real shots load the joints the way play does.', v: { cam: [4.4, 2.5, 4.4], at: [0, 1.7, -0.4], hi: ['rim'], hide: ['hose', 'fill'], mv: LOWER(0), fx: 'bounce' } },
+        { t: 'Raise and test', d: 'Raise to 10 ft and shoot. Only the breakaway rim should flex.', why: 'Real shots load the joints the way play does.', v: { cam: [5.6, 2.6, 5.4], at: [0, 1.75, -0.4], hi: ['rim'], hide: ['hose', 'fill'], mv: LOWER(0), fx: 'bounce' } },
       ],
     },
   ];
@@ -1139,7 +1139,7 @@
         { t: 'Or fill with sand', d: 'For sand, use dry play sand through a funnel, rocking the base now and then so it packs into the corners.', why: 'Damp sand bridges in the funnel and leaves voids; dry sand flows and packs tight.', v: { cam: [1.6, 1.4, -2.8], at: [-0.5, 0.3, -1.4], hi: ['funnel', 'sand'], show: ['funnel', 'sand'], hide: ['hose'] } },
         { t: 'Cap it and check for leaks', d: 'Screw the cap on hand-tight, dry the base, and check the seams and cap again after an hour.', why: 'A slow leak empties a base over a summer without anyone noticing.', v: { cam: [1.0, 1.1, -2.4], at: [-0.3, 0.3, -1.4], hi: ['fillCap'], show: ['fillCap'], hide: ['cap', 'funnel', 'fill'] } },
         { t: 'Add weight where it’s windy', d: 'Lay sandbags on the base flanges, or use a ground-anchor strap kit if your hoop allows it.', why: 'A large backboard acts like a sail. Extra weight at the back of the base resists tipping.', v: { cam: [2.8, 1.6, -3.2], at: [0, 0.3, -1.2], hi: ['weights'], show: ['weights'], hide: ['sand'] } },
-        { t: 'Check the bolts and play', d: 'Snug the base bracket and pole bolts, set the height and shoot.', why: 'New hoops settle; the bolts need a second tightening after the first week.', v: { cam: [4.4, 2.5, 4.4], at: [0, 1.7, -0.4], hi: ['baseBolts', 'poleBolts'], fx: 'bounce' } },
+        { t: 'Check the bolts and play', d: 'Snug the base bracket and pole bolts, set the height and shoot.', why: 'New hoops settle; the bolts need a second tightening after the first week.', v: { cam: [5.6, 2.6, 5.4], at: [0, 1.75, -0.4], hi: ['baseBolts', 'poleBolts'], fx: 'bounce' } },
       ],
       learn: {
         how: 'The board and rim sit well in front of the pole, so their weight and every shot try to tip the hoop forward. The heavy base behind the pole is the counterweight. The farther the board overhangs and the bigger it is, the more base weight it needs, which is why manufacturers list a minimum fill.',
@@ -1173,7 +1173,7 @@
         { t: 'Strip the template, set leveling nuts', d: 'Remove the braces and template. Thread a leveling nut and washer onto each bolt at the same height.', why: 'The lower nuts are how you’ll plumb the pole in a few minutes.', v: { cam: [1.0, 0.8, -0.2], at: [0, 0.05, -1.0], hi: ['levelNuts', 'anchor'], show: ['levelNuts'], hide: ['braces', 'template'], tool: { id: 'comboWrench', at: [0.1, 0.06, -0.9], rot: [90, 0, 0], anim: 'turn' } } },
         { t: 'Stand the pole', d: 'With helpers, lift the pole’s base plate onto the bolts, add top washers and nuts finger-tight.', why: 'Finger-tight nuts hold it safely while still letting you adjust plumb.', v: { cam: [3.4, 2.2, 1.6], at: [0, 1.2, -1.0], hi: ['pole', 'topNuts'], show: ['pole', 'topNuts'] } },
         { t: 'Plumb and tighten', d: 'Check plumb on two adjacent faces. Raise or lower leveling nuts to correct, then tighten the top nuts firmly.', why: 'A pole that’s out of plumb at the base is inches out at the rim.', v: { cam: [1.6, 1.3, 0.6], at: [0, 0.8, -1.0], hi: ['pole', 'levelNuts', 'topNuts'], tool: { id: 'level', at: [0.065, 1.0, -1.0], rot: [0, 90, 90], scale: 0.9 } } },
-        { t: 'Hang the board and rim', d: 'Bolt on the extension arms and crank, lift the backboard on, then mount the rim and net. Crank to 10 ft and check with a tape.', why: 'Hanging the arms before the board keeps the heavy lift short and controlled.', v: { cam: [5.0, 3.0, 5.2], at: [0, 1.8, -0.4], hi: ['board', 'rim', 'arms'], show: ['arms', 'crank', 'board', 'rim', 'netHooks', 'net', 'rimBolts'], fx: 'bounce' } },
+        { t: 'Hang the board and rim', d: 'Bolt on the extension arms and crank, lift the backboard on, then mount the rim and net. Crank to 10 ft and check with a tape.', why: 'Hanging the arms before the board keeps the heavy lift short and controlled.', v: { cam: [6.0, 3.0, 6.2], at: [0, 1.8, -0.4], hi: ['board', 'rim', 'arms'], show: ['arms', 'crank', 'board', 'rim', 'netHooks', 'net', 'rimBolts'], fx: 'bounce' } },
       ],
       learn: {
         how: 'An in-ground hoop is a 10 ft lever with a heavy board on the end. The concrete footing works like a buried anchor: its weight plus the soil pressing on its sides resist the bending at the base. An anchor kit separates the footing from the pole, so the pole can be plumbed with nuts, replaced, or removed without breaking concrete.',

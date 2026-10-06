@@ -203,7 +203,7 @@
         K.rep(12, (i) => {
           const a = (i / 12) * Math.PI * 2 + j * 0.25;
           if (Math.abs(Math.sin(a) - 0.75) < 0.3 && Math.cos(a) > 0 && Math.abs(x) < 0.3) return;
-          K.sph(holes, 0.008, 'black', [x, Math.sin(a) * (R + 0.001), Math.cos(a) * (R + 0.001)], [1, 1, 1]);
+          K.cyl(holes, [0.0065, 0.0065, 0.003, 12], 'black', [x, Math.sin(a) * (R + 0.0005), Math.cos(a) * (R + 0.0005)], [90 - (a * 180) / Math.PI, 0, 0]);
         })
       );
       const cut = K.part('hatchCut', [0, 0, 0], rot, 'Hatch outline (12×14″)');
@@ -214,11 +214,21 @@
       for (let k = 0; k <= 8; k++) outline.push(hp(0.18, A1 - ((A1 - A0) * k) / 8));
       K.tube(cut, outline, 0.003, 'yellow', true);
       const hatch = K.part('hatch', [0, 0, 0], rot, 'Hatch door, hinges + latch');
-      arcPanel(K, hatch, R + 0.006, 0.38, 90 - (A1 * 180) / Math.PI - 2, 90 - (A0 * 180) / Math.PI + 2, K.std(0x244a7d, { roughness: 0.55 }), [0, 0, 0], [0, 0, 90]);
-      [-0.11, 0.11].forEach((x) => K.box(hatch, [0.05, 0.012, 0.035], galv(K), hp(x, A0 - 0.03), [-(A0 * 180) / Math.PI + 90 - 90, 0, 0], 0.002));
-      const latch = K.group(hatch, hp(0, A1 + 0.04), [90 - (A1 * 180) / Math.PI - 90 + 90, 0, 0]);
-      K.box(latch, [0.07, 0.012, 0.03], galv(K), [0, 0, 0], null, 0.002);
-      K.tor(hatch, [0.015, 0.003], galv(K), hp(0, A1 + 0.1), [0, 90, 0]);
+      const nrm = (a) => [90 - (a * 180) / Math.PI, 0, 0];
+      const door = K.std(0x23497c, { roughness: 0.5 });
+      for (let k = 0; k < 10; k++) {
+        const a = A0 + ((k + 0.5) * (A1 - A0)) / 10;
+        const pp = [0, Math.sin(a) * (R + 0.007), Math.cos(a) * (R + 0.007)];
+        K.box(hatch, [0.35, 0.006, (R * (A1 - A0)) / 10 + 0.003], door, pp, nrm(a), 0);
+      }
+      [-0.11, 0.11].forEach((x) => {
+        const a = A0 - 0.02;
+        K.box(hatch, [0.05, 0.006, 0.05], galv(K), [x, Math.sin(a) * (R + 0.012), Math.cos(a) * (R + 0.012)], nrm(a), 0.001);
+        K.cyl(hatch, [0.005, 0.005, 0.05, 8], galv(K), [x, Math.sin(A0) * (R + 0.014), Math.cos(A0) * (R + 0.014)], [0, 0, 90]);
+      });
+      const aL = A1 + 0.02;
+      K.box(hatch, [0.03, 0.008, 0.09], galv(K), [0, Math.sin(aL) * (R + 0.012), Math.cos(aL) * (R + 0.012)], nrm(aL), 0.002);
+      K.tor(hatch, [0.012, 0.003], galv(K), [0, Math.sin(A1 + 0.12) * (R + 0.02), Math.cos(A1 + 0.12) * (R + 0.02)], nrm(A1 + 0.12));
       const legs = K.part('legs', [0, 0, 0], null, '2×4 A-frame legs');
       [-1, 1].forEach((s) => [-1, 1].forEach((f) => K.bar(legs, [s * 0.5, Y + 0.08, 0], [s * 0.5, 0, f * 0.46], 0.035, pt)));
       [-1, 1].forEach((s) => K.box(legs, [0.09, 0.09, 0.2], pt, [s * 0.5, Y + 0.07, 0], null, 0.004));
@@ -438,9 +448,9 @@
       const pl = K.part('plants', [0, 0.1, 0], null, 'Lettuce, spinach and seedlings');
       const lettuce = (x, z, s, c) => {
         K.rep(6, (i) => K.sph(pl, 0.035 * s, leafMat(K, c), [x + Math.cos(i) * 0.03 * s, 0.025 * s, z + Math.sin(i) * 0.03 * s], [1.3, 0.7, 1.3]));
-        K.sph(pl, 0.03 * s, leafMat(K, 0x86b84a), [x, 0.045 * s, z], [1, 0.9, 1]);
+        K.sph(pl, 0.03 * s, leafMat(K, 0x4f8a2c), [x, 0.045 * s, z], [1, 0.9, 1]);
       };
-      [-0.7, -0.45, -0.2, 0.05, 0.3, 0.55, 0.75].forEach((x, i) => [-0.25, 0.0, 0.25].forEach((z, j) => lettuce(x, z, i % 2 ? 1.2 : 0.9, (i + j) % 3 ? 0x5b9a3c : 0x7a3b4a)));
+      [-0.7, -0.45, -0.2, 0.05, 0.3, 0.55, 0.75].forEach((x, i) => [-0.25, 0.0, 0.25].forEach((z, j) => lettuce(x, z, i % 2 ? 1.2 : 0.9, (i + j) % 3 ? 0x2f6a24 : 0x5a2433)));
       /* add-ons */
       const mm = K.part('aoMinMax', [0.45, 0.32, -D / 2 + T + 0.008], null, 'Min/max thermometer');
       K.box(mm, [0.08, 0.2, 0.015], K.std(0xf2f0ea, { roughness: 0.5 }), [0, 0, 0], null, 0.004);
@@ -563,7 +573,7 @@
       );
       /* wet spots for the test step */
       const wet = K.group(null, [0, 0, 0]);
-      const wetMat = K.std(0x2a1d14, { transparent: true, opacity: 0, roughness: 0.4, depthWrite: false });
+      const wetMat = K.std(0x2a1d14, { transparent: true, opacity: 0.6, roughness: 0.35, depthWrite: false });
       emitters.forEach((e) => {
         const p = e.position;
         const d = K.cyl(wet, [0.07, 0.07, 0.002, 18], wetMat, [p.x, ST + 0.002, p.z]);
@@ -594,7 +604,6 @@
           const on = fx === 'flow';
           const k = on ? 0.5 + 0.5 * Math.sin(t * 3) : 0;
           emitters.forEach((e) => (e.material.emissiveIntensity = on ? 0.6 + k : 0));
-          wet.children.forEach((d) => (d.material.opacity = on ? 0.55 : 0));
           wet.visible = on;
         },
       };
@@ -675,7 +684,7 @@
         [-1.1, -0.65, -0.2, 0.25, 0.7, 1.15].forEach((z, i) => {
           const x = s * 1.0;
           K.tube(pl, [[x + s * 0.05, 0, z], [x, 0.2, z + 0.03], [x - s * 0.02, 0.45 + (i % 2) * 0.1, z - 0.02]], 0.006, leafMat(K, 0x56803a));
-          K.rep(4, (k) => K.sph(pl, 0.05, leafMat(K, k % 2 ? 0x4f8a3a : 0x6aa047), [x - s * 0.02 + Math.sin(k + i) * 0.04, 0.1 + k * 0.12, z + Math.cos(k * 2) * 0.05], [1.3, 0.4, 1.1]));
+          K.rep(6, (k) => K.sph(pl, 0.045, leafMat(K, k % 2 ? 0x2f5f22 : 0x3d6e2a), [x - s * 0.02 + Math.sin(k + i) * 0.05, 0.05 + k * 0.08, z + Math.cos(k * 2) * 0.06], [1.2, 0.7, 1.0]));
         })
       );
       /* add-ons */
@@ -744,7 +753,7 @@
       const sh = K.part('shelf', [0, 0.255, 0], null, 'Lower shelf: 1×4 slats, ¼″ gaps');
       K.rep(6, (i) => K.box(sh, [W - 0.12, 0.019, 0.083], cedar, [0, 0, -0.24 + i * 0.096], null, 0.002));
       const top = K.part('top', [0, TH - 0.0095, 0], null, '1×6 top slats around the tub opening');
-      const TX0 = 0.18, TX1 = 0.62, TZ0 = -0.2, TZ1 = 0.18;
+      const TX0 = 0.18, TX1 = 0.62, TZ0 = -0.15, TZ1 = 0.13;
       K.rep(4, (i) => {
         const z = -0.225 + i * 0.146;
         const zs = [z - 0.07, z + 0.07];
@@ -756,10 +765,10 @@
       const tub = K.part('tub', [(TX0 + TX1) / 2, TH, (TZ0 + TZ1) / 2], null, 'Stainless utility tub (drop-in)');
       const ss = K.std(0xc7cbcf, { metalness: 0.9, roughness: 0.3 });
       const rect = (x0, x1, y0, y1) => [[x0, y0], [x1, y0], [x1, y1], [x0, y1]];
-      K.ext(tub, rect(-0.25, 0.25, -0.215, 0.215), 0.008, ss, [0, 0.008, 0], [90, 0, 0], 0.002, [rect(-0.215, 0.215, -0.185, 0.185).reverse()]);
-      [-1, 1].forEach((s) => K.box(tub, [0.43, 0.2, 0.006], ss, [0, -0.1, s * 0.185], null, 0));
-      [-1, 1].forEach((s) => K.box(tub, [0.006, 0.2, 0.37], ss, [s * 0.215, -0.1, 0], null, 0));
-      K.box(tub, [0.43, 0.006, 0.37], K.std(0x9aa0a6, { metalness: 0.9, roughness: 0.35 }), [0, -0.2, 0], null, 0);
+      K.ext(tub, rect(-0.25, 0.25, -0.165, 0.165), 0.008, ss, [0, 0.008, 0], [90, 0, 0], 0.002, [rect(-0.212, 0.212, -0.132, 0.132).reverse()]);
+      [-1, 1].forEach((s) => K.box(tub, [0.43, 0.2, 0.006], ss, [0, -0.1, s * 0.132], null, 0));
+      [-1, 1].forEach((s) => K.box(tub, [0.006, 0.2, 0.27], ss, [s * 0.212, -0.1, 0], null, 0));
+      K.box(tub, [0.43, 0.006, 0.27], K.std(0x9aa0a6, { metalness: 0.9, roughness: 0.35 }), [0, -0.2, 0], null, 0);
       K.cyl(tub, [0.025, 0.025, 0.004, 18], 'dark', [0.1, -0.196, 0]);
       const dr = K.part('drain', [0, 0, 0], null, 'Basket strainer + drain hose to a bucket');
       K.cyl(dr, [0.02, 0.02, 0.06, 14], 'chrome', [(TX0 + TX1) / 2 + 0.1, TH - 0.23, -0.01]);
@@ -946,7 +955,7 @@
       { t: 'Square and level it', d: 'Check the diagonals of each bay and plumb the front posts. Shim or dig under posts until the top is level end to end.', why: 'If the front posts lean even ½″, the removable boards will bind in their channels.', v: { cam: [2.6, 1.6, 2.6], at: [0.9, 0.5, 0.4], hi: ['postsFront'], tool: { id: 'level', at: [1.41, 0.6, 0.48], rot: [0, 0, 90], scale: 1.3 } } },
       { t: 'Screw on the slat guides', d: 'Fasten 2×2 strips to the inside faces of the front posts, leaving a ⅞″ slot between strip and post for the boards.', why: 'The channel holds the front boards in place but lets you lift them out one at a time.', tip: 'Use a spare 1×6 as a spacer while you screw the strips on, then add ⅛″ of play.', v: { cam: [1.6, 1.2, 1.9], at: [0.47, 0.5, 0.4], hi: ['guides'], show: ['guides'], tool: { id: 'drill', at: [0.53, 0.7, 0.32], rot: [0, 0, 90], anim: 'spin', scale: 1.1 } } },
       { t: 'Cut and fit the front boards', d: 'Cut 1×6 boards ½″ shorter than the post-to-post opening and drop them into the channels. Leave the right bay low for easy access.', why: 'Removable fronts let you fork compost from bin to bin at any height instead of lifting it over a wall.', v: { cam: [2.4, 1.6, 2.8], at: [0, 0.4, 0.4], hi: ['fronts'], show: ['fronts'], tool: { id: 'handsaw', at: [-0.94, 0.95, 0.45], rot: [0, 0, 0], anim: 'slide', scale: 1.1 } } },
-      { t: 'Load and turn', d: 'Build the first pile in the left bay, about 3 parts browns to 1 part greens, damp as a wrung-out sponge. When it heats and drops, fork it into the middle bay.', why: 'Turning adds oxygen. A good pile reaches 130–160°F, which kills most weed seeds and pathogens.', v: { cam: [2.7, 2.1, 3.3], at: [0, 0.45, 0], hi: ['compost'], show: ['compost'], fx: 'hot', tool: { id: 'shovel', at: [-0.4, 0.95, 0.5], rot: [-20, 0, 20], anim: 'push' } } },
+      { t: 'Load and turn', d: 'Build the first pile in the left bay, about 3 parts browns to 1 part greens, damp as a wrung-out sponge. When it heats and drops, fork it into the middle bay.', why: 'Turning adds oxygen. A good pile reaches 130–160°F, which kills most weed seeds and pathogens.', v: { cam: [1.6, 2.7, 2.4], at: [0, 0.3, 0], hi: ['compost'], show: ['compost'], fx: 'hot', tool: { id: 'shovel', at: [-0.8, 0.62, 0.05], rot: [-25, 0, 20], anim: 'push' } } },
     ],
     learn: {
       how: 'Compost microbes need carbon (browns: leaves, straw, cardboard), nitrogen (greens: kitchen scraps, grass clippings), water and air. A cubic-yard pile is big enough to hold the heat they make. Three bays let you keep a new pile, an active pile and a finished pile going at once, so you always have compost ready while new material keeps coming.',
@@ -1087,7 +1096,7 @@
       { t: 'Add the center rafter and seal', d: 'Screw a 2×3 across the middle from back to front, then stick foam weatherstrip along all top edges.', why: 'The rafter supports the meeting edges of the two lids, and the foam closes the gaps where heat escapes.', v: { cam: [1.6, 1.8, 1.6], at: [0, 0.4, 0], hi: ['rafter', 'seal'], show: ['rafter', 'seal'] } },
       { t: 'Build and glaze the lids', d: 'Screw 2×2 frames to fit half the box each, then fasten the polycarbonate with washer-head screws, flutes running downhill. Tape the top edge and leave the bottom vented.', why: 'Flutes running downhill let condensation drain out instead of collecting and growing algae.', tip: 'Pre-drill oversized holes in the polycarbonate; it expands in the sun and cracks around tight screws.', v: { cam: [1.9, 1.9, 2.1], at: [0, 0.45, 0], hi: ['lidL', 'lidR'], show: ['lidL', 'lidR'], tool: { id: 'drill', at: [0.5, 0.48, 0.3], rot: [0, 0, 0], anim: 'spin' } } },
       { t: 'Hinge the lids', d: 'Fasten two strap hinges per lid to the back wall and add a handle at the front of each lid.', why: 'Hinging at the high side means the lid opens toward you and catches the wind less.', v: { cam: [-1.2, 1.4, -1.8], at: [0, 0.45, -0.45], hi: ['hinges'], show: ['hinges'], rt: { lidR: [-35, 0, 0] }, tool: { id: 'screwdriver', at: [-0.75, 0.43, -0.48], rot: [-90, 0, 0], anim: 'turn' } } },
-      { t: 'Mount the auto opener', d: 'Mount the wax-cylinder opener inside the left lid and set it to start opening at about 65–70°F.', why: 'Wax in the cylinder expands as it warms and lifts the lid with no power. It vents the frame on sunny days even when you’re not home.', v: { cam: [1.0, 1.0, 1.6], at: [-0.45, 0.4, -0.2], hi: ['opener'], show: ['opener'], rt: { lidR: [0, 0, 0], lidL: [-28, 0, 0] }, xray: true } },
+      { t: 'Mount the auto opener', d: 'Mount the wax-cylinder opener inside the left lid and set it to start opening at about 65–70°F.', why: 'Wax in the cylinder expands as it warms and lifts the lid with no power. It vents the frame on sunny days even when you’re not home.', v: { cam: [-0.1, 1.2, 1.3], at: [-0.45, 0.35, -0.25], hi: ['opener'], show: ['opener'], rt: { lidR: [0, 0, 0], lidL: [-28, 0, 0] }, xray: true } },
       { t: 'Fill and plant', d: 'Add 4″ of compost to the soil, then sow or transplant cold-hardy greens. Close at night, vent on warm days.', why: 'Dark, moist soil soaks up heat in the day and gives it back at night.', v: { cam: [2.0, 1.55, 2.5], at: [0, 0.3, 0], hi: ['soil', 'plants'], show: ['soil', 'plants'], rt: { lidL: [-35, 0, 0], lidR: [-45, 0, 0] } } },
     ],
     learn: {
@@ -1120,15 +1129,15 @@
     tools: ['Battery hose-end timer', 'Hose-thread backflow preventer', '150-mesh filter', '25 psi pressure regulator', 'Hose-to-½″ tubing adapter', '½″ poly tubing (50–100 ft)', '½″ tees, elbows, ball valves', '½″ inline-emitter tubing, 12″ spacing', 'Hole punch + goof plugs', 'U-stakes, figure-8 end closures', 'Pruning shears (tubing cutter)', 'Teflon tape'],
     steps: [
       { t: 'Plan the layout', d: 'Measure from the faucet to each bed and flag the mainline route, the valve locations and the end of each bed.', why: 'A measured plan gives you an exact parts list, and keeps the total emitter flow inside what your faucet can supply.', v: { cam: [3.2, 3.0, 3.2], at: [-0.2, 0.1, 0], hi: ['plan'], show: ['plan'], tool: { id: 'tape', at: [-1.6, 0.03, -1.0], rot: [0, 0, 0], scale: 1.3 } } },
-      { t: 'Timer on the faucet', d: 'Wrap the faucet threads with Teflon tape and screw on the battery timer, hand-tight.', why: 'Putting the timer first means only the timer is ever under full house pressure; everything after it stays at drip pressure.', v: { cam: [-0.9, 0.8, -0.6], at: [-1.6, 0.42, -1.55], hi: ['timer'], show: ['timer'] } },
-      { t: 'Backflow preventer', d: 'Thread the backflow preventer onto the timer outlet.', why: 'It stops dirty garden water (and any fertilizer) from being pulled back into the house supply if pressure drops.', v: { cam: [-0.9, 0.7, -0.7], at: [-1.6, 0.35, -1.55], hi: ['backflow'], show: ['backflow'] } },
-      { t: 'Filter, regulator, adapter', d: 'Add the 150-mesh filter, then the 25 psi regulator, then the tubing adapter. Arrows on each part point away from the faucet.', why: 'The filter catches grit that clogs emitters. The regulator drops house pressure (40–80 psi) to the 25 psi the fittings are rated for.', v: { cam: [-0.9, 0.6, -0.8], at: [-1.6, 0.25, -1.55], hi: ['filter', 'regulator', 'adapter'], show: ['filter', 'regulator', 'adapter'] } },
+      { t: 'Timer on the faucet', d: 'Wrap the faucet threads with Teflon tape and screw on the battery timer, hand-tight.', why: 'Putting the timer first means only the timer is ever under full house pressure; everything after it stays at drip pressure.', v: { cam: [-1.0, 0.85, -0.6], at: [-1.6, 0.4, -1.55], hi: ['timer'], show: ['timer'] } },
+      { t: 'Backflow preventer', d: 'Thread the backflow preventer onto the timer outlet.', why: 'It stops dirty garden water (and any fertilizer) from being pulled back into the house supply if pressure drops.', v: { cam: [-1.0, 0.8, -0.65], at: [-1.6, 0.34, -1.55], hi: ['backflow'], show: ['backflow'] } },
+      { t: 'Filter, regulator, adapter', d: 'Add the 150-mesh filter, then the 25 psi regulator, then the tubing adapter. Arrows on each part point away from the faucet.', why: 'The filter catches grit that clogs emitters. The regulator drops house pressure (40–80 psi) to the 25 psi the fittings are rated for.', v: { cam: [-1.0, 0.7, -0.7], at: [-1.6, 0.27, -1.55], hi: ['filter', 'regulator', 'adapter'], show: ['filter', 'regulator', 'adapter'] } },
       { t: 'Run the mainline', d: 'Push ½″ poly into the adapter, run it along the wall and across the front of the beds. Let it sit in the sun first so it uncoils.', why: 'Warm tubing lies flat and pushes onto fittings far more easily.', v: { cam: [1.6, 1.8, 0.4], at: [-0.3, 0.05, -1.2], hi: ['mainline'], show: ['mainline'], hide: ['plan'], tool: { id: 'utilityKnife', at: [0.98, 0.06, -1.15], rot: [0, 0, 90] } } },
       { t: 'Add zone valves', d: 'Cut in a tee in front of each bed and add a ½″ ball valve on the branch.', why: 'Valves let you balance or shut off each bed, for example when one is fallow or has thirstier crops.', v: { cam: [0.0, 1.0, -0.2], at: [-0.84, 0.05, -1.2], hi: ['valves'], show: ['valves'], tool: { id: 'pliers', at: [-0.84, 0.08, -1.12], rot: [0, 0, 0], anim: 'squeeze' } } },
       { t: 'Risers and headers', d: 'Run tubing up and over the bed wall and lay a ½″ header across the near end of each bed with tees every 12″.', why: 'Going over the wall avoids drilling the bed. The header feeds every row from one end, so the rows get even pressure.', v: { cam: [0.6, 1.4, 0.4], at: [-0.84, 0.25, -0.95], hi: ['risers', 'headers'], show: ['risers', 'headers'] } },
       { t: 'Lay the emitter lines', d: 'Run inline-emitter tubing from each header tee down the bed, 12″ apart, and stake it every 2–3 ft.', why: 'Rows 12″ apart with emitters every 12″ make overlapping wet zones, so the whole bed stays moist without dry stripes.', v: { cam: [2.6, 2.6, 2.4], at: [0, 0.25, 0.2], hi: ['laterals', 'stakes'], show: ['laterals', 'stakes'], tool: { id: 'hammer', at: [1.13, 0.3, 0.4], rot: [0, -40, 0], anim: 'tap', scale: 1.1 } } },
       { t: 'Flush and close the ends', d: 'Turn the water on for a minute to flush debris out the open ends, then fold each end into a figure-8 closure.', why: 'Plastic shavings from cutting end up in the first emitters and clog them if you don’t flush them out.', v: { cam: [1.2, 1.4, 2.6], at: [0, 0.25, 1.3], hi: ['endcaps'], show: ['endcaps'] } },
-      { t: 'Test and program', d: 'Run each zone, check every emitter is wetting, then set the timer for early morning, usually 20–40 minutes every 2–3 days.', why: 'Morning watering loses the least to evaporation, and long, infrequent runs grow deeper roots than daily sprinkles.', v: { cam: [3.4, 2.6, 3.6], at: [-0.1, 0.2, -0.1], hi: ['laterals', 'timer'], fx: 'flow' } },
+      { t: 'Test and program', d: 'Run each zone, check every emitter is wetting, then set the timer for early morning, usually 20–40 minutes every 2–3 days.', why: 'Morning watering loses the least to evaporation, and long, infrequent runs grow deeper roots than daily sprinkles.', v: { cam: [1.2, 1.6, 2.4], at: [-0.5, 0.2, 0.4], hi: ['laterals', 'timer'], fx: 'flow' } },
     ],
     learn: {
       how: 'Drip irrigation puts water at the soil surface in small, steady amounts, so almost none is lost to wind, runoff or evaporation. The head assembly makes household water safe for the system: the backflow preventer protects your drinking water, the filter protects the emitters, and the regulator lowers pressure so fittings don’t blow off. Pressure-compensating emitters give the same flow at the start and end of each row.',

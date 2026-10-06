@@ -47,8 +47,8 @@
       unit: 1,
       env: 'garden',
       floor: false,
-      cam: [5.2, 4.2, 7.4],
-      at: [0, -0.4, 0.6],
+      cam: [6.4, 5.4, 9.2],
+      at: [0, -0.5, 0.4],
       tex: ['aerial_grass_rock', 'interlocking_concrete_pavers', 'granite_tile'],
       assets: ['shrub_01', 'potted_plant_01'],
       hidden: ['vacHead', 'vacPole', 'vacHose', 'vacPlate', 'brush', 'leafNet', 'sample', 'cover', 'plugs', 'gizzmo', 'blower', 'winterKit', 'debris', 'startKit'],
@@ -63,7 +63,7 @@
       K.ext(coping, rect(-2.12, 2.12, -3.92, 3.92), 0.06, K.std(0xd9d1c3, { roughness: 0.9 }), [0, 0.12, 0], [90, 0, 0], 0.01, [rect(-PX + 0.04, PX - 0.04, -PZ + 0.04, PZ - 0.04).reverse()]);
       // Shell: walls, floor, waterline tile
       const shell = K.part('shell', [0, 0, 0], null, 'Plaster pool shell');
-      const plaster = K.std(0xdcf0f6, { roughness: 0.85 });
+      const plaster = K.std(0xb9e2f0, { roughness: 0.85 });
       [-1, 1].forEach((s) => K.box(shell, [0.12, 2.0, 2 * PZ + 0.24], plaster, [s * (PX + 0.06), -1.0, 0], null, 0));
       [-1, 1].forEach((s) => K.box(shell, [2 * PX, 2.0, 0.12], plaster, [0, -1.0, s * (PZ + 0.06)], null, 0));
       K.box(shell, [2 * PX, 0.1, 2.6], plaster, [0, -1.05, 2.3], null, 0);
@@ -112,8 +112,8 @@
       K.cyl(lt, [0.12, 0.12, 0.031, 32], K.std(0xe9f6ff, { emissive: 0xbfe6ff, emissiveIntensity: 0.4 }), [0, 0, 0.012], [90, 0, 0]);
       // Water
       const water = K.part('water', [0, 0, 0], null, 'Pool water (~13,000 gal)');
-      const surf = K.phys(0x4cb6d6, { transparent: true, opacity: 0.42, roughness: 0.04, clearcoat: 1, depthWrite: false });
-      const vol = K.std(0x2a9ac0, { transparent: true, opacity: 0.16, depthWrite: false, roughness: 0.1 });
+      const surf = K.phys(0x1f8fc4, { transparent: true, opacity: 0.58, roughness: 0.04, clearcoat: 1, depthWrite: false });
+      const vol = K.std(0x1a88b8, { transparent: true, opacity: 0.26, depthWrite: false, roughness: 0.1 });
       K.box(water, [2 * PX - 0.01, 0.006, 2 * PZ - 0.01], surf, [0, -0.13, 0], null, 0);
       K.box(water, [2 * PX - 0.02, 0.86, 2 * PZ - 0.02], vol, [0, -0.57, 0], null, 0);
       K.box(water, [2 * PX - 0.02, 0.9, 3.6], vol, [0, -1.45, -1.8], null, 0);
@@ -659,8 +659,8 @@
       {
         unit: 1,
         env: 'garden',
-        cam: [1.3, 1.1, 1.9],
-        at: [0, 0.55, 0.1],
+        cam: [0.8, 0.95, 1.25],
+        at: [0, 0.5, 0.05],
         ground: { tex: 'forrest_ground_01', repeat: 6, radius: 6 },
         tex: ['forrest_ground_01', 'wood_planks', 'brushed_concrete'],
         hidden: ['cover', 'insulation', 'bucket', 'newBib'],
@@ -668,9 +668,9 @@
       (K) => {
         const siding = K.std(0xc9d3d8, { roughness: 0.8 });
         const wall = K.part('wall', [0, 0, 0], null, 'Exterior wall (siding over sheathing)');
-        K.box(wall, [2.4, 1.1, 0.03], siding, [0, 1.3, 0.015], null, 0);
-        K.rep(6, (i) => K.box(wall, [2.4, 0.02, 0.012], K.std(0xb6c0c5), [0, 0.8 + i * 0.18, 0.034], null, 0));
-        K.box(wall, [2.4, 0.03, 0.06], K.std(0xf4f3ee), [0, 0.765, 0.02], null, 0.004);
+        K.box(wall, [2.4, 1.35, 0.03], siding, [0, 1.175, 0.015], null, 0);
+        K.rep(7, (i) => K.box(wall, [2.4, 0.02, 0.012], K.std(0xb6c0c5), [0, 0.68 + i * 0.18, 0.034], null, 0));
+        K.box(wall, [2.4, 0.04, 0.05], K.std(0xf4f3ee), [0, 0.52, 0.025], null, 0.004);
         const fnd = K.part('foundation', [0, 0, 0], null, 'Foundation wall');
         K.box(fnd, [2.4, 0.5, 0.25], K.pbr('brushed_concrete', [1.5, 0.5], {}, 'concrete'), [0, 0.25, -0.1], null, 0.004);
         // Basement / interior side (z < 0)
@@ -692,8 +692,8 @@
         // Interior shutoff with bleed cap
         const sv = K.part('shutoff', [0, 0.47, -0.25], null, 'Interior shutoff (stop & waste)');
         K.box(sv, [0.05, 0.1, 0.045], brassM, [0, 0, 0], null, 0.01);
-        K.cyl(sv, [0.012, 0.012, 0.05, 12], brassM, [0, 0, 0.04], [90, 0, 0]);
-        const sh = K.part('shutoffHandle', [0, 0.47, -0.19], null, 'Shutoff handle');
+        K.cyl(sv, [0.012, 0.012, 0.05, 12], brassM, [0, 0, -0.04], [90, 0, 0]);
+        const sh = K.part('shutoffHandle', [0, 0.47, -0.31], null, 'Shutoff handle');
         K.box(sh, [0.11, 0.02, 0.012], 'red', [0.03, 0, 0.0], null, 0.004);
         const bc = K.part('bleedCap', [0.034, 0.5, -0.25], null, 'Bleed cap (drain port)');
         K.cyl(bc, [0.008, 0.008, 0.022, 10], brassM, [0.008, 0, 0], [0, 0, 90]);
@@ -1203,8 +1203,8 @@
   /* =========================================================================
      GUIDES · Pool & Hot Tub
      ========================================================================= */
-  const OV = { cam: [5.2, 4.2, 7.4], at: [0, -0.4, 0.6] };
-  const KIT = { cam: [3.7, 1.0, 5.5], at: [2.45, 0.15, 4.05] };
+  const OV = { cam: [6.4, 5.4, 9.2], at: [0, -0.5, 0.4] };
+  const KIT = { cam: [3.25, 0.85, 5.25], at: [2.45, 0.12, 4.2] };
   const CHEM = { cam: [4.8, 1.7, 3.9], at: [2.6, 0.2, 2.0] };
   const PAD = { cam: [2.2, 1.7, 3.0], at: [-0.1, 0.55, 0] };
   const GAUGE = { cam: [0.75, 1.35, 0.95], at: [0.22, 1.05, 0.05] };
@@ -1497,7 +1497,7 @@
      GUIDES · Seasonal
      ========================================================================= */
   const BIB_OUT = { cam: [0.55, 0.85, 0.85], at: [0, 0.55, 0.1] };
-  const BIB_IN = { cam: [0.55, 0.62, -1.15], at: [0, 0.48, -0.25] };
+  const BIB_IN = { cam: [0.32, 0.5, -0.95], at: [0, 0.5, -0.22] };
   const HOUSE = { cam: [7.0, 4.2, 9.5], at: [0.6, 1.4, 0] };
 
   TB.category({

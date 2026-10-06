@@ -533,10 +533,10 @@
       const hang = K.part('hangers', [0, 0, 0], null, 'Stair-stringer connectors + structural screws');
       const galv = K.std(0xb7bec4, { metalness: 0.85, roughness: 0.35 });
       [-0.45, 0, 0.45].forEach((x) => {
-        K.box(hang, [0.002, 0.14, 0.09], galv, [x - 0.021, prof[0][1] - 0.02, 0.045], null, 0);
-        K.box(hang, [0.002, 0.14, 0.09], galv, [x + 0.021, prof[0][1] - 0.02, 0.045], null, 0);
-        K.box(hang, [0.046, 0.14, 0.002], galv, [x, prof[0][1] - 0.02, 0.001], null, 0);
-        K.rep(3, (i) => K.cyl(hang, [0.006, 0.006, 0.004, 10], galv, [x + 0.023, prof[0][1] - 0.06 + i * 0.04, 0.05], [0, 0, 90]));
+        K.box(hang, [0.002, 0.14, 0.09], galv, [x - 0.021, prof[0][1] - 0.09, 0.045], null, 0);
+        K.box(hang, [0.002, 0.14, 0.09], galv, [x + 0.021, prof[0][1] - 0.09, 0.045], null, 0);
+        K.box(hang, [0.046, 0.14, 0.002], galv, [x, prof[0][1] - 0.09, 0.001], null, 0);
+        K.rep(3, (i) => K.cyl(hang, [0.006, 0.006, 0.004, 10], galv, [x + 0.023, prof[0][1] - 0.13 + i * 0.04, 0.05], [0, 0, 90]));
       });
       // risers: 1×8 boards; treads: two 5/4×6 boards with 1″ nosing
       const ris = K.part('risers', [0, 0, 0], null, 'Riser boards');

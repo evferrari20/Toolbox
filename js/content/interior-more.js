@@ -883,3 +883,590 @@
     },
   ]);
 })();
+
+/* =====================================================================
+   FLOORS: models
+   ===================================================================== */
+(function () {
+  const { VIEW } = TB.IM;
+  const FV = (o) => VIEW(Object.assign({ tex: ['brushed_concrete'], ground: { tex: 'brushed_concrete', repeat: 3, radius: 4 } }, o));
+  const woodTone = (K, c) => K.bumpy(c, K.tex.woodBump(), 0.003, { roughness: 0.55 });
+
+  /* ---- Floating plank floor with one damaged plank ---- */
+  TB.model(
+    'plankFloor',
+    FV({ cam: [1.1, 1.3, 1.6], at: [0.0, 0, 0.05], hidden: ['holes', 'cutLines', 'saw', 'pieces', 'newPlank', 'tongue', 'glue', 'weights'] }),
+    (K) => {
+      const PW = 0.197, PL = 1.22, Y0 = 0.02, PT = 0.008;
+      K.box(null, [2.6, 0.018, 2.2], K.std(0xc9a46e, { roughness: 0.9 }), [0, 0.009, 0], null, 0); // subfloor
+      const ul = K.part('underlay', [0, 0, 0], null, 'Foam underlayment');
+      K.box(ul, [2.4, 0.002, 2.0], K.std(0x8fb6c9, { roughness: 0.9 }), [0, 0.019, 0], null, 0);
+      K.box(null, [2.6, 1.2, 0.1], K.std(0xe9e4d8, { roughness: 0.93 }), [0, 0.6, -1.06], null, 0);
+      K.box(null, [2.6, 0.09, 0.014], K.std(0xf7f5ef, { roughness: 0.45 }), [0, 0.045 + Y0, -1.003], null, 0.003);
+      const tones = [0xb48a5e, 0xa47b51, 0xc19a6d, 0x9c7550].map((c) => woodTone(K, c));
+      const floor = K.part('floor', [0, 0, 0], null, 'Laminate planks (floating)');
+      const offs = [0, 0.4, 0.8, 0.2, 1.0, 0.61, 0.3, 0.7, 0.1, 0.5];
+      let n = 0;
+      offs.forEach((o, j) => {
+        const z = -0.9 + j * PW;
+        for (let s = -1.2 - o; s < 1.2; s += PL) {
+          const a = Math.max(s, -1.2), b = Math.min(s + PL, 1.2);
+          if (b - a < 0.01) continue;
+          if (j === 5 && Math.abs(s + 0.59) < 0.01) continue; // the damaged plank
+          K.box(floor, [b - a - 0.002, PT, PW - 0.002], tones[n++ % 4], [(a + b) / 2, Y0 + PT / 2, z], null, 0.0015);
+        }
+      });
+      const ZD = -0.9 + 5 * PW, XD = 0.02;
+      const dmg = K.part('damaged', [XD, Y0 + PT / 2, ZD], null, 'Damaged plank (swollen, chipped)');
+      K.box(dmg, [PL - 0.002, PT, PW - 0.002], tones[1], [0, 0, 0], null, 0.0015);
+      K.box(dmg, [0.32, 0.002, 0.12], K.std(0x5a4330, { roughness: 1 }), [0.15, PT / 2 + 0.0005, 0.01], [0, 12, 0], 0);
+      K.box(dmg, [0.08, 0.003, 0.03], K.std(0xe2d2b4, { roughness: 1 }), [-0.3, PT / 2 + 0.0003, -0.07], [0, -20, 0], 0);
+      const holes = K.part('holes', [XD, Y0 + PT, ZD], null, '½″ relief holes');
+      [[-0.58, -0.07], [-0.58, 0.07], [0.58, -0.07], [0.58, 0.07], [-0.2, -0.07], [0.2, -0.07], [-0.2, 0.07], [0.2, 0.07]].forEach(([x, z]) => K.cyl(holes, [0.0064, 0.0064, 0.002, 16], K.std(0x151210), [x, 0.0005, z]));
+      const cl = K.part('cutLines', [XD, Y0 + PT + 0.0006, ZD], null, 'Cut lines');
+      K.box(cl, [1.16, 0.001, 0.0018], 'dark', [0, 0, -0.07], null, 0);
+      K.box(cl, [1.16, 0.001, 0.0018], 'dark', [0, 0, 0.07], null, 0);
+      K.box(cl, [1.16, 0.001, 0.0018], 'dark', [0, 0, 0], null, 0);
+      const saw = K.part('saw', [0.0, Y0 + PT, ZD + 0.05], null, 'Circular saw (blade set to plank depth)');
+      K.box(saw, [0.28, 0.004, 0.16], 'steel', [0, 0.002, 0], null, 0);
+      K.cyl(saw, [0.085, 0.085, 0.003, 40], 'toolSteel', [0, 0.03, -0.05], [90, 0, 0]);
+      K.lathe(saw, [[0, 0], [0.09, 0], [0.095, 0.03], [0, 0.035]], K.std(0x2a6fc0, { roughness: 0.5 }), [0, 0.05, -0.04], [90, 0, 0]);
+      K.cyl(saw, [0.045, 0.045, 0.11, 24], K.std(0x2a6fc0, { roughness: 0.5 }), [0, 0.08, 0.02], [90, 0, 0]);
+      K.tube(saw, [[-0.08, 0.1, 0.03], [-0.02, 0.17, 0.03], [0.08, 0.15, 0.03]], 0.014, 'gripBlack');
+      const pcs = K.part('pieces', [0.95, Y0, 0.6], null, 'Cut-out pieces');
+      [[0, 0, 0, 10], [0.05, 0.008, 0.06, -15], [-0.06, 0, 0.12, 30]].forEach(([x, y, z, r]) => K.box(pcs, [0.4, PT, 0.06], tones[1], [x, y + PT / 2, z], [0, r, 0], 0.001));
+      const np = K.part('newPlank', [XD, Y0 + PT / 2, ZD], null, 'Replacement plank');
+      K.box(np, [PL - 0.004, PT, PW - 0.008], tones[2], [0, 0, 0], null, 0.0015);
+      const tg = K.part('tongue', [XD, Y0 + PT / 2 - 0.0015, ZD - PW / 2], null, 'Tongue (cut off)');
+      K.box(tg, [PL - 0.004, 0.004, 0.008], 'red', [0, 0, 0], null, 0);
+      const glue = K.part('glue', [XD, Y0 + PT * 0.6, ZD], null, 'Glue bead in the grooves');
+      const gm = K.std(0xf4eedc, { roughness: 0.4 });
+      [-1, 1].forEach((s) => K.cyl(glue, [0.0025, 0.0025, PL - 0.02, 10], gm, [0, 0, s * (PW / 2 - 0.002)], [0, 0, 90]));
+      [-1, 1].forEach((s) => K.cyl(glue, [0.0025, 0.0025, PW - 0.02, 10], gm, [s * (PL / 2 - 0.002), 0, 0], [90, 0, 0]));
+      const wt = K.part('weights', [XD, Y0 + PT, ZD], null, 'Books as weights (overnight)');
+      [[-0.35, 0xa33b2f], [0.0, 0x2f5f8a], [0.35, 0x3d6b45]].forEach(([x, c], i) => {
+        K.box(wt, [0.24, 0.05, 0.17], K.std(c, { roughness: 0.7 }), [x, 0.025, 0], [0, i * 7, 0], 0.004);
+        K.box(wt, [0.22, 0.04, 0.16], K.std(0xa88444 + i * 0x101010, { roughness: 0.7 }), [x, 0.07, 0], [0, -i * 9, 0], 0.004);
+      });
+      return {
+        tick(t, fx) {
+          saw.position.x = fx === 'saw' ? 0.35 * Math.sin(t * 1.2) : 0;
+        },
+      };
+    }
+  );
+
+  /* ---- Room for a floating LVP floor ---- */
+  TB.model(
+    'lvpRoom',
+    FV({ cam: [0.6, 2.7, 3.7], at: [0, 0.2, -0.2], hidden: ['underlay', 'spacers', 'row1', 'rows', 'lastRow', 'shoe', 'transition', 'undercut'] }),
+    (K) => {
+      const X0 = -1.5, X1 = 1.5, Z0 = -1.3, Z1 = 1.3, H = 2.44;
+      const wallM = K.std(0xe9e4d8, { roughness: 0.93 });
+      const trimM = K.std(0xf7f5ef, { roughness: 0.45 });
+      const sub = K.part('subfloor', [0, 0, 0], null, 'Subfloor (flat within 3⁄16″ per 10 ft)');
+      K.box(sub, [X1 - X0, 0.012, Z1 - Z0], K.std(0xc9a46e, { roughness: 0.9 }), [0, 0.006, 0], null, 0);
+      // walls: back (with doorway), left, right
+      const DX0 = 0.45, DX1 = 1.28, DH = 2.06;
+      K.box(null, [DX0 - X0, H, 0.12], wallM, [(X0 + DX0) / 2, H / 2, Z0 - 0.06], null, 0);
+      K.box(null, [X1 - DX1, H, 0.12], wallM, [(DX1 + X1) / 2, H / 2, Z0 - 0.06], null, 0);
+      K.box(null, [DX1 - DX0, H - DH, 0.12], wallM, [(DX0 + DX1) / 2, (H + DH) / 2, Z0 - 0.06], null, 0);
+      K.box(null, [0.12, H, Z1 - Z0], wallM, [X0 - 0.06, H / 2, 0], null, 0);
+      K.box(null, [0.12, 0.9, Z1 - Z0], wallM, [X1 + 0.06, 0.45, 0], null, 0);
+      K.box(null, [DX1 - DX0, 0.012, 0.6], woodTone(K, 0x9a7148), [(DX0 + DX1) / 2, 0.016, Z0 - 0.3], null, 0); // next room hardwood
+      const cas = K.part('casing', [0, 0, 0], null, 'Door casing + jamb');
+      [DX0 - 0.03, DX1 + 0.03].forEach((x) => K.box(cas, [0.064, DH + 0.06, 0.016], trimM, [x, (DH + 0.06) / 2, Z0 + 0.008], null, 0.003));
+      K.box(cas, [DX1 - DX0 + 0.124, 0.064, 0.016], trimM, [(DX0 + DX1) / 2, DH + 0.03, Z0 + 0.008], null, 0.003);
+      const uc = K.part('undercut', [0, 0, 0], null, 'Undercut: plank-height slot under the casing');
+      [DX0 - 0.03, DX1 + 0.03].forEach((x) => K.box(uc, [0.068, 0.009, 0.02], 'red', [x, 0.0165, Z0 + 0.008], null, 0));
+      const base = K.part('oldBase', [0, 0, 0], null, 'Baseboard');
+      K.box(base, [DX0 - 0.065 - X0, 0.09, 0.014], trimM, [(X0 + DX0 - 0.065) / 2, 0.012 + 0.045, Z0 + 0.007], null, 0.003);
+      K.box(base, [X1 - DX1 - 0.065, 0.09, 0.014], trimM, [(X1 + DX1 + 0.065) / 2, 0.012 + 0.045, Z0 + 0.007], null, 0.003);
+      K.box(base, [0.014, 0.09, Z1 - Z0], trimM, [X0 + 0.007, 0.057, 0], null, 0.003);
+      K.box(base, [0.014, 0.09, Z1 - Z0], trimM, [X1 - 0.007, 0.057, 0], null, 0.003);
+      const ul = K.part('underlay', [0, 0, 0], null, 'Underlayment / vapor barrier');
+      K.box(ul, [X1 - X0 - 0.02, 0.0015, Z1 - Z0 - 0.02], K.std(0x9ab9c8, { roughness: 0.85 }), [0, 0.0128, 0], null, 0);
+      const sp = K.part('spacers', [0, 0, 0], null, '⁵⁄₁₆″ expansion spacers');
+      for (let z = -1.0; z < 1.3; z += 0.45) K.box(sp, [0.008, 0.03, 0.04], 'red', [X0 + 0.004, 0.03, z], null, 0);
+      for (let x = -1.2; x < 0.4; x += 0.45) K.box(sp, [0.04, 0.03, 0.008], 'red', [x, 0.03, Z0 + 0.004], null, 0);
+      // planks run along z, 7″ × 48″, rows from the left wall
+      const PW = 0.178, PL = 1.22, Y = 0.0136, PT = 0.0065, G = 0.008;
+      const tones = [0xa08566, 0x947a5c, 0xae9474, 0x8c7458, 0xb59c7c].map((c) => woodTone(K, c));
+      const row1 = K.part('row1', [0, 0, 0], null, 'First row (tongue toward the wall cut off)');
+      const rows = K.part('rows', [0, 0, 0], null, 'Field: end joints staggered ≥ 6″');
+      const last = K.part('lastRow', [0, 0, 0], null, 'Last row, ripped to width');
+      const offs = [0, 0.41, 0.82, 0.2, 0.61, 1.02, 0.31, 0.72, 0.1, 0.51, 0.92, 0.25, 0.66, 1.07, 0.36, 0.77, 0.15];
+      let n = 0;
+      for (let i = 0; i < 17; i++) {
+        const xa = X0 + G + i * PW;
+        const xb = Math.min(xa + PW, X1 - G);
+        const p = i === 0 ? row1 : i === 16 ? last : rows;
+        for (let s = Z0 + G - offs[i]; s < Z1; s += PL) {
+          const a = Math.max(s, Z0 + G), b = Math.min(s + PL, Z1);
+          if (b - a < 0.02) continue;
+          K.box(p, [xb - xa - 0.0015, PT, b - a - 0.0015], tones[n++ % 5], [(xa + xb) / 2, Y + PT / 2, (a + b) / 2], null, 0.0012);
+        }
+      }
+      const shoe = K.part('shoe', [0, 0, 0], null, 'Baseboard back on + shoe molding');
+      const q = (len, pos, rotY) => K.box(K.group(shoe, pos, [0, rotY, 0]), [len, 0.019, 0.019], trimM, [0, 0, 0], null, 0.006);
+      q(DX0 - 0.065 - X0, [(X0 + DX0 - 0.065) / 2, Y + PT + 0.0095, Z0 + 0.024], 0);
+      q(X1 - DX1 - 0.065, [(X1 + DX1 + 0.065) / 2, Y + PT + 0.0095, Z0 + 0.024], 0);
+      q(Z1 - Z0, [X0 + 0.024, Y + PT + 0.0095, 0], 90);
+      q(Z1 - Z0, [X1 - 0.024, Y + PT + 0.0095, 0], 90);
+      const tr = K.part('transition', [(DX0 + DX1) / 2, Y + PT, Z0 - 0.02], null, 'T-molding transition at the doorway');
+      K.box(tr, [DX1 - DX0 - 0.02, 0.008, 0.045], woodTone(K, 0x947a5c), [0, 0.003, 0], null, 0.003);
+    }
+  );
+
+  /* ---- Staircase cutaway (5 steps), open on the +z side ---- */
+  TB.model(
+    'stairs',
+    FV({ cam: [2.1, 1.4, 2.2], at: [0.6, 0.55, 0], hidden: ['screws', 'plugs', 'glueBead', 'wedges', 'blocks', 'blockScrews'] }),
+    (K) => {
+      const N = 5, R = 0.254, H = 0.19, TT = 0.025, RT = 0.019, WD = 0.91;
+      const oak = woodTone(K, 0xb88a58);
+      const paintM = K.std(0xf4f2ec, { roughness: 0.6 });
+      K.box(null, [2.2, 2.6, 0.1], K.std(0xe9e4d8, { roughness: 0.93 }), [0.7, 1.3, -WD / 2 - 0.05], null, 0);
+      const st = K.part('stringers', [0, 0, 0], null, 'Stringers (2×12)');
+      const pts = [[RT, 0]];
+      for (let i = 0; i < N; i++) {
+        pts.push([i * R + RT, (i + 1) * H - TT]);
+        pts.push([(i + 1) * R + RT, (i + 1) * H - TT]);
+      }
+      pts.push([N * R + RT, N * H - TT - 0.28]);
+      pts.push([RT + 0.4, 0]);
+      [-WD / 2 + 0.02, 0, WD / 2 - 0.058].forEach((z) => K.ext(st, pts, 0.038, 'woodLight', [0, 0, z], null, 0.001));
+      const treads = K.part('treads', [0, 0, 0], null, 'Treads (1″ oak)');
+      const risers = K.part('risers', [0, 0, 0], null, 'Risers (¾″)');
+      for (let i = 0; i < N; i++) {
+        if (i !== 2) K.box(treads, [R + RT + 0.025, TT, WD], oak, [i * R - 0.025 + (R + RT + 0.025) / 2, (i + 1) * H - TT / 2, 0], null, 0.004);
+        K.box(risers, [RT, H - TT, WD], paintM, [i * R + RT / 2, i * H + (H - TT) / 2, 0], null, 0.002);
+      }
+      const t2 = K.part('squeakTread', [0, 0, 0], null, 'Squeaky tread');
+      K.box(t2, [R + RT + 0.025, TT, WD], oak, [2 * R - 0.025 + (R + RT + 0.025) / 2, 3 * H - TT / 2, 0], null, 0.004);
+      const sq = K.part('squeak', [2 * R + 0.06, 3 * H + 0.002, 0.1], null, 'Squeak (tread rubs riser below)');
+      K.cyl(sq, [0.09, 0.09, 0.002, 32], K.std(0xf2c84b, { transparent: true, opacity: 0.55 }));
+      const gap = K.part('gap', [2 * R + RT + 0.004, 3 * H - TT - 0.002, 0], null, 'Gap under the tread');
+      K.box(gap, [0.008, 0.004, WD - 0.1], 'red', [0, 0, 0], null, 0);
+      const sc = K.part('screws', [0, 3 * H, 0], null, 'Trim-head screws into riser + stringers');
+      [[2 * R + 0.0095, -0.25], [2 * R + 0.0095, 0.25], [2 * R + 0.12, -WD / 2 + 0.039], [2 * R + 0.12, WD / 2 - 0.039]].forEach(([x, z]) => K.screw(sc, 0.0035, 0.064, 'blackOxide', [x, 0.0005, z], [0, 0, 8], 'flat'));
+      const pl = K.part('plugs', [0, 3 * H + 0.0006, 0], null, 'Wood filler over the heads');
+      [[2 * R + 0.0095, -0.25], [2 * R + 0.0095, 0.25], [2 * R + 0.12, -WD / 2 + 0.039], [2 * R + 0.12, WD / 2 - 0.039]].forEach(([x, z]) => K.cyl(pl, [0.0065, 0.0065, 0.0012, 16], K.std(0xa47a4c, { roughness: 0.7 }), [x, 0, z]));
+      const gb = K.part('glueBead', [2 * R + RT + 0.002, 3 * H - TT - 0.004, 0], null, 'Construction adhesive in the joint');
+      K.cyl(gb, [0.004, 0.004, WD - 0.12, 12], K.std(0xe9e1c8, { roughness: 0.5 }), [0, 0, 0], [90, 0, 0]);
+      // from below: wedges at the stringer seats, glue blocks in the tread/riser corner
+      const wd = K.part('wedges', [0, 0, 0], null, 'Glued shims at the stringers');
+      [-WD / 2 + 0.065, 0.045].forEach((z) => K.ext(K.group(wd, [2 * R + RT + 0.02, 3 * H - TT, z], [0, 0, 0]), [[0, 0], [0.12, 0], [0, -0.008]], 0.03, K.std(0xe2c99a, { roughness: 0.9 }), [0, 0, 0], null, 0));
+      const bl = K.part('blocks', [2 * R + RT, 3 * H - TT, 0], null, 'Glue blocks (riser-to-tread corner)');
+      [-0.23, 0.215].forEach((z) => K.ext(bl, [[0, 0], [0.045, 0], [0, -0.045]], 0.16, 'woodLight', [0, 0, z - 0.08], null, 0.001));
+      const bs = K.part('blockScrews', [2 * R + RT, 3 * H - TT, 0], null, '1¼″ screws through the blocks');
+      [-0.23, 0.215].forEach((z) => {
+        K.screw(bs, 0.0035, 0.032, 'steel', [0.03, -0.017, z], [0, 0, 135], 'flat');
+        K.screw(bs, 0.0035, 0.032, 'steel', [0.012, -0.03, z + 0.04], [0, 0, 135], 'flat');
+      });
+    }
+  );
+})();
+
+/* ---- FLOORS: guides ---- */
+(function () {
+  const XD = 0.02, ZD = 0.085, TOP = 0.028;
+  const PL = { cam: [1.1, 1.3, 1.6], at: [0.0, 0, 0.05] };
+  const plankSteps = (lvp) => [
+    { t: 'Get a matching plank', d: 'Find a leftover plank from the install, or take one from a closet. Check the brand, color and locking profile.', why: 'Even the same product changes color between production runs. A plank from inside a closet will match the faded floor better than a new box.', v: Object.assign({ hi: ['damaged'] }, PL) },
+    { t: 'Drill relief holes', d: 'Drill ½″ holes at the four corners, about ½″ in from the ends, plus a few along each long side. Set a depth stop so you only go through the plank.', why: 'The holes let the cuts stop cleanly at the corners without nicking the neighboring planks.', v: { cam: [0.9, 0.7, 0.9], at: [XD - 0.3, TOP, ZD], hi: ['holes'], show: ['holes'], tool: { id: 'drill', at: [XD - 0.58, TOP, ZD - 0.07], rot: [0, 0, 0], anim: 'spin' } } },
+    lvp
+      ? { t: 'Score and cut out the middle', d: 'Draw lines between the holes. Score them deeply with a utility knife (several passes), or cut with an oscillating tool set to the plank thickness.', why: 'Vinyl cuts with a knife. Cutting the middle out first lets the edges fall away from the locked joints.', v: { cam: [0.9, 0.7, 0.9], at: [XD, TOP, ZD], hi: ['cutLines'], show: ['cutLines'], tool: { id: 'utilityKnife', at: [XD + 0.1, TOP, ZD - 0.07], rot: [0, 0, 20] } } }
+      : { t: 'Cut out the middle', d: 'Draw lines between the holes. Set a circular saw to the plank’s exact thickness and plunge-cut along the lines, stopping at the holes.', why: 'A shallow blade protects the underlayment and subfloor. Cutting the middle out relieves the locked edges.', v: { cam: [0.9, 0.8, 1.0], at: [XD, TOP, ZD], hi: ['cutLines', 'saw'], show: ['cutLines', 'saw'], fx: 'saw' } },
+    { t: 'Lift out the pieces', d: 'Pull the center strip, then wiggle the edge strips toward the middle to free them from the neighbors’ tongues and grooves.', why: 'Pulling the edges inward, not up, keeps the neighbors’ locking edges intact.', v: { cam: [0.9, 0.9, 1.0], at: [XD, TOP, ZD], hi: ['underlay', 'pieces'], show: ['pieces'], hide: ['damaged', 'holes', 'cutLines', 'saw'] } },
+    { t: 'Trim the new plank', d: 'Cut the tongue off the long side and one end of the new plank, and trim the bottom lip of the groove on the other end.', why: 'Without its tongue, the plank can drop straight down into place instead of needing to be angled and clicked.', v: { cam: [0.7, 0.6, 1.3], at: [XD, TOP, ZD + 0.5], hi: ['newPlank', 'tongue'], show: ['newPlank', 'tongue'], mv: { newPlank: [0, 0.009, 0.5], tongue: [0, 0.009, 0.5] }, tool: { id: 'utilityKnife', at: [XD + 0.3, TOP + 0.008, ZD - 0.0985 + 0.5], rot: [0, 0, 20] } } },
+    lvp
+      ? { t: 'Add adhesive', d: 'Run vinyl seam adhesive (or double-sided flooring tape on the underlayment) along the opening’s edges.', why: 'With its locking tongue gone, the plank needs adhesive to stay level with its neighbors.', v: { cam: [0.9, 0.8, 1.0], at: [XD, TOP, ZD], hi: ['glue'], show: ['glue'], hide: ['tongue', 'pieces'], tool: { id: 'caulkGun', at: [XD - 0.3, TOP + 0.002, ZD + 0.096], rot: [0, 0, 60] } } }
+      : { t: 'Glue the edges', d: 'Run a thin bead of wood glue in the grooves of the surrounding planks and on the new plank’s edges.', why: 'Glue replaces the locking joint you just cut off. Keep it thin so it doesn’t squeeze up.', v: { cam: [0.9, 0.8, 1.0], at: [XD, TOP, ZD], hi: ['glue'], show: ['glue'], hide: ['tongue', 'pieces'], tool: { id: 'caulkGun', at: [XD - 0.3, TOP + 0.002, ZD + 0.096], rot: [0, 0, 60] } } },
+    { t: 'Drop it in and weight it', d: 'Slide the groove side in first, lower the plank flat and wipe off squeeze-out. Stack books on it for 24 hours.', why: 'Weight holds the plank flush while the glue cures so it doesn’t rock or click when walked on.', v: { cam: [1.1, 1.1, 1.5], at: [XD, TOP, ZD], hi: ['newPlank', 'weights'], show: ['weights'], mv: { newPlank: [0, 0, 0] } } },
+  ];
+  const plankLearn = (lvp) => ({
+    how: 'A floating floor isn’t fastened down. The planks lock to each other with tongue-and-groove edges, and the whole floor moves as one sheet. That makes it hard to remove a plank in the middle, so instead you cut it out, remove the replacement’s locking tongue so it can drop in from above, and glue it in place.',
+    specs: [['Relief holes', '½″ dia'], ['Saw/knife depth', 'Plank thickness only (' + (lvp ? '4–8 mm' : '7–12 mm') + ')'], ['Cure under weight', '24 hr'], ['Expansion gap at walls', '¼–⅜″']],
+    terms: [['Floating floor', 'Planks locked to each other, not fastened to the subfloor.'], ['Click-lock', 'Profile that locks when angled and dropped.'], ['Underlayment', 'Foam or cork pad under the planks.']],
+    mistakes: ['Cutting into the underlayment or subfloor.', 'Prying up neighbors and breaking their locks.', 'Too much glue, which squeezes up and stains.'],
+    tips: ['Near a wall, it can be faster to pull the baseboard and unclick planks back to the damaged one.', 'Keep 2–3 spare planks from every install for this exact job.'],
+  });
+  TB.more('floors', [
+    {
+      id: 'replace-plank',
+      title: 'Replace a damaged floor plank',
+      model: 'plankFloor',
+      level: 2,
+      time: '1–2 hrs + overnight',
+      cost: '$10–40',
+      summary: 'A chipped, swollen or stained plank in the middle of a floating floor can be cut out and replaced without pulling up the room.',
+      intro: { hi: ['damaged'] },
+      safety: ['Wear safety glasses and hearing protection when drilling and cutting.', 'Check for radiant heat tubes or wires under the floor before cutting.'],
+      causes: [['Water damage', 'Laminate swells at the edges and won’t go back down.'], ['Dropped objects', 'Chips and dents.'], ['Furniture', 'Scratches and gouges.']],
+      tools: ['Matching plank', 'Drill + ½″ bit with depth stop', 'Circular saw or oscillating tool', 'Utility knife', 'Chisel', 'Wood glue or vinyl adhesive', 'Tape measure + pencil', 'Weights'],
+      variants: [
+        { id: 'laminate', name: 'Laminate', blurb: 'Hard, wood-fiber core with a photo layer. Cut with a saw; glue in with wood glue.' },
+        { id: 'lvp', name: 'Vinyl plank (LVP)', blurb: 'Flexible vinyl or rigid SPC core. Score with a knife; set with vinyl adhesive.', steps: plankSteps(true), learn: plankLearn(true), tools: ['Matching plank', 'Drill + ½″ bit with depth stop', 'Utility knife (extra blades) or oscillating tool', 'Vinyl seam adhesive or flooring tape', 'Straightedge', 'Tape measure + pencil', 'Weights'] },
+      ],
+      steps: plankSteps(false),
+      learn: plankLearn(false),
+      pro: 'Several planks are damaged by water from below (find the leak first), or the floor is glued down or nailed hardwood.',
+    },
+    {
+      id: 'lvp-floor',
+      title: 'Install a floating vinyl plank floor',
+      kind: 'build',
+      model: 'lvpRoom',
+      level: 3,
+      time: '1–2 days per room',
+      cost: '$2–6 per sq ft',
+      summary: 'Click-together vinyl planks float over a flat subfloor. Plan the layout, start straight, stagger the joints and leave a gap at every wall, and a 12×12 room goes down in a day.',
+      intro: { show: ['underlay', 'row1', 'rows', 'lastRow', 'shoe', 'transition'], preview: true, hi: ['rows'] },
+      safety: ['Wear knee pads; you’ll be kneeling all day.', 'Wear safety glasses when cutting. Use a knife and straightedge or a vinyl cutter; avoid breathing dust from power-sawing vinyl.', 'Old sheet vinyl or tile glue may contain asbestos. Don’t sand or scrape it; float over it or test first.'],
+      causes: [['Measure and add 10%', 'Room square footage plus 10% for cuts and waste.'], ['Check flatness', 'Most makers require flat within 3⁄16″ over 10 ft.'], ['Plan the last row', 'Divide the room width by the plank width. If the last row would be under 2″, rip the first row too.'], ['Run planks lengthwise', 'Parallel to the longest wall or the main light source.']],
+      tools: ['Vinyl planks + 10%', 'Underlayment (if not attached)', 'Utility knife + straightedge', 'Tapping block + pull bar', 'Rubber mallet', 'Spacers', 'Oscillating tool or jamb saw', 'Pry bar', 'Tape measure + square', 'Knee pads'],
+      steps: [
+        { t: 'Acclimate and check the subfloor', d: 'Leave the boxes in the room for 48 hours. Sweep, then check flatness with a long level; fill dips and grind or sand high spots.', why: 'Dips make the click joints flex and eventually break. Acclimating lets the planks reach room temperature.', v: { cam: [0.6, 1.5, 2.6], at: [0, 0, -0.2], hi: ['subfloor'], tool: { id: 'level', at: [-0.4, 0.012, 0.2], rot: [0, 0, 0], scale: 1.8 } } },
+        { t: 'Pull the baseboard', d: 'Score the caulk line, then pry the baseboard off with a flat bar against a scrap block. Number the pieces.', why: 'The floor has to slide under the trim; reinstalled baseboard hides the expansion gap.', v: { cam: [0.2, 0.8, 0.6], at: [-0.8, 0.06, -1.25], hi: ['oldBase'], mv: { oldBase: [0, 0, 0.15] }, tool: { id: 'flatBar', at: [-0.8, 0.07, -1.279], rot: [0, 0, 0] } } },
+        { t: 'Undercut the door casing', d: 'Lay a plank scrap on underlayment beside the casing and cut the casing off at its top with a jamb saw or oscillating tool.', why: 'Tucking the floor under the casing hides the cut, instead of trying to scribe around trim.', v: { cam: [1.3, 0.5, -0.5], at: [0.8, 0.03, -1.3], hi: ['undercut', 'casing'], show: ['undercut'], tool: { id: 'handsaw', at: [0.42, 0.018, -1.25], rot: [0, 0, 90], anim: 'slide', scale: 0.8 } } },
+        { t: 'Roll out underlayment', d: 'If the planks don’t have pad attached, roll out the underlayment the long way, seams butted and taped. Use a vapor barrier over concrete.', why: 'Pad smooths small bumps and quiets footsteps. Overlapped seams make a ridge that shows through.', v: { cam: [0.6, 2.7, 3.7], at: [0, 0.2, -0.2], hi: ['underlay'], show: ['underlay'], hide: ['undercut'] } },
+        { t: 'Lay the first row straight', d: 'Cut the tongue off the first row, set it against spacers on the starting wall and check it’s straight with a string line.', why: 'Every row locks to the one before. A crooked first row opens gaps across the whole room.', v: { cam: [-0.2, 1.4, 2.0], at: [-1.3, 0, 0], hi: ['row1', 'spacers'], show: ['row1', 'spacers'], tool: { id: 'tape', at: [-1.41, 0.02, 1.25], rot: [-90, 0, 0] } } },
+        { t: 'Fill the field', d: 'Angle each long edge into the previous row and drop it; tap the end joints closed with a tapping block. Start each row with the cut-off from the last one, keeping end joints at least 6″ apart.', why: 'Staggered joints spread stress and look natural. Lined-up joints form weak seams and an obvious pattern.', v: { cam: [0.8, 2.2, 3.0], at: [0, 0, 0], hi: ['rows'], show: ['rows'], tool: { id: 'hammer', at: [0.3, 0.05, 0.6], rot: [0, 0, 90], anim: 'tap' } } },
+        { t: 'Rip the last row', d: 'Measure the gap at several points, subtract the expansion gap, and score and snap the last planks to width. Lever them in with a pull bar.', why: 'Walls are rarely straight, so measure at both ends of every plank.', v: { cam: [2.2, 1.3, 1.6], at: [1.3, 0, 0], hi: ['lastRow'], show: ['lastRow'], tool: { id: 'utilityKnife', at: [1.42, 0.02, 0.9], rot: [0, 0, 20] } } },
+        { t: 'Trim out', d: 'Pull the spacers, reinstall the baseboard and add shoe molding. Fit a transition at the doorway. Nail trim to the wall, never to the floor.', why: 'The floor must stay free to move. Nailing trim into it pins the floor and causes buckling.', v: { cam: [0.6, 2.7, 3.7], at: [0, 0.2, -0.2], hi: ['shoe', 'transition'], show: ['shoe', 'transition'], hide: ['spacers'], mv: { oldBase: [0, 0, 0] } } },
+      ],
+      learn: {
+        how: 'Luxury vinyl plank is a layered product: a wear layer, a printed film and a vinyl or stone-plastic (SPC) core, with a click profile milled on the edges. The planks lock to each other but not to the subfloor, so the whole floor expands and contracts as one sheet. That’s why every edge needs a gap, hidden under trim.',
+        specs: [['Expansion gap', '¼–⅜″ (check maker)'], ['End-joint stagger', '≥ 6″ (8″ better)'], ['Flatness', '3⁄16″ in 10 ft'], ['Acclimate', '48 hr'], ['Min. last-row width', '2″']],
+        terms: [['Floating floor', 'Not glued or nailed down.'], ['SPC', 'Stone-plastic composite: a rigid, waterproof core.'], ['Undercut', 'Trimming door casing so flooring slides beneath.'], ['T-molding', 'Transition strip between two floors of similar height.']],
+        mistakes: ['No expansion gap at walls or cabinets.', 'Lining up end joints (H-joints).', 'Installing over a wavy subfloor.', 'Pinning the floor with trim nails or kitchen islands.'],
+        tips: ['Open several boxes and mix planks for natural color variation.', 'Lay the first few rows dry to check the look before committing.'],
+      },
+      pro: 'The subfloor is out of flat by more than ¼″, the floor is over a basement with moisture problems, or there are many rooms with transitions and stairs.',
+    },
+    {
+      id: 'squeaky-stairs',
+      title: 'Fix squeaky stairs',
+      model: 'stairs',
+      level: 2,
+      time: '30–90 min',
+      cost: '$10–30',
+      summary: 'Stairs squeak when a tread rubs the riser or stringer under it. Pin the tread down with screws from above, or glue shims and blocks underneath if you can reach.',
+      intro: { hi: ['squeakTread', 'squeak'] },
+      safety: ['Keep the stairs blocked off while glue cures, and warn the family.', 'Check for wires or pipes under the stairs before drilling.'],
+      causes: [['Gaps under the tread', 'Wood shrinks and the tread rocks on the riser or stringer.'], ['Loose nails', 'Nails work loose and slide in their holes.'], ['Failed glue blocks', 'Underneath, the blocks fall off over time.']],
+      tools: ['Drill/driver + bits', 'Trim-head screws (2½″)', 'Construction adhesive', 'Wood shims', 'Glue blocks', 'Wood filler', 'Helper'],
+      variants: [
+        { id: 'above', name: 'From above', blurb: 'Finished stairs with no access underneath: screws through the tread.' },
+        {
+          id: 'below',
+          name: 'From below',
+          blurb: 'Open underside (basement or closet): glue shims and blocks; nothing shows on the stairs.',
+          steps: [
+            { t: 'Find the moving tread', d: 'Have a helper walk the stairs while you watch from below. Mark where the tread moves.', why: 'You need to know whether it moves at the riser or at a stringer.', v: { cam: [1.6, 0.35, 1.6], at: [0.6, 0.45, 0], hi: ['squeakTread', 'gap'], xray: true } },
+            { t: 'Glue and tap in shims', d: 'Coat thin shims with glue and tap them into the gaps between the tread and the stringers until snug. Don’t lift the tread.', why: 'Shims fill the gap so the tread can’t drop and rub. Driving them too hard lifts the tread and makes a new squeak.', v: { cam: [1.2, 0.25, 1.2], at: [0.6, 0.5, 0], hi: ['wedges'], show: ['wedges'], xray: true, tool: { id: 'hammer', at: [0.66, 0.5, 0.045], rot: [0, 0, 90], anim: 'tap', scale: 0.8 } } },
+            { t: 'Add glue blocks', d: 'Glue triangular blocks into the corner where the riser meets the tread above.', why: 'Blocks stiffen the joint along its length, so the riser can’t flex against the tread.', v: { cam: [1.2, 0.25, 1.2], at: [0.6, 0.5, 0], hi: ['blocks'], show: ['blocks'], xray: true } },
+            { t: 'Screw the blocks', d: 'Drive a short screw through each block into the tread and one into the riser. Don’t go through the tread.', why: 'Screws clamp the blocks while the glue cures and hold if the glue ever fails.', v: { cam: [1.2, 0.25, 1.2], at: [0.6, 0.5, 0], hi: ['blockScrews'], show: ['blockScrews'], xray: true, tool: { id: 'drill', at: [0.555, 0.52, 0.215], rot: [180, 0, 0], anim: 'spin', scale: 0.9 } } },
+            { t: 'Test after it cures', d: 'Let the glue cure overnight, then walk the stairs.', why: 'Most stairs have more than one squeak; fix them in one session.', v: { cam: [2.1, 1.4, 2.2], at: [0.6, 0.55, 0], hi: ['squeakTread'] } },
+          ],
+        },
+      ],
+      steps: [
+        { t: 'Find the squeak', d: 'Step on each tread at the front, middle and back. Mark where the sound is.', why: 'A squeak at the front means the tread moves on the riser; at the ends it’s on a stringer.', v: { cam: [2.1, 1.4, 2.2], at: [0.6, 0.55, 0], hi: ['squeak', 'squeakTread'] } },
+        { t: 'Locate the riser and stringers', d: 'The riser is right under the tread’s front edge, behind the nosing. Find stringers with a stud finder or by tapping.', why: 'Screws must hit solid wood; screwing into air only makes a new hole.', v: { cam: [1.3, 1.0, 1.2], at: [0.6, 0.55, 0], hi: ['risers', 'stringers'], xray: true } },
+        { t: 'Inject adhesive', d: 'If you can see a gap at the back joint, squeeze construction adhesive into it.', why: 'Adhesive fills the gap so the tread can’t move.', v: { cam: [1.1, 0.9, 0.9], at: [0.75, 0.55, 0], hi: ['glueBead', 'gap'], show: ['glueBead'], xray: true } },
+        { t: 'Drive trim-head screws', d: 'Drill angled pilot holes and drive 2½″ trim-head screws through the tread into the riser and stringers, two at the riser.', why: 'Pilot holes keep oak from splitting. Small trim heads leave tiny holes to fill.', v: { cam: [1.0, 1.1, 0.9], at: [0.55, 0.57, 0], hi: ['screws'], show: ['screws'], tool: { id: 'drill', at: [0.5175, 0.571, 0.25], rot: [0, 0, 8], anim: 'spin', scale: 0.9 } } },
+        { t: 'Fill the holes', d: 'Fill the holes with matching wood filler or putty, then touch up the finish.', why: 'Filled holes are almost invisible on wood treads.', v: { cam: [1.0, 1.1, 0.9], at: [0.55, 0.57, 0], hi: ['plugs'], show: ['plugs'], tool: { id: 'puttyKnife', at: [0.5175, 0.572, -0.25], rot: [0, 0, 30] } } },
+      ],
+      learn: {
+        how: 'A staircase is a set of treads and risers sitting on sloped boards called stringers. When wood dries and shrinks, small gaps open; as you step, the tread drops a hair and rubs the riser or slides on a nail. That rubbing is the squeak. Every fix closes the gap so the tread can’t move.',
+        specs: [['Rise', '7–7¾″'], ['Run', '10–11″'], ['Tread thickness', '1″ (oak typical)'], ['Screw', '2½″ trim-head, pilot ⅛″']],
+        terms: [['Tread', 'The part you step on.'], ['Riser', 'The vertical board between treads.'], ['Stringer', 'The sloped board that supports treads.'], ['Glue block', 'Small triangular block glued into a corner.']],
+        mistakes: ['Screwing without a pilot hole and splitting the tread.', 'Driving shims so hard they lift the tread.', 'Missing the riser with the screws.'],
+        tips: ['On carpeted stairs, use a squeak-repair kit with breakaway screws that go through the carpet.', 'A little talcum powder in the joint quiets a squeak temporarily.'],
+      },
+      pro: 'Treads are cracked, the stairs feel bouncy or the stringer is split.',
+    },
+  ]);
+})();
+
+/* =====================================================================
+   FURNITURE: models
+   ===================================================================== */
+(function () {
+  const { VIEW } = TB.IM;
+  const woodTone = (K, c) => K.bumpy(c, K.tex.woodBump(), 0.004, { roughness: 0.5 });
+
+  /* ---- Dining table, upside down on a blanket, leg held by corner bracket + hanger bolt ---- */
+  TB.model(
+    'tableLeg',
+    VIEW({ cam: [1.7, 1.5, 1.7], at: [0, 0.3, 0], hidden: ['glue', 'newScrews'] }),
+    (K) => {
+      const wood = woodTone(K, 0x8a5a36);
+      const bl = K.part('blanket', [0, 0, 0], null, 'Moving blanket');
+      K.box(bl, [1.6, 0.006, 1.2], K.bumpy(0x3d5a80, K.tex.weave(), 0.004, { roughness: 1 }), [0, 0.003, 0], null, 0);
+      const top = K.part('top', [0, 0, 0], null, 'Tabletop (upside down)');
+      K.box(top, [1.2, 0.03, 0.8], wood, [0, 0.021, 0], null, 0.006);
+      const ap = K.part('aprons', [0, 0, 0], null, 'Aprons');
+      [-1, 1].forEach((s) => {
+        K.box(ap, [1.08, 0.09, 0.022], wood, [0, 0.081, s * 0.329], null, 0.003);
+        K.box(ap, [0.022, 0.09, 0.68], wood, [s * 0.529, 0.081, 0], null, 0.003);
+      });
+      const LX = 0.5075, LZ = 0.3075, LL = 0.72;
+      const legs = K.part('legs', [0, 0, 0], null, 'Legs');
+      const leg = (p, x, z) => {
+        K.box(p, [0.065, LL, 0.065], wood, [x, 0.036 + LL / 2, z], null, 0.006);
+        K.box(p, [0.04, 0.012, 0.04], 'black', [x, 0.036 + LL + 0.006, z], null, 0.004); // glide
+      };
+      [[-1, -1], [1, -1], [-1, 1]].forEach(([a, b]) => leg(legs, a * LX, b * LZ));
+      const ll = K.part('looseLeg', [0, 0, 0], null, 'Loose leg');
+      leg(ll, LX, LZ);
+      const steel = K.std(0x9aa0a6, { metalness: 0.85, roughness: 0.4 });
+      const corner = (p, sx, sz, name) => {
+        const g = K.group(p, [sx * 0.443, 0.081, sz * 0.243], [0, sx * sz > 0 ? 45 : -45, 0]);
+        K.box(g, [0.17, 0.05, 0.004], steel, [0, 0, 0], null, 0);
+        [-1, 1].forEach((e) => K.box(g, [0.006, 0.05, 0.03], steel, [e * 0.085, 0, sx * sz > 0 ? 0.0 : 0], [0, e * 45, 0], 0));
+        return g;
+      };
+      const others = K.group(null, [0, 0, 0]);
+      [[-1, -1], [1, -1], [-1, 1]].forEach(([a, b]) => {
+        const g = corner(others, a, b);
+        const fl = a * b > 0 ? 1 : -1;
+        K.cyl(g, [0.004, 0.004, 0.08, 12], 'steel', [0, 0, 0.02 * fl], [90, 0, 0]);
+        K.nut(g, 0.013, 0.008, 'steel', [0, 0, -0.006 * fl], [90, 0, 0]);
+      });
+      // the loose corner (+x, +z): parts we work on
+      const br = K.part('bracket', [0, 0, 0], null, 'Corner bracket (screws stripped)');
+      const g = corner(br, 1, 1);
+      [-1, 1].forEach((e) => K.screw(g, 0.004, 0.025, 'steel', [e * 0.07, 0.012, -0.004], [-90, 0, 0], 'flat'));
+      const hb = K.part('hangerBolt', [0.443, 0.081, 0.243], null, 'Hanger bolt (wood thread in leg, machine thread out)');
+      K.bar(hb, [-0.008, 0, -0.008], [0.045, 0, 0.045], 0.004, 'steel');
+      const nut = K.part('nut', [0.443 - 0.006, 0.081, 0.243 - 0.006], null, 'Nut + washer');
+      K.nut(K.group(nut, [0, 0, 0], [0, 45, 0]), 0.013, 0.008, 'steel', [0, 0, 0], [90, 0, 0]);
+      K.cyl(K.group(nut, [0.004, 0, 0.004], [0, 45, 0]), [0.011, 0.011, 0.002, 20], 'steel', [0, 0, 0], [90, 0, 0]);
+      const gl = K.part('glue', [LX - 0.0325, 0.081, LZ - 0.0325], null, 'Glue on the leg-to-apron faces');
+      K.box(gl, [0.002, 0.08, 0.05], K.std(0xf4eedc, { roughness: 0.4 }), [0, 0, 0.03], null, 0);
+      K.box(gl, [0.05, 0.08, 0.002], K.std(0xf4eedc, { roughness: 0.4 }), [0.03, 0, 0], null, 0);
+      const ns = K.part('newScrews', [0, 0, 0], null, 'Longer screws in fresh holes');
+      const g2 = corner(ns, 1, 1);
+      g2.children.forEach((c) => (c.visible = false));
+      [-1, 1].forEach((e) => K.screw(g2, 0.0045, 0.032, 'brass', [e * 0.07, -0.012, -0.004], [-90, 0, 0], 'flat'));
+    }
+  );
+
+  /* ---- Kitchen base cabinet with a drawer on side-mount ball-bearing slides ---- */
+  TB.model(
+    'drawerSlide',
+    VIEW({ cam: [1.2, 1.3, 1.5], at: [0, 0.65, 0.1], hidden: ['newSlides', 'newInner', 'balls'] }),
+    (K) => {
+      const ply = K.std(0xe8dcc4, { roughness: 0.7 });
+      const doorM = K.std(0x4b6a7a, { roughness: 0.45 });
+      const cab = K.part('cabinet', [0, 0, 0], null, 'Base cabinet');
+      const W = 0.6, D = 0.56, Y0 = 0.1, Y1 = 0.86, ZF = 0.28;
+      K.box(cab, [0.019, Y1 - Y0 + 0.1, D], ply, [-W / 2 + 0.0095, (Y1 + 0) / 2, 0], null, 0.002);
+      K.box(cab, [0.019, Y1 - Y0 + 0.1, D], K.std(0xe8dcc4, { roughness: 0.7, transparent: true, opacity: 0.22 }), [W / 2 - 0.0095, Y1 / 2, 0], null, 0.002);
+      K.box(cab, [W, 0.019, D], ply, [0, Y0 + 0.0095, 0], null, 0.002);
+      K.box(cab, [W, Y1 - Y0, 0.006], ply, [0, (Y0 + Y1) / 2, -D / 2 + 0.003], null, 0);
+      K.box(cab, [W - 0.04, 0.09, 0.019], 'black', [0, 0.045, ZF - 0.06], null, 0.002);
+      K.box(cab, [W, 0.019, 0.08], ply, [0, 0.66, ZF - 0.04], null, 0.002); // rail under the drawer
+      K.box(cab, [W - 0.006, 0.55, 0.019], doorM, [0, 0.1 + 0.28, ZF + 0.0095], null, 0.004);
+      K.box(cab, [0.012, 0.12, 0.03], 'steel', [W / 2 - 0.06, 0.55, ZF + 0.03], null, 0.005);
+      K.box(null, [W + 0.04, 0.03, D + 0.06], K.pbr('granite_tile', [1, 1], { roughness: 0.4 }, K.std(0xd8d4cc, { roughness: 0.3 })), [0, Y1 + 0.015, 0.02], null, 0.004);
+      const steel = K.std(0xc3c7cb, { metalness: 0.85, roughness: 0.35 });
+      const sy = 0.735, SL = 0.508;
+      const member = (p, x, mat, bent) => {
+        const g = K.group(p, [x, sy, ZF - 0.02 - SL / 2], bent ? [0, 0, bent] : null);
+        K.box(g, [0.006, 0.035, SL], mat, [0, 0, 0], null, 0.001);
+        K.box(g, [0.006, 0.004, SL], mat, [-Math.sign(x) * 0.003, 0.016, 0], null, 0);
+        K.box(g, [0.006, 0.004, SL], mat, [-Math.sign(x) * 0.003, -0.016, 0], null, 0);
+        [-0.2, 0.0, 0.2].forEach((z) => K.screw(g, 0.0035, 0.016, mat, [-Math.sign(x) * 0.004, 0, z], [0, 0, Math.sign(x) * 90], 'flat'));
+        return g;
+      };
+      const xi = W / 2 - 0.019 - 0.003;
+      const old = K.part('oldSlides', [0, 0, 0], null, 'Cabinet members (right one bent)');
+      member(old, -xi, steel);
+      member(old, xi, steel, 6);
+      const nw = K.part('newSlides', [0, 0, 0], null, 'New full-extension slides (cabinet members)');
+      member(nw, -xi, K.std(0xdfe3e6, { metalness: 0.9, roughness: 0.25 }));
+      member(nw, xi, K.std(0xdfe3e6, { metalness: 0.9, roughness: 0.25 }));
+      const balls = K.part('balls', [0, 0, 0], null, 'Spilled ball bearings + broken retainer');
+      [[0.1, 0.02], [0.13, -0.05], [0.18, 0.06], [0.05, 0.1]].forEach(([x, z]) => K.sph(balls, 0.003, 'chrome', [x, Y0 + 0.022, z]));
+      K.box(balls, [0.006, 0.01, 0.07], 'steel', [0.2, Y0 + 0.024, 0.0], [0, 30, 20], 0);
+      // drawer with its inner members
+      const dr = K.part('drawer', [0, 0, 0], null, 'Drawer');
+      const bw = W - 2 * 0.019 - 0.0254;
+      const bz = ZF - 0.02 - 0.25;
+      K.box(dr, [bw, 0.012, 0.5], ply, [0, 0.69, bz], null, 0.001);
+      [-1, 1].forEach((s) => K.box(dr, [0.015, 0.12, 0.5], 'woodLight', [s * (bw / 2 - 0.0075), 0.75, bz], null, 0.002));
+      K.box(dr, [bw, 0.12, 0.015], 'woodLight', [0, 0.75, bz - 0.2425], null, 0.002);
+      K.box(dr, [bw, 0.12, 0.015], 'woodLight', [0, 0.75, bz + 0.2425], null, 0.002);
+      K.box(dr, [W - 0.006, 0.17, 0.019], doorM, [0, 0.765, ZF + 0.0095], null, 0.004);
+      K.box(dr, [0.16, 0.012, 0.03], 'steel', [0, 0.78, ZF + 0.033], null, 0.005);
+      const xo = bw / 2 + 0.003;
+      const inner = (name, label, mat) => {
+        const p = K.part(name, [0, 0, 0], dr, label);
+        [-1, 1].forEach((s) => {
+          K.box(p, [0.005, 0.025, 0.48], mat, [s * xo, sy, bz], null, 0.001);
+          K.box(p, [0.006, 0.012, 0.03], 'black', [s * (xo + 0.002), sy, bz + 0.2], null, 0.002); // release lever
+          [-0.18, 0.0, 0.18].forEach((z) => K.screw(p, 0.0035, 0.014, mat, [s * (xo + 0.002), sy, bz + z], [0, 0, -s * 90], 'flat'));
+        });
+        return p;
+      };
+      inner('oldInner', 'Drawer members (with release levers)', steel);
+      inner('newInner', 'New drawer members', K.std(0xdfe3e6, { metalness: 0.9, roughness: 0.25 }));
+    }
+  );
+
+  /* ---- Dining chair with a drop-in upholstered seat ---- */
+  TB.model(
+    'chairSeat',
+    VIEW({ cam: [1.1, 1.0, 1.3], at: [0, 0.5, 0], hidden: ['foam', 'batting', 'fabric', 'staples', 'dustCover', 'stapleGun'] }),
+    (K) => {
+      const wood = woodTone(K, 0x5e3b22);
+      const ch = K.part('chair', [0, 0, 0], null, 'Chair frame');
+      const SH = 0.455;
+      [[-1, 1], [1, 1]].forEach(([a, b]) => K.box(ch, [0.04, SH, 0.04], wood, [a * 0.2, SH / 2, b * 0.19], null, 0.004));
+      [-1, 1].forEach((a) => {
+        K.box(ch, [0.04, 0.95, 0.04], wood, [a * 0.2, 0.475, -0.19], [-4, 0, 0], 0.004);
+        K.box(ch, [0.02, 0.02, 0.36], wood, [a * 0.2, 0.15, 0], null, 0.003); // side stretchers
+      });
+      K.box(ch, [0.4, 0.07, 0.02], wood, [0, SH - 0.035, 0.19], null, 0.003);
+      K.box(ch, [0.4, 0.07, 0.02], wood, [0, SH - 0.035, -0.19], null, 0.003);
+      [-1, 1].forEach((a) => K.box(ch, [0.02, 0.07, 0.36], wood, [a * 0.19, SH - 0.035, 0], null, 0.003));
+      K.box(ch, [0.42, 0.08, 0.03], wood, [0, 0.9, -0.225], [-4, 0, 0], 0.008);
+      [-0.08, 0.08].forEach((x) => K.box(ch, [0.04, 0.38, 0.018], wood, [x, 0.68, -0.21], [-4, 0, 0], 0.004));
+      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([a, b]) => K.box(ch, [0.05, 0.04, 0.05], 'woodLight', [a * 0.155, SH - 0.05, b * 0.145], [0, 45, 0], 0.003)); // corner blocks
+      const scr = K.part('seatScrews', [0, 0, 0], null, 'Screws up through the corner blocks');
+      [[-1, -1], [1, -1], [-1, 1], [1, 1]].forEach(([a, b]) => K.screw(scr, 0.004, 0.04, 'steel', [a * 0.155, SH - 0.072, b * 0.145], [180, 0, 0], 'flat'));
+      // seat
+      const seat = K.part('seat', [0, SH, 0], null, 'Drop-in seat');
+      const base = K.part('base', [0, 0.006, 0], seat, 'Plywood seat base');
+      K.box(base, [0.4, 0.012, 0.38], K.std(0xd8bd8e, { roughness: 0.8 }), [0, 0, 0], null, 0.002);
+      const of = K.part('oldFabric', [0, 0, 0], seat, 'Old stained fabric + flat foam');
+      K.box(of, [0.41, 0.045, 0.39], K.bumpy(0xbfae8c, K.tex.weave(), 0.003, { roughness: 1 }), [0, 0.025, 0], null, 0.015);
+      [[0.05, 0.03, 0.04], [-0.1, -0.06, 0.03]].forEach(([x, z, r]) => K.cyl(of, [r, r, 0.002, 20], K.std(0x7d6a4a, { roughness: 1 }), [x, 0.048, z]));
+      const fo = K.part('foam', [0, 0.012, 0], seat, '2″ high-density foam');
+      K.box(fo, [0.4, 0.05, 0.38], K.std(0xf2e2a2, { roughness: 1 }), [0, 0.025, 0], null, 0.012);
+      const bt = K.part('batting', [0, 0.012, 0], seat, 'Dacron batting');
+      K.box(bt, [0.412, 0.057, 0.392], K.std(0xfbfaf6, { roughness: 1, transparent: true, opacity: 0.85 }), [0, 0.027, 0], null, 0.02);
+      const fb = K.part('fabric', [0, 0.012, 0], seat, 'New upholstery fabric');
+      const pattern = K.bumpy(0x2f4a6b, K.tex.weave(), 0.004, { roughness: 0.95 });
+      K.box(fb, [0.425, 0.064, 0.405], pattern, [0, 0.029, 0], null, 0.025);
+      K.box(fb, [0.425, 0.012, 0.405], pattern, [0, -0.012, 0], null, 0.004);
+      const stp = K.part('staples', [0, -0.0005, 0], seat, 'Staples every 1–1½″');
+      for (let i = -5; i <= 5; i++) {
+        [-1, 1].forEach((s) => {
+          K.box(stp, [0.012, 0.0015, 0.002], 'steel', [i * 0.033, 0, s * 0.175], null, 0);
+          if (Math.abs(i) <= 4) K.box(stp, [0.002, 0.0015, 0.012], 'steel', [s * 0.185, 0, i * 0.036], null, 0);
+        });
+      }
+      const dc = K.part('dustCover', [0, -0.002, 0], seat, 'Black dust cover (cambric)');
+      K.box(dc, [0.36, 0.001, 0.34], K.std(0x1d1e20, { roughness: 1 }), [0, 0, 0], null, 0);
+      const sg = K.part('stapleGun', [0.24, SH + 0.38, 0.5], null, 'Staple gun');
+      K.box(sg, [0.17, 0.045, 0.035], K.std(0xd0433a, { roughness: 0.5 }), [0, 0, 0], null, 0.008);
+      K.box(sg, [0.15, 0.02, 0.025], 'steel', [0.0, 0.035, 0], [0, 0, -8], 0.006);
+    }
+  );
+})();
+
+/* ---- FURNITURE: guides ---- */
+(function () {
+  const NUT = [0.437, 0.081, 0.237];
+  const CLOSE = { cam: [0.95, 0.55, 0.85], at: [0.45, 0.1, 0.25] };
+  const SEAT_UP = { seat: [0, 0.35, 0.5] };
+  TB.more('furniture', [
+    {
+      id: 'loose-table-leg',
+      title: 'Fix a wobbly table leg',
+      model: 'tableLeg',
+      level: 1,
+      time: '30–60 min + glue cure',
+      cost: '$0–15',
+      summary: 'Most dining tables hold each leg with a steel corner bracket, a hanger bolt and a nut. A wobble is usually a loose nut, a hanger bolt backing out of the leg, or stripped bracket screws.',
+      intro: { hi: ['looseLeg', 'bracket'] },
+      safety: ['Flip the table with a helper onto a blanket to protect the top and your back.', 'Remove any glass top or leaves first.'],
+      causes: [['Loose nut', 'Seasonal wood movement and dragging the table loosen it over time.'], ['Hanger bolt spinning in the leg', 'Its wood threads have stripped the hole.'], ['Stripped bracket screws', 'The bracket can’t pull the leg tight.'], ['Uneven floor', 'Check on a flat floor before taking anything apart.']],
+      tools: ['Socket or adjustable wrench', 'Two nuts (to lock the hanger bolt)', 'Screwdriver/drill', 'Wood glue', 'Slightly longer wood screws or toothpicks + glue', 'Moving blanket', 'Helper'],
+      steps: [
+        { t: 'Flip it onto a blanket', d: 'With a helper, turn the table upside down onto a blanket and rock each leg to find the loose one.', why: 'Upside down, you can see every bracket and nut, and the top is protected.', v: { cam: [1.7, 1.5, 1.7], at: [0, 0.3, 0], hi: ['looseLeg'] } },
+        { t: 'Find what’s loose', d: 'Watch the corner while you rock the leg. Is the nut loose, does the hanger bolt turn in the leg, or does the bracket pull away from the aprons?', why: 'Each cause has a different fix. Tightening a nut on a spinning hanger bolt does nothing.', v: Object.assign({ hi: ['nut', 'hangerBolt', 'bracket'] }, CLOSE) },
+        { t: 'Remove the nut and leg', d: 'Back off the nut and pull the leg away from the corner.', why: 'You need the leg out to fix the hanger bolt and add glue.', v: Object.assign({ hi: ['nut', 'looseLeg'], mv: { nut: [-0.03, 0, -0.03], looseLeg: [0.035, 0.02, 0.035] }, tool: { id: 'ratchet', at: NUT, rot: [0, -45, 90], anim: 'turn' } }, CLOSE) },
+        { t: 'Reset the hanger bolt', d: 'Spin two nuts onto the bolt and tighten them against each other. Unscrew the bolt with the outer nut, add epoxy or glue-soaked toothpicks to the hole, and drive it back in with the inner nut.', why: 'Jammed nuts let a wrench turn a bolt that has no head. Fresh fibers in the hole give the wood threads new bite.', v: Object.assign({ hi: ['hangerBolt'], mv: { hangerBolt: [0.035, 0.02, 0.035] } }, CLOSE) },
+        { t: 'Glue the faces and reseat the leg', d: 'Spread a thin coat of glue where the leg meets the aprons, set the leg back and thread the nut on.', why: 'Glue on these faces stops the tiny movement that loosens the nut in the first place.', v: Object.assign({ hi: ['glue', 'looseLeg'], show: ['glue'], mv: { looseLeg: [0, 0, 0], hangerBolt: [0, 0, 0], nut: [0, 0, 0] } }, CLOSE) },
+        { t: 'Tighten the nut', d: 'Snug the nut with a wrench while pushing the leg tight into the corner, then give it another quarter turn.', why: 'Overtightening can bend the bracket or crack the leg corner.', v: Object.assign({ hi: ['nut', 'bracket'], tool: { id: 'ratchet', at: NUT, rot: [0, -45, 90], anim: 'turn' } }, CLOSE) },
+        { t: 'Fix stripped bracket screws', d: 'If the bracket screws spin, fill the holes with glue-dipped toothpicks or use screws ¼″ longer, being careful not to go through the top.', why: 'The bracket screws are what pull the aprons tight to the leg.', v: Object.assign({ hi: ['newScrews', 'bracket'], show: ['newScrews'], tool: { id: 'screwdriver', at: [0.493, 0.069, 0.243], rot: [0, 45, 90], anim: 'turn' } }, CLOSE) },
+        { t: 'Flip and test', d: 'Let the glue set, flip the table back and check it on a flat spot. Retighten all four legs once a year.', why: 'A yearly check catches loose nuts before they wallow out the hole.', v: { cam: [1.7, 1.5, 1.7], at: [0, 0.3, 0], hi: ['looseLeg', 'legs'] } },
+      ],
+      learn: {
+        how: 'A hanger bolt has wood threads on one end (screwed into the leg) and machine threads on the other. It passes through a steel corner bracket that sits in slots in the two aprons. Tightening the nut pulls the leg into the corner, and the bracket spreads that force to both aprons, making a rigid frame.',
+        specs: [['Hanger bolt', '5⁄16″ or ⅜″ typical'], ['Glue clamp time', '30–60 min; full cure 24 hr'], ['Bracket screws', '#8–#10, check length vs. apron']],
+        terms: [['Apron', 'Board between the legs under the top.'], ['Hanger bolt', 'Headless bolt with wood and machine threads.'], ['Jam nuts', 'Two nuts tightened against each other to turn a bolt.']],
+        mistakes: ['Adding shims under a leg instead of fixing the joint.', 'Screws long enough to come through the top.', 'Overtightening and cracking the leg.'],
+        tips: ['Felt glides on all legs reduce the racking forces from dragging the table.'],
+      },
+      pro: 'The leg corner is cracked, the apron joint is mortise-and-tenon (antique), or the top is splitting.',
+    },
+    {
+      id: 'drawer-slide',
+      title: 'Replace a broken drawer slide',
+      model: 'drawerSlide',
+      level: 2,
+      time: '30–60 min',
+      cost: '$15–40',
+      summary: 'A drawer that sags, grinds or drops off its track usually has a bent or broken ball-bearing slide. Replace the pair with the same type and length and it’ll glide like new.',
+      intro: { hi: ['oldSlides', 'drawer'] },
+      safety: ['Empty the drawer first; full drawers are heavy and can drop when released.', 'Watch your fingers in the slide mechanism.'],
+      causes: [['Bent member', 'Someone stood or leaned on an open drawer.'], ['Lost ball bearings', 'The retainer cracked and balls fell out.'], ['Loose screws', 'Screws pulled out of particleboard.'], ['Overloaded', 'Standard slides are rated about 75–100 lb.']],
+      tools: ['Replacement slides (same length and type)', 'Screwdriver/drill', 'Tape measure', 'Pencil', '#6 × ⅝″ screws', 'Torpedo level'],
+      steps: [
+        { t: 'Pull it out and look', d: 'Empty the drawer, pull it fully open and look at both slides for bends, missing balls or loose screws.', why: 'Loose screws are a 2-minute fix. Bent or broken slides need replacing, always as a pair.', v: { cam: [1.1, 1.2, 1.4], at: [0.1, 0.7, 0.2], hi: ['oldSlides', 'balls'], show: ['balls'], mv: { drawer: [0, 0, 0.3] } } },
+        { t: 'Release and remove the drawer', d: 'Pull the drawer to its stop, then press the black release levers on both sides (one up, one down) and pull it free.', why: 'Full-extension slides lock at the end of travel; the levers unlock the drawer member from the cabinet member.', v: { cam: [1.3, 1.1, 1.8], at: [0, 0.5, 0.5], hi: ['drawer', 'oldInner'], mv: { drawer: [0, -0.67, 0.75] } } },
+        { t: 'Unscrew the cabinet members', d: 'Remove the screws holding each slide to the cabinet side. Note which holes were used.', why: 'Reusing the same holes keeps the new slide at exactly the same height and depth.', v: { cam: [0.6, 0.95, 0.8], at: [0.25, 0.73, 0.1], hi: ['oldSlides'], hide: ['balls'], tool: { id: 'screwdriver', at: [0.272, 0.735, 0.206], rot: [0, 0, 90], anim: 'turn' } } },
+        { t: 'Match the replacement', d: 'Measure the old slide’s closed length and check the gap: side-mount ball-bearing slides need ½″ on each side of the drawer box.', why: 'The same length and side clearance lets you drop the new slide into the existing holes.', v: { cam: [0.6, 0.95, 0.8], at: [0.25, 0.73, 0.1], hi: ['oldSlides', 'cabinet'], tool: { id: 'tape', at: [0.278, 0.76, 0.26], rot: [90, 0, 0] } } },
+        { t: 'Install the cabinet members', d: 'Screw the new cabinet members in the same holes, set back the same distance from the front. Check that both are level and parallel.', why: 'If the two sides aren’t at the same height the drawer binds or won’t close all the way.', v: { cam: [0.6, 0.95, 0.8], at: [0.25, 0.73, 0.1], hi: ['newSlides'], show: ['newSlides'], hide: ['oldSlides'], tool: { id: 'screwdriver', at: [0.272, 0.735, 0.206], rot: [0, 0, 90], anim: 'turn' } } },
+        { t: 'Swap the drawer members', d: 'Unscrew the old drawer members and screw on the new ones, flush with the drawer front’s back face.', why: 'The drawer and cabinet halves are matched; mixing old and new parts makes them grind.', v: { cam: [1.0, 0.6, 1.4], at: [0.15, 0.1, 0.75], hi: ['newInner'], show: ['newInner'], hide: ['oldInner'], tool: { id: 'screwdriver', at: [0.276, 0.065, 0.76], rot: [0, 0, -90], anim: 'turn' } } },
+        { t: 'Slide it back in', d: 'Extend the cabinet members, line up the drawer members and push the drawer in until it clicks. Open and close it fully a few times.', why: 'The first full stroke seats the ball retainers. If it rubs, adjust using the slotted holes.', v: { cam: [1.2, 1.3, 1.5], at: [0, 0.65, 0.1], hi: ['drawer', 'newSlides'], mv: { drawer: [0, 0, 0] } } },
+      ],
+      learn: {
+        how: 'A ball-bearing slide has two or three telescoping steel channels with a cage of ball bearings between them. One member screws to the cabinet, one to the drawer. Because the balls roll instead of sliding, the drawer moves smoothly even when loaded, but a bent channel or lost balls makes it grind and drop.',
+        specs: [['Side clearance', '½″ per side'], ['Length', 'Match the drawer depth (12–28″ in 2″ steps)'], ['Load rating', '75–100 lb standard'], ['Screws', '#6 × ⅝″ pan head']],
+        terms: [['Full extension', 'The drawer comes all the way out.'], ['Cabinet member', 'Half of the slide fixed to the cabinet.'], ['Drawer member', 'Half of the slide fixed to the drawer.'], ['Soft-close', 'Damper that slows the drawer at the end.']],
+        mistakes: ['Replacing only one side.', 'Mixing slide brands.', 'Using screws so long they poke into the drawer.'],
+        tips: ['Upgrade to soft-close slides of the same length; they usually fit the same holes.', 'Take the old slide to the store to match it.'],
+      },
+      pro: 'The cabinet side is crumbling particleboard, or it’s a specialty undermount or custom slide.',
+    },
+    {
+      id: 'reupholster-seat',
+      title: 'Reupholster a dining chair seat',
+      kind: 'build',
+      model: 'chairSeat',
+      level: 2,
+      time: '1–2 hrs per chair',
+      cost: '$15–40 per chair',
+      summary: 'Drop-in dining seats are the easiest upholstery job: four screws, new foam, batting and fabric stapled to a plywood base. One yard of fabric covers about two seats.',
+      intro: { show: ['foam', 'batting', 'fabric', 'staples', 'dustCover'], preview: true, hi: ['fabric'] },
+      safety: ['Wear safety glasses when pulling staples; they fly.', 'Keep fingers clear of the staple gun’s nose.'],
+      causes: [['Pick the fabric', 'Upholstery-weight fabric rated 15,000+ double rubs. Add stain protection for dining chairs.'], ['How much', 'Seat size plus 4″ on every side; about ½ yard per seat.'], ['Foam', '2″ high-density foam is the dining-chair standard.']],
+      tools: ['Screwdriver', 'Staple puller or flat screwdriver + pliers', 'Staple gun + ⅜″ staples', 'Upholstery fabric', '2″ high-density foam', 'Dacron batting', 'Spray adhesive', 'Electric or serrated knife', 'Scissors', 'Black dust cover'],
+      steps: [
+        { t: 'Unscrew the seat', d: 'Turn the chair over or reach underneath and remove the screws through the corner blocks. Push the seat up and out.', why: 'Drop-in seats are held by just these screws, usually four.', v: { cam: [0.75, 0.2, 0.75], at: [0, 0.4, 0], hi: ['seatScrews'], tool: { id: 'screwdriver', at: [0.155, 0.383, 0.145], rot: [180, 0, 0], anim: 'turn' } } },
+        { t: 'Strip the old cover', d: 'Flip the seat and pull every staple, then remove the old fabric and foam. Keep the old fabric as a pattern.', why: 'Leftover staples snag new fabric and keep it from lying flat.', v: { cam: [0.9, 1.2, 1.2], at: [0, 0.8, 0.5], hi: ['oldFabric', 'base'], mv: SEAT_UP, rt: { seat: [180, 0, 0] }, tool: { id: 'flatScrewdriver', at: [0.1, 0.785, 0.675], rot: [0, 0, 60] } } },
+        { t: 'Cut and glue the foam', d: 'Trace the base on the foam, cut it ¼″ oversize with an electric or serrated knife and spray-glue it to the base.', why: 'Slightly oversize foam rolls over the edge, giving a soft, rounded front.', v: { cam: [0.9, 1.2, 1.2], at: [0, 0.8, 0.5], hi: ['foam'], show: ['foam'], hide: ['oldFabric'], rt: { seat: [0, 0, 0] }, tool: { id: 'utilityKnife', at: [0.2, 0.84, 0.5], rot: [0, 0, 20] } } },
+        { t: 'Wrap the batting', d: 'Lay batting over the foam, flip the seat onto it and staple it under the base, pulling lightly.', why: 'Batting smooths the foam edges and lets the fabric slide instead of grabbing.', v: { cam: [0.9, 1.2, 1.2], at: [0, 0.8, 0.5], hi: ['batting'], show: ['batting'] } },
+        { t: 'Staple the fabric', d: 'Center the fabric face-down, set the seat on it and staple once in the middle of each side, pulling taut. Then work out toward the corners, alternating sides, a staple every 1–1½″.', why: 'Opposite sides, center out, keeps the pattern straight and the tension even.', v: { cam: [0.9, 1.25, 1.2], at: [0, 0.8, 0.5], hi: ['fabric', 'staples', 'stapleGun'], show: ['fabric', 'staples', 'stapleGun'], rt: { seat: [180, 0, 0] } } },
+        { t: 'Fold the corners and cover', d: 'Pull each corner diagonally, staple it, then fold the sides in neat pleats and trim the excess. Staple the dust cover over the bottom.', why: 'Tidy corners make it look factory-made; the dust cover hides the staples and fabric edges.', v: { cam: [0.9, 1.25, 1.2], at: [0, 0.8, 0.5], hi: ['dustCover'], show: ['dustCover'], hide: ['stapleGun'] } },
+        { t: 'Reinstall the seat', d: 'Drop the seat into the frame and drive the screws back in through the corner blocks. Don’t over-tighten.', why: 'Use the original screws; longer ones can poke through the new seat.', v: { cam: [1.1, 1.0, 1.3], at: [0, 0.5, 0], hi: ['fabric'], mv: { seat: [0, 0, 0] }, rt: { seat: [0, 0, 0] } } },
+      ],
+      learn: {
+        how: 'A drop-in seat is a sandwich: a plywood base for structure, foam for cushion, batting to smooth the foam, and fabric stretched over everything and stapled underneath. Even tension, pulled from the center outward, is what gives a tight, wrinkle-free top.',
+        specs: [['Foam', '2″ high-density (1.8 lb+)'], ['Batting', '½″ Dacron'], ['Fabric allowance', '4″ past the edge on all sides'], ['Staples', '⅜″, every 1–1½″'], ['Fabric durability', '15,000+ double rubs']],
+        terms: [['Drop-in seat', 'A removable seat that sits inside the chair frame.'], ['Dust cover', 'Black fabric (cambric) under a seat.'], ['Double rubs', 'Abrasion test rating for fabric.']],
+        mistakes: ['Stapling one whole side first.', 'Pattern not centered or crooked.', 'Too-thick foam so the seat won’t fit back in.'],
+        tips: ['Line up the fabric pattern on all chairs before stapling.', 'A clear vinyl cover over fabric is a practical option with young kids.'],
+      },
+      pro: 'The seat has springs or webbing, or the chair is a valuable antique with tacked upholstery.',
+    },
+  ]);
+})();

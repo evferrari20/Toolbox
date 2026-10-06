@@ -745,8 +745,8 @@
       },
     };
   }
-  TB.model('bikeDiscMech', bk({ cam: [-0.22, 0.55, -0.42], at: [-0.06, 0.4, -0.045], hidden: ['newPads'] }), (K) => discScene(K, 'mech'));
-  TB.model('bikeDiscHydro', bk({ cam: [-0.22, 0.55, -0.42], at: [-0.06, 0.4, -0.045], hidden: ['newPads', 'spreader'] }), (K) => discScene(K, 'hydro'));
+  TB.model('bikeDiscMech', bk({ cam: [-0.45, 0.8, -0.85], at: [-0.03, 0.55, -0.04], hidden: ['newPads'] }), (K) => discScene(K, 'mech'));
+  TB.model('bikeDiscHydro', bk({ cam: [-0.45, 0.8, -0.85], at: [-0.03, 0.55, -0.04], hidden: ['newPads', 'spreader'] }), (K) => discScene(K, 'hydro'));
 
   /* ================= Rear derailleur (11-speed, 11–32) ================= */
   TB.model('rearDerailleur', bk({ cam: [0.28, 0.48, 0.5], at: [-0.02, 0.3, 0.05], hidden: ['chainBig'] }), (K) => {
@@ -1151,7 +1151,7 @@
   /* ================= Bike: disc brake variants ================= */
   const BB = TB.repair('bike', 'bike-brakes');
   const vClose = { cam: [-0.2, 0.52, -0.22], at: [-0.068, 0.4, -0.045] };
-  const vSide = { cam: [-0.22, 0.55, -0.42], at: [-0.06, 0.4, -0.045] };
+  const vSide = { cam: [-0.3, 0.58, -0.5], at: [-0.06, 0.4, -0.045] };
   const discLearn = (how, extra) => Object.assign({
     how,
     specs: [['Replace pads at', '< 0.5 mm friction (≈ 3 mm total with backing)'], ['Rotor minimum', '1.5 mm (check rotor stamp)'], ['Caliper bolts', '6–8 N·m'], ['Bed-in', '10–20 stops']],

@@ -97,7 +97,7 @@
   const SEED_AO = ['aoTimer', 'aoThermo', 'aoRefl', 'aoHygro'];
   TB.model(
     'growSeeds',
-    { unit: 1, env: 'studio', cam: [1.25, 1.3, 1.45], at: [0, 0.85, 0], tex: ['plank_flooring'], ground: { tex: 'plank_flooring', repeat: 5, radius: 6 },
+    { unit: 1, env: 'studio', cam: [1.55, 1.45, 1.85], at: [0, 0.9, 0], tex: ['plank_flooring'], ground: { tex: 'plank_flooring', repeat: 5, radius: 6 },
       hidden: ['light', 'mat', 'premix', 'tray', 'cells', 'mix', 'seeds', 'dome', 'sprouts', 'doubles', 'seedlings', 'fan', 'pots', 'harden'].concat(SEED_AO) },
     (K) => {
       const chrome = K.std(0xd9dde1, { metalness: 0.9, roughness: 0.25 });
@@ -640,14 +640,13 @@
       K.bar(p, a, [a[0] + Math.cos(ang) * L, a[1] + L * 0.7, a[2] + Math.sin(ang) * L], r, mat);
     }
   }
-  const SHRUB_PARTS = ['dead', 'crossing', 'suckers', 'oldCanes', 'tips', 'stubs', 'buds', 'foliage', 'newShoots', 'pruners', 'loppers'];
   TB.model(
     'growShrub',
     GARDEN({ cam: [2.2, 1.35, 2.4], at: [0, 0.75, 0], hidden: ['stubs', 'buds', 'foliage', 'newShoots', 'pruners', 'loppers'] }),
     (K) => {
       const bed = K.part('bed', [0, 0, 0], null, 'Mulched shrub bed');
       K.ext(bed, K.circle(0, 0, 1.1, 40), 0.03, K.pbr('pine_bark', [2, 2], {}, 'bark'), [0, 0.03, 0], [90, 0, 0], 0.008);
-      const young = K.std(0x8a6a4e, { roughness: 0.85 });
+      const young = K.std(0x6e5440, { roughness: 0.85 });
       const oldM = K.bumpy(0x7d7468, TB.tex.speckle(), 0.02, { roughness: 1 });
       const deadM = K.std(0x4a3a30, { roughness: 1 });
       const greenM = K.std(0x7a8a3e, { roughness: 0.8 });
@@ -691,16 +690,22 @@
       const newS = K.part('newShoots', [0, 0, 0], null, 'Vigorous new canes from the base');
       [80, 200, 320].forEach((az) => K.tube(newS, canePts([Math.cos(az * K.DEG) * 0.05, 0.03, Math.sin(az * K.DEG) * 0.05], az, 8, 0.9, 0.05), 0.007, greenM));
       const fol = K.part('foliage', [0, 0, 0], null, 'Summer: open, airy, natural shape');
-      const fA = K.bumpy(0x5a9a40, TB.tex.speckle(), 0.03, { roughness: 0.95 });
-      const fB = K.bumpy(0x4a8434, TB.tex.speckle(), 0.03, { roughness: 0.95 });
-      for (let i = 0; i < 22; i++) {
-        const az = i * 47;
-        const h = 0.45 + (i % 6) * 0.17;
-        const r = 0.18 + h * 0.32;
-        K.sph(fol, 0.17, i % 2 ? fA : fB, [Math.cos(az * K.DEG) * r, h, Math.sin(az * K.DEG) * r], [1.2, 0.75, 1.2]);
+      const fA = K.bumpy(0x4a8a36, TB.tex.speckle(), 0.012, { roughness: 0.9 });
+      const fB = K.bumpy(0x3a7a2c, TB.tex.speckle(), 0.012, { roughness: 0.9 });
+      const fC = K.bumpy(0x5c9a40, TB.tex.speckle(), 0.012, { roughness: 0.9 });
+      for (let i = 0; i < 13; i++) {
+        const az = i * 36 + 10 + (i > 9 ? 17 : 0);
+        const pts = canePts([Math.cos(az * K.DEG) * 0.06, 0.03, Math.sin(az * K.DEG) * 0.06], az, 14 + (i % 3) * 6, (i > 9 ? 0.95 : 1.25) + (i % 4) * 0.12, 0.18);
+        for (let k = 2; k <= 6; k++) {
+          const q = pts[k];
+          for (let j = 0; j < 3; j++) {
+            const o = [Math.sin(i * 3 + k * 5 + j * 7) * 0.07, Math.cos(i * 2 + k * 3 + j) * 0.05, Math.cos(i * 5 + k * 2 + j * 3) * 0.07];
+            K.sph(fol, 0.055 + ((i + k + j) % 3) * 0.012, [fA, fB, fC][(i + k + j) % 3], [q[0] + o[0], q[1] + o[1], q[2] + o[2]], [1.25, 0.8, 1.25]);
+          }
+        }
       }
-      pruners(K, 'pruners', [0.55, 1.05, 0.55], [0, 45, -30]);
-      loppers(K, 'loppers', [0.75, 0.55, 0.5], [0, 30, -25]);
+      pruners(K, 'pruners', [0.8, 0.95, 0.7], [0, 45, -30]);
+      loppers(K, 'loppers', [1.0, 0.8, 0.5], [0, 30, -25]);
     }
   );
 
@@ -1527,12 +1532,12 @@
     ],
     tools: ['Bypass hand pruners (to ¾″)', 'Bypass loppers (½–1½″)', 'Folding pruning saw (over 1½″)', 'Gloves & safety glasses', '70% rubbing alcohol + rag', 'Tarp for clippings'],
     steps: [
-      { t: 'Sharpen and clean your tools', d: 'Use bypass pruners up to ¾″, loppers up to 1½″ and a pruning saw for anything thicker. Sharpen the blades and wipe them with alcohol.', why: 'Sharp bypass blades make clean cuts that seal quickly. Anvil pruners and dull blades crush stems, which invites rot.', v: { cam: [1.6, 1.1, 1.6], at: [0.6, 0.75, 0.5], hi: ['pruners', 'loppers'], show: ['pruners', 'loppers', 'dead', 'crossing', 'suckers', 'oldCanes', 'tips'] } },
+      { t: 'Sharpen and clean your tools', d: 'Use bypass pruners up to ¾″, loppers up to 1½″ and a pruning saw for anything thicker. Sharpen the blades and wipe them with alcohol.', why: 'Sharp bypass blades make clean cuts that seal quickly. Anvil pruners and dull blades crush stems, which invites rot.', v: { cam: [2.2, 1.3, 2.0], at: [0.7, 0.65, 0.5], hi: ['pruners', 'loppers'], show: ['pruners', 'loppers', 'dead', 'crossing', 'suckers', 'oldCanes', 'tips'] } },
       { t: 'Remove the dead and broken (the 3 Ds)', d: 'Cut dead, damaged and diseased canes back to healthy wood or to the ground. Dead wood is brittle, has no buds, and is brown, not green, under a fingernail scratch.', why: 'Dead wood is an entry point for decay and does nothing for the plant. These cuts never count toward your one-third limit.', v: { cam: PC.cam, at: PC.at, hi: ['dead'], hide: ['loppers'], tool: { id: 'handsaw', at: [-0.08, 0.1, 0.06], rot: [0, 30, 80], anim: 'slide' } } },
-      { t: 'Take out crossing canes', d: 'Where two canes rub, remove the weaker or worse-placed one, usually the one growing into the center.', why: 'Rubbing wears through bark and opens wounds. Clearing the center lets light and air in, which cuts down on leaf disease.', v: { cam: PC.cam, at: PC.at, hi: ['crossing'], hide: ['dead'], mv: { pruners: [-0.55, -0.6, -0.5] } } },
-      { t: 'Remove suckers and water sprouts', d: 'Cut straight, whippy shoots coming from the roots outside the clump or shooting straight up from old branches, flush with where they start.', why: 'They steal energy, crowd the shrub and rarely flower well. On grafted shrubs, root suckers are a different plant entirely.', v: { cam: [1.5, 0.8, 1.6], at: [0, 0.3, 0], hi: ['suckers'], hide: ['crossing'], mv: { pruners: [-0.3, -0.6, -0.3] } } },
+      { t: 'Take out crossing canes', d: 'Where two canes rub, remove the weaker or worse-placed one, usually the one growing into the center.', why: 'Rubbing wears through bark and opens wounds. Clearing the center lets light and air in, which cuts down on leaf disease.', v: { cam: PC.cam, at: PC.at, hi: ['crossing'], hide: ['dead'], mv: { pruners: [-0.8, -0.5, -0.65] } } },
+      { t: 'Remove suckers and water sprouts', d: 'Cut straight, whippy shoots coming from the roots outside the clump or shooting straight up from old branches, flush with where they start.', why: 'They steal energy, crowd the shrub and rarely flower well. On grafted shrubs, root suckers are a different plant entirely.', v: { cam: [1.5, 0.8, 1.6], at: [0, 0.3, 0], hi: ['suckers'], hide: ['crossing'], mv: { pruners: [-0.55, -0.5, -0.45] } } },
       { t: 'Renew: cut ⅓ of the oldest canes', d: 'Find the thickest, greyest, least-flowering canes and cut about a third of them to 2–3″ above the ground. Repeat next year and the year after.', why: 'Most multi-stem shrubs bloom best on young wood. Removing the oldest third each year renews the whole shrub in three years without ever leaving it bare.', tip: 'Never remove more than a third of a shrub’s live wood in one year.', v: { cam: PC.cam, at: [0, 0.5, 0], hi: ['oldCanes'], hide: ['suckers'], tool: { id: 'handsaw', at: [0.0, 0.1, 0.12], rot: [0, 0, 80], anim: 'slide' } } },
-      { t: 'Head back leggy tips', d: 'Shorten a few too-long canes with heading cuts ¼″ above a bud that faces outward, sloping 45° away from the bud.', why: 'The top bud becomes the new leader. An outward bud sends growth out, not into the crowded middle. Too close kills the bud; too far leaves a stub that dies back.', v: { cam: [1.5, 1.35, 1.5], at: [0.3, 1.1, 0.2], hi: ['tips'], hide: ['oldCanes'], show: ['stubs'], mv: { pruners: [0.0, 0.15, 0.0] } } },
+      { t: 'Head back leggy tips', d: 'Shorten a few too-long canes with heading cuts ¼″ above a bud that faces outward, sloping 45° away from the bud.', why: 'The top bud becomes the new leader. An outward bud sends growth out, not into the crowded middle. Too close kills the bud; too far leaves a stub that dies back.', v: { cam: [1.5, 1.35, 1.5], at: [0.3, 1.1, 0.2], hi: ['tips'], hide: ['oldCanes'], show: ['stubs'], mv: { pruners: [-0.25, 0.25, -0.15] } } },
       { t: 'Step back and check the shape', d: 'Walk around the shrub. It should look open and natural, a little shorter, with no stubs. Clean up all clippings, especially diseased ones.', why: 'Seeing the whole plant keeps you from over-pruning one side. Diseased clippings left on the ground reinfect the shrub.', v: { cam: PC.cam, at: PC.at, hi: ['canes', 'buds'], show: ['buds'], hide: ['tips', 'pruners'] } },
       { t: 'Mulch, water, and watch it regrow', d: 'Top up 2–3″ of mulch and water if the spring is dry. Skip fertilizer unless a soil test says otherwise, and never feed after midsummer.', why: 'Pruning wakes up buds; good moisture fuels the new canes. Late feeding pushes soft growth that freezes in winter.', v: { cam: PC.cam, at: PC.at, hi: ['newShoots', 'foliage'], show: ['newShoots', 'foliage'] } },
     ],
