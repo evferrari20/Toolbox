@@ -1104,7 +1104,7 @@
   TB.model(
     'pathSolar',
     {
-      cam: [3.4, 2.4, 3.6], at: [0, 0.2, 0], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 10 },
+      cam: [4.6, 3.2, 4.8], at: [0, 0.2, -0.2], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 10 },
       tex: ['interlocking_concrete_pavers', 'brick_wall_001'], assets: ['shrub_02', 'cardboard_box_01'],
       hidden: ['sunCheck', 'boxes', 'flags', 'pilots', 'lights', 'aoSpot', 'aoFlood', 'aoNumber', 'aoString'],
     },
@@ -1160,7 +1160,7 @@
   TB.model(
     'pathPlan',
     {
-      cam: [5.6, 3.6, 6.0], at: [0, 1.0, -0.6], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 12, radius: 11 },
+      cam: [6.6, 4.6, 7.6], at: [-0.4, 1.2, -0.6], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 12, radius: 11 },
       tex: ['interlocking_concrete_pavers', 'brick_wall_001', 'pine_bark', 'forrest_ground_01'], assets: ['shrub_02', 'grass_medium_01'],
       hidden: ['plan', 'transformer', 'trench', 'cables', 'hubs', 'pathLights', 'treeUps', 'wallWash', 'zones', 'aoFlood', 'aoNumber', 'aoUplight', 'aoString'],
     },
@@ -1435,7 +1435,7 @@
         { t: 'Install the path lights', d: 'Stake path lights 8–10 ft apart, staggered, 6–12″ off the walk edge.', why: 'Lights set back from the edge light the walk and plants instead of shining into eyes.', v: { cam: [4.0, 2.4, 4.4], at: [0, 0.3, 0.4], hi: ['pathLights'], show: ['pathLights'] } },
         { t: 'Uplight the tree', d: 'Set two uplights on opposite sides of the trunk, 1–2 ft out, aimed into the canopy.', why: 'Lighting a tree from two sides gives it depth; one light flattens it.', v: { cam: [1.0, 2.4, 5.2], at: [-2.6, 1.8, 1.2], hi: ['treeUps'], show: ['treeUps'] } },
         { t: 'Wash the house wall', d: 'Set wide flood fixtures 12–18″ from the wall between windows, aimed up.', why: 'Too close makes hot spots; 12–18″ back spreads an even wash.', v: { cam: [0.6, 1.8, 2.4], at: [0, 1.2, -3.0], hi: ['wallWash'], show: ['wallWash'] } },
-        { t: 'Test voltage and aim at night', d: 'At dusk, check voltage at each hub (10.8–11.5 V is ideal) and move the transformer tap if it’s low. Fine-tune every aim.', why: 'Aiming in daylight is guesswork; night aiming hides glare and shows real coverage.', v: { cam: [5.6, 3.6, 6.0], at: [0, 1.0, -0.6], hi: ['pathLights', 'treeUps', 'wallWash'], fx: 'on', tool: { id: 'multimeter', at: [0.9, 0.0, 0.6], rot: [0, -30, 0], scale: 1 } } },
+        { t: 'Test voltage and aim at night', d: 'At dusk, check voltage at each hub (10.8–11.5 V is ideal) and move the transformer tap if it’s low. Fine-tune every aim.', why: 'Aiming in daylight is guesswork; night aiming hides glare and shows real coverage.', v: { cam: [6.6, 4.6, 7.6], at: [-0.4, 1.2, -0.6], hi: ['pathLights', 'treeUps', 'wallWash'], fx: 'on', tool: { id: 'multimeter', at: [0.9, 0.0, 0.6], rot: [0, -30, 0], scale: 1 } } },
         { t: 'Set app zones and bury', d: 'Group fixtures into zones in the app, set dusk-on and an 11 pm off for the path, then close the trenches.', why: 'Zones let the house wash shut off late while path lights stay on for safety.', v: { cam: [4.6, 1.4, -1.0], at: [3.8, 0.6, -3.0], hi: ['transformer', 'zones'], show: ['zones'], hide: ['trench'], fx: 'on' } },
       ],
       learn: {
@@ -1506,6 +1506,11 @@
       if (prev) line(K, parent, prev[0], prev[1], p[0], p[1], y, mat, w);
       prev = p;
     }
+  }
+  // Filled flat sector on the ground (top at y).
+  function sector(K, parent, cx, cz, r, a0, a1, y, mat) {
+    const pts = [[cx, cz]].concat(K.circle(cx, cz, r, 32, a0 * DEG, a1 * DEG));
+    return K.ext(parent, pts, 0.002, mat, [0, y, 0], [90, 0, 0], 0);
   }
   // Hoop: pole set behind the board; local +z faces the court. Returns { pole, board } groups.
   function hoop(K, poleP, boardP, opts) {
@@ -1598,7 +1603,7 @@
       K.box(lay, [0.9, 0.004, 0.9], K.std(0xe8e4dc, { roughness: 0.8 }), [FT + 0.55, Y + 0.004, -1.5], null, 0);
       const lines = K.part('lines', [0, 0, 0], null, 'Painted lane, free-throw line & circle');
       const wp = K.std(0xffffff, { roughness: 0.5 });
-      K.box(lines, [FT - BX + 0.6, 0.002, 3.66], K.std(0xb23a3a, { roughness: 0.6 }), [(BX - 0.6 + FT) / 2, Y + 0.002, -1.5], null, 0);
+      K.box(lines, [FT - BX + 0.6, 0.002, 3.66], K.std(0x8e2626, { roughness: 0.6 }), [(BX - 0.6 + FT) / 2, Y + 0.002, -1.5], null, 0);
       line(K, lines, BX - 0.6, -3.33, FT, -3.33, Y + 0.004, wp);
       line(K, lines, BX - 0.6, 0.33, FT, 0.33, Y + 0.004, wp);
       line(K, lines, FT, -3.33, FT, 0.33, Y + 0.004, wp);
@@ -1662,8 +1667,8 @@
       [-1.52, 1.52].forEach((x) => K.box(jt, [0.012, 0.002, Z1 - Z0], 'dark', [x, 0, 0], null, 0));
       [-3.0, 0, 3.0].forEach((z) => K.box(jt, [2 * X, 0.002, 0.012], 'dark', [0, 0, z], null, 0));
       const tiles = K.part('tiles', [0, top, CZ], null, 'Interlocking sport tiles (12″)');
-      K.box(tiles, [2 * X, 0.013, Z1 - Z0], K.std(0x3b4350, { roughness: 0.6 }), [0, 0.0065, 0], null, 0);
-      const gl = K.std(0x2a3039, { roughness: 0.7 });
+      K.box(tiles, [2 * X, 0.013, Z1 - Z0], K.std(0x262b33, { roughness: 0.6 }), [0, 0.0065, 0], null, 0);
+      const gl = K.std(0x15181d, { roughness: 0.7 });
       for (let x = -X + 0.3048; x < X; x += 0.3048) K.box(tiles, [0.006, 0.002, Z1 - Z0], gl, [x, 0.0135, 0], null, 0);
       for (let z = -(Z1 - Z0) / 2 + 0.3048; z < (Z1 - Z0) / 2; z += 0.3048) K.box(tiles, [2 * X, 0.002, 0.006], gl, [0, 0.0135, z], null, 0);
       const T = top + 0.0145;
@@ -1671,8 +1676,8 @@
       const RZ = BF + 0.38; // rim center
       const FT = BF + 4.57;
       const key = K.part('key', [0, 0, 0], null, 'Blue key & outer-court tiles');
-      K.box(key, [3.66, 0.002, FT - Z0], K.std(0x2f6fde, { roughness: 0.55 }), [0, T, (FT + Z0) / 2], null, 0);
-      arc(K, key, 0, FT, 0.92, 0, 180, T, K.std(0x2f6fde, { roughness: 0.55 }), 1.83);
+      K.box(key, [3.66, 0.002, FT - Z0], K.std(0x1f4fae, { roughness: 0.55 }), [0, T, (FT + Z0) / 2], null, 0);
+      sector(K, key, 0, FT, 1.83, 0, 180, T + 0.001, K.std(0x1f4fae, { roughness: 0.55 }));
       const lines = K.part('lines', [0, 0, 0], null, 'Snap-in line tiles');
       const wp = K.std(0xffffff, { roughness: 0.5 });
       const L2 = T + 0.002;
@@ -1697,7 +1702,7 @@
         const head = K.group(lp, [x - s * 0.3, 5.45 + top, z + 0.3], [0, s * -35, 0]);
         K.box(head, [0.6, 0.1, 0.35], 'dark', [0, 0, 0], [25, 0, 0], 0.02);
         K.box(head, [0.55, 0.01, 0.3], lm, [0, -0.06, 0.02], [25, 0, 0], 0);
-        K.cone(head, [2.6, 5.0, 24, true], beamMat(K, 0.05), [0, -2.45, 1.4], [-25, 0, 0]);
+        K.cone(head, [2.6, 5.0, 24, true], beamMat(K, 0.022), [0, -2.45, 1.4], [-25, 0, 0]);
       });
       const lpl = new THREE.PointLight(0xffffff, 1.0, 12, 2);
       lpl.position.set(0, 4, -1);
@@ -1727,7 +1732,7 @@
   TB.model(
     'courtPro',
     {
-      cam: [15, 10.5, 15.5], at: [0, 1.0, -0.6], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 24, radius: 24 },
+      cam: [17, 11, 10], at: [0, 1.0, -0.6], unit: 1, env: 'garden', ground: { tex: 'aerial_grass_rock', repeat: 24, radius: 24 },
       tex: ['concrete_floor_01', 'gravel_floor', 'forrest_ground_01'], assets: ['painted_wooden_bench'],
       hidden: ['layout', 'dig', 'footings', 'conduit', 'gravel', 'forms', 'rebar', 'slab', 'cure', 'resurfacer', 'colorCoats', 'key', 'lines', 'pole', 'board', 'padding', 'lights', 'fence', 'gate', 'seating', 'aoTracker', 'aoScore', 'aoRebound', 'aoShade', 'aoSpeaker'],
     },
@@ -1774,16 +1779,16 @@
       K.box(rs, [2 * X, 0.004, Z1 - Z0], K.std(0x6f706c, { roughness: 0.8 }), [0, 0, 0], null, 0);
       const T = top + 0.005;
       const cc = K.part('colorCoats', [0, T, 0], null, 'Color coats: green apron, blue court');
-      K.box(cc, [2 * X, 0.002, Z1 - Z0], K.std(0x2f6b4a, { roughness: 0.7 }), [0, 0, CZ], null, 0);
-      K.box(cc, [2 * CW, 0.003, HC - BL], K.std(0x2a5f9e, { roughness: 0.65 }), [0, 0.001, (HC + BL) / 2], null, 0);
+      K.box(cc, [2 * X, 0.002, Z1 - Z0], K.std(0x1f5236, { roughness: 0.7 }), [0, 0, CZ], null, 0);
+      K.box(cc, [2 * CW, 0.003, HC - BL], K.std(0x1c4478, { roughness: 0.65 }), [0, 0.001, (HC + BL) / 2], null, 0);
       const BFz = BL + 1.22;
       const RZ = BFz + 0.38;
       const FT = BL + 5.79;
       const key = K.part('key', [0, T + 0.003, 0], null, 'Red key (16 ft) & center circle');
-      const red = K.std(0xb23a3a, { roughness: 0.6 });
+      const red = K.std(0x8e2626, { roughness: 0.6 });
       K.box(key, [4.88, 0.002, FT - BL], red, [0, 0, (FT + BL) / 2], null, 0);
-      arc(K, key, 0, FT, 0.91, 0, 180, 0, red, 1.83);
-      arc(K, key, 0, HC, 0.91, 180, 360, 0, red, 1.83);
+      sector(K, key, 0, FT, 1.83, 0, 180, 0.001, red);
+      sector(K, key, 0, HC, 1.83, 180, 360, 0.001, red);
       const lines = K.part('lines', [0, 0, 0], null, 'Textured white line paint');
       const wp = K.std(0xffffff, { roughness: 0.5 });
       const L2 = T + 0.006;
@@ -1817,7 +1822,7 @@
         const head = K.group(lights, [x, 6.05 + top, z], [0, yaw, 0]);
         K.box(head, [0.7, 0.12, 0.4], 'dark', [0, 0, 0.3], [25, 0, 0], 0.02);
         K.box(head, [0.62, 0.012, 0.34], lm, [0, -0.07, 0.32], [25, 0, 0], 0);
-        K.cone(head, [3.2, 6.0, 24, true], beamMat(K, 0.04), [0, -2.9, 1.8], [-28, 0, 0]);
+        K.cone(head, [3.2, 6.0, 24, true], beamMat(K, 0.02), [0, -2.9, 1.8], [-28, 0, 0]);
       });
       const lpl = new THREE.PointLight(0xffffff, 1.0, 18, 2);
       lpl.position.set(0, 5, -1);
@@ -1976,7 +1981,7 @@
         { t: 'Color coats', d: 'Squeegee two color coats: green apron, blue court, and red key and center circle, letting each coat dry.', why: 'Two thin coats wear far better than one thick one and hide squeegee marks.', v: { cam: [13, 10, 13], at: [0, 0, -0.4], hi: ['colorCoats', 'key'], show: ['colorCoats', 'key'] } },
         { t: 'Paint the lines', d: 'Snap and tape every line from the hoop location, seal the tape edges with primer, then roll textured white line paint.', why: 'Sealing tape edges first gives razor-sharp lines with no bleed into the texture.', v: { cam: [8.0, 9.0, 6.0], at: [0, 0, -2.4], hi: ['lines'], show: ['lines'], tool: { id: 'roller', at: [2.44, 0.23, -4.0], rot: [0, 0, 0], anim: 'slide' } } },
         { t: 'Install the glass hoop', d: 'Bolt the 6″ pole to the anchor, plumb it, lift on the 72″ board, set the rim at 10 ft, and add pole and board pads.', why: 'A 5 ft overhang and padding keep players safe driving to the basket.', v: { cam: [6.0, 4.4, -1.4], at: [0, 2.0, -6.6], hi: ['pole', 'board', 'padding'], show: ['pole', 'board', 'padding'], tool: { id: 'level', at: [0.1, 1.4, -7.42], rot: [0, 0, 90], scale: 1.6 } } },
-        { t: 'Lights, fence and seating', d: 'Stand the four LED poles (electrician connects and aims them), hang the fence fabric and gate, and set the bleachers outside the fence.', why: 'Corner poles aimed inward light the court evenly with less glare over the fence.', v: { cam: [15, 10.5, 15.5], at: [0, 1.0, -0.6], hi: ['lights', 'fence', 'gate', 'seating'], show: ['lights', 'fence', 'gate', 'seating'] } },
+        { t: 'Lights, fence and seating', d: 'Stand the four LED poles (electrician connects and aims them), hang the fence fabric and gate, and set the bleachers outside the fence.', why: 'Corner poles aimed inward light the court evenly with less glare over the fence.', v: { cam: [17, 11, 10], at: [0, 1.0, -0.6], hi: ['lights', 'fence', 'gate', 'seating'], show: ['lights', 'fence', 'gate', 'seating'] } },
       ],
       learn: {
         how: 'A pro-style court is a layered system: compacted subgrade, gravel base, reinforced slab, then a thin acrylic system (resurfacer, color coats, line paint) bonded to the cured concrete. Hoops, lights and fences each stand on their own footings, with conduit placed before the pour. The acrylic is sand-textured for grip and is renewed every 5–8 years.',
