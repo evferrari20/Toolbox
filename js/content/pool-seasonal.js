@@ -863,7 +863,7 @@
   const HL_AO = ['aoSmart', 'aoProjector', 'aoPath', 'aoShrub', 'aoWreath'];
   TB.model(
     'holidayLights',
-    Object.assign({}, HG, { cam: [6.0, 1.8, 11.0], at: [-0.5, 2.0, 0], hidden: ['testStrand', 'clips', 'lightsEave', 'lightsRake', 'cord', 'timer'].concat(HL_AO) }),
+    Object.assign({}, HG, { cam: [6.0, 1.6, 11.0], at: [-0.5, 1.5, 0], hidden: ['testStrand', 'clips', 'lightsEave', 'lightsRake', 'cord', 'timer'].concat(HL_AO) }),
     (K) => {
       house(K, { siding: 0xe6e1d6, shutter: 0x2c4a3a, door: 0x6e1f22 });
       const cols = [0xff3b30, 0x2ecc71, 0x3b82f6, 0xffb020, 0xfff4dc];
@@ -1108,7 +1108,7 @@
   /* ---------------- Storm prep ---------------- */
   TB.model(
     'stormPrep',
-    Object.assign({}, HG, { cam: [12.5, 6.0, 12.0], at: [2.5, 1.0, -0.5], hidden: ['boards', 'sandbags', 'straps', 'kit', 'cord', 'clearance', 'fuel'], assets: ['shrub_01', 'shrub_02', 'dead_tree_trunk'] }),
+    Object.assign({}, HG, { cam: [14.0, 6.0, 12.0], at: [4.5, 1.0, -0.8], hidden: ['boards', 'sandbags', 'straps', 'kit', 'cord', 'clearance', 'fuel'], assets: ['shrub_01', 'shrub_02', 'dead_tree_trunk'] }),
     (K) => {
       house(K, {});
       // Service equipment on the right side wall (x = 3)
@@ -1612,7 +1612,7 @@
           { t: 'Hang the eave strand', d: 'Start at the power end, push each bulb socket into a clip, and keep the wire behind the gutter lip.', why: 'Starting at the plug end means the female end lands where the next strand connects.', v: { cam: [-1.0, 2.2, 5.6], at: [-0.4, 2.3, 0.5], hi: ['lightsEave'], show: ['lightsEave'], fx: 'on' } },
           { t: 'Run the rakes', d: 'Clip strands up each gable rake to the peak. Use short jumper cords where runs don’t meet.', why: 'Outlining the gables gives the house its shape at night.', v: { cam: [-6.8, 3.6, 5.6], at: [-4.2, 3.0, -1.4], hi: ['lightsRake'], show: ['lightsRake'], fx: 'on' } },
           { t: 'Route and secure the cord', d: 'Run the extension cord along the corner trim with plastic clips, keeping connections off the ground and away from downspouts.', why: 'Connections sitting in puddles trip the GFCI and corrode.', v: { cam: [5.0, 1.8, 3.0], at: [2.6, 1.2, 0.2], hi: ['cord', 'outlet'], show: ['cord'] } },
-          { t: 'Light it up', d: 'Set the timer (dusk to 11 pm is typical) and step back to check spacing. Take everything down within a few weeks of the season.', why: 'UV and weather degrade cords and clips; shorter exposure means more seasons from each strand.', v: { cam: [6.0, 1.8, 11.0], at: [-0.5, 2.0, 0], hi: ['lightsEave', 'lightsRake'], fx: 'on' } },
+          { t: 'Light it up', d: 'Set the timer (dusk to 11 pm is typical) and step back to check spacing. Take everything down within a few weeks of the season.', why: 'UV and weather degrade cords and clips; shorter exposure means more seasons from each strand.', v: { cam: [6.0, 1.6, 11.0], at: [-0.5, 1.5, 0], hi: ['lightsEave', 'lightsRake'], fx: 'on' } },
         ],
         learn: {
           how: 'Roofline lights are strands of sockets wired in parallel, with a plug on one end and a receptacle on the other so strands can connect end to end. LEDs draw so little current that the outlet and cord rarely limit you; the manufacturer’s max-connected-strands rating does. A GFCI outlet protects against shock from wet connections.',
@@ -1651,7 +1651,7 @@
           { t: 'Change the indoor filter', d: 'Inside, open the return grille, note the size and arrow, and slide in a new filter with the arrow toward the unit.', why: 'A clogged filter can freeze the indoor coil in cooling mode.', v: { cam: [-0.2, 1.1, -1.8], at: [-0.7, 0.55, -0.2], hi: ['filter', 'grille', 'newFilter'], show: ['newFilter'], mv: { grille: [0, 0, -0.3], filter: [0, 0, -0.2] } } },
           { t: 'Check the condensate drain', d: 'Find where the drain line exits and make sure it isn’t blocked. Pour a cup of water into the indoor drain pan access to see it flow.', why: 'A blocked drain overflows the pan or trips the float switch and shuts the AC off.', v: { cam: [-0.6, 0.8, 1.2], at: [-1.4, 0.3, 0.1], hi: ['condensate'], hide: ['newFilter'], mv: { grille: [0, 0, 0], filter: [0, 0, 0] } } },
           { t: 'Restore power 24 hours early', d: 'Put the disconnect back in (thermostat still off) and wait 12–24 hours before calling for cooling.', why: 'The crankcase heater warms the compressor oil and drives out refrigerant that migrated into it, preventing damage on the first start.', v: { cam: [2.0, 1.4, 1.4], at: [1.15, 1.15, 0.1], hi: ['disconnect', 'pullout'], mv: { pullout: [0, 0, 0] } } },
-          { t: 'Run it and check the split', d: 'Set cooling 5 °F below room temperature. After 15 minutes, compare air at a return and a supply: a 15–20 °F drop is normal.', why: 'A small split means low refrigerant or airflow problems; call a tech before the hot weather.', v: { cam: [0.6, 1.7, -1.2], at: [0.45, 1.8, -0.16], hi: ['thermostat', 'thermo', 'register'], show: ['thermo'], fx: 'run' } },
+          { t: 'Run it and check the split', d: 'Set cooling 5 °F below room temperature. After 15 minutes, compare air at a return and a supply: a 15–20 °F drop is normal.', why: 'A small split means low refrigerant or airflow problems; call a tech before the hot weather.', v: { cam: [0.55, 1.6, -1.0], at: [0.75, 1.65, -0.16], hi: ['thermostat', 'thermo', 'register'], show: ['thermo'], fx: 'run' } },
         ],
         learn: {
           how: 'An AC moves heat from inside to outside. The indoor coil absorbs heat as refrigerant evaporates; the outdoor condenser fans air across its coil to dump that heat. Anything that blocks air at either coil, such as a dirty filter, dirty fins or crowding shrubs, raises pressures and cuts efficiency.',
@@ -1714,7 +1714,7 @@
           { t: 'Cover the windows', d: 'Screw pre-cut ⅝″ plywood over windows using permanent anchors set in the framing, 12″ apart.', why: 'A broken window lets wind pressurize the house and can blow the roof off from the inside.', v: { cam: [0.8, 2.0, 5.2], at: [-0.5, 1.5, 0], hi: ['boards'], show: ['boards'], tool: { id: 'drill', at: [1.1, 2.15, 0.12], rot: [90, 0, 0], anim: 'spin', scale: 1.2 } } },
           { t: 'Block water at the door', d: 'Lay sandbags in a staggered row across low doorways, folded ends tucked under.', why: 'Overlapped bags form a seal that diverts sheet flow from the threshold.', v: { cam: [1.0, 1.4, 3.0], at: [-0.3, 0.3, 0.9], hi: ['sandbags'], show: ['sandbags'] } },
           { t: 'Stage the emergency kit', d: 'Set out water (1 gal per person per day for 3+ days), flashlights, a radio, batteries and a battery CO alarm.', why: 'Having it ready means you’re not hunting for flashlights in the dark.', v: { cam: [1.6, 1.4, 2.6], at: [0.6, 0.4, 0.6], hi: ['kit'], show: ['kit'] } },
-          { t: 'Place the generator 20 ft away', d: 'Set the generator on level ground at least 20 ft from any door, window or vent, with the exhaust pointing away.', why: 'CO from a generator can enter the house from surprisingly far away, especially downwind.', v: { cam: [7.4, 3.2, 5.2], at: [7.0, 0.3, -1.6], hi: ['generator', 'clearance', 'exhaust'], show: ['clearance'] } },
+          { t: 'Place the generator 20 ft away', d: 'Set the generator on level ground at least 20 ft from any door, window or vent, with the exhaust pointing away.', why: 'CO from a generator can enter the house from surprisingly far away, especially downwind.', v: { cam: [8.4, 3.2, 5.4], at: [8.0, 0.3, -1.6], hi: ['generator', 'clearance', 'exhaust'], show: ['clearance'] } },
           { t: 'Connect through the inlet', d: 'Plug the L14-30 cord into the generator and the power inlet box. Never run cords through a window or door.', why: 'The inlet and interlock (or transfer switch) are the only safe way to power house circuits.', v: { cam: [5.6, 1.6, 0.6], at: [3.6, 0.5, -1.4], hi: ['cord', 'inlet'], show: ['cord'] } },
           { t: 'Switch over with the interlock', d: 'Turn the main breaker OFF, slide the interlock, turn the generator breaker ON, start the generator, then turn on a few key circuits one at a time.', why: 'The interlock physically prevents the main and generator breakers from being on together, so power can’t backfeed to the street.', v: { cam: [4.6, 1.6, -1.0], at: [3.1, 1.4, -2.0], hi: ['interlock', 'panel'] } },
           { t: 'Refuel safely', d: 'Shut the generator down and let it cool 15 minutes before refueling. Store gas cans away from the generator and the house.', why: 'Gas spilled on a hot muffler ignites.', v: { cam: [8.0, 1.6, 2.6], at: [9.6, 0.4, -0.4], hi: ['fuel', 'generator'], show: ['fuel'] } },
