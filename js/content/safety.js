@@ -424,7 +424,7 @@
       const sweep = K.group(aim, [-0.102, 0.322, 0.19]);
       const sg = K.group(sweep, [0, 0, 0]);
       sg.quaternion.setFromUnitVectors(new K.THREE.Vector3(0, 1, 0), new K.THREE.Vector3(0.36, -0.12, 1.0).normalize());
-      const spray = K.cone(sg, [0.22, 1.15, 24, true], K.std(0xf4f1e8, { transparent: true, opacity: 0.42, roughness: 1 }), [0, 0.575, 0], [180, 0, 0]);
+      const spray = K.cone(sg, [0.3, 1.15, 24, true], K.std(0xffffff, { transparent: true, opacity: 0.7, roughness: 1, emissive: 0x888888, emissiveIntensity: 0.4 }), [0, 0.575, 0], [180, 0, 0]);
       spray.userData.noPick = true;
       return {
         tick(t, fx) {
@@ -718,8 +718,8 @@
       const stairs = K.part('stairs', [0, 0, 0], null, 'Stairs down');
       for (let i = 1; i <= 7; i++) {
         const y = H - i * 0.19;
-        K.box(stairs, [0.91, y - 0.025, 0.254], white, [0.455, (y - 0.025) / 2, (i - 0.5) * 0.254], null, 0.002);
-        K.box(stairs, [0.93, 0.025, 0.279], oak, [0.465, y - 0.0125, (i - 0.5) * 0.254 - 0.0125], null, 0.006);
+        K.box(stairs, [1.03, y - 0.025, 0.254], white, [0.515, (y - 0.025) / 2, (i - 0.5) * 0.254], null, 0.002);
+        K.box(stairs, [1.05, 0.025, 0.279], oak, [0.525, y - 0.0125, (i - 0.5) * 0.254 - 0.0125], null, 0.006);
       }
       // banister: top newel, sloped rail, balusters, landing guard
       const nw = K.part('newel', [BG.post, 0, BG.gz], null, 'Newel post (top of stairs)');
