@@ -215,27 +215,107 @@
   // Visual style: 'v2' adds surface grain, soft shadows and atmospheric depth. ?look=v1 shows the old look.
   const LOOK2 = !/[?&]look=v1\b/.test(location.search);
   TB.LOOK = LOOK2 ? 'v2' : 'v1';
-  const grainRep = {};
-  // Grain sized to the surface: ~0.6 m per tile so big walls don't stretch it into stripes.
-  function grainFor(size) {
-    const rx = Math.max(1, Math.round(size.x / 0.6));
-    const ry = Math.max(1, Math.round(Math.max(size.y, size.z) / 0.6));
-    const k = rx + 'x' + ry;
-    if (!grainRep[k]) grainRep[k] = repeatOf(tex.grain(), rx, ry);
-    return grainRep[k];
+  /* Look v2 surface detail: scanned texture sets projected in world space (triplanar), so every plain
+     surface gets real paint/wood/concrete/metal micro-detail at true scale without UV stretching.
+     Only luminance, relief (normal) and roughness are borrowed; the model's own color is kept. */
+  const DETAIL = {
+    paint: { tex: 'white_plaster_02', scale: 1.4, str: 0.32, nstr: 0.6 },
+    wood: { tex: 'wood_planks', scale: 0.9, str: 0.6, nstr: 0.75 },
+    stone: { tex: 'concrete_floor_01', scale: 1.1, str: 0.34, nstr: 0.6 },
+    // metal: faint smudges and wear only (a tread-plate scan would look wrong on chrome)
+    metal: { tex: 'concrete_floor_01', scale: 3.5, str: 0.1, nstr: 0.06 },
+  };
+  TB.DETAIL_TEX = Object.values(DETAIL).map((d) => d.tex);
+  const meanCache = new Map();
+  function meanOf(t, ch) {
+    const k = t.uuid + ch;
+    if (meanCache.has(k)) return meanCache.get(k);
+    let m = 0.5;
+    try {
+      const c = document.createElement('canvas');
+      c.width = c.height = 8;
+      const g = c.getContext('2d');
+      g.drawImage(t.image, 0, 0, 8, 8);
+      const d = g.getImageData(0, 0, 8, 8).data;
+      let sum = 0;
+      for (let i = 0; i < d.length; i += 4) sum += ch === 'l' ? (0.299 * d[i] + 0.587 * d[i + 1] + 0.114 * d[i + 2]) / 255 : d[i + 1] / 255;
+      m = Math.max(0.05, sum / 64);
+    } catch (e) {}
+    meanCache.set(k, m);
+    return m;
   }
+  const detailUniforms = {};
+  function uniformsFor(kind) {
+    if (detailUniforms[kind]) return detailUniforms[kind];
+    const d = DETAIL[kind];
+    const set = TB.assetCache && TB.assetCache.tex[d.tex];
+    if (!set || !set.map || !set.normalMap || !set.arm) return null;
+    return (detailUniforms[kind] = {
+      tpDiff: { value: set.map },
+      tpNor: { value: set.normalMap },
+      tpArm: { value: set.arm },
+      tpScale: { value: d.scale },
+      tpStr: { value: d.str },
+      tpNStr: { value: d.nstr },
+      tpMeanL: { value: meanOf(set.map, 'l') },
+      tpMeanR: { value: meanOf(set.arm, 'r') },
+    });
+  }
+  const _hsl = {};
+  function kindOf(mat) {
+    if (mat.metalness > 0.5) return 'metal';
+    if (mat.metalness > 0.15) return 'paint'; // painted / powder-coated metal
+    mat.color.getHSL(_hsl);
+    if (_hsl.h > 0.025 && _hsl.h < 0.13 && _hsl.s > 0.22 && _hsl.l < 0.62) return 'wood';
+    if (_hsl.s < 0.14 && _hsl.l < 0.4) return 'stone';
+    return 'paint';
+  }
+  const TP_VERT_HEAD = 'varying vec3 vTpPos;\nvarying vec3 vTpN;\n';
+  const TP_VERT = '#include <project_vertex>\nvTpPos = (modelMatrix * vec4(transformed, 1.0)).xyz;\nvTpN = normalize(mat3(modelMatrix) * objectNormal);';
+  const TP_FRAG_HEAD = `varying vec3 vTpPos;
+varying vec3 vTpN;
+uniform sampler2D tpDiff;
+uniform sampler2D tpNor;
+uniform sampler2D tpArm;
+uniform float tpScale, tpStr, tpNStr, tpMeanL, tpMeanR;
+vec3 tpW() { vec3 b = pow(abs(normalize(vTpN)), vec3(4.0)); return b / (b.x + b.y + b.z); }
+vec4 tpSample(sampler2D t) {
+  vec3 w = tpW(); vec3 p = vTpPos * tpScale;
+  return texture2D(t, p.zy) * w.x + texture2D(t, p.xz) * w.y + texture2D(t, p.xy) * w.z;
+}
+`;
+  const TP_COLOR = `#include <color_fragment>
+{ vec3 dc = tpSample(tpDiff).rgb; float l = dot(dc, vec3(0.299, 0.587, 0.114));
+  diffuseColor.rgb *= clamp(mix(1.0, l / tpMeanL, tpStr), 0.55, 1.35); }`;
+  const TP_ROUGH = `#include <roughnessmap_fragment>
+roughnessFactor = clamp(roughnessFactor * mix(1.0, tpSample(tpArm).g / tpMeanR, tpStr * 0.9), 0.04, 1.0);`;
+  const TP_NORMAL = `#include <normal_fragment_maps>
+{ vec3 N = normalize(vTpN); vec3 w = tpW(); vec3 p = vTpPos * tpScale;
+  vec3 tx = texture2D(tpNor, p.zy).xyz * 2.0 - 1.0;
+  vec3 ty = texture2D(tpNor, p.xz).xyz * 2.0 - 1.0;
+  vec3 tz = texture2D(tpNor, p.xy).xyz * 2.0 - 1.0;
+  tx = vec3(tx.xy + N.zy, abs(tx.z) * N.x);
+  ty = vec3(ty.xy + N.xz, abs(ty.z) * N.y);
+  tz = vec3(tz.xy + N.xy, abs(tz.z) * N.z);
+  vec3 wn = normalize(tx.zyx * w.x + ty.xzy * w.y + tz.xyz * w.z);
+  vec3 dv = (viewMatrix * vec4(wn - N, 0.0)).xyz;
+  normal = normalize(normal + dv * tpNStr * faceDirection); }`;
   function finish(mat, size) {
     if (!LOOK2 || !mat || !mat.isMeshStandardMaterial) return;
     if (mat.transparent || mat.wireframe || mat.map || mat.bumpMap || mat.normalMap || mat.roughnessMap) return;
     if (mat.emissive && mat.emissive.getHex() !== 0) return;
     const metal = mat.metalness > 0.5;
-    const g = grainFor(size);
-    mat.roughnessMap = g;
-    mat.bumpMap = g;
-    mat.bumpScale = 0;
-    // grain averages ~0.8, so lift roughness to keep the same overall sheen; plastics never mirror-smooth
-    mat.roughness = Math.min(1, (metal ? mat.roughness : Math.max(mat.roughness, 0.28)) / 0.8);
-    mat.envMapIntensity = 0.8;
+    // plastics and paint are never mirror-smooth
+    if (!metal) mat.roughness = Math.min(1, Math.max(mat.roughness, 0.3));
+    const kind = kindOf(mat);
+    const u = uniformsFor(kind);
+    if (!u) return;
+    mat.onBeforeCompile = (sh) => {
+      Object.assign(sh.uniforms, u);
+      sh.vertexShader = TP_VERT_HEAD + sh.vertexShader.replace('#include <project_vertex>', TP_VERT);
+      sh.fragmentShader = TP_FRAG_HEAD + sh.fragmentShader.replace('#include <color_fragment>', TP_COLOR).replace('#include <roughnessmap_fragment>', TP_ROUGH).replace('#include <normal_fragment_maps>', TP_NORMAL);
+    };
+    mat.customProgramCacheKey = () => 'tp-' + kind;
     mat.needsUpdate = true;
   }
 
@@ -723,7 +803,7 @@
       this.scene.environment = this.envs[id];
       if (LOOK2) {
         // Outdoor & garage scenes sit in their real surroundings (softly blurred); indoor keeps the clean studio backdrop.
-        const outdoor = key === 'garden' || key === 'garage';
+        const outdoor = key === 'garden';
         this.scene.background = outdoor ? this.envs[id] : studioBackdrop();
         this.scene.backgroundBlurriness = key === 'garden' ? 0.22 : 0.45;
         this.scene.backgroundIntensity = 0.95;
@@ -814,7 +894,7 @@
         this.ssao.kernelRadius = Math.max(0.08, s * 0.035);
         const far = this.camera.far;
         this.ssao.minDistance = 0.02 / far;
-        this.ssao.maxDistance = Math.max(0.2, s * 0.07) / far;
+        this.ssao.maxDistance = Math.max(0.15, s * 0.045) / far;
       }
       this.outlineMat.userData.thick.value = Math.max(0.004, Math.min(0.012, s * 0.0022));
     }

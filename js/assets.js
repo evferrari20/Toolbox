@@ -111,6 +111,8 @@
       tl.forEach(addTool);
     });
     if (v.ground && v.ground.tex) tex.add(v.ground.tex);
+    // Look v2 detail textures, applied to every plain surface in world space.
+    if (TB.LOOK === 'v2') (TB.DETAIL_TEX || []).forEach((t) => tex.add(t));
     return { glb: [...glb], tex: [...tex], env: v.env || 'studio' };
   };
 
