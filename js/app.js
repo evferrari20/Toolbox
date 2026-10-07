@@ -484,12 +484,16 @@
               <button class="step-num" data-done="${i}" aria-pressed="${doneSet.has(i)}" aria-label="Mark step ${i + 1} done"><span>${i + 1}</span>${I.check}</button>
               <div class="step-t"><span>${esc(s.t)}</span><button class="view" data-go="${i + 1}">${I.cube} Show in 3D</button></div>
               <p class="step-d">${esc(s.d)}</p>
-              <div class="step-x">${s.tip ? `<p class="step-tip">${I.bulb}<span>${esc(s.tip)}</span></p>` : ''}${s.why ? `<div class="why learn-only"><b>WHY</b><span>${esc(s.why)}</span></div>` : ''}</div>
+              <div class="step-x">${s.tip ? `<p class="step-tip">${I.bulb}<span><b>Tip</b> ${esc(s.tip)}</span></p>` : ''}${s.ok ? `<p class="step-ok">${I.check}<span><b>Check</b> ${esc(s.ok)}</span></p>` : ''}${s.why ? `<div class="why learn-only"><b>WHY</b><span>${esc(s.why)}</span></div>` : ''}</div>
             </li>`
           )
           .join('')}</ol>
           <div class="progress"><div class="bar"><i id="prog-bar"></i></div><span id="prog-text"></span><button class="linkbtn" id="clear">Reset</button></div>
         </section>
+
+        ${r.tricks && r.tricks.length ? `<section class="section"><h2>Tips &amp; tricks</h2><div class="tricks">${r.tricks
+          .map(([t, dd]) => `<div class="trick">${I.bulb}<div><b>${esc(t)}</b><p>${esc(dd)}</p></div></div>`)
+          .join('')}</div></section>` : ''}
 
         ${kit && kit.proTips && kit.proTips.length ? `<section class="section box pros"><h2>${I.bulb} From the pros</h2><ul>${kit.proTips.map((t) => `<li>${esc(t)}</li>`).join('')}</ul>${
           kit.sources && kit.sources.length ? `<p class="srcs">Sources: ${kit.sources.map((u, i) => `<a href="${esc(u)}" target="_blank" rel="noopener">${esc(hostOf(u))}</a>`).join(' · ')}</p>` : ''
@@ -503,6 +507,10 @@
         </div></section>` : ''}
 
         <section class="section box pro"><h2>${I.phone} Call a pro if</h2><p>${esc(r.pro)}</p></section>
+
+        ${r.refs && r.refs.length ? `<section class="section refs"><h2>Researched from</h2><ul>${r.refs
+          .map(([t, u]) => `<li><a href="${esc(u)}" target="_blank" rel="noopener">${esc(t)}</a> <span>${esc(hostOf(u))}</span></li>`)
+          .join('')}</ul></section>` : ''}
       </article>
     </div>`;
     document.title = r.title + ' · Toolbox';

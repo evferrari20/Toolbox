@@ -448,6 +448,17 @@ main { padding-block: 22px 72px; padding-inline: var(--gutter); max-width: 1480p
 .step-x:empty { display: none; }
 .step-tip { display: flex; gap: 8px; align-items: flex-start; font-size: 0.92rem; color: var(--yellow-ink); background: var(--yellow-100); padding: 8px 12px; border-radius: 10px; margin-top: 4px; }
 .step-tip svg { width: 18px; height: 18px; margin-top: 1px; }
+.step-tip b, .step-ok b { font-family: var(--f-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; margin-right: 4px; }
+.step-ok { display: flex; gap: 8px; align-items: flex-start; font-size: 0.92rem; color: #145a3a; background: #e7f6ee; padding: 8px 12px; border-radius: 10px; margin: 0; }
+.step-ok svg { width: 18px; height: 18px; margin-top: 1px; flex: none; }
+.tricks { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 10px; }
+.trick { display: flex; gap: 10px; align-items: flex-start; background: var(--yellow-50); border: 1px solid var(--yellow-100); border-radius: 12px; padding: 12px 14px; }
+.trick > svg { width: 20px; height: 20px; flex: none; color: var(--yellow-ink); margin-top: 2px; }
+.trick b { display: block; font-family: var(--f-display); font-size: 0.98rem; margin-bottom: 2px; }
+.trick p { margin: 0; font-size: 0.93rem; color: var(--ink-soft); }
+.refs ul { margin: 0; padding-left: 20px; display: grid; gap: 4px; font-size: 0.9rem; }
+.refs a { color: var(--blue-700); font-weight: 600; }
+.refs span { color: var(--ink-faint); font-size: 0.82rem; }
 .why { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; background: var(--blue-50); border: 1px solid var(--blue-100); color: #23466f; border-radius: 10px; padding: 9px 12px; font-size: 0.93rem; }
 .why b { font-family: var(--f-mono); font-size: 0.7rem; letter-spacing: 0.1em; color: #fff; background: var(--blue); padding: 2px 6px; border-radius: 5px; margin-top: 2px; }
 .progress { display: flex; gap: 12px; align-items: center; margin-top: 12px; color: var(--ink-soft); font-size: 0.9rem; font-weight: 600; }
