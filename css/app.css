@@ -821,3 +821,6 @@ body {
   main > *:nth-child(3) { animation-delay: 0.1s; }
   main > *:nth-child(n + 4) { animation-delay: 0.15s; }
 }
+/* Look v2: soft vignette framing the 3D stage */
+.stage::after { content: ''; position: absolute; inset: 0; pointer-events: none; border-radius: inherit; box-shadow: inset 0 0 70px rgba(14, 37, 84, 0.16); z-index: 1; }
+.pick-toast, .stage-hint, .v-labels, .v-loading { z-index: 2; }

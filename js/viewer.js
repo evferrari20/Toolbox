@@ -134,7 +134,63 @@
         }
       }),
   };
+  // Soft, low-contrast grain: drives micro roughness + bump on plain surfaces ("look v2").
+  tex.grain = () =>
+    canvasTex('grain', 256, (g, n) => {
+      const r = rnd(29);
+      g.fillStyle = 'rgb(200,200,200)';
+      g.fillRect(0, 0, n, n);
+      for (let i = 0; i < 260; i++) {
+        const v = 170 + r() * 60;
+        const rad = 6 + r() * 26;
+        const x = r() * n;
+        const y = r() * n;
+        const gr = g.createRadialGradient(x, y, 0, x, y, rad);
+        gr.addColorStop(0, `rgba(${v},${v},${v},0.35)`);
+        gr.addColorStop(1, `rgba(${v},${v},${v},0)`);
+        g.fillStyle = gr;
+        g.fillRect(x - rad, y - rad, rad * 2, rad * 2);
+      }
+      for (let i = 0; i < 7000; i++) {
+        const v = 150 + r() * 100;
+        g.fillStyle = `rgba(${v},${v},${v},0.35)`;
+        g.fillRect(r() * n, r() * n, 1, 1);
+      }
+    });
   TB.tex = tex;
+  if (window.THREE && THREE.SSAOPass && !THREE.SSAOPass.prototype._tbPatched) {
+    const orig = THREE.SSAOPass.prototype.renderOverride;
+    THREE.SSAOPass.prototype.renderOverride = function (renderer, mat, rt, c, a) {
+      const off = [];
+      this.scene.traverse((o) => {
+        if (o.isMesh && o.visible && (o.userData.isOutline || o.userData.noAO || (o.material.transparent && o.material.opacity < 0.95) || o.material.blending === THREE.AdditiveBlending)) {
+          o.visible = false;
+          off.push(o);
+        }
+      });
+      orig.call(this, renderer, mat, rt, c, a);
+      off.forEach((o) => (o.visible = true));
+    };
+    THREE.SSAOPass.prototype._tbPatched = true;
+    // Deepen the occlusion a little (stylized, not photoreal).
+    if (THREE.SSAOShader) THREE.SSAOShader.fragmentShader = THREE.SSAOShader.fragmentShader.replace('vec3( 1.0 - occlusion )', 'vec3( pow( 1.0 - occlusion, 1.8 ) )');
+  }
+  // Visual style: 'v2' adds surface grain, soft shadows and atmospheric depth. ?look=v1 shows the old look.
+  const LOOK2 = !/[?&]look=v1\b/.test(location.search);
+  TB.LOOK = LOOK2 ? 'v2' : 'v1';
+  function finish(mat) {
+    if (!LOOK2 || !mat || !mat.isMeshStandardMaterial) return;
+    if (mat.transparent || mat.wireframe || mat.map || mat.bumpMap || mat.normalMap || mat.roughnessMap) return;
+    if (mat.emissive && mat.emissive.getHex() !== 0) return;
+    const metal = mat.metalness > 0.5;
+    mat.roughnessMap = tex.grain();
+    mat.bumpMap = tex.grain();
+    mat.bumpScale = metal ? 0.0006 : 0.0016;
+    // grain averages ~0.8, so lift roughness to keep the same overall sheen; plastics never mirror-smooth
+    mat.roughness = Math.min(1, (metal ? mat.roughness : Math.max(mat.roughness, 0.28)) / 0.8);
+    mat.envMapIntensity = 0.8;
+    mat.needsUpdate = true;
+  }
 
   function repeatOf(t, x, y) {
     const c = t.clone();
@@ -449,7 +505,7 @@
       r.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
       r.outputEncoding = THREE.sRGBEncoding;
       r.toneMapping = THREE.ACESFilmicToneMapping;
-      r.toneMappingExposure = 0.72;
+      r.toneMappingExposure = LOOK2 ? 0.76 : 0.72;
       r.shadowMap.enabled = true;
       r.shadowMap.type = THREE.PCFSoftShadowMap;
       r.setClearColor(0x000000, 0);
@@ -464,12 +520,18 @@
       }
       this.camera = new THREE.PerspectiveCamera(36, 1, 0.03, 200);
       this.camera.position.set(5, 4, 6);
-      const hemi = new THREE.HemisphereLight(0xeaf4ff, 0x8a7f6c, this.envTex ? 0.12 : 0.8);
-      this.key = new THREE.DirectionalLight(0xfff3df, this.envTex ? 1.15 : 1.0);
+      const hemi = new THREE.HemisphereLight(0xeaf4ff, LOOK2 ? 0x6f6656 : 0x8a7f6c, this.envTex ? (LOOK2 ? 0.16 : 0.12) : 0.8);
+      this.key = new THREE.DirectionalLight(0xfff3df, this.envTex ? (LOOK2 ? 1.6 : 1.15) : 1.0);
       this.key.castShadow = true;
       this.key.shadow.mapSize.set(2048, 2048);
       this.key.shadow.bias = -0.0004;
       this.key.shadow.normalBias = 0.02;
+      if (LOOK2) {
+        this.key.shadow.radius = 7;
+        this.key.shadow.blurSamples = 16;
+        this.key.shadow.bias = -0.0006;
+        this.scene.fog = new THREE.Fog(0xdde8f5, 10, 40);
+      }
       const fill = new THREE.DirectionalLight(0xd6e8ff, 0.2);
       fill.position.set(-6, 4, -3);
       this.scene.add(hemi, this.key, this.key.target, fill);
@@ -492,6 +554,21 @@
       this.scene.add(this.floor);
 
       this.outlineMat = makeOutlineMat();
+      // Look v2: screen-space ambient occlusion (soft darkening where surfaces meet) on capable devices.
+      if (LOOK2 && THREE.EffectComposer && THREE.SSAOPass && THREE.GammaCorrectionShader && !matchMedia('(pointer: coarse)').matches) {
+        try {
+          this.composer = new THREE.EffectComposer(r);
+          this.ssao = new THREE.SSAOPass(this.scene, this.camera, 300, 200);
+          this.ssao.kernelSize = 32;
+          // keep edge anti-aliasing (render targets otherwise lose MSAA)
+          if (r.capabilities.isWebGL2) this.ssao.beautyRenderTarget.samples = 4;
+          if (/[?&]ao=debug\b/.test(location.search)) this.ssao.output = THREE.SSAOPass.OUTPUT.SSAO;
+          this.composer.addPass(this.ssao);
+          this.composer.addPass(new THREE.ShaderPass(THREE.GammaCorrectionShader));
+        } catch (e) {
+          this.composer = null;
+        }
+      }
       this.toolLayer = new THREE.Group();
       this.scene.add(this.toolLayer);
 
@@ -550,12 +627,17 @@
       this.renderer.domElement.style.height = '100%';
       this.camera.aspect = w / h;
       this.camera.updateProjectionMatrix();
+      if (this.composer) this.composer.setSize(w, h);
     }
 
     prepMeshes(root, list, isTool) {
       root.traverse((o) => {
         if (!o.isMesh || o.userData.isOutline) return;
         o.material = o.material.clone();
+        // skip grain on paper-thin strips (grout, tape, labels): bump noise turns into dashes there
+        if (!o.geometry.boundingBox) o.geometry.computeBoundingBox();
+        const bs = o.geometry.boundingBox.getSize(new THREE.Vector3());
+        if (Math.min(bs.x, bs.y, bs.z) > 0.004) finish(o.material);
         const chain = [];
         let p = o;
         while (p && p !== root) {
@@ -655,6 +737,13 @@
       sc.near = 0.1;
       sc.far = s * 4;
       sc.updateProjectionMatrix();
+      if (this.ssao) {
+        // world-space sampling radius ~ 1.5% of the scene; depth thresholds as fractions of camera far
+        this.ssao.kernelRadius = Math.max(0.08, s * 0.035);
+        const far = this.camera.far;
+        this.ssao.minDistance = 0.02 / far;
+        this.ssao.maxDistance = Math.max(0.2, s * 0.07) / far;
+      }
       this.outlineMat.userData.thick.value = Math.max(0.004, Math.min(0.012, s * 0.0022));
     }
 
@@ -930,7 +1019,13 @@
         }
         me.material.opacity = me.userData.baseOpacity * f;
       }
-      this.renderer.render(this.scene, this.camera);
+      if (this.scene.fog && this.controls) {
+        const d = this.camera.position.distanceTo(this.controls.target);
+        this.scene.fog.near = d * 1.7;
+        this.scene.fog.far = d * 5.5;
+      }
+      if (this.composer) this.composer.render();
+      else this.renderer.render(this.scene, this.camera);
       this.drawLabels();
     }
 
