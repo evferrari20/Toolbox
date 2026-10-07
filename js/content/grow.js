@@ -296,7 +296,7 @@
   const TOM_AO = ['aoDrip', 'aoSensor', 'aoBasil'];
   TB.model(
     'growTomato',
-    GARDEN({ cam: [1.9, 1.35, 2.1], at: [0, 0.6, 0],
+    GARDEN({ cam: [2.6, 1.7, 2.9], at: [0, 0.75, 0],
       hidden: ['thermo', 'stakes', 'cages', 'holes', 'potted', 'lowerSet', 'transplant', 'mulch', 'young', 'suckers', 'lowLeaves', 'ties1', 'ties2', 'mature', 'bushYoung', 'bush'].concat(TOM_AO) }),
     (K) => {
       const M = tomatoMats(K);

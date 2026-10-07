@@ -158,6 +158,43 @@
       }
     });
   TB.tex = tex;
+  // Soft light-blue studio backdrop (the composer can't show the page through a transparent canvas).
+  function studioBackdrop() {
+    const t = canvasTex(
+      'studioBg',
+      256,
+      (g, n) => {
+        const gr = g.createLinearGradient(0, 0, 0, n);
+        gr.addColorStop(0, '#f4f8fd');
+        gr.addColorStop(0.55, '#e3ecf7');
+        gr.addColorStop(1, '#cfdcec');
+        g.fillStyle = gr;
+        g.fillRect(0, 0, n, n);
+        const rg = g.createRadialGradient(n * 0.3, n * 0.1, 0, n * 0.3, n * 0.1, n * 0.8);
+        rg.addColorStop(0, 'rgba(255,255,255,0.6)');
+        rg.addColorStop(1, 'rgba(255,255,255,0)');
+        g.fillStyle = rg;
+        g.fillRect(0, 0, n, n);
+      },
+      { color: true }
+    );
+    return t;
+  }
+  function fadeEdge(mat, R) {
+    if (mat.userData.fadeR) {
+      mat.userData.fadeR.value.set(R * 0.55, R * 0.98);
+      return;
+    }
+    const u = { value: new THREE.Vector2(R * 0.55, R * 0.98) };
+    mat.userData.fadeR = u;
+    mat.transparent = true;
+    mat.onBeforeCompile = (sh) => {
+      sh.uniforms.fadeR = u;
+      sh.vertexShader = 'varying vec3 vFadeW;\n' + sh.vertexShader.replace('#include <project_vertex>', '#include <project_vertex>\nvFadeW = (modelMatrix * vec4(transformed, 1.0)).xyz;');
+      sh.fragmentShader = 'varying vec3 vFadeW;\nuniform vec2 fadeR;\n' + sh.fragmentShader.replace('#include <dithering_fragment>', '#include <dithering_fragment>\ngl_FragColor.a *= 1.0 - smoothstep(fadeR.x, fadeR.y, length(vFadeW.xz));');
+    };
+    mat.needsUpdate = true;
+  }
   if (window.THREE && THREE.SSAOPass && !THREE.SSAOPass.prototype._tbPatched) {
     const orig = THREE.SSAOPass.prototype.renderOverride;
     THREE.SSAOPass.prototype.renderOverride = function (renderer, mat, rt, c, a) {
@@ -178,14 +215,24 @@
   // Visual style: 'v2' adds surface grain, soft shadows and atmospheric depth. ?look=v1 shows the old look.
   const LOOK2 = !/[?&]look=v1\b/.test(location.search);
   TB.LOOK = LOOK2 ? 'v2' : 'v1';
-  function finish(mat) {
+  const grainRep = {};
+  // Grain sized to the surface: ~0.6 m per tile so big walls don't stretch it into stripes.
+  function grainFor(size) {
+    const rx = Math.max(1, Math.round(size.x / 0.6));
+    const ry = Math.max(1, Math.round(Math.max(size.y, size.z) / 0.6));
+    const k = rx + 'x' + ry;
+    if (!grainRep[k]) grainRep[k] = repeatOf(tex.grain(), rx, ry);
+    return grainRep[k];
+  }
+  function finish(mat, size) {
     if (!LOOK2 || !mat || !mat.isMeshStandardMaterial) return;
     if (mat.transparent || mat.wireframe || mat.map || mat.bumpMap || mat.normalMap || mat.roughnessMap) return;
     if (mat.emissive && mat.emissive.getHex() !== 0) return;
     const metal = mat.metalness > 0.5;
-    mat.roughnessMap = tex.grain();
-    mat.bumpMap = tex.grain();
-    mat.bumpScale = metal ? 0.0006 : 0.0016;
+    const g = grainFor(size);
+    mat.roughnessMap = g;
+    mat.bumpMap = g;
+    mat.bumpScale = 0;
     // grain averages ~0.8, so lift roughness to keep the same overall sheen; plastics never mirror-smooth
     mat.roughness = Math.min(1, (metal ? mat.roughness : Math.max(mat.roughness, 0.28)) / 0.8);
     mat.envMapIntensity = 0.8;
@@ -530,7 +577,7 @@
         this.key.shadow.radius = 7;
         this.key.shadow.blurSamples = 16;
         this.key.shadow.bias = -0.0006;
-        this.scene.fog = new THREE.Fog(0xdde8f5, 10, 40);
+
       }
       const fill = new THREE.DirectionalLight(0xd6e8ff, 0.2);
       fill.position.set(-6, 4, -3);
@@ -564,6 +611,10 @@
           if (r.capabilities.isWebGL2) this.ssao.beautyRenderTarget.samples = 4;
           if (/[?&]ao=debug\b/.test(location.search)) this.ssao.output = THREE.SSAOPass.OUTPUT.SSAO;
           this.composer.addPass(this.ssao);
+          if (THREE.UnrealBloomPass) {
+            this.bloom = new THREE.UnrealBloomPass(new THREE.Vector2(300, 200), 0.32, 0.5, 0.88);
+            this.composer.addPass(this.bloom);
+          }
           this.composer.addPass(new THREE.ShaderPass(THREE.GammaCorrectionShader));
         } catch (e) {
           this.composer = null;
@@ -628,6 +679,7 @@
       this.camera.aspect = w / h;
       this.camera.updateProjectionMatrix();
       if (this.composer) this.composer.setSize(w, h);
+      if (this.bloom) this.bloom.setSize(w, h);
     }
 
     prepMeshes(root, list, isTool) {
@@ -637,7 +689,8 @@
         // skip grain on paper-thin strips (grout, tape, labels): bump noise turns into dashes there
         if (!o.geometry.boundingBox) o.geometry.computeBoundingBox();
         const bs = o.geometry.boundingBox.getSize(new THREE.Vector3());
-        if (Math.min(bs.x, bs.y, bs.z) > 0.004) finish(o.material);
+        if (Math.min(bs.x, bs.y, bs.z) > 0.004) finish(o.material, bs);
+        if (LOOK2 && o.material.isMeshStandardMaterial) o.material.envMapIntensity = this.envBoost || 0.8;
         const chain = [];
         let p = o;
         while (p && p !== root) {
@@ -663,10 +716,20 @@
       const hdr = TB.assetCache && TB.assetCache.hdr[id];
       if (!hdr) {
         this.scene.environment = this.envTex || null;
+        if (LOOK2) this.scene.background = studioBackdrop();
         return;
       }
       if (!this.envs[id]) this.envs[id] = this.pmrem.fromEquirectangular(hdr).texture;
       this.scene.environment = this.envs[id];
+      if (LOOK2) {
+        // Outdoor & garage scenes sit in their real surroundings (softly blurred); indoor keeps the clean studio backdrop.
+        const outdoor = key === 'garden' || key === 'garage';
+        this.scene.background = outdoor ? this.envs[id] : studioBackdrop();
+        this.scene.backgroundBlurriness = key === 'garden' ? 0.22 : 0.45;
+        this.scene.backgroundIntensity = 0.95;
+        this.key.intensity = outdoor ? 2.3 : 1.45;
+        this.envBoost = outdoor ? 0.7 : 1.0;
+      }
     }
 
     // Scanned ground surface under outdoor scenes ({tex, repeat, radius}); studio disc otherwise.
@@ -687,6 +750,8 @@
         this.disc.scale.setScalar(1);
         this.grid.visible = true;
       }
+      // Look v2: the ground fades out at its rim instead of ending in a hard disc edge.
+      if (LOOK2 && this.scene.background && this.scene.background.isTexture && this.scene.background !== studioBackdrop()) fadeEdge(this.disc.material, 9 * this.disc.scale.x);
     }
 
     load(name) {
@@ -737,6 +802,13 @@
       sc.near = 0.1;
       sc.far = s * 4;
       sc.updateProjectionMatrix();
+      if (LOOK2) {
+        // Fit the depth range to the scene so depth-based shading stays precise up close.
+        this.camera.far = Math.max(25, s * 10);
+        this.camera.near = Math.max(0.01, Math.min(0.05, s * 0.004));
+        this.camera.updateProjectionMatrix();
+        if (this.controls) this.controls.maxDistance = Math.min(30, this.camera.far * 0.6);
+      }
       if (this.ssao) {
         // world-space sampling radius ~ 1.5% of the scene; depth thresholds as fractions of camera far
         this.ssao.kernelRadius = Math.max(0.08, s * 0.035);
@@ -1018,11 +1090,6 @@
           me.material.needsUpdate = true;
         }
         me.material.opacity = me.userData.baseOpacity * f;
-      }
-      if (this.scene.fog && this.controls) {
-        const d = this.camera.position.distanceTo(this.controls.target);
-        this.scene.fog.near = d * 1.7;
-        this.scene.fog.far = d * 5.5;
       }
       if (this.composer) this.composer.render();
       else this.renderer.render(this.scene, this.camera);

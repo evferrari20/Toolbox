@@ -1007,7 +1007,7 @@
     K.box(null, [7, 0.02, 1.2], 'dirt', [0, -0.008, 0], null, 0);
   };
   const GH = ['frame', 'brace', 'boards', 'hinges', 'latch', 'stop', 'shims'];
-  TB.model('xGateSingle', XM.view({ cam: [1.4, 1.6, 2.8], at: [0, 0.9, 0], hidden: GH }), gateModel(false));
+  TB.model('xGateSingle', XM.view({ cam: [2.2, 1.8, 3.8], at: [0, 0.9, 0], hidden: GH }), gateModel(false));
   TB.model('xGateDouble', XM.view({ cam: [1.8, 1.8, 4.0], at: [0, 0.9, 0], hidden: GH.concat(['dropRod']) }), gateModel(true));
   const gateSteps = (dbl) => {
     const h = dbl ? 1.22 : 0.51;

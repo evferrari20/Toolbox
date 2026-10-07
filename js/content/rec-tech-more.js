@@ -990,7 +990,7 @@
   /* ================= Interior wall: Cat6 drop to a keystone wall jack ================= */
   TB.model(
     'ethJack',
-    V(DESK, { cam: [0.9, 1.0, 1.4], at: [0.2, 0.7, 0], hidden: ['outline', 'finder', 'jabSaw', 'fishTape', 'cable', 'slack', 'bracket', 'jack', 'punch', 'plate', 'patch', 'tester', 'plateHole'] }),
+    V(DESK, { cam: [1.1, 1.0, 1.7], at: [0.1, 0.55, 0], hidden: ['outline', 'finder', 'jabSaw', 'fishTape', 'cable', 'slack', 'bracket', 'jack', 'punch', 'plate', 'patch', 'tester', 'plateHole'] }),
     (K) => {
       const t = 0.0127;
       const JX = 0.2;
@@ -1239,7 +1239,7 @@
       time: '30–60 min',
       cost: '$0–45',
       summary: 'Nine times out of ten, a pellet grill that won’t light has a fire pot packed with ash. Vacuum it out cold, check the hot-rod igniter glows, prime the auger, and it lights.',
-      intro: { hi: ['firePot', 'igniter'], xray: true },
+      intro: { hi: ['firePot', 'igniter'] },
       safety: ['Unplug the grill before reaching inside.', 'Vacuum only cold ash. Warm embers can start a fire in a shop vac.', 'Never add pellets by hand to a hot fire pot; it can backflash.', 'Use the grill’s shutdown cycle; pulling the plug while lit can cause auger burnback.'],
       causes: [['Fire pot full of ash', 'Ash blocks the air holes and buries the igniter.'], ['Wet or swollen pellets', 'Pellets that got damp turn to sawdust and jam the auger.'], ['Failed igniter', 'The rod should glow red-orange within a couple of minutes.'], ['Empty auger', 'After a burn-out, the auger needs priming before pellets reach the pot.']],
       tools: ['Shop vac', 'Grill scraper', 'Phillips screwdriver', 'Fresh dry pellets', 'Flashlight', 'Multimeter (optional, igniter test)'],
@@ -1301,7 +1301,7 @@
       time: '45–60 min',
       cost: '$5–25',
       summary: 'Pellet grills need ash vacuumed out every 20 or so hours of cooking, plus a scraped drip tray and an emptied grease bucket. Do it cold and unplugged.',
-      intro: { hi: ['grime', 'firePot', 'ash'], xray: true },
+      intro: { hi: ['grime', 'firePot', 'ash'] },
       safety: ['Unplug and cool the grill completely before cleaning.', 'Vacuum only cold ash.', 'A grease-caked drip tray is how most pellet-grill grease fires start.'],
       causes: [['Ash in the fire pot and barrel', 'Leads to failed starts and temperature swings.'], ['Grease on the drip tray', 'Can ignite at high temperatures.'], ['Full grease bucket', 'Overflows down the leg.'], ['Dirty temp probe', 'Gives the controller a wrong reading.']],
       tools: ['Shop vac', 'Grill scraper', 'Heavy-duty foil or drip-tray liners', 'Degreaser + paper towels', 'Bucket liner', 'Grill brush'],
@@ -1473,7 +1473,7 @@
       time: '30–60 min',
       cost: '$5–15',
       summary: 'Laptop fans pull air across a small stack of fins at the back vents, and dust mats right against those fins. Open the bottom cover, disconnect the battery, and clear the fins and fan blades.',
-      intro: { hi: ['dust', 'fins'], xray: true, fx: 'run' },
+      intro: { hi: ['dust', 'fins'], fx: 'run' },
       safety: ['Shut down fully (not sleep), unplug the charger and disconnect the internal battery before cleaning.', 'Hold each fan still while using air; spinning it too fast can damage the bearing.', 'Ground yourself on metal first and work on a hard surface, not carpet.', 'Opening may void the warranty; check first.'],
       causes: [['Dust mat on the fins', 'Felt-like layer right behind the vent.'], ['Blocked vents', 'Using it on a bed or couch.'], ['Old thermal paste', 'Laptops 4+ years old.'], ['Worn fan', 'Grinding or rattling.']],
       tools: ['Precision screwdriver set (Phillips #0/#00, Torx T5)', 'Plastic opening picks', 'Compressed air or electric duster', 'Soft brush', 'Toothpick (to hold fans)', 'Temperature monitor app'],
@@ -1544,7 +1544,7 @@
       time: '1–2 hrs (plus cloning)',
       cost: '$80–300',
       summary: 'Clone the old drive to a bigger NVMe SSD over USB, then swap it and the RAM under the bottom cover. Most laptops with removable parts take 30 minutes once you’re in.',
-      intro: { hi: ['ssd', 'ram'], xray: true },
+      intro: { hi: ['ssd', 'ram'] },
       safety: ['Back up your files before anything else.', 'Shut down fully, unplug, and disconnect the internal battery before touching parts.', 'Touch bare metal to discharge static; handle modules by their edges.', 'Check your model’s manual: some laptops have soldered RAM or storage.'],
       causes: [['Check compatibility', 'Note the SSD size (2280, 2242), interface (NVMe/SATA), and RAM type (DDR4/DDR5 SO-DIMM) from the manual or a scan tool.'], ['Clone or fresh install', 'Cloning keeps everything; a fresh install is cleaner on old systems.'], ['Matched RAM', 'Install a matched pair for dual-channel speed.']],
       tools: ['New M.2 NVMe SSD', 'SO-DIMM RAM kit', 'USB M.2 enclosure (for cloning)', 'Cloning software', 'Precision screwdrivers', 'Plastic opening picks', 'Anti-static wrist strap'],

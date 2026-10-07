@@ -112,8 +112,8 @@
       K.cyl(lt, [0.12, 0.12, 0.031, 32], K.std(0xe9f6ff, { emissive: 0xbfe6ff, emissiveIntensity: 0.4 }), [0, 0, 0.012], [90, 0, 0]);
       // Water
       const water = K.part('water', [0, 0, 0], null, 'Pool water (~13,000 gal)');
-      const surf = K.phys(0x1f8fc4, { transparent: true, opacity: 0.58, roughness: 0.04, clearcoat: 1, depthWrite: false });
-      const vol = K.std(0x1a88b8, { transparent: true, opacity: 0.26, depthWrite: false, roughness: 0.1 });
+      const surf = K.phys(0x1f8fc4, { transparent: true, opacity: 0.34, roughness: 0.04, clearcoat: 1, depthWrite: false });
+      const vol = K.std(0x1a88b8, { transparent: true, opacity: 0.18, depthWrite: false, roughness: 0.1 });
       K.box(water, [2 * PX - 0.01, 0.006, 2 * PZ - 0.01], surf, [0, -0.13, 0], null, 0);
       K.box(water, [2 * PX - 0.02, 0.86, 2 * PZ - 0.02], vol, [0, -0.57, 0], null, 0);
       K.box(water, [2 * PX - 0.02, 0.9, 3.6], vol, [0, -1.45, -1.8], null, 0);
@@ -151,10 +151,10 @@
       K.tor(bucket, [0.15, 0.006, 180], 'grey', [0, 0.36, 0], [0, 0, 0]);
       // Cleaning gear
       const vh = K.part('vacHead', [0.3, -1.88, -1.9], null, 'Weighted vacuum head');
-      K.box(vh, [0.42, 0.06, 0.14], K.std(0x2a6db0, { roughness: 0.5 }), [0, 0.04, 0], null, 0.02);
+      K.box(vh, [0.46, 0.07, 0.16], K.std(0xffb020, { roughness: 0.45 }), [0, 0.045, 0], null, 0.02);
       K.rep(4, (i) => K.cyl(vh, [0.025, 0.025, 0.02, 16], 'dark', [-0.17 + (i % 2) * 0.34, 0.025, i < 2 ? -0.07 : 0.07], [90, 0, 0]));
       K.box(vh, [0.4, 0.02, 0.12], 'black', [0, 0.005, 0], null, 0.004);
-      K.cyl(vh, [0.025, 0.025, 0.1, 16], K.std(0x2a6db0), [0, 0.1, 0.0], [30, 0, 0]);
+      K.cyl(vh, [0.03, 0.03, 0.12, 16], K.std(0xffb020), [0, 0.11, 0.0], [30, 0, 0]);
       const vp = K.part('vacPole', [0, 0, 0], null, 'Telescopic pole (8–16 ft)');
       K.bar(vp, [0.3, -1.78, -1.9], [1.2, 1.2, 1.6], 0.016, K.std(0xc6ccd2, { metalness: 0.8, roughness: 0.35 }));
       K.bar(vp, [1.08, 0.75, 1.07], [1.2, 1.2, 1.6], 0.019, K.std(0x2a6db0, { roughness: 0.5 }));
@@ -871,8 +871,8 @@
       const c9 = (g, p, i, up) => {
         const b = K.group(g, p);
         K.cyl(b, [0.012, 0.012, 0.025, 10], K.std(0x1d4d2a), [0, 0.012, 0]);
-        K.cone(b, [0.02, 0.06, 14], bulbs[i % 5], [0, up ? 0.055 : 0.055, 0]);
-        K.sph(b, 0.02, bulbs[i % 5], [0, 0.03, 0]);
+        K.cone(b, [0.034, 0.09, 14], bulbs[i % 5], [0, 0.075, 0]);
+        K.sph(b, 0.034, bulbs[i % 5], [0, 0.035, 0]);
         return b;
       };
       const wire = K.std(0x1d4d2a, { roughness: 0.6 });
@@ -1392,8 +1392,8 @@
           { t: 'Attach head and pole', d: 'Clip the vacuum head to the pole and set it on the floor at the shallow end.', why: 'Starting shallow means dirt you stir up drifts toward the deep end, where you finish.', v: { cam: [3.4, 1.8, 2.0], at: [0.2, -1.2, -1.2], hi: ['vacHead', 'vacPole'], hide: ['brush'], show: ['vacHead', 'vacPole'] } },
           { t: 'Fill the hose with water', d: 'Attach the hose to the head, then feed it down into the pool or hold the open end over a return until no bubbles come out.', why: 'An air-filled hose makes the pump lose prime the moment you connect it.', v: { cam: [1.8, 2.2, 3.0], at: [-0.6, -0.8, -1.4], hi: ['vacHose'], show: ['vacHose'] } },
           { t: 'Connect at the skimmer', d: 'Put the skim-vac plate on the skimmer basket and press the hose cuff into it (or into the skimmer suction port).', why: 'The plate keeps the basket in place to catch leaves so they don’t clog the pump.', v: { cam: [-0.4, 1.2, -0.2], at: [-2.2, 0.0, -1.4], hi: ['vacPlate', 'skimmer'], show: ['vacPlate'] } },
-          { t: 'Vacuum slowly, overlapping', d: 'Push the head in long, slow, overlapping strokes like mowing a lawn. If you see a dust cloud, slow down.', why: 'Fast strokes stir fine dirt back into the water, where it settles again later.', v: { cam: [2.3, 1.0, 0.0], at: [0.3, -1.6, -1.9], hi: ['vacHead'], hide: ['debris'], fx: 'vac' } },
-          { t: 'Vacuum to waste for heavy dirt', d: 'For algae or a lot of fine silt, set a multiport to WASTE so it skips the filter. Keep a hose running to top up the level.', why: 'Fine dust passes through sand filters and returns to the pool; waste sends it out.', v: { cam: [2.3, 1.0, 0.0], at: [0.3, -1.6, -1.9], hi: ['vacHead', 'water'], fx: 'vac' } },
+          { t: 'Vacuum slowly, overlapping', d: 'Push the head in long, slow, overlapping strokes like mowing a lawn. If you see a dust cloud, slow down.', why: 'Fast strokes stir fine dirt back into the water, where it settles again later.', v: { cam: [0.9, 0.9, 0.2], at: [0.3, -1.75, -1.9], hi: ['vacHead'], hide: ['debris'], fx: 'vac' } },
+          { t: 'Vacuum to waste for heavy dirt', d: 'For algae or a lot of fine silt, set a multiport to WASTE so it skips the filter. Keep a hose running to top up the level.', why: 'Fine dust passes through sand filters and returns to the pool; waste sends it out.', v: { cam: [0.9, 0.9, 0.2], at: [0.3, -1.75, -1.9], hi: ['vacHead', 'water'], fx: 'vac' } },
           { t: 'Clean up', d: 'Lift the head, pull the hose, empty the skimmer and pump baskets, and check the filter pressure.', why: 'Vacuuming loads the filter quickly; you may need to backwash or rinse the cartridge.', v: { cam: [-0.4, 1.2, 0.4], at: [-2.2, 0.0, -1.4], hi: ['skimBasket'], hide: ['vacHead', 'vacPole', 'vacHose', 'vacPlate'], mv: { skimBasket: [0, 0.4, 0] } } },
         ],
         learn: {
