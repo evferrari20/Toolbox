@@ -1774,10 +1774,10 @@
     id: 'grow',
     icon: 'garden',
     code: 'GRW',
-    name: 'Grow',
-    domain: 'garden',
-    kind: 'project',
-    blurb: 'Seeds, soil, vegetables, herbs, trees, roses and pollinator beds',
+    name: 'Garden basics',
+    domain: 'grow',
+    kind: 'grow',
+    blurb: 'Seeds, soil, watering, pruning and planting: the skills every grower uses',
     repairs: [seedStart, soil, tomatoes, herbs, water, pollinator, tree, prune, garlic],
   });
 })();

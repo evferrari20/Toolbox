@@ -211,7 +211,7 @@
   TB.category({
     id: 'private',
     code: 'PRV',
-    kind: 'project',
+    kind: 'grow',
     hidden: true,
     name: 'Private Garden',
     domain: 'private',
