@@ -94,6 +94,7 @@
     repairs: [
       {
         id: 'mower-start',
+        renter: true,
         title: 'Lawn mower won’t start',
         model: 'mower',
         level: 1,
@@ -190,6 +191,7 @@
       },
       {
         id: 'mower-blade',
+        renter: true,
         title: 'Sharpen a mower blade',
         model: 'mower',
         level: 2,

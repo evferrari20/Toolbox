@@ -169,7 +169,10 @@
     const g = K.part(name, pos, null, label);
     const n = Math.max(2, Math.round(len / 0.6) + 1);
     for (let k = 0; k < n; k++) K.tor(g, [rad, 0.004, 180], 'steel', [-len / 2 + (k * len) / (n - 1), 0, 0], [0, 90, 0]);
-    K.cyl(g, [rad + 0.005, rad + 0.005, len + 0.06, 32, true, 0, Math.PI], K.std(color || 0xf4f4f0, { transparent: true, opacity: opacity || 0.45, side: DS, roughness: 1 }), [0, 0, 0], [0, 0, 90]);
+    const arc = [];
+    for (let k = 0; k <= 24; k++) arc.push([Math.cos((k / 24) * Math.PI) * (rad + 0.006), Math.sin((k / 24) * Math.PI) * (rad + 0.006)]);
+    for (let k = 24; k >= 0; k--) arc.push([Math.cos((k / 24) * Math.PI) * (rad + 0.003), Math.sin((k / 24) * Math.PI) * (rad + 0.003)]);
+    K.ext(K.group(g, [-len / 2 - 0.03, 0, 0], [0, 90, 0]), arc, len + 0.06, K.std(color || 0xf4f4f0, { transparent: true, opacity: opacity || 0.45, side: DS, roughness: 1 }), [0, 0, 0], null, 0);
     [-1, 1].forEach((s) => K.box(g, [len + 0.2, 0.04, 0.12], K.std(0x6a6e60, { roughness: 1 }), [0, 0.02, s * (rad + 0.04)], null, 0.01));
     return g;
   }

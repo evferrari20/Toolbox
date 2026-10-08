@@ -108,7 +108,7 @@
   /* ---------- Nav ---------- */
   const nav = $('#domnav');
   nav.innerHTML =
-    KIND_IDS.map((k) => `<a href="#mode.${k}" class="mode kind-${k}" data-d="mode.${k}">${KIND_ICON[k]}${KINDS[k].name}</a>`).join('') + `<a href="#items" class="mode kind-items" data-d="items">${I.wrench}Tools A–Z</a><span class="nav-sep"></span>` +
+    KIND_IDS.map((k) => `<a href="#mode.${k}" class="mode kind-${k}" data-d="mode.${k}">${KIND_ICON[k]}${KINDS[k].name}</a>`).join('') + `<a href="#all" class="mode kind-items" data-d="all">${I.search}Filter</a><a href="#items" class="mode kind-items" data-d="items">${I.wrench}Tools A–Z</a><span class="nav-sep"></span>` +
     TB.DOMAINS.filter((d) => d.id !== 'grow' && TB.categories.some((c) => c.domain === d.id && !c.hidden))
       .map((d) => `<a href="#d.${d.id}" class="d-${d.id}" data-d="${d.id}">${esc(d.name)}</a>`)
       .join('');
@@ -240,24 +240,119 @@
     document.title = d.name + ' · Toolbox';
   }
 
+  /* ---------- Filters ----------
+     Narrow any guide list by type, area, difficulty, time, cost and renter-friendly. Choices are kept on this device. */
+  const parseMinutes = (s) => {
+    s = String(s || '');
+    const m = s.match(/(\d+(?:\.\d+)?)(?:\s*[–-]\s*(\d+(?:\.\d+)?))?\s*\+?\s*(min|minute|hr|hour|h\b|day|weekend|week)/i);
+    if (!m) return /weekend/i.test(s) ? 960 : null;
+    const u = m[3].toLowerCase();
+    const mult = u.startsWith('min') ? 1 : u.startsWith('h') ? 60 : u.startsWith('weekend') ? 960 : u.startsWith('week') ? 2400 : 480;
+    return parseFloat(m[1]) * mult;
+  };
+  const parseCost = (s) => {
+    const m = String(s || '').match(/\$\s*(\d[\d,]*)/);
+    return m ? parseInt(m[1].replace(/,/g, ''), 10) : /free|\$0/i.test(String(s)) ? 0 : null;
+  };
+  const FACETS = {
+    kind: { label: 'Type', opts: KIND_IDS.map((k) => [k, KINDS[k].one]), test: (r, c, v) => kindOf(r, c) === v },
+    area: { label: 'Area', opts: TB.DOMAINS.map((d) => [d.id, d.name]), test: (r, c, v) => c.domain === v },
+    level: { label: 'Difficulty', opts: [['1', 'Easy'], ['2', 'Moderate'], ['3', 'Advanced']], test: (r, c, v) => String(Math.min(3, r.level || 1)) === v },
+    time: {
+      label: 'Time',
+      opts: [['30', 'Under 30 min'], ['120', 'Under 2 hrs'], ['480', 'Under a day'], ['big', 'Weekend +']],
+      test: (r, c, v) => {
+        const m = parseMinutes(r.time);
+        if (m == null) return false;
+        return v === 'big' ? m > 480 : m <= +v;
+      },
+    },
+    cost: {
+      label: 'Cost',
+      opts: [['0', 'Free / on hand'], ['25', 'Under $25'], ['100', 'Under $100'], ['500', 'Under $500'], ['big', '$500 +']],
+      test: (r, c, v) => {
+        const n = parseCost(r.cost);
+        if (n == null) return v === '0' && /free/i.test(r.cost || '');
+        return v === 'big' ? n >= 500 : v === '0' ? n === 0 : n < +v;
+      },
+    },
+  };
+  let filt = store.get('filters', {}) || {};
+  const fActive = (skip) => Object.entries(filt).filter(([k, v]) => v && v.length && !(skip || []).includes(k) && (FACETS[k] || k === 'renter'));
+  const passes = (r, c, skip) =>
+    fActive(skip).every(([k, v]) => (k === 'renter' ? !!r.renter : v.some((x) => FACETS[k].test(r, c, x))));
+  function filterBar(skip, onChange, count) {
+    const n = fActive(skip).length;
+    const bar = `<section class="filters ${n ? 'has' : ''}" aria-label="Filters">
+      <div class="f-head"><b>${I.search} Filter</b><span class="f-count">${count != null ? `${count} guide${count === 1 ? '' : 's'}` : ''}</span>${n ? '<button class="linkbtn" data-fclear>Clear all</button>' : ''}</div>
+      <div class="f-rows">${Object.entries(FACETS)
+        .filter(([k]) => !(skip || []).includes(k))
+        .map(
+          ([k, f]) => `<div class="f-row"><span class="f-lab">${f.label}</span><div class="f-chips">${f.opts
+            .filter(([v]) => k !== 'area' || visibleCats().some((c) => c.domain === v))
+            .map(([v, t]) => `<button class="fchip ${(filt[k] || []).includes(v) ? 'on' : ''}" data-f="${k}" data-v="${esc(v)}" aria-pressed="${(filt[k] || []).includes(v)}">${esc(t)}</button>`)
+            .join('')}</div></div>`
+        )
+        .join('')}
+        <div class="f-row"><span class="f-lab">Living</span><div class="f-chips"><button class="fchip renter ${filt.renter ? 'on' : ''}" data-f="renter" aria-pressed="${!!filt.renter}">${I.doors || ''}Renter-friendly</button></div></div>
+      </div>
+    </section>`;
+    setTimeout(() => {
+      $$('.fchip').forEach((b) =>
+        b.addEventListener('click', () => {
+          const k = b.dataset.f;
+          if (k === 'renter') filt.renter = filt.renter ? 0 : [1];
+          else {
+            const cur = new Set(filt[k] || []);
+            cur.has(b.dataset.v) ? cur.delete(b.dataset.v) : cur.add(b.dataset.v);
+            filt[k] = [...cur];
+          }
+          store.set('filters', filt);
+          const y = scrollY;
+          onChange();
+          scrollTo(0, y);
+        })
+      );
+      const cl = $('[data-fclear]');
+      if (cl) cl.addEventListener('click', () => ((filt = {}), store.set('filters', filt), onChange()));
+    });
+    return bar;
+  }
+  // Every guide, filtered: the "Browse & filter" page.
+  function renderAll() {
+    const all = visibleCats().flatMap((c) => c.repairs.map((r) => ({ r, c })));
+    const hits = all.filter(({ r, c }) => passes(r, c));
+    main.innerHTML = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span><span>Browse & filter</span></nav>
+      <header class="page-head"><span class="cat-ico big">${I.search}</span><div><h1>Find the right guide</h1><p>Pick what matters (time, cost, difficulty, renting) and the list narrows as you tap.</p></div></header>
+      ${filterBar([], renderAll, hits.length)}
+      ${hits.length ? `<div class="rep-list">${hits.map(({ r, c }) => repCard(r, c)).join('')}</div>` : '<p class="empty">Nothing fits all of those. Clear a filter or two.</p>'}`;
+    document.title = 'Browse & filter · Toolbox';
+  }
+
   // All repairs, or all builds, across every section.
   function renderMode(k) {
     let html = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span><span>${KINDS[k].name}</span></nav>
       <header class="page-head kind-${k}"><span class="cat-ico big kind-${k}">${KIND_ICON[k]}</span><div><h1>${KINDS[k].name}</h1><p>${KINDS[k].blurb}</p></div></header>`;
+    const skip = k === 'grow' ? ['kind', 'area'] : ['kind'];
+    const ok = (r, c) => passes(r, c, skip);
+    const total = visibleCats().reduce((n, c) => n + splitByKind(c)[k].filter((r) => ok(r, c)).length, 0);
+    html += filterBar(skip, () => renderMode(k), total);
+    if (!total) html += '<p class="empty">Nothing fits all of those. Clear a filter or two.</p>';
     if (k === 'grow') {
-      for (const c of visibleCats().filter((x) => splitByKind(x).grow.length))
+      for (const c of visibleCats().filter((x) => splitByKind(x).grow.some((r) => ok(r, x))))
         html += `<section class="block"><div class="block-head">${catIcon(c)}<h2><a href="#${c.id}">${esc(c.name)}</a></h2><p>${esc(c.blurb)}</p></div><div class="rep-list">${splitByKind(c)
-          .grow.map((r) => repCard(r, c))
+          .grow.filter((r) => ok(r, c))
+          .map((r) => repCard(r, c))
           .join('')}</div></section>`;
       main.innerHTML = html;
       document.title = 'Grow · Toolbox';
       return;
     }
     for (const d of TB.DOMAINS) {
-      const cats = visibleCats().filter((c) => c.domain === d.id && splitByKind(c)[k].length);
+      const cats = visibleCats().filter((c) => c.domain === d.id && splitByKind(c)[k].some((r) => ok(r, c)));
       if (!cats.length) continue;
       html += `<section class="block domain d-${d.id}"><div class="block-head"><h2>${esc(d.name)}</h2></div><div class="rep-list">${cats
-        .flatMap((c) => splitByKind(c)[k].map((r) => repCard(r, c)))
+        .flatMap((c) => splitByKind(c)[k].filter((r) => ok(r, c)).map((r) => repCard(r, c)))
         .join('')}</div></section>`;
     }
     main.innerHTML = html;
@@ -954,13 +1049,14 @@
     const best = all.find((h) => h.d.type !== 'item' && h.d.type !== 'cat' && h.score >= all[0].score * 0.5) || all[0];
     const byType = (t) => all.filter((h) => h.d.type === t);
     const row = ({ d }) => `<a class="hit" href="${esc(d.href)}" ${d.type === 'item' ? `data-info="${esc(d.key)}"` : ''}><span class="sugg-ico">${hitIcon(d)}</span><span class="sugg-txt"><b>${esc(d.title)}</b><small>${esc(d.sub || '')}</small></span><span class="sugg-type t-${d.type}">${TYPE_LABEL[d.type]}</span></a>`;
-    const guides = all.filter((h) => h.d.type === 'guide' || h.d.type === 'variant');
+    const fOk = (h) => !h.d.r || passes(h.d.r, h.d.c);
+    const guides = all.filter((h) => (h.d.type === 'guide' || h.d.type === 'variant') && fOk(h));
     const sec = (title, list, n) => (list.length ? `<section class="block"><div class="block-head"><h2>${title} <small>${list.length}</small></h2></div><div class="hits">${list.slice(0, n).map(row).join('')}</div></section>` : '');
     main.innerHTML = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span><span>Search</span></nav>
       <header class="page-head"><div><h1>Results for “${esc(term)}”</h1><p>${all.length ? `${all.length} matches across guides, steps and tools` : 'Nothing matched yet.'}</p></div></header>
       <label class="hero-search find-again">${I.search}<input id="fq" type="search" value="${esc(term)}" aria-label="Search again"></label>
       ${best ? `<section class="best"><span class="eyebrow">${I.bulb} Best match</span>${row(best)}</section>` : '<p class="empty">Try a simpler word or a part name, like “faucet”, “tire”, “breaker” or “tomato”.</p>'}
-      ${sec('Guides', guides, 30)}${sec('Specific steps', byType('step'), 20)}${sec('Tools & materials', byType('item'), 20)}${sec('Sections', byType('cat'), 10)}`;
+      ${filterBar([], () => renderSearch(term), guides.length)}${sec('Guides', guides, 30)}${sec('Specific steps', byType('step').filter(fOk), 20)}${sec('Tools & materials', byType('item'), 20)}${sec('Sections', byType('cat'), 10)}`;
     $$('.hit[data-info]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
     attachSearch($('#fq'));
     document.title = 'Search · Toolbox';
@@ -988,7 +1084,7 @@
             <span class="sd-n">${count(k)} guides →</span>
           </a>`
         ).join('')}</div>
-        <a class="start-skip" href="#home">Browse everything</a>
+        <div class="start-links"><a class="start-skip" href="#all">Filter by time, cost or difficulty</a><a class="start-skip" href="#home">Browse everything</a></div>
       </div>
     </section>`;
     attachSearch($('#sq'));
@@ -1023,7 +1119,12 @@
     }
     if (h === '') return renderStart();
     if (h === 'home') return renderHome();
-    if (h.startsWith('find=')) return renderSearch(h.slice(5));
+    if (h === 'all' || h === 'find=') {
+      const a = $('#domnav a[data-d="all"]');
+      if (a) a.classList.add('on');
+      return renderAll();
+    }
+    if (h.startsWith('find=')) return renderSearch(decodeURIComponent(h.slice(5)));
     if (/^mode\.(repair|build|grow)$/.test(h)) {
       const a = $(`#domnav a[data-d="${h}"]`);
       if (a) a.classList.add('on');
