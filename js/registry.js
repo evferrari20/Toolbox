@@ -47,6 +47,8 @@
     { id: 'projects', name: 'Backyard builds', blurb: 'Weekend projects that upgrade your outdoor space' },
     { id: 'grow', name: 'Grow', blurb: 'Vegetables, fruit, herbs, flowers and houseplants, from seed to harvest' },
     { id: 'garden', name: 'Garden builds', blurb: 'Beds, bins, barrels, frames and fences for growing' },
+    { id: 'world', name: 'World woodworking', blurb: 'Build the way master makers do around the world, from Japanese joinery to Scandinavian spoon carving' },
+    { id: 'survival', name: 'Survival & emergencies', blurb: 'Water, fire, shelter, first aid and what to do when things go wrong' },
     { id: 'vehicles', name: 'Vehicles', blurb: 'Car and bike basics' },
     { id: 'recreation', name: 'Recreation', blurb: 'Campfires, courts and cookouts' },
     { id: 'tech', name: 'Tech', blurb: 'Computers and home network' },
