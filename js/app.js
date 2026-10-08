@@ -79,13 +79,21 @@
 
   /* ---------- Shared bits ---------- */
   // Every guide is either a Repair (fix what's broken) or a Build (add something new).
-  const kindOf = (r, c) => r.kind || (c && c.kind === 'project' ? 'build' : 'repair');
-  const KINDS = { repair: { name: 'Repairs', one: 'repair', blurb: 'Fix what’s broken, worn out or not working right.' }, build: { name: 'Builds', one: 'build', blurb: 'Add onto what you have, or build something new from scratch.' } };
-  const kindPill = (k) => `<span class="pill kind-${k}">${k === 'build' ? I.cube : I.wrench}${k === 'build' ? 'Build' : 'Repair'}</span>`;
-  const splitByKind = (c) => ({ repair: c.repairs.filter((r) => kindOf(r, c) === 'repair'), build: c.repairs.filter((r) => kindOf(r, c) === 'build') });
+  // ...or Grow (plants, from seed to harvest).
+  const kindOf = (r, c) => r.kind || (c && c.kind === 'project' ? 'build' : c && c.kind === 'grow' ? 'grow' : 'repair');
+  const KIND_IDS = ['repair', 'build', 'grow'];
+  const KINDS = {
+    repair: { name: 'Repairs', one: 'Repair', door: 'Fix something', blurb: 'Fix what’s broken, worn out or not working right.' },
+    build: { name: 'Builds', one: 'Build', door: 'Build something', blurb: 'Add onto what you have, or build something new from scratch.' },
+    grow: { name: 'Grow', one: 'Grow', door: 'Grow something', blurb: 'Food, flowers and houseplants, from seed to harvest.' },
+  };
+  const KIND_ICON = { repair: I.wrench, build: I.cube, grow: I.sprout };
+  const kindPill = (k) => `<span class="pill kind-${k}">${KIND_ICON[k]}${KINDS[k].one}</span>`;
+  const splitByKind = (c) => Object.fromEntries(KIND_IDS.map((k) => [k, c.repairs.filter((r) => kindOf(r, c) === k)]));
   const countLine = (c) => {
     const s = splitByKind(c);
-    return [s.repair.length ? `${s.repair.length} repair${s.repair.length > 1 ? 's' : ''}` : '', s.build.length ? `${s.build.length} build${s.build.length > 1 ? 's' : ''}` : ''].filter(Boolean).join(' · ');
+    const word = { repair: 'repair', build: 'build', grow: 'guide' };
+    return KIND_IDS.filter((k) => s[k].length).map((k) => `${s[k].length} ${word[k]}${s[k].length > 1 ? 's' : ''}`).join(' · ');
   };
   const LEVEL = { 1: 'Easy', 2: 'Moderate', 3: 'Advanced' };
   const level = (n) => `<span class="pill lvl-${n}"><span class="dots">${[1, 2, 3].map((i) => `<i class="${i <= n ? 'on' : ''}"></i>`).join('')}</span>${LEVEL[n]}</span>`;
@@ -100,8 +108,8 @@
   /* ---------- Nav ---------- */
   const nav = $('#domnav');
   nav.innerHTML =
-    `<a href="#mode.repair" class="mode kind-repair" data-d="mode.repair">${I.wrench}Repairs</a><a href="#mode.build" class="mode kind-build" data-d="mode.build">${I.cube}Builds</a><a href="#items" class="mode kind-items" data-d="items">${I.wrench}Tools A–Z</a><span class="nav-sep"></span>` +
-    TB.DOMAINS.filter((d) => TB.categories.some((c) => c.domain === d.id && !c.hidden))
+    KIND_IDS.map((k) => `<a href="#mode.${k}" class="mode kind-${k}" data-d="mode.${k}">${KIND_ICON[k]}${KINDS[k].name}</a>`).join('') + `<a href="#items" class="mode kind-items" data-d="items">${I.wrench}Tools A–Z</a><span class="nav-sep"></span>` +
+    TB.DOMAINS.filter((d) => d.id !== 'grow' && TB.categories.some((c) => c.domain === d.id && !c.hidden))
       .map((d) => `<a href="#d.${d.id}" class="d-${d.id}" data-d="${d.id}">${esc(d.name)}</a>`)
       .join('');
 
@@ -115,6 +123,7 @@
     playTimer = null;
     keyHandler = null;
     renderToken++;
+    document.body.classList.remove('is-start');
     if (viewer) viewer.destroy();
     if (heroViewer) heroViewer.destroy();
     viewer = heroViewer = null;
@@ -157,10 +166,10 @@
       </div>
     </section>
 
-    <section class="doors">${['repair', 'build']
+    <section class="doors">${KIND_IDS
       .map((k) => {
         const all = visibleCats().flatMap((c) => c.repairs.filter((r) => kindOf(r, c) === k).map((r) => ({ r, c })));
-        return `<a class="door kind-${k}" href="#mode.${k}"><span class="door-ico">${k === 'build' ? I.cube : I.wrench}</span><div><h2>${k === 'build' ? 'Build something' : 'Fix something'}</h2><p>${KINDS[k].blurb}</p><span class="door-n">${all.length} guides →</span></div><ul>${all
+        return `<a class="door kind-${k}" href="#mode.${k}"><span class="door-ico">${KIND_ICON[k]}</span><div><h2>${KINDS[k].door}</h2><p>${KINDS[k].blurb}</p><span class="door-n">${all.length} guides →</span></div><ul>${all
           .slice(0, 4)
           .map(({ r }) => `<li>${esc(r.title)}</li>`)
           .join('')}</ul></a>`;
@@ -192,11 +201,8 @@
     }
     main.innerHTML = html;
     document.title = 'Toolbox';
-    $$('.chip[data-q]').forEach((b) => b.addEventListener('click', () => ((q.value = b.dataset.q), q.dispatchEvent(new Event('input')))));
-    const hq = $('#hq');
-    hq.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter' && hq.value.trim()) ((q.value = hq.value), q.dispatchEvent(new Event('input')));
-    });
+    $$('.chip[data-q]').forEach((b) => b.addEventListener('click', () => (location.hash = 'find=' + encodeURIComponent(b.dataset.q))));
+    attachSearch($('#hq'));
     startHero();
   }
 
@@ -220,15 +226,15 @@
   // Two labeled groups, Repairs then Builds, skipping an empty one.
   function kindGroups(c, list) {
     const s = list || splitByKind(c);
-    return ['repair', 'build']
+    return KIND_IDS
       .filter((k) => s[k].length)
-      .map((k) => `<div class="kind-group kind-${k}"><h3 class="kind-h">${k === 'build' ? I.cube : I.wrench}${KINDS[k].name}<small>${KINDS[k].blurb}</small></h3><div class="rep-list">${s[k].map((r) => repCard(r, c)).join('')}</div></div>`)
+      .map((k) => `<div class="kind-group kind-${k}"><h3 class="kind-h">${KIND_ICON[k]}${KINDS[k].name}<small>${KINDS[k].blurb}</small></h3><div class="rep-list">${s[k].map((r) => repCard(r, c)).join('')}</div></div>`)
       .join('');
   }
 
   function renderDomain(d) {
     const cats = visibleCats().filter((c) => c.domain === d.id);
-    main.innerHTML = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span><span>${esc(d.name)}</span></nav>
+    main.innerHTML = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span><span>${esc(d.name)}</span></nav>
       <header class="page-head d-${d.id}"><div><h1>${esc(d.name)}</h1><p>${esc(d.blurb)}</p></div></header>
       ${cats.map((c) => `<section class="block"><div class="block-head">${catIcon(c)}<h2><a href="#${c.id}">${esc(c.name)}</a></h2><p>${esc(c.blurb)}</p></div>${kindGroups(c)}</section>`).join('')}`;
     document.title = d.name + ' · Toolbox';
@@ -236,8 +242,17 @@
 
   // All repairs, or all builds, across every section.
   function renderMode(k) {
-    let html = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span><span>${KINDS[k].name}</span></nav>
-      <header class="page-head kind-${k}"><span class="cat-ico big kind-${k}">${k === 'build' ? I.cube : I.wrench}</span><div><h1>${KINDS[k].name}</h1><p>${KINDS[k].blurb}</p></div></header>`;
+    let html = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span><span>${KINDS[k].name}</span></nav>
+      <header class="page-head kind-${k}"><span class="cat-ico big kind-${k}">${KIND_ICON[k]}</span><div><h1>${KINDS[k].name}</h1><p>${KINDS[k].blurb}</p></div></header>`;
+    if (k === 'grow') {
+      for (const c of visibleCats().filter((x) => splitByKind(x).grow.length))
+        html += `<section class="block"><div class="block-head">${catIcon(c)}<h2><a href="#${c.id}">${esc(c.name)}</a></h2><p>${esc(c.blurb)}</p></div><div class="rep-list">${splitByKind(c)
+          .grow.map((r) => repCard(r, c))
+          .join('')}</div></section>`;
+      main.innerHTML = html;
+      document.title = 'Grow · Toolbox';
+      return;
+    }
     for (const d of TB.DOMAINS) {
       const cats = visibleCats().filter((c) => c.domain === d.id && splitByKind(c)[k].length);
       if (!cats.length) continue;
@@ -252,7 +267,7 @@
   function renderCategory(c) {
     const d = domainOf(c);
     const dl = TB.DOMAINS.includes(d) ? `<a href="#d.${d.id}">${esc(d.name)}</a><span class="sep">/</span>` : '';
-    main.innerHTML = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span>${dl}<span>${esc(c.name)}</span></nav>${c.hidden ? '<p class="private-note">Only visible on this device. Tap the yellow wrench logo 5 times to hide it again.</p>' : ''}
+    main.innerHTML = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span>${dl}<span>${esc(c.name)}</span></nav>${c.hidden ? '<p class="private-note">Only visible on this device. Tap the yellow wrench logo 5 times to hide it again.</p>' : ''}
       <header class="page-head d-${c.domain}">${catIcon(c)}<div><h1>${esc(c.name)}</h1><p>${esc(c.blurb)}</p></div></header>
       ${kindGroups(c)}`;
     document.title = c.name + ' · Toolbox';
@@ -412,7 +427,7 @@
     const n = steps.length;
     const d = domainOf(c);
 
-    main.innerHTML = `<nav class="crumbs"><a href="#">Home</a><span class="sep">/</span><a href="#${c.id}">${esc(c.name)}</a><span class="sep">/</span><span>${esc(r.title)}</span></nav>
+    main.innerHTML = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span><a href="#${c.id}">${esc(c.name)}</a><span class="sep">/</span><span>${esc(r.title)}</span></nav>
     <header class="rep-head d-${c.domain}">
       <div class="rep-head-main">
         <div class="rep-top">${catIcon(c)}<span class="rep-cat">${esc(c.name)}</span>${kindPill(kindOf(base, c))}</div>
@@ -428,7 +443,7 @@
     </header>
 
     ${base.variants ? `<section class="variants" aria-label="Choose your version">
-      <h2>${kindOf(base, c) === 'build' ? 'Pick your design' : 'Which one do you have?'}</h2>
+      <h2>${{ build: 'Pick your design', grow: 'Pick what you’re growing' }[kindOf(base, c)] || 'Which one do you have?'}</h2>
       <div class="var-row" role="radiogroup">${base.variants
         .map(
           (v) => `<button class="var ${v.id === vid ? 'on' : ''}" role="radio" aria-checked="${v.id === vid}" data-v="${v.id}"><b>${esc(v.name)}</b><span>${esc(v.blurb || '')}</span>${
@@ -468,9 +483,13 @@
           ${L.specs && L.specs.length ? `<div class="specs">${L.specs.map(([k, v]) => `<div class="spec"><span>${esc(k)}</span><b>${esc(v)}</b></div>`).join('')}</div>` : ''}
         </section>` : ''}
 
+        ${r.card && r.card.length ? `<section class="section glance"><h2>${I.sprout} At a glance</h2><div class="glance-grid">${r.card
+          .map(([k, v]) => `<div><span>${esc(k)}</span><b>${esc(v)}</b></div>`)
+          .join('')}</div></section>` : ''}
+
         <section class="section box safety"><h2>${I.shield} Safety first</h2><ul>${r.safety.map((s) => `<li>${esc(s)}</li>`).join('')}</ul></section>
 
-        <section class="section"><h2>${kindOf(base, c) === 'build' ? 'Plan it' : 'Likely causes'}</h2><div class="causes">${r.causes
+        <section class="section"><h2>${kindOf(base, c) === 'repair' ? 'Likely causes' : 'Plan it'}</h2><div class="causes">${r.causes
           .map(([t, dd], i) => `<div class="cause"><span class="n">${i + 1}</span><b>${esc(t)}</b>${dd ? `<p>${esc(dd)}</p>` : ''}</div>`)
           .join('')}</div></section>
 
@@ -548,7 +567,7 @@
         b.closest('.step').classList.toggle('done', doneSet.has(i));
         store.set('done:' + key, [...doneSet]);
         paintProg();
-        if (doneSet.size === n && was < n) celebrate(kindOf(base, c) === 'build' ? 'Built it!' : 'Fixed it!');
+        if (doneSet.size === n && was < n) celebrate({ build: 'Built it!', grow: 'You grew it!' }[kindOf(base, c)] || 'Fixed it!');
       })
     );
     $('#clear').addEventListener('click', () => {
@@ -755,27 +774,226 @@
     })();
   }
 
-  /* ---------- Search ---------- */
-  const q = $('#q');
-  function renderSearch(term) {
-    const words = term.toLowerCase().trim().split(/\s+/);
-    const hits = [];
-    for (const c of visibleCats())
-      for (const r of c.repairs) {
-        const vtext = (r.variants || []).map((v) => v.name + ' ' + (v.blurb || '')).join(' ');
-        const hay = [r.title, r.summary, c.name, vtext, ...r.causes.map((x) => x[0]), ...r.tools].join(' ').toLowerCase();
-        if (words.every((w) => hay.includes(w))) hits.push({ c, r, score: words.every((w) => r.title.toLowerCase().includes(w)) ? 0 : 1 });
+  /* ---------- Search ----------
+     One index over guides, versions, single steps, sections and every tool/material. Typing shows the
+     best matches; Enter jumps straight to the top one; "See all" lists everything grouped. */
+  const SYN = {
+    leak: ['drip', 'leaking'], leaky: ['leak', 'drip'], drip: ['leak'], dripping: ['drip', 'leak'],
+    clog: ['clogged', 'drain', 'slow'], clogged: ['clog', 'drain'], blocked: ['clog'],
+    outlet: ['receptacle', 'plug'], plug: ['outlet'], socket: ['outlet'], receptacle: ['outlet'],
+    ac: ['air', 'conditioner', 'condenser', 'cooling'], aircon: ['air', 'conditioner'], heat: ['furnace', 'heater'], heater: ['furnace', 'heat'],
+    tyre: ['tire'], tires: ['tire'], wifi: ['wi-fi', 'router', 'network'], internet: ['network', 'router', 'wi-fi'],
+    pc: ['computer'], laptop: ['computer'], fridge: ['refrigerator'], freezer: ['refrigerator'],
+    bbq: ['grill'], barbecue: ['grill'], lamp: ['light'], light: ['fixture', 'bulb'], bulb: ['light'],
+    car: ['auto', 'vehicle', 'engine'], truck: ['diesel', 'vehicle'], grass: ['lawn'], yard: ['lawn', 'backyard'],
+    veggies: ['vegetable'], veggie: ['vegetable'], veg: ['vegetable'], plants: ['plant'], houseplant: ['indoor', 'plant'],
+    hoop: ['basketball'], tent: ['camping'], campfire: ['fire'], pot: ['container'], planter: ['container', 'bed'],
+    loo: ['toilet'], wc: ['toilet'], tap: ['faucet'], spigot: ['faucet', 'hose'], breaker: ['circuit', 'panel'],
+    squeak: ['squeaky'], squeaky: ['squeak'], hole: ['patch'], crack: ['cracked', 'patch'],
+  };
+  const stem = (w) => (w.length > 4 ? w.replace(/(ings|ing|ies|es|ed|s)$/, (m) => (m === 'ies' ? 'y' : '')) : w);
+  const STOP = new Set('a an the my is are it its to of on in at and or not no wont dont doesnt isnt cant how do i what why with for from your me keeps keep'.split(' '));
+  const toks = (t) => String(t || '').toLowerCase().replace(/[’']/g, '').split(/[^a-z0-9]+/).filter(Boolean).map(stem);
+  const qtoks = (t) => {
+    const all = toks(t);
+    const kept = all.filter((w) => !STOP.has(w));
+    return kept.length ? kept : all;
+  };
+  function ed1(a, b) {
+    // true when a and b differ by at most one edit
+    if (Math.abs(a.length - b.length) > 1) return false;
+    let i = 0, j = 0, e = 0;
+    while (i < a.length && j < b.length) {
+      if (a[i] === b[j]) (i++, j++);
+      else {
+        if (++e > 1) return false;
+        if (a.length > b.length) i++;
+        else if (a.length < b.length) j++;
+        else (i++, j++);
       }
-    hits.sort((a, b) => a.score - b.score);
-    main.innerHTML = `<header class="page-head"><div><h1>Results for “${esc(term)}”</h1><p>${hits.length} guide${hits.length === 1 ? '' : 's'}</p></div></header>
-      ${hits.length ? `<div class="rep-list">${hits.map(({ c, r }) => repCard(r, c)).join('')}</div>` : '<p class="empty">Nothing matched. Try a part name like “faucet”, “tire” or “breaker”.</p>'}`;
+    }
+    return e + (a.length - i) + (b.length - j) <= 1;
   }
-  q.addEventListener('input', () => {
-    if (q.value.trim()) {
-      teardown();
-      renderSearch(q.value);
-    } else route();
-  });
+  let INDEX = null;
+  let indexKey = '';
+  function buildIndex() {
+    const key = String(unlocked());
+    if (INDEX && key === indexKey) return INDEX;
+    indexKey = key;
+    INDEX = [];
+    const add = (o, fields) => {
+      o.f = fields.map(([w, t]) => [w, new Set(toks(t))]);
+      INDEX.push(o);
+    };
+    for (const c of visibleCats()) {
+      add({ type: 'cat', c, title: c.name, sub: c.blurb, href: '#' + c.id }, [[6, c.name], [2, c.blurb]]);
+      for (const r of c.repairs) {
+        const base = '#' + c.id + '.' + r.id;
+        add({ type: 'guide', c, r, title: r.title, sub: r.summary, href: base }, [
+          [10, r.title], [4, c.name], [3, r.summary], [2, (r.variants || []).map((v) => v.name).join(' ')], [1, r.causes.map((x) => x.join(' ')).join(' ') + ' ' + r.tools.join(' ')],
+        ]);
+        const vs = r.variants || [];
+        vs.forEach((v, vi) => {
+          if (vi === 0 && !v.steps) return;
+          add({ type: 'variant', c, r, v, title: v.name, sub: r.title, href: base + '@' + v.id }, [[8, v.name], [6, r.title], [3, v.blurb || ''], [1, v.summary || '']]);
+        });
+        const stepSets = [[null, r.steps]].concat(vs.filter((v) => v.steps).map((v) => [v, v.steps]));
+        for (const [v, steps] of stepSets)
+          steps.forEach((st, i) =>
+            add({ type: 'step', c, r, v, title: st.t, sub: `Step ${i + 1} · ${r.title}${v ? ' (' + v.name + ')' : ''}`, href: base + (v ? '@' + v.id : '') + '~s' + (i + 1) }, [
+              [6, st.t], [2, r.title], [1, st.d + ' ' + (st.tip || '')],
+            ])
+          );
+      }
+    }
+    for (const [k, it] of Object.entries(TB.ITEMS || {})) add({ type: 'item', key: k, title: it.name, sub: it.what, href: '#item=' + k }, [[7, it.name], [1, it.what]]);
+    return INDEX;
+  }
+  const TYPE_W = { guide: 1, variant: 0.92, cat: 0.85, step: 0.62, item: 0.45 };
+  function search(term, limit) {
+    const raw = qtoks(term);
+    if (!raw.length) return [];
+    const groups = raw.map((w) => [w].concat((SYN[w] || []).map(stem)));
+    const phrase = term.toLowerCase().trim();
+    const out = [];
+    // Score with the words as typed; fall back to synonyms only for documents the typed words miss.
+    const scoreWith = (d, useSyn) => {
+      let score = 0, hit = 0;
+      for (const g of groups) {
+        let best = 0;
+        for (const [w, set] of d.f)
+          for (const q of useSyn ? g : g.slice(0, 1)) {
+            if (set.has(q)) best = Math.max(best, w);
+            else if (best < w * 0.7)
+              for (const t of set) {
+                if (q.length >= 3 && t.startsWith(q)) { best = Math.max(best, w * 0.7); break; }
+                if (q.length >= 5 && ed1(q, t)) { best = Math.max(best, w * 0.5); break; }
+              }
+          }
+        if (best) (hit++, (score += best));
+      }
+      // Every word should match; with 3+ words, allow one miss at a cost.
+      if (hit === groups.length) return score;
+      return groups.length >= 3 && hit >= groups.length - 1 ? score * 0.45 : 0;
+    };
+    for (const d of buildIndex()) {
+      let score = scoreWith(d, false);
+      if (!score) score = scoreWith(d, true) * 0.3;
+      if (!score) continue;
+      score *= TYPE_W[d.type];
+      if (d.title.toLowerCase().includes(phrase)) score *= 1.5;
+      out.push({ d, score });
+    }
+    out.sort((a, b) => b.score - a.score);
+    return limit ? out.slice(0, limit) : out;
+  }
+  const TYPE_LABEL = { guide: 'Guide', variant: 'Version', step: 'Step', cat: 'Section', item: 'Tool & part' };
+  const hitIcon = (d) => (d.type === 'item' ? I.wrench : d.c ? catIcon(d.c) : I.search);
+  function goHit(d) {
+    if (d.type === 'item') return showItem(d.key);
+    if (location.hash === d.href) route();
+    else location.hash = d.href;
+  }
+  // Attach the type-ahead to any search input.
+  function attachSearch(input, opts) {
+    const box = document.createElement('div');
+    box.className = 'sugg';
+    box.setAttribute('role', 'listbox');
+    input.parentElement.appendChild(box);
+    input.setAttribute('autocomplete', 'off');
+    let hits = [], sel = 0;
+    const close = () => ((box.innerHTML = ''), box.classList.remove('open'));
+    const paint = () => {
+      const term = input.value.trim();
+      if (!term) return close();
+      hits = search(term, 7);
+      sel = 0;
+      box.innerHTML = (hits.length
+        ? hits.map(({ d }, i) => `<button type="button" class="sugg-row ${i === 0 ? 'on' : ''}" data-i="${i}" role="option"><span class="sugg-ico">${hitIcon(d)}</span><span class="sugg-txt"><b>${esc(d.title)}</b><small>${esc(d.sub || '')}</small></span><span class="sugg-type t-${d.type}">${TYPE_LABEL[d.type]}</span></button>`).join('')
+        : `<div class="sugg-none">No exact match yet. Try a part name, like “faucet”, “tire” or “tomato”.</div>`) +
+        `<button type="button" class="sugg-all" data-all="1">${I.search}See all results for “${esc(term)}”</button>`;
+      box.classList.add('open');
+    };
+    const mark = () => $$('.sugg-row', box).forEach((b, i) => b.classList.toggle('on', i === sel));
+    input.addEventListener('input', paint);
+    input.addEventListener('focus', () => input.value.trim() && paint());
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (!hits.length) return;
+        e.preventDefault();
+        sel = (sel + (e.key === 'ArrowDown' ? 1 : hits.length - 1)) % hits.length;
+        mark();
+      } else if (e.key === 'Enter') {
+        const term = input.value.trim();
+        if (!term) return;
+        e.preventDefault();
+        if (!hits.length) hits = search(term, 7);
+        close();
+        input.blur();
+        if (hits[sel]) goHit(hits[sel].d);
+        else location.hash = 'find=' + encodeURIComponent(term);
+        if (opts && opts.clear) input.value = '';
+      } else if (e.key === 'Escape') close();
+    });
+    box.addEventListener('mousedown', (e) => e.preventDefault());
+    box.addEventListener('click', (e) => {
+      const b = e.target.closest('button');
+      if (!b) return;
+      const term = input.value.trim();
+      close();
+      input.blur();
+      if (b.dataset.all) location.hash = 'find=' + encodeURIComponent(term);
+      else goHit(hits[+b.dataset.i].d);
+      if (opts && opts.clear) input.value = '';
+    });
+    input.addEventListener('blur', () => setTimeout(close, 150));
+  }
+  function renderSearch(term) {
+    const all = search(term);
+    // Prefer a guide, version or step as the best match unless a tool clearly wins.
+    const best = all.find((h) => h.d.type !== 'item' && h.d.type !== 'cat' && h.score >= all[0].score * 0.5) || all[0];
+    const byType = (t) => all.filter((h) => h.d.type === t);
+    const row = ({ d }) => `<a class="hit" href="${esc(d.href)}" ${d.type === 'item' ? `data-info="${esc(d.key)}"` : ''}><span class="sugg-ico">${hitIcon(d)}</span><span class="sugg-txt"><b>${esc(d.title)}</b><small>${esc(d.sub || '')}</small></span><span class="sugg-type t-${d.type}">${TYPE_LABEL[d.type]}</span></a>`;
+    const guides = all.filter((h) => h.d.type === 'guide' || h.d.type === 'variant');
+    const sec = (title, list, n) => (list.length ? `<section class="block"><div class="block-head"><h2>${title} <small>${list.length}</small></h2></div><div class="hits">${list.slice(0, n).map(row).join('')}</div></section>` : '');
+    main.innerHTML = `<nav class="crumbs"><a href="#home">Home</a><span class="sep">/</span><span>Search</span></nav>
+      <header class="page-head"><div><h1>Results for “${esc(term)}”</h1><p>${all.length ? `${all.length} matches across guides, steps and tools` : 'Nothing matched yet.'}</p></div></header>
+      <label class="hero-search find-again">${I.search}<input id="fq" type="search" value="${esc(term)}" aria-label="Search again"></label>
+      ${best ? `<section class="best"><span class="eyebrow">${I.bulb} Best match</span>${row(best)}</section>` : '<p class="empty">Try a simpler word or a part name, like “faucet”, “tire”, “breaker” or “tomato”.</p>'}
+      ${sec('Guides', guides, 30)}${sec('Specific steps', byType('step'), 20)}${sec('Tools & materials', byType('item'), 20)}${sec('Sections', byType('cat'), 10)}`;
+    $$('.hit[data-info]').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+    attachSearch($('#fq'));
+    document.title = 'Search · Toolbox';
+  }
+  const q = $('#q');
+  attachSearch(q, { clear: true });
+
+  /* ---------- Start screen ---------- */
+  const START_EX = { repair: ['Dripping faucet', 'Dead outlet', 'Flat tire'], build: ['Fire pit', 'Paver patio', 'Raised bed'], grow: ['Tomatoes', 'Herbs', 'Houseplants'] };
+  function renderStart() {
+    document.body.classList.add('is-start');
+    const count = (k) => visibleCats().reduce((n, c) => n + c.repairs.filter((r) => kindOf(r, c) === k).length, 0);
+    main.innerHTML = `<section class="start">
+      <div class="start-glow" aria-hidden="true"></div>
+      <div class="start-in">
+        <span class="start-mark">${I.wrench}</span>
+        <h1>What are we doing today?</h1>
+        <p>Step-by-step guides with 3D walkthroughs, written for first-timers. Pick a path, or tell us what you need.</p>
+        <label class="start-search">${I.search}<input id="sq" type="search" placeholder="Try “leaky faucet”, “flat tire” or “grow basil”" aria-label="Search everything"></label>
+        <div class="start-doors">${KIND_IDS.map(
+          (k, i) => `<a class="start-door kind-${k}" href="#mode.${k}" style="--i:${i}">
+            <span class="sd-ico">${KIND_ICON[k]}</span>
+            <span class="sd-txt"><b>${KINDS[k].one}</b><span>${KINDS[k].blurb}</span></span>
+            <span class="sd-ex">${START_EX[k].map((x) => `<i>${esc(x)}</i>`).join('')}</span>
+            <span class="sd-n">${count(k)} guides →</span>
+          </a>`
+        ).join('')}</div>
+        <a class="start-skip" href="#home">Browse everything</a>
+      </div>
+    </section>`;
+    attachSearch($('#sq'));
+    document.title = 'Toolbox';
+  }
 
   /* ---------- Credits ---------- */
   function renderCredits() {
@@ -803,7 +1021,10 @@
       if (a) a.classList.add('on');
       return renderItems();
     }
-    if (h === 'mode.repair' || h === 'mode.build') {
+    if (h === '') return renderStart();
+    if (h === 'home') return renderHome();
+    if (h.startsWith('find=')) return renderSearch(h.slice(5));
+    if (/^mode\.(repair|build|grow)$/.test(h)) {
       const a = $(`#domnav a[data-d="${h}"]`);
       if (a) a.classList.add('on');
       return renderMode(h.slice(5));
@@ -816,13 +1037,24 @@
         return renderDomain(d);
       }
     }
-    const [cid, rid] = h.split('.');
+    // Deep links: #cat.guide@variant~s3 opens that version at step 3.
+    const m = h.match(/^([^.@~]+)(?:\.([^@~]+))?(?:@([^~]+))?(?:~s(\d+))?$/) || [];
+    const [, cid, rid, dvid, dstep] = m;
+    if (rid && dvid && byId[rid]) store.set('variant:' + rid, dvid);
     const c = visibleCats().find((x) => x.id === cid);
     if (c) {
       const a = $(`#domnav a[data-d="${c.domain}"]`);
       if (a) a.classList.add('on');
     }
-    if (c && rid && byId[rid]) renderRepair(c, byId[rid].rep);
+    if (c && rid && byId[rid]) {
+      renderRepair(c, byId[rid].rep);
+      if (dstep) {
+        const b = $(`[data-go="${dstep}"]`);
+        const li = $('#s' + dstep);
+        if (b) b.click();
+        if (li) setTimeout(() => (li.scrollIntoView({ behavior: 'smooth', block: 'center' }), li.classList.add('flash')), 350);
+      }
+    }
     else if (c) renderCategory(c);
     else renderHome();
   }
